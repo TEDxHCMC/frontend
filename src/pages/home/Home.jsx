@@ -65,7 +65,7 @@ const Home = () => {
                                 <Col key={index} style={colStyle}>
                                     {index === 2 && (
                                         <img
-                                            src="./src/assets/pattern/overlay-pattern/7.jpg"
+                                            src="./assets/pattern/overlay-pattern/7.jpg"
                                             style={{ width: '100%', height: 'auto' }}
                                         />
                                     )}
@@ -77,13 +77,13 @@ const Home = () => {
                                 <Col key={index} style={colStyle}>
                                     {index === 0 && (
                                         <img
-                                            src="./src/assets/pattern/single-pattern/4-Blue.png"
+                                            src="./assets/pattern/single-pattern/4-Blue.png"
                                             style={{ width: '100%', height: 'auto' }}
                                         />
                                     )}
                                     {index === 5 && (
                                         <img
-                                            src="./src/assets/pattern/single-pattern/4-Green.png"
+                                            src="./assets/pattern/single-pattern/4-Green.png"
                                             style={{ width: '100%', height: 'auto' }}
                                         />
                                     )}
@@ -95,7 +95,7 @@ const Home = () => {
                                 <Col key={index} style={colStyle}>
                                     {index === 7 && (
                                         <img
-                                            src="./src/assets/pattern/single-pattern/3-Yellow.png"
+                                            src="./assets/pattern/single-pattern/3-Yellow.png"
                                             style={{ width: '100%', height: 'auto' }}
                                         />
                                     )}
@@ -138,13 +138,13 @@ const Home = () => {
                             <Col key={index} style={colStyle}>
                                 {index === 2 && (
                                     <img
-                                        src="./src/assets/pattern/overlay-pattern/3.png"
+                                        src="./assets/pattern/overlay-pattern/3.png"
                                         style={{ width: '100%', height: 'auto' }}
                                     />
                                 )}
                                 {index === 5 && (
                                     <img
-                                        src="./src/assets/pattern/overlay-pattern/4.png"
+                                        src="./assets/pattern/overlay-pattern/4.png"
                                         style={{ width: '100%', height: 'auto' }}
                                     />
                                 )}
@@ -156,25 +156,25 @@ const Home = () => {
                             <Col key={index} style={colStyle}>
                                 {index === 0 && (
                                     <img
-                                        src="./src/assets/pattern/overlay-pattern/1.png"
+                                        src="./assets/pattern/overlay-pattern/1.png"
                                         style={{ width: '100%', height: 'auto' }}
                                     />
                                 )}
                                 {index === 1 && (
                                     <img
-                                        src="./src/assets/pattern/single-pattern/4-Yellow.png"
+                                        src="./assets/pattern/single-pattern/4-Yellow.png"
                                         style={{ width: '100%', height: 'auto' }}
                                     />
                                 )}
                                 {index === 6 && (
                                     <img
-                                        src="./src/assets/pattern/single-pattern/4-Green.png"
+                                        src="./assets/pattern/single-pattern/4-Green.png"
                                         style={{ width: '100%', height: 'auto' }}
                                     />
                                 )}
                                 {index === 7 && (
                                     <img
-                                        src="./src/assets/pattern/overlay-pattern/5.png"
+                                        src="./assets/pattern/overlay-pattern/5.png"
                                         style={{ width: '100%', height: 'auto' }}
                                     />
                                 )}
@@ -192,13 +192,13 @@ const Home = () => {
                             <Col key={index} style={colStyle}>
                                 {index === 1 && (
                                     <img
-                                        src="./src/assets/pattern/overlay-pattern/2.png"
+                                        src="./assets/pattern/overlay-pattern/2.png"
                                         style={{ width: '100%', height: 'auto' }}
                                     />
                                 )}
                                 {index === 6 && (
                                     <img
-                                        src="./src/assets/pattern/overlay-pattern/6.png"
+                                        src="./assets/pattern/overlay-pattern/6.png"
                                         style={{ width: '100%', height: 'auto' }}
                                     />
                                 )}
@@ -210,7 +210,7 @@ const Home = () => {
                             <Col key={index} style={colStyle}>
                                 {index === 7 && (
                                     <img
-                                        src="./src/assets/pattern/single-pattern/4-Blue.png"
+                                        src="./assets/pattern/single-pattern/4-Blue.png"
                                         style={{ width: '100%', height: 'auto' }}
                                     />
                                 )}
@@ -219,7 +219,7 @@ const Home = () => {
                     </Row>
 
                     <div className="totuong-content">
-                        <img src='./src/assets/logo/to-tuong-logo/To-tuong-logo-black.png'
+                        <img src='./assets/logo/to-tuong-logo/To-tuong-logo-black.png'
                             style={{ width: '831px', height: 'auto' }} />
                         <h2>MỞ LÒNG VỚI THỰC TẠI</h2>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod temporadipiscing elit, sed do eiusmod tempor</p>
