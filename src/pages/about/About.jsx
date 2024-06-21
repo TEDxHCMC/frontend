@@ -9,6 +9,11 @@ const About = () => {
   const [gridItems, setGridItems] = useState([]);
   const [prevSlidePosition, setPrevSlidePosition] = useState(0);
 
+
+  useEffect(() => {
+    const currentPath = window.location.pathname;
+    console.log("Current Path:", currentPath);
+  }, []);
   // Array of image file names
   const imageFileNames = [
     'Chi Jade.png',
@@ -139,9 +144,6 @@ const About = () => {
       window.removeEventListener('scroll', handleSlidingPlaceScroll);
     };
   }, []);
-  
-
- 
 
   useEffect(() => {
     const newGridItems = [];
@@ -167,6 +169,8 @@ const About = () => {
     }
     setGridItems(newGridItems);
   }, []);
+
+
 
   
 
