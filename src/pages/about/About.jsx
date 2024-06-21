@@ -49,7 +49,7 @@ const About = () => {
       const promises = imageFileNames.map(imageName => {
         return new Promise((resolve, reject) => {
           const image = new Image();
-          image.src = `./src/assets/member-pics/${imageName}`;
+          image.src = `./assets/member-pics/${imageName}`;
           image.onload = resolve;
           image.onerror = reject;
         });
@@ -150,7 +150,7 @@ const About = () => {
       for (let j = 0; j < 8; j++) {
         const index = i * 8 + j + 1;
         if (index <= imageFileNames.length) {
-          const imageUrl = `./src/assets/member-pics/${imageFileNames[index - 1]}`;
+          const imageUrl = `./assets/member-pics/${imageFileNames[index - 1]}`;
           cellItems.push(
             <div className="h-96" key={index} id={`cell-${index}`}>
               <img className="h-full w-full object-cover" src={imageUrl} alt={`Image ${index}`} />
@@ -178,13 +178,13 @@ const About = () => {
       <div  ref={slidingContentRef} 
             className={`container mt-20 font-bold space-x-2 ${slideDirection}`} 
             style={{ '--start-position': `${prevSlidePosition}px` }}>
-              <img className="h-10 opacity-70" src="../src/assets/pattern/single-pattern/2-Pink.png" alt="Pink image" />
+              <img className="h-10 opacity-70" src="./assets/pattern/single-pattern/2-Pink.png" alt="Pink image" />
               <h1>XIN CHÀO HỒ CHÍ MINH!</h1>
-              <img className="h-10 opacity-70" src="./src/assets/pattern/single-pattern/4-Yellow.png" alt="Yellow image" />
+              <img className="h-10 opacity-70" src="./assets/pattern/single-pattern/4-Yellow.png" alt="Yellow image" />
               <h1>HÉ LÔ SÀI GÒN!</h1>
-              <img className="h-10 opacity-70" src="../src/assets/pattern/single-pattern/2-Pink.png" alt="Pink image" />
+              <img className="h-10 opacity-70" src="./assets/pattern/single-pattern/2-Pink.png" alt="Pink image" />
               <h1>XIN CHÀO HỒ CHÍ MINH!</h1>
-              <img className="h-10 opacity-70" src="./src/assets/pattern/single-pattern/4-Yellow.png" alt="Yellow image" />
+              <img className="h-10 opacity-70" src="./assets/pattern/single-pattern/4-Yellow.png" alt="Yellow image" />
               <h1>HÉ LÔ SÀI GÒN!</h1>
       </div>
       <div className="flex justify-center items-center pt-5 pb-20 space-x-20">
@@ -206,7 +206,7 @@ const About = () => {
           <h2>MISSION</h2>
         </div>
         <div className='box-edit bg-white'>
-          <img className="h-28 sm:w-32 md:w-72 xl:w-96" src="./src/assets/logo/TEDx-logo/TEDx-Black-Medium.png" alt="TEDxHCMC logo" />
+          <img className="h-28 sm:w-32 md:w-72 xl:w-96" src="./assets/logo/TEDx-logo/TEDx-Black-Medium.png" alt="TEDxHCMC logo" />
         </div>
         <div className='box-edit bg-black text-white'>
           <h2>OUR</h2>

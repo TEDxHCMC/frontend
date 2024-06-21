@@ -71,7 +71,7 @@ const Header = () => {
                             onMouseMove={handleMouseMove}>
                             <div className="image-container">
                                 <a href="#">
-                                    <img className="h-7 w-auto" src="./src/assets/logo/to-tuong-logo/To-tuong-logo-black.png" alt="TEDX Logo" />
+                                    <img className="h-7 w-auto" src="./assets/logo/to-tuong-logo/To-tuong-logo-black.png" alt="TEDX Logo" />
                                 </a>
                             </div>
                             {showCircle && (
@@ -93,7 +93,7 @@ const Header = () => {
                     <nav className={`primary-nav mx-auto flex items-center justify-between p-6 lg:px-8`}>
                         <div className="flex lg:flex-1">
                             <a href="/" className="-m-1.5 p-1.5">
-                                <img className="h-9 w-auto" src="./src/assets/logo/TEDx-logo/TEDx-Black-Short.png" alt="" />
+                                <img className="h-9 w-auto" src="./assets/logo/TEDx-logo/TEDx-Black-Short.png" alt="" />
                             </a>
                         </div>
                         <div className="flex lg:hidden">
@@ -166,7 +166,7 @@ const Header = () => {
                                 onMouseMove={handleMouseMove}>
                                 <div className="image-container">
                                     <a href="#">
-                                        <img className="h-7 w-auto" src="./src/assets/logo/to-tuong-logo/To-tuong-logo-black.png" alt="TEDX Logo" />
+                                        <img className="h-7 w-auto" src="./assets/logo/to-tuong-logo/To-tuong-logo-black.png" alt="TEDX Logo" />
                                     </a>
                                 </div>
                                 {showCircle && (

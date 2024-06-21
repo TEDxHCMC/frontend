@@ -8,7 +8,7 @@ const Footer = () => {
                 <div class= "min-[1140px]:flex md:justify-between mb-20">
                     <div class="mb-6 min-[1140px]:md-10">
                         <a href="" class="flex items-center">
-                            <img class="h-14 w-52"src="./src/assets/logo/to-tuong-logo/To-tuong-logo-white.png" alt="TEDX Logo"/>
+                            <img class="h-14 w-52" src="./assets/logo/to-tuong-logo/To-tuong-logo-white.png" alt="TEDX Logo"/>
                         </a>
 
                         <div class="flex items-center space-x-3 mt-3">
