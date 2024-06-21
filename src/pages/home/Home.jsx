@@ -78,13 +78,13 @@ const Home = () => {
                                     {index === 0 && (
                                         <img
                                             src="./assets/pattern/single-pattern/4-Blue.png"
-                                            style={{ width: '100%', height: 'auto' }}
+                                            style={{ transform: 'scale(1.28)', width: '100%', height: 'auto' }}
                                         />
                                     )}
                                     {index === 5 && (
                                         <img
                                             src="./assets/pattern/single-pattern/4-Green.png"
-                                            style={{ width: '100%', height: 'auto' }}
+                                            style={{ transform: 'scale(1.28)', width: '100%', height: 'auto' }}
                                         />
                                     )}
                                 </Col>
@@ -96,7 +96,7 @@ const Home = () => {
                                     {index === 7 && (
                                         <img
                                             src="./assets/pattern/single-pattern/3-Yellow.png"
-                                            style={{ width: '100%', height: 'auto' }}
+                                            style={{ transform: 'scale(1.28)', width: '100%', height: 'auto' }}
                                         />
                                     )}
                                 </Col>
@@ -163,13 +163,13 @@ const Home = () => {
                                 {index === 1 && (
                                     <img
                                         src="./assets/pattern/single-pattern/4-Yellow.png"
-                                        style={{ width: '100%', height: 'auto' }}
+                                        style={{ transform: 'scale(1.28)', width: '100%', height: 'auto' }}
                                     />
                                 )}
                                 {index === 6 && (
                                     <img
                                         src="./assets/pattern/single-pattern/4-Green.png"
-                                        style={{ width: '100%', height: 'auto' }}
+                                        style={{ transform: 'scale(1.28)', width: '100%', height: 'auto' }}
                                     />
                                 )}
                                 {index === 7 && (
@@ -211,7 +211,7 @@ const Home = () => {
                                 {index === 7 && (
                                     <img
                                         src="./assets/pattern/single-pattern/4-Blue.png"
-                                        style={{ width: '100%', height: 'auto' }}
+                                        style={{ transform: 'scale(1.28)', width: '100%', height: 'auto' }}
                                     />
                                 )}
                             </Col>
