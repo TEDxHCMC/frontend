@@ -1,17 +1,19 @@
-*{
+* {
     box-sizing: border-box;
-    
-    .main-wrapped{
+
+    .main-wrapped {
         overflow-x: hidden;
 
-        .hero-home{
+        .hero-home {
             display: block;
         }
-        .container-bg{
+
+        .container-bg {
             position: relative;
             display: grid;
-            place-items: center; 
+            place-items: center;
         }
+
         .container-content {
             font-family: 'Inter', sans-serif;
             position: absolute;
@@ -19,9 +21,10 @@
             left: 50%;
             transform: translate(-50%, -50%);
             z-index: 1; // Ensure it's above the col elements
-        
+
             font-size: 40px;
         }
+
         .content-interaction {
             font-family: 'Inter', sans-serif;
             position: absolute;
@@ -29,16 +32,48 @@
             left: 50%;
             transform: translate(-50%, -50%);
             //color: rgba(0, 0, 0, 0);
-            z-index: 2; 
+            z-index: 2;
             font-size: 135px;
             width: 100%;
+
+            .text-position-1 {
+                position: absolute;
+                bottom: 150px;
+                left: 40px;
+            }
+
+            .text-position-2 {
+                position: absolute;
+                bottom: 150px;
+                right: 30px;
+            }
+
+            .text-position-3 {
+                position: absolute;
+                top: 50px;
+                right: 400px;
+            }
+
+            .text-position-4 {
+                position: absolute;
+                top: 250px;
+                right: 100px;
+            }
+
+            .text-position-5 {
+                position: absolute;
+                top: 250px;
+                left: 40px;
+
+            }
+
             .text-position-1,
             .text-position-2,
             .text-position-3,
             .text-position-4,
             .text-position-5 {
                 opacity: 0;
-                
+                transition: all 0.2s ease-in;
             }
 
             .text-position-1:hover,
@@ -48,70 +83,40 @@
             .text-position-5:hover {
                 opacity: 0.3;
             }
-            .text-position-1 {
-                position: absolute;
-                bottom: 150px;
-                left: 40px;
-                transition: opacity 0s;
-              }
-      
-              .text-position-2 {
-                position: absolute;
-                bottom: 150px;
-                right: 30px;
-              }
-      
-              .text-position-3 {
-                position: absolute;
-                top: 50px;
-                right: 400px;
-                }
-              }
-      
-              .text-position-4 {
-                position: absolute;
-                top: 250px;
-                right: 100px;
-              }
-      
-              .text-position-5 {
-                position: absolute;
-                top: 250px;
-                left: 40px;
-              
-            }
+        }
 
-            .totuong-bg {
-                position: relative;
-                display: grid;
-                place-items: center; 
-            }
-            
-            .totuong-content {
-                display: block;
-                font-family: 'Platypi Variable', serif;
-                position: absolute;
-                top: 50%;
-                left: 50%;
-                transform: translate(-50%, -50%);
-                z-index: 1;
-            }
-            
-            .totuong-content h2 {
-                font-size: 40px;
-                width: 100%;
-            }
-            
-            .totuong-content p {
-                margin-top: 30px;
-                text-align: center;
-                width: 100%;
-            }
-            
-    
-    .container {
-        height: 902px;
-        background: white;
+
+        .totuong-bg {
+            position: relative;
+            display: grid;
+            place-items: center;
+        }
+
+        .totuong-content {
+            display: block;
+            font-family: 'Platypi Variable', serif;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1;
+        }
+
+        .totuong-content h2 {
+            font-size: 40px;
+            width: 100%;
+        }
+
+        .totuong-content p {
+            margin-top: 30px;
+            text-align: center;
+            width: 100%;
+        }
+
+
+        .container {
+            height: 902px;
+            background: white;
+        }
     }
-}
 }
