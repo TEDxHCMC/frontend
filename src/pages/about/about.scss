@@ -1,0 +1,168 @@
+* {
+    box-sizing: border-box;
+    
+    .main-wrapped{
+        overflow-x: hidden;
+    }
+    body {
+        font-family: 'Platypi Variable', serif;
+    }
+    .video {
+        height: 902px;
+        background: #000;
+    }
+
+    .container {
+        width: 100%;
+        white-space: nowrap;
+        height: 156px;
+        display: flex;
+        justify-content: center;
+        align-items: center; 
+        margin-bottom: 40px;
+
+        
+        img {
+            height: 88px; 
+            margin-top: 10px;
+        }
+        h1 {
+            font-family: 'Phudu Variable', system-ui;
+            font-size: 128px; 
+        }
+    }
+    
+
+/* Keyframes for sliding left */
+@keyframes slideLeft {
+    0% {
+        transform: translateX(var(--start-position));
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+/* Keyframes for sliding right */
+@keyframes slideRight {
+    0% {
+        transform: translateX(var(--start-position));
+    }
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+    /* Apply slideLeft animation to elements with class .slide-left */
+    .slide-left {
+        animation: slideLeft 400s infinite;
+    }
+
+    /* Apply slideRight animation to elements with class .slide-right */
+    .slide-right {
+        animation: slideRight 400s infinite;
+    }
+
+
+    .button-edit{
+        height: 51px;
+        width: 170px;
+        border-radius: 40px;
+        color: rgba(3, 14, 245, 1);
+        background: rgba(0, 255, 195, 1);
+        font-family: 'Platypi Variable', serif;
+        font-size: 14px;
+        
+    }
+
+    p {
+        font-size: 16px;
+        width: 357px;
+      }
+
+      .container-scroll {
+        height: 500px;
+        overflow-y: hidden; 
+        padding-bottom: 10px;
+    }
+    
+    .container-scroll.scroll-up {
+        overflow-y: scroll; 
+    }
+    
+      
+
+    .loading-bottom {
+        position: relative; /* Change position to relative */
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        text-align: center;
+        background-color: #fff; /* Adjust as needed */
+        padding: 10px 0;
+      }
+      
+    @keyframes slideBottom {
+        0% {
+          transform: translateY(0);
+        }
+        100% {
+          transform: translateY(100%);
+        }
+      }
+    .slide-down{
+        animation: slideBottom 20s infinite;
+    }
+
+    /* Keyframes for scrolling up */
+    @keyframes scrollUp {
+        0% {
+            transform: translateY(100%);
+        }
+        100% {
+            transform: translateY(0);
+        }
+    }
+
+    /* Apply scrollUp animation to elements with class .scroll-up */
+    .scroll-up {
+        animation: scrollUp 5s ease-in-out infinite alternate;
+    }
+
+    
+
+    .container-edit {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    
+        .box-edit {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 462px;
+            width: 502px;
+        }
+
+        .bg-red{
+            background-color: rgba(236, 16, 20, 1);
+        }
+
+        h2{
+            font-family: 'Phudu Variable', system-ui;
+            font-size: 54px; 
+            font-weight: bold;
+        }
+    }
+
+    h3{
+        font-family: 'Phudu Variable', system-ui;
+        font-size: 54px; 
+        font-weight: bold;
+    }
+    
+}
+
+
+

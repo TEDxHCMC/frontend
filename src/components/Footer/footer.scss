@@ -1,0 +1,28 @@
+* {
+    .footer-bg{
+        background: rgba(20, 20, 20, 1);
+    }
+    .text-green {
+        color: rgba(0, 255, 195, 1);
+    }
+
+    .text-blue {
+        color: rgba(3, 14, 245, 1);
+    }
+
+    .green {
+        background: rgba(0, 255, 195, 1);
+    }
+    
+    
+    h4 {
+        font-family: 'Platypi Variable', serif;
+        color: rgba(0, 255, 195, 1);
+        font-size: 18px;
+    }
+
+    .border-green {
+        --tw-border-opacity: 1;
+        border-color: rgba(0, 255, 195, 1);
+    }
+}

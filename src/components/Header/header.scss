@@ -1,0 +1,95 @@
+* { 
+    .primary-nav{
+        font-family: 'Inter', sans-serif;
+        font-size: 20px;
+        height: 106px;
+
+        .show-down-box{
+            width: fit-content;
+            background-color: #1d1d1d;
+            box-shadow: 1px 1px 40px rgba(0, 0, 0, .1);
+            .drop-divider{
+                margin-top: 10px;
+                margin-bottom: 10px;
+                border: solid 1px rgba(255, 255, 255, .5);
+            }
+            a{
+                color: white;
+            }
+            .drop-sec-text{
+                color: rgba(255, 255, 255, .5);
+            }
+        }
+
+        .ticket-button{
+            background: #C30121;
+            font-family: 'Phudu Variable', system-ui;
+            font-weight: bold;
+            color: white;
+            height: 47px;
+            width: 151px;
+        }
+        
+    }
+
+    .sticky {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background-color: white;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        z-index: 50;
+    }
+    
+
+    .secondary-nav {
+        font-family: 'Phudu Variable', system-ui;
+        font-size: 20px;
+        height: 69px;
+        border: solid 1px #E0E0E0;
+        .first-box{
+            height: 69px;
+        }
+
+        .second-box{
+            height: 69px;
+            border-right: solid 1px #E0E0E0;
+        }
+        .third-box{
+            height: 69px;
+        }
+        .four-box{
+            height: 69px;
+            width: 215px;
+            
+        }
+        .hidden-ticket-button{
+            background: #C30121;
+            font-family: 'Phudu Variable', system-ui;
+            font-weight: bold;
+            color: white;
+            height: 47px;
+            width: 151px;
+        }
+
+    }
+    
+    
+    .image-container {
+        position: relative;
+        display: inline-block;
+    }
+    
+    .circle {
+        position: absolute;
+        width: 20px; 
+        height: 40px; 
+        border-radius: 0%; 
+        pointer-events: none; 
+        background-color: gray;
+        opacity: 0.2;
+        transition: opacity 0.3s ease;
+        z-index: 1;
+    }
+}
