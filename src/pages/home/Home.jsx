@@ -222,7 +222,7 @@ const Home = () => {
                         <img src='./assets/logo/to-tuong-logo/To-tuong-logo-black.png'
                             style={{ width: '831px', height: 'auto' }} />
                         <h2>MỞ LÒNG VỚI THỰC TẠI</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod temporadipiscing elit, sed do eiusmod tempor</p>
+                        <p>"Tỏ tường: Mở lòng với thực tại" là chương trình mùa đầu tiên của TEDxHoChiMinhCity, mang đến những câu chuyện truyền cảm hứng từ các diễn giả tài năng thuộc nhiều lĩnh vực. Các bạn trẻ sẽ được khám phá thế giới từ nhiều góc nhìn, quan điểm khác nhau; đồng thời thấu hiểu và đối mặt với thực tại một cách chân thật nhất.</p>
                     </div>
                 </div>
             </section>

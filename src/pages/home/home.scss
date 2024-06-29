@@ -2,7 +2,7 @@
     box-sizing: border-box;
 
     .main-wrapped {
-        overflow-x: hidden;
+        overflow: scroll;
 
         .hero-home {
             display: block;
@@ -109,7 +109,7 @@
 
         .totuong-content p {
             margin-top: 30px;
-            text-align: center;
+            
             width: 100%;
         }
 
