@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import './header.scss';
 
@@ -6,10 +6,10 @@ const Header = () => {
     const [showDropdown, setShowDropdown] = useState(false);
     const [showCircle, setShowCircle] = useState(false);
     const [circlePosition, setCirclePosition] = useState({ x: 0, y: 0 });
-    const [isSticky, setIsSticky] = useState(false);
-    const [isOneSticky, setIsOneSticky] = useState(false);
+    const [isButtonDisplay, setButtonDisplay] = useState(false);
+    const [isStickySingleNav, setIsStickySingleNav] = useState(false);
+    const [isStickySecondNav, setIsStickySecondNav] = useState(false);
     const location = useLocation();
-
 
     const handleDropdownToggle = () => {
         setShowDropdown(!showDropdown);
@@ -25,40 +25,63 @@ const Header = () => {
 
     const handleMouseMove = (event) => {
         const circle = document.querySelector('.circle');
-        const circleWidth = circle.offsetWidth;
-        const circleHeight = circle.offsetHeight;
-
-        const x = event.clientX - circleWidth / 2;
-        const y = event.clientY - circleHeight / 2;
-
-        setCirclePosition({ x, y });
+        if (circle) {
+            const circleWidth = circle.offsetWidth;
+            const circleHeight = circle.offsetHeight;
+            const x = event.clientX - circleWidth / 2;
+            const y = event.clientY - circleHeight / 2;
+            setCirclePosition({ x, y });
+        }
     };
 
     useEffect(() => {
         const handleScroll = () => {
             const offset = window.scrollY;
-            console.log("Scroll offset:", offset);
-            setIsSticky(offset > 106);
-            setIsOneSticky(offset > 0);
-        };
+            setButtonDisplay(offset > 96);
+    
+            const headerElement = document.querySelector('.sticky-second-nav');
+            if (headerElement) {
+                if (offset > 96) {
+                    headerElement.classList.add('sticky');
+                    console.log("Added 'sticky'");
 
+                } else {
+                    headerElement.classList.remove('sticky');
+                    console.log("Removed 'sticky' class");
+                }
+            }
+    
+            const headerSingleNavElement = document.querySelector('.sticky-single-nav');
+            if (headerSingleNavElement) {
+                if (offset > 0) {
+                    headerSingleNavElement.classList.add('sticky');
+
+                    console.log("Added 'sticky'");
+                } else {
+                    headerSingleNavElement.classList.remove('sticky');
+                    console.log("Removed 'sticky'");
+                }
+            }
+        };
+    
         window.addEventListener('scroll', handleScroll);
 
+        // Clean up the event listener on unmount
         return () => {
             window.removeEventListener('scroll', handleScroll);
+            document.body.style.paddingTop = '0';
+            
         };
     }, []);
-
-
-
+    
+    
     const isAboutPage = location.pathname === '/about';
     const isSpeakerPage = location.pathname === '/speaker';
 
-
     return (
-        <header class="bg-white">
+        <header className="bg-white">
             {isAboutPage || isSpeakerPage ? (
-                <nav className={`secondary-nav mx-auto flex items-center justify-center lg:px-8 space-x-16 ${isOneSticky ? 'sticky top-0 z-50' : ''}`}>
+                <nav className={`sticky-single-nav mx-auto flex items-center justify-center lg:px-8 space-x-16`}>
                     <div className="first-box flex items-center justify-center">
                         <a href="#" className='space-x-4'>TEDxHOCHIMINHCITY2024</a>
                     </div>
@@ -79,18 +102,16 @@ const Header = () => {
                             )}
                         </div>
                         <a href="#">ĐỊA ĐIỂM</a>
-
                         <div className="four-box flex justify-center items-center pl-10">
-                            <button className="hidden-ticket-button">
+                            <button className="ticket-button">
                                 ĐĂNG KÍ VÉ
                             </button>
                         </div>
                     </div>
                 </nav>
             ) : (
-
                 <div>
-                    <nav className={`primary-nav mx-auto flex items-center justify-between p-6 lg:px-8`}>
+                    <nav className="primary-nav mx-auto flex items-center justify-between p-6 lg:px-8">
                         <div className="flex lg:flex-1">
                             <a href="/" className="-m-1.5 p-1.5">
                                 <img className="h-9 w-auto" src="./assets/logo/TEDx-logo/TEDx-Black-Short.png" alt="" />
@@ -152,8 +173,7 @@ const Header = () => {
                             </a>
                         </div>
                     </nav>
-
-                    <div className={`secondary-nav mx-auto flex items-center justify-center lg:px-8 space-x-16 ${isSticky ? 'sticky top-0 z-50' : ''}`}>
+                    <div className="sticky-second-nav mx-auto flex items-center justify-center lg:px-8 space-x-16">
                         <div className="first-box flex items-center justify-center">
                             <a href="#" className='space-x-4'>TEDxHOCHIMINHCITY2024</a>
                         </div>
@@ -174,24 +194,17 @@ const Header = () => {
                                 )}
                             </div>
                             <a href="#">ĐỊA ĐIỂM</a>
-
                             <div className="four-box flex justify-center items-center pl-10">
-                                
-                                <button className={` ${isSticky ? "opaity-100 visible" : "hidden opacity-0"} transition-all hidden-ticket-button`}>
+                                <button className={`${isButtonDisplay ? "opacity-100 visible" : "hidden opacity-0"} transition-all hidden-ticket-button`}>
                                     ĐĂNG KÍ VÉ
                                 </button>
-                                
                             </div>
                         </div>
                     </div>
                 </div>
-
-
-
             )}
         </header>
     );
 }
-
 
 export default Header;

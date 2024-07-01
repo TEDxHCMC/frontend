@@ -3,6 +3,7 @@
 
     .main-wrapped {
         overflow-x: hidden;
+        position: relative;
 
         .hero-home {
             display: block;
@@ -109,7 +110,7 @@
 
         .totuong-content p {
             margin-top: 30px;
-            text-align: center;
+            font-size: 30px;
             width: 100%;
         }
 
