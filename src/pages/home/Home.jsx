@@ -47,7 +47,7 @@ const Home = () => {
         <div class="main-wrapped">
             <section class="hero-home">
                 <div className='lg:block hidden'>
-                    <div className='container-bg'>
+                    <div className='page-1'>
                         <Row gutter={[8, 8]}>
                             {[...Array(8)].map((_, index) => (
                                 <Col key={index} style={colStyle}>
@@ -102,7 +102,7 @@ const Home = () => {
                                 </Col>
                             ))}
                         </Row>
-                        <div className='container-content'>
+                        <div className='page-1-content' style={{animation: 'fadeInLeft 1s forwards'}}>
                             Liệu bạn đã nhìn đủ...
                         </div>
                         <div className='content-interaction'>
@@ -130,22 +130,20 @@ const Home = () => {
                     Điện thoại ver
                 </div>
 
-                <div className="span-between" style={{ height: '100px' }} />
-
-                <div id="scroll-content" className="totuong-bg">
-                    <Row gutter={[8, 8]}>
+                <div className="page-2">
+                <Row gutter={[8, 8]}>
                         {[...Array(8)].map((_, index) => (
                             <Col key={index} style={colStyle}>
                                 {index === 2 && (
                                     <img
                                         src="./assets/pattern/overlay-pattern/3.png"
-                                        style={{ width: '100%', height: 'auto' }}
+                                        style={{ width: '100%', height: 'auto', animation: 'flash 2s infinite' }}
                                     />
                                 )}
                                 {index === 5 && (
                                     <img
                                         src="./assets/pattern/overlay-pattern/4.png"
-                                        style={{ width: '100%', height: 'auto' }}
+                                        style={{ width: '100%', height: 'auto', animation: 'flash 2s infinite'  }}
                                     />
                                 )}
                             </Col>
@@ -157,25 +155,113 @@ const Home = () => {
                                 {index === 0 && (
                                     <img
                                         src="./assets/pattern/overlay-pattern/1.png"
-                                        style={{ width: '100%', height: 'auto' }}
+                                        style={{ width: '100%', height: 'auto', animation: 'flash 2s infinite'  }}
                                     />
                                 )}
                                 {index === 1 && (
                                     <img
                                         src="./assets/pattern/single-pattern/4-Yellow.png"
-                                        style={{ transform: 'scale(1.28)', width: '100%', height: 'auto' }}
+                                        style={{ transform: 'scale(1.28)', width: '100%', height: 'auto', animation: 'flash 2s infinite'  }}
                                     />
                                 )}
                                 {index === 6 && (
                                     <img
                                         src="./assets/pattern/single-pattern/4-Green.png"
-                                        style={{ transform: 'scale(1.28)', width: '100%', height: 'auto' }}
+                                        style={{ transform: 'scale(1.28)', width: '100%', height: 'auto', animation: 'flash 2s infinite'  }}
                                     />
                                 )}
                                 {index === 7 && (
                                     <img
                                         src="./assets/pattern/overlay-pattern/5.png"
-                                        style={{ width: '100%', height: 'auto' }}
+                                        style={{ width: '100%', height: 'auto', animation: 'flash 2s infinite' }}
+                                    />
+                                )}
+                            </Col>
+                        ))}
+                    </Row>
+                    <Row gutter={[8, 8]}>
+                        {[...Array(8)].map((_, index) => (
+                            <Col key={index} style={colStyle}>
+                            </Col>
+                        ))}
+                    </Row>
+                    <Row gutter={[8, 8]}>
+                        {[...Array(8)].map((_, index) => (
+                            <Col key={index} style={colStyle}>
+                                {index === 1 && (
+                                    <img
+                                        src="./assets/pattern/overlay-pattern/2.png"
+                                        style={{ width: '100%', height: 'auto', animation: 'flash 2s infinite'  }}
+                                    />
+                                )}
+                                {index === 6 && (
+                                    <img
+                                        src="./assets/pattern/overlay-pattern/6.png"
+                                        style={{ width: '100%', height: 'auto', animation: 'flash 2s infinite'  }}
+                                    />
+                                )}
+                            </Col>
+                        ))}
+                    </Row>
+                    <Row gutter={[8, 8]}>
+                        {[...Array(8)].map((_, index) => (
+                            <Col key={index} style={colStyle}>
+                                {index === 7 && (
+                                    <img
+                                        src="./assets/pattern/single-pattern/4-Blue.png"
+                                        style={{ transform: 'scale(1.28)', width: '100%', height: 'auto', animation: 'flash 2s infinite'  }}
+                                    />
+                                )}
+                            </Col>
+                        ))}
+                    </Row>
+                </div>
+
+                <div id="scroll-content" className="page-3-bg">
+                    <Row gutter={[8, 8]}>
+                        {[...Array(8)].map((_, index) => (
+                            <Col key={index} style={colStyle}>
+                                {index === 2 && (
+                                    <img
+                                        src="./assets/pattern/overlay-pattern/3.png"
+                                        style={{ width: '100%', height: 'auto'}}
+                            
+                                    />
+                                )}
+                                {index === 5 && (
+                                    <img
+                                        src="./assets/pattern/overlay-pattern/4.png"
+                                        style={{ width: '100%', height: 'auto'}}
+                                    />
+                                )}
+                            </Col>
+                        ))}
+                    </Row>
+                    <Row gutter={[8, 8]}>
+                        {[...Array(8)].map((_, index) => (
+                            <Col key={index} style={colStyle}>
+                                {index === 0 && (
+                                    <img
+                                        src="./assets/pattern/overlay-pattern/1.png"
+                                        style={{ width: '100%', height: 'auto'}}
+                                    />
+                                )}
+                                {index === 1 && (
+                                    <img
+                                        src="./assets/pattern/single-pattern/4-Yellow.png"
+                                        style={{ transform: 'scale(1.28)', width: '100%', height: 'auto'}}
+                                    />
+                                )}
+                                {index === 6 && (
+                                    <img
+                                        src="./assets/pattern/single-pattern/4-Green.png"
+                                        style={{ transform: 'scale(1.28)', width: '100%', height: 'auto'}}
+                                    />
+                                )}
+                                {index === 7 && (
+                                    <img
+                                        src="./assets/pattern/overlay-pattern/5.png"
+                                        style={{ width: '100%', height: 'auto'}}
                                     />
                                 )}
                             </Col>
@@ -218,13 +304,23 @@ const Home = () => {
                         ))}
                     </Row>
 
-                    <div className="totuong-content">
+                    <div className="page-3-content">
                         <img src='./assets/logo/to-tuong-logo/To-tuong-logo-black.png'
-                            style={{ width: '831px', height: 'auto' }} />
+                             style={{ width: '831px', height: 'auto', animation: 'dissolveIn 5s forwards' }}
+                        />
                         <h2>MỞ LÒNG VỚI THỰC TẠI</h2>
                         <p>"Tỏ tường: Mở lòng với thực tại" là chương trình mùa đầu tiên của TEDxHoChiMinhCity, mang đến những câu chuyện truyền cảm hứng từ các diễn giả tài năng thuộc nhiều lĩnh vực. Các bạn trẻ sẽ được khám phá thế giới từ nhiều góc nhìn, quan điểm khác nhau; đồng thời thấu hiểu và đối mặt với thực tại một cách chân thật nhất.</p>
                     </div>
                 </div>
+
+                <div className="page-4-bg">
+                    <div className="page-4-content">
+                        
+                    </div>
+
+
+                </div>
+
             </section>
         </div>
 

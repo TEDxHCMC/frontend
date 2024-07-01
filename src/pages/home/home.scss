@@ -9,13 +9,13 @@
             display: block;
         }
 
-        .container-bg {
+        .page-1 {
             position: relative;
             display: grid;
             place-items: center;
         }
 
-        .container-content {
+        .page-1-content {
             font-family: 'Inter', sans-serif;
             position: absolute;
             top: 50%;
@@ -87,13 +87,52 @@
         }
 
 
-        .totuong-bg {
+        .page-2{
             position: relative;
             display: grid;
             place-items: center;
         }
 
-        .totuong-content {
+        @keyframes flash {
+            0% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+        
+        @keyframes fadeInLeft {
+            0% {
+                opacity: 0;
+                transform: translateX(-100%);
+            }
+            100% {
+                opacity: 1;
+                transform: translateX(-50);
+            }
+        }
+        
+        @keyframes dissolveIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+        
+
+        .page-3-bg {
+            position: relative;
+            display: grid;
+            place-items: center;
+        }
+
+        .page-3-content {
             display: block;
             font-family: 'Platypi Variable', serif;
             position: absolute;
