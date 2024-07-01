@@ -6,10 +6,14 @@ import { Button, Divider } from "antd";
 import InputField from "../../../components/InputField";
 import googleIcon from "../../../assets/img/icon-google.svg";
 import * as Yup from "yup";
+import { useDispatch, useSelector } from "react-redux";
+import { handleSetCurrStep } from "../../../redux/slices/ticket.slice";
 
 const TicketForm = ({}) => {
-    const [amount, setAmount] = useState(4);
+    const [amount, setAmount] = useState(2);
+    const { currStep } = useSelector((state) => state.ticket)
     const navigate = useNavigate();
+    const dispatch = useDispatch()
 
     const TicketSchema = Yup.object().shape({
         fullName: Yup.string().required("Họ tên không được để trống!"),
@@ -42,36 +46,6 @@ const TicketForm = ({}) => {
                 /^[+]?[(]?[0-9]{1,4}[)]?[-\s\.]?[0-9]{1,3}[-\s\.]?[0-9]{4,6}$/,
                 "Số điện thoại không hợp lệ!"
             ),
-        fullName3: Yup.string().required("Họ tên không được để trống!"),
-        email3: Yup.string()
-            .email("Email không hợp lệ")
-            .required("Email không được để trống!"),
-        phone3: Yup.string()
-            .required("Số điện thoại không được để trống!")
-            .min(10, "Số điện thoại phải chứa ít nhất 10 số.")
-            .max(
-                15,
-                "Số điện thoại không được vượt quá 15 số (bao gồm + và mã vùng)."
-            )
-            .matches(
-                /^[+]?[(]?[0-9]{1,4}[)]?[-\s\.]?[0-9]{1,3}[-\s\.]?[0-9]{4,6}$/,
-                "Số điện thoại không hợp lệ!"
-            ),
-        fullName4: Yup.string().required("Họ tên không được để trống!"),
-        email4: Yup.string()
-            .email("Email không hợp lệ")
-            .required("Email không được để trống!"),
-        phone4: Yup.string()
-            .required("Số điện thoại không được để trống!")
-            .min(10, "Số điện thoại phải chứa ít nhất 10 số.")
-            .max(
-                15,
-                "Số điện thoại không được vượt quá 15 số (bao gồm + và mã vùng)."
-            )
-            .matches(
-                /^[+]?[(]?[0-9]{1,4}[)]?[-\s\.]?[0-9]{1,3}[-\s\.]?[0-9]{4,6}$/,
-                "Số điện thoại không hợp lệ!"
-            ),
     });
 
     const formik = useFormik({
@@ -82,12 +56,6 @@ const TicketForm = ({}) => {
             fullName2: "",
             email2: "",
             phone2: "",
-            fullName3: "",
-            email3: "",
-            phone3: "",
-            fullName4: "",
-            email4: "",
-            phone4: "",
         },
         validationSchema: TicketSchema,
         onSubmit: (values) => {
@@ -106,6 +74,12 @@ const TicketForm = ({}) => {
         // navigate(`${PATH.TICKET}/confirm`);
     };
 
+    
+
+    useEffect(() => {
+        dispatch(handleSetCurrStep(2))
+    })
+
     return (
         <div className="flex justify-center items-center text-center h-full">
             <div className={`${amount == 1 ? "mx-auto" : "w-full"}`}>
@@ -114,11 +88,11 @@ const TicketForm = ({}) => {
                         className="xl:text-5xl sm:text-4xl text-3xl text-nowrap mb-3"
                         style={{ letterSpacing: -0.5 }}
                     >
-                        {`Thông tin vé 1 / 4 (Vé tham gia event) `}
+                        {`Thông tin vé (Vé tham gia event) `}
                     </h1>
 
                     <p className="xl:text-xl sm:text-lg text-sm space-x-2 font-light">
-                        {`Vui lòng nhập đầy đủ thông tin cho 4 vé`}
+                        {`Vui lòng nhập đầy đủ thông tin đặt vé`}
                     </p>
                 </div>
 
@@ -270,162 +244,6 @@ const TicketForm = ({}) => {
                                     }}
                                 />
                             </div>
-                        )}
-                        {amount >= 3 && (
-                            <>
-                                <div className="w-1 h-20 bg-slate-400"></div>
-                                <div className="w-full">
-                                    <h3 className="font-semibold text-lg text-blue-700">
-                                        Khách 3
-                                    </h3>
-                                    <InputField
-                                        id="fullName3"
-                                        name="fullName3"
-                                        type="text"
-                                        label={"Họ và tên"}
-                                        placeholder="Nguyễn Văn A"
-                                        onChange={formik.handleChange}
-                                        onBlur={formik.handleBlur}
-                                        value={formik.values.fullName3}
-                                        status={
-                                            formik.touched.fullName3 &&
-                                            formik.errors.fullName3
-                                                ? "error"
-                                                : ""
-                                        }
-                                        error={{
-                                            condition:
-                                                formik.touched.fullName3 &&
-                                                formik.errors.fullName3,
-                                            text: formik.errors.fullName3,
-                                        }}
-                                    />
-
-                                    <InputField
-                                        id="email3"
-                                        name="email3"
-                                        type="email"
-                                        label={"Email"}
-                                        placeholder="abc@email.com"
-                                        onChange={formik.handleChange}
-                                        onBlur={formik.handleBlur}
-                                        value={formik.values.email3}
-                                        status={
-                                            formik.touched.email3 &&
-                                            formik.errors.email3
-                                                ? "error"
-                                                : ""
-                                        }
-                                        error={{
-                                            condition:
-                                                formik.touched.email3 &&
-                                                formik.errors.email3,
-                                            text: formik.errors.email3,
-                                        }}
-                                    />
-
-                                    <InputField
-                                        id="phone3"
-                                        name="phone3"
-                                        type="text"
-                                        label={"Số điện thoại"}
-                                        placeholder="0123456789 hoặc (+84) 123456789"
-                                        onChange={formik.handleChange}
-                                        onBlur={formik.handleBlur}
-                                        value={formik.values.phone3}
-                                        status={
-                                            formik.touched.phone3 &&
-                                            formik.errors.phone3
-                                                ? "error"
-                                                : ""
-                                        }
-                                        error={{
-                                            condition:
-                                                formik.touched.phone3 &&
-                                                formik.errors.phone3,
-                                            text: formik.errors.phone3,
-                                        }}
-                                    />
-                                </div>
-                            </>
-                        )}
-                        {amount >= 4 && (
-                            <>
-                                <div className="w-1 h-20 bg-slate-400"></div>
-                                <div className="w-full">
-                                    <h3 className="font-semibold text-lg text-blue-700">
-                                        Khách 4
-                                    </h3>
-                                    <InputField
-                                        id="fullName4"
-                                        name="fullName4"
-                                        type="text"
-                                        label={"Họ và tên"}
-                                        placeholder="Nguyễn Văn A"
-                                        onChange={formik.handleChange}
-                                        onBlur={formik.handleBlur}
-                                        value={formik.values.fullName4}
-                                        status={
-                                            formik.touched.fullName4 &&
-                                            formik.errors.fullName4
-                                                ? "error"
-                                                : ""
-                                        }
-                                        error={{
-                                            condition:
-                                                formik.touched.fullName4 &&
-                                                formik.errors.fullName4,
-                                            text: formik.errors.fullName4,
-                                        }}
-                                    />
-
-                                    <InputField
-                                        id="email4"
-                                        name="email4"
-                                        type="email"
-                                        label={"Email"}
-                                        placeholder="abc@email.com"
-                                        onChange={formik.handleChange}
-                                        onBlur={formik.handleBlur}
-                                        value={formik.values.email4}
-                                        status={
-                                            formik.touched.email4 &&
-                                            formik.errors.email4
-                                                ? "error"
-                                                : ""
-                                        }
-                                        error={{
-                                            condition:
-                                                formik.touched.email4 &&
-                                                formik.errors.email4,
-                                            text: formik.errors.email4,
-                                        }}
-                                    />
-
-                                    <InputField
-                                        id="phone4"
-                                        name="phone4"
-                                        type="text"
-                                        label={"Số điện thoại"}
-                                        placeholder="0123456789 hoặc (+84) 123456789"
-                                        onChange={formik.handleChange}
-                                        onBlur={formik.handleBlur}
-                                        value={formik.values.phone4}
-                                        status={
-                                            formik.touched.phone4 &&
-                                            formik.errors.phone4
-                                                ? "error"
-                                                : ""
-                                        }
-                                        error={{
-                                            condition:
-                                                formik.touched.phone4 &&
-                                                formik.errors.phone4,
-                                            text: formik.errors.phone4,
-                                        }}
-                                    />
-                                </div>
-                            </>
                         )}
                     </div>
                     <Button

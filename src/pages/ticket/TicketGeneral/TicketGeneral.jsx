@@ -1,6 +1,8 @@
 import { Row, Col, Divider, Checkbox, Radio } from "antd";
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
+import { Link, useNavigate } from "react-router-dom";
+import { handleSetCurrStep } from "../../../redux/slices/ticket.slice";
 
 const dates = [
     {
@@ -42,6 +44,7 @@ const TicketGeneral = () => {
     const [amount, setAmount] = useState(1);
     const [selectedDate, setSelectedDate] = useState("");
     const [sessionsChecked, setSessionsChecked] = useState([]);
+    const navigate = useNavigate()
 
     const handleDecrease = (e) => {
         e.preventDefault();
@@ -68,6 +71,16 @@ const TicketGeneral = () => {
 
         console.log(e.target)
     }
+
+    const handleSubmit = (e) => {
+        navigate("/ticket/form")
+    }
+
+    const dispatch = useDispatch()
+
+    useEffect(() => {
+        dispatch(handleSetCurrStep(1))
+    })
 
     return (
         <Row>
@@ -184,9 +197,9 @@ const TicketGeneral = () => {
                                     {amount}
                                 </span>
                                 <button
-                                    disabled={amount == 4 ? true : false}
+                                    disabled={amount == 2 ? true : false}
                                     className={`w-10 h-10 leading-10 rounded-full bg-blue-950 text-white ${
-                                        amount == 4 && "opacity-40"
+                                        amount == 2 && "opacity-40"
                                     }`}
                                     onClick={handleIncrease}
                                 >
@@ -225,18 +238,18 @@ const TicketGeneral = () => {
                     </div>
                     <div className="flex justify-start items-start mb-3">
                         <Checkbox></Checkbox>
-                        <p className="text-xs font-normal ps-2">
-                            Tôi đồng ý {" "} 
+                        <p className="text-sm font-normal ps-2">
+                            Tôi đồng ý với {" "} 
                             <Link
                                 to={""}
                                 className="text-blue-600 hover:underline hover:text-blue-800"
                             >
-                                những quy định trên
+                                những Điều khoản và Điều kiện
                             </Link>{" "}
                             và đăng ký vé để tham dự sự kiện
                         </p>
                     </div>
-                    <button className="w-full bg-red-500 text-white h-10">Đăng Ký</button>
+                    <button className="w-full bg-red-500 text-white h-10" onClick={handleSubmit} >Đăng Ký</button>
                 </div>
             </Col>
         </Row>
