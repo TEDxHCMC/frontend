@@ -314,8 +314,102 @@ const Home = () => {
                 </div>
 
                 <div className="page-4-bg">
+                <Row gutter={[8, 8]}>
+                        {[...Array(8)].map((_, index) => (
+                            <Col key={index} style={colStyle}>
+                                {index === 2 && (
+                                    <img
+                                        src="./assets/pattern/overlay-pattern/3.png"
+                                        style={{ width: '100%', height: 'auto'}}
+                            
+                                    />
+                                )}
+                                {index === 5 && (
+                                    <img
+                                        src="./assets/pattern/overlay-pattern/4.png"
+                                        style={{ width: '100%', height: 'auto'}}
+                                    />
+                                )}
+                            </Col>
+                        ))}
+                    </Row>
+                    <Row gutter={[8, 8]}>
+                        {[...Array(8)].map((_, index) => (
+                            <Col key={index} style={colStyle}>
+                                {index === 0 && (
+                                    <img
+                                        src="./assets/pattern/overlay-pattern/1.png"
+                                        style={{ width: '100%', height: 'auto'}}
+                                    />
+                                )}
+                                {index === 1 && (
+                                    <img
+                                        src="./assets/pattern/single-pattern/4-Yellow.png"
+                                        style={{ transform: 'scale(1.28)', width: '100%', height: 'auto'}}
+                                    />
+                                )}
+                                {index === 6 && (
+                                    <img
+                                        src="./assets/pattern/single-pattern/4-Green.png"
+                                        style={{ transform: 'scale(1.28)', width: '100%', height: 'auto'}}
+                                    />
+                                )}
+                                {index === 7 && (
+                                    <img
+                                        src="./assets/pattern/overlay-pattern/5.png"
+                                        style={{ width: '100%', height: 'auto'}}
+                                    />
+                                )}
+                            </Col>
+                        ))}
+                    </Row>
+                    <Row gutter={[8, 8]}>
+                        {[...Array(8)].map((_, index) => (
+                            <Col key={index} style={colStyle}>
+                            </Col>
+                        ))}
+                    </Row>
+                    <Row gutter={[8, 8]}>
+                        {[...Array(8)].map((_, index) => (
+                            <Col key={index} style={colStyle}>
+                                {index === 1 && (
+                                    <img
+                                        src="./assets/pattern/overlay-pattern/2.png"
+                                        style={{ width: '100%', height: 'auto' }}
+                                    />
+                                )}
+                                {index === 6 && (
+                                    <img
+                                        src="./assets/pattern/overlay-pattern/6.png"
+                                        style={{ width: '100%', height: 'auto' }}
+                                    />
+                                )}
+                            </Col>
+                        ))}
+                    </Row>
+                    <Row gutter={[8, 8]}>
+                        {[...Array(8)].map((_, index) => (
+                            <Col key={index} style={colStyle}>
+                                {index === 7 && (
+                                    <img
+                                        src="./assets/pattern/single-pattern/4-Blue.png"
+                                        style={{ transform: 'scale(1.28)', width: '100%', height: 'auto' }}
+                                    />
+                                )}
+                            </Col>
+                        ))}
+                    </Row>
+
                     <div className="page-4-content">
-                        
+                        <img src='./assets/logo/to-tuong-logo/To-tuong-logo-black.png'
+                                style={{ width: '831px', height: 'auto', animation: 'dissolveIn 5s forwards' }}
+                            />
+                        <h2>MỞ LÒNG VỚI THỰC TẠI</h2>
+                        <h3>Bạn có thể tô màu 2 ô trong 4 ô này! </h3>
+                        <div className="box-1">Bản thân</div>
+                        <div className="box-2">Gia đình</div>
+                        <div className="box-3">Công việc</div>
+                        <div className="box-4">Bạn bè</div>
                     </div>
 
 
