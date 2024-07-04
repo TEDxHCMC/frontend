@@ -1,158 +1,105 @@
 * {
+    .primary-nav {
+        /* Styles for primary navigation */
+        font-family: "Inter", sans-serif;
+        font-size: 20px;
+        height: 96px;
+        display: flex;
 
-  
-  .primary-nav {
-    /* Styles for primary navigation */
-    font-family: 'Inter', sans-serif;
-    font-size: 20px;
-    height: 96px;
-    display: flex;
-  
-    .show-down-box {
-      /* Styles for dropdown box */
-      width: fit-content;
-      background-color: #1d1d1d;
-      box-shadow: 1px 1px 40px rgba(0, 0, 0, 0.1);
-  
-      .drop-divider {
-        margin: 10px 0;
-        border: 1px solid rgba(255, 255, 255, 0.5);
-      }
-  
-      a {
-        color: white;
-      }
-  
-      .drop-sec-text {
-        color: rgba(255, 255, 255, 0.5);
-      }
-    }
-  
-    .ticket-button {
-      /* Styles for ticket button */
-      background: #C30121;
-      font-family: 'Phudu Variable', system-ui;
-      font-weight: bold;
-      color: white;
-      height: 47px;
-      width: 151px;
-    }
-  }
-  
-  /* Styles for sticky navigation with class .sticky-single-nav */
-  .sticky-single-nav {
-    font-family: 'Phudu Variable', system-ui;
-    font-size: 20px;
-    border: 2px solid #ebebeb;
-    height: 64px;
-    width: 100%;
-    background-color: white;
-    position: relative;
-  
-    &.sticky {
-      /* Styles when sticky class is added */
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      z-index: 1000;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    }
-  
-    /* Additional styles for boxes and buttons */
-    .first-box,
-    .second-box,
-    .third-box,
-    .four-box {
-      height: 64px;
-    }
-  
-    .second-box {
-      border-right: 1px solid #E0E0E0;
-    }
-  
-    .four-box {
-      width: 215px;
-    }
-  
-    .ticket-button {
-      background: #C30121;
-      font-family: 'Phudu Variable', system-ui;
-      font-weight: bold;
-      color: white;
-      height: 47px;
-      width: 151px;
-    }
-  }
-  
-  /* Styles for sticky navigation with class .sticky-second-nav */
-  .sticky-second-nav {
-    width: 100%;
-    font-family: 'Phudu Variable', system-ui;
-    font-size: 20px;
-    border: 2px solid #ebebeb;
-    height: 64px;
-    background-color: white;
+        .show-down-box {
+            /* Styles for dropdown box */
+            width: fit-content;
+            background-color: #1d1d1d;
+            box-shadow: 1px 1px 40px rgba(0, 0, 0, 0.1);
 
-    &.sticky {
-        position: sticky;
-        top: 0;
-        left: 0;
-        background-color: #C30121;
-        z-index: 1000;
+            .drop-divider {
+                margin: 10px 0;
+                border: 1px solid rgba(255, 255, 255, 0.5);
+            }
+
+            a {
+                color: white;
+            }
+
+            .drop-sec-text {
+                color: rgba(255, 255, 255, 0.5);
+            }
+        }
+
+        .ticket-button {
+            /* Styles for ticket button */
+            background: #c30121;
+            font-family: "Phudu Variable", system-ui;
+            font-weight: bold;
+            color: white;
+            height: 47px;
+            width: 151px;
+        }
+    }
+
+    /* Styles for sticky navigation with class */
+    .sticky-nav {
+        font-family: "Phudu Variable", system-ui;
+        font-size: 20px;
+        border: 2px solid #ebebeb;
+        height: 64px;
+        width: 100%;
+        background-color: white;
         transition: all 0.3s ease;
-        will-change: position, top, z-index;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-      }
-  
-    /* Additional styles for boxes and buttons */
-    .first-box,
-    .second-box,
-    .third-box,
-    .four-box {
-      height: 64px;
+        z-index: 1000;
+
+        &.sticky-scroll {
+            /* Styles when sticky class is added */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Additional styles for boxes and buttons */
+        .first-box,
+        .second-box,
+        .third-box,
+        .four-box {
+            height: 64px;
+        }
+
+        .second-box {
+            border-right: 1px solid #e0e0e0;
+        }
+
+        .four-box {
+            width: 215px;
+        }
+
+        .ticket-button {
+            background: #c30121;
+            font-family: "Phudu Variable", system-ui;
+            font-weight: bold;
+            color: white;
+            height: 47px;
+            width: 151px;
+        }
     }
-  
-    .second-box {
-      border-right: 1px solid #E0E0E0;
+
+    /* General styles for image containers and circles */
+    .image-container {
+        position: relative;
+        display: inline-block;
     }
-  
-    .four-box {
-      width: 215px;
+
+    .circle {
+        position: absolute;
+        width: 20px;
+        height: 40px;
+        border-radius: 0%;
     }
-  
+
+    /* Utility classes for hiding and showing elements */
     .hidden-ticket-button {
-      background: #C30121;
-      font-family: 'Phudu Variable', system-ui;
-      font-weight: bold;
-      color: white;
-      height: 47px;
-      width: 151px;
+        opacity: 0;
+        visibility: hidden;
     }
-  }
-  
-  /* General styles for image containers and circles */
-  .image-container {
-    position: relative;
-    display: inline-block;
-  }
-  
-  .circle {
-    position: absolute;
-    width: 20px;
-    height: 40px;
-    border-radius: 0%;
-  }
-  
-  /* Utility classes for hiding and showing elements */
-  .hidden-ticket-button {
-    opacity: 0;
-    visibility: hidden;
-  }
-  
-  .opacity-100 {
-    opacity: 1 !important;
-    visibility: visible !important;
-  }
-  
+
+    .opacity-100 {
+        opacity: 1 !important;
+        visibility: visible !important;
+    }
 }

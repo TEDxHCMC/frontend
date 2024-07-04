@@ -2,6 +2,7 @@ import { useRoutes } from "react-router-dom";
 import { PATH } from "../paths";
 import { Suspense, lazy } from "react";
 import MainLayout from "../layouts/MainLayout";
+import HomeLayout from "../layouts/HomeLayout";
 
 /**
  * @description
@@ -33,18 +34,24 @@ const TicketFormSect = lazy(() => import("../pages/ticket/TicketForm"))
 const useRouteElements = () => {
     const elements = useRoutes([
         {
-            path: "",
-            element: <MainLayout />,
+            path: PATH.HOME,
+            element: <HomeLayout />,
             children: [
                 {
-                    path: PATH.HOME,
-                    index: 1,
+                    path: "",
+                    index: true,
                     element: (
                         <Suspense fallBack={<div>Loading</div>}>
                             <HomePage />
                         </Suspense>
                     ),
                 },
+            ]
+        },
+        {
+            path: "",
+            element: <MainLayout />,
+            children: [
                 {
                     path: PATH.ABOUT,
                     element: (

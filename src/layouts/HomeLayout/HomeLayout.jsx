@@ -1,12 +1,13 @@
 import React from 'react'
+import SmallHeader from '../../components/SmallHeader'
 import Header from '../../components/Header'
-import { Outlet } from 'react-router-dom'
 import Footer from '../../components/Footer'
-import SmallHeader from '../../components/SmallHeader';
+import { Outlet } from 'react-router-dom'
 
-const MainLayout = () => {
+const HomeLayout = () => {
     return (
-        <div class="">
+        <div className=''>
+            <Header />
             <SmallHeader />
             <Outlet />
             <Footer />
@@ -14,4 +15,4 @@ const MainLayout = () => {
     )
 }
 
-export default MainLayout
+export default HomeLayout

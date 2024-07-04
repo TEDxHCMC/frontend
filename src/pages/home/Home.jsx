@@ -5,25 +5,25 @@ import './home.scss';
 const Home = () => {
     const [scrollDirection, setScrollDirection] = useState("");
 
-    useEffect(() => {
-        let lastScrollTop =
-            window.pageYOffset || document.documentElement.scrollTop;
+    // useEffect(() => {
+    //     let lastScrollTop =
+    //         window.pageYOffset || document.documentElement.scrollTop;
 
-        const handleScroll = () => {
-            const currentScrollTop =
-                window.pageYOffset || document.documentElement.scrollTop;
-            setScrollDirection(
-                currentScrollTop > lastScrollTop ? "down" : "up"
-            );
-            lastScrollTop = currentScrollTop <= 0 ? 0 : currentScrollTop;
-        };
+    //     const handleScroll = () => {
+    //         const currentScrollTop =
+    //             window.pageYOffset || document.documentElement.scrollTop;
+    //         setScrollDirection(
+    //             currentScrollTop > lastScrollTop ? "down" : "up"
+    //         );
+    //         lastScrollTop = currentScrollTop <= 0 ? 0 : currentScrollTop;
+    //     };
 
-        window.addEventListener("scroll", handleScroll);
+    //     window.addEventListener("scroll", handleScroll);
 
-        return () => {
-            window.removeEventListener("scroll", handleScroll);
-        };
-    }, []);
+    //     return () => {
+    //         window.removeEventListener("scroll", handleScroll);
+    //     };
+    // }, []);
 
     const scrollToContent = () => {
         const targetElement = document.getElementById('scroll-content');
@@ -43,9 +43,10 @@ const Home = () => {
         justifyContent: 'center',
         alignItems: 'center',
     };
+
     return (
-        <div class="main-wrapped">
-            <section class="hero-home">
+        <div className="">
+            <section className="hero-home">
                 <div className='lg:block hidden'>
                     <div className='page-1'>
                         <Row gutter={[8, 8]}>
