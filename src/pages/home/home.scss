@@ -1,138 +1,98 @@
 * {
     box-sizing: border-box;
 
-    .main-wrapped {
+    .home {
+        display: block;
         overflow-x: hidden;
         position: relative;
 
-        .hero-home {
-            display: block;
-        }
+
 
         .page-1 {
             position: relative;
             display: grid;
             place-items: center;
+
+
+            .page-1-content {
+                font-family: 'Inter', sans-serif;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                z-index: 1; // Ensure it's above the col elements
+
+                font-size: 40px;
+            }
+
+            .content-interaction {
+                font-family: 'Inter', sans-serif;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                //color: rgba(0, 0, 0, 0);
+                z-index: 2;
+                font-size: 135px;
+                width: 100%;
+
+                .text-position-1 {
+                    position: absolute;
+                    bottom: 150px;
+                    left: 40px;
+                }
+
+                .text-position-2 {
+                    position: absolute;
+                    bottom: 150px;
+                    right: 30px;
+                }
+
+                .text-position-3 {
+                    position: absolute;
+                    top: 50px;
+                    right: 400px;
+                }
+
+                .text-position-4 {
+                    position: absolute;
+                    top: 250px;
+                    right: 100px;
+                }
+
+                .text-position-5 {
+                    position: absolute;
+                    top: 250px;
+                    left: 40px;
+
+                }
+
+                .text-position-1,
+                .text-position-2,
+                .text-position-3,
+                .text-position-4,
+                .text-position-5 {
+                    opacity: 0;
+                    transition: all 0.2s ease-in;
+                }
+
+                .text-position-1:hover,
+                .text-position-2:hover,
+                .text-position-3:hover,
+                .text-position-4:hover,
+                .text-position-5:hover {
+                    opacity: 0.3;
+                }
+            }
         }
 
-        .page-1-content {
-            font-family: 'Inter', sans-serif;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            z-index: 1; // Ensure it's above the col elements
-
-            font-size: 40px;
-        }
-
-        .content-interaction {
-            font-family: 'Inter', sans-serif;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            //color: rgba(0, 0, 0, 0);
-            z-index: 2;
-            font-size: 135px;
-            width: 100%;
-
-            .text-position-1 {
-                position: absolute;
-                bottom: 150px;
-                left: 40px;
-            }
-
-            .text-position-2 {
-                position: absolute;
-                bottom: 150px;
-                right: 30px;
-            }
-
-            .text-position-3 {
-                position: absolute;
-                top: 50px;
-                right: 400px;
-            }
-
-            .text-position-4 {
-                position: absolute;
-                top: 250px;
-                right: 100px;
-            }
-
-            .text-position-5 {
-                position: absolute;
-                top: 250px;
-                left: 40px;
-
-            }
-
-            .text-position-1,
-            .text-position-2,
-            .text-position-3,
-            .text-position-4,
-            .text-position-5 {
-                opacity: 0;
-                transition: all 0.2s ease-in;
-            }
-
-            .text-position-1:hover,
-            .text-position-2:hover,
-            .text-position-3:hover,
-            .text-position-4:hover,
-            .text-position-5:hover {
-                opacity: 0.3;
-            }
-        }
-
-
-        .page-2{
+        .page-2-bg {
             position: relative;
             display: grid;
             place-items: center;
         }
 
-        @keyframes flash {
-            0% {
-                opacity: 1;
-            }
-            50% {
-                opacity: 0;
-            }
-            100% {
-                opacity: 1;
-            }
-        }
-        
-        @keyframes fadeInLeft {
-            0% {
-                opacity: 0;
-                transform: translateX(-100%);
-            }
-            100% {
-                opacity: 1;
-                transform: translateX(-50);
-            }
-        }
-        
-        @keyframes dissolveIn {
-            0% {
-                opacity: 0;
-            }
-            100% {
-                opacity: 1;
-            }
-        }
-        
-
-        .page-3-bg {
-            position: relative;
-            display: grid;
-            place-items: center;
-        }
-
-        .page-3-content {
+        .page-2-content {
             display: block;
             font-family: 'Platypi Variable', serif;
             position: absolute;
@@ -158,5 +118,73 @@
             height: 902px;
             background: white;
         }
+
+        .page-3-bg {
+            position: relative;
+            display: grid;
+            place-items: center;
+        }
+
+        .page-3-logo{
+            
+        }
+
+        .page-3-content {
+            display: block;
+            font-family: 'Platypi Variable', serif;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1;
+        }
+
     }
+
+    @keyframes flash {
+        0% {
+            opacity: 1;
+        }
+
+        50% {
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 1;
+        }
+    }
+
+    @keyframes fadeInLeft {
+        0% {
+            opacity: 0;
+            transform: translateX(-50%);
+        }
+
+        100% {
+            opacity: 1;
+            transform: translateX(-100);
+        }
+    }
+
+    @keyframes fadeIn {
+        0% {
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 1;     
+        }
+    }
+
+    @keyframes dissolveIn {
+        0% {
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 1;
+        }
+    }
+
 }
