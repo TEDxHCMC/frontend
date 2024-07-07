@@ -1,0 +1,68 @@
+*{
+    /* Styles for sticky navigation with class */
+    .sticky-nav {
+        font-family: "Phudu Variable", system-ui;
+        font-size: 20px;
+        border: 2px solid #ebebeb;
+        height: 64px;
+        width: 100%;
+        background-color: white;
+        transition: all 0.3s ease;
+        z-index: 1000;
+
+        &.sticky-scroll {
+            /* Styles when sticky class is added */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Additional styles for boxes and buttons */
+        .first-box,
+        .second-box,
+        .third-box,
+        .four-box {
+            height: 64px;
+        }
+
+        .second-box {
+            border-right: 1px solid #e0e0e0;
+        }
+
+        .four-box {
+            width: 215px;
+        }
+
+        .ticket-button {
+            background: #c30121;
+            font-family: "Phudu Variable", system-ui;
+            font-weight: bold;
+            color: white;
+            height: 47px;
+            width: 151px;
+        }
+    }
+
+    /* General styles for image containers and circles */
+    .image-container {
+        position: relative;
+        display: inline-block;
+    }
+
+    .circle {
+        position: absolute;
+        width: 20px;
+        height: 40px;
+        border-radius: 0%;
+    }
+
+    /* Utility classes for hiding and showing elements */
+    .hidden-ticket-button {
+        opacity: 0;
+        visibility: hidden;
+    }
+
+    .opacity-100 {
+        opacity: 1 !important;
+        visibility: visible !important;
+    }
+
+}

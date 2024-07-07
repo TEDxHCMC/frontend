@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import { Link, useLocation } from "react-router-dom";
+import React, { useState} from "react";
+import { Link} from "react-router-dom";
 import "./header.scss";
 
 const Header = () => {
@@ -13,13 +13,12 @@ const Header = () => {
         <header className="bg-white">
             <nav className="primary-nav mx-auto flex items-center justify-between p-6 lg:px-8">
                 <div className="flex lg:flex-1">
-                    <a href="/" className="-m-1.5 p-1.5">
+                    <Link to ="/" className="-m-1.5 p-1.5">
                         <img
                             className="h-9 w-auto"
                             src="./assets/logo/TEDx-logo/TEDx-Black-Short.png"
-                            alt=""
                         />
-                    </a>
+                    </Link>
                 </div>
                 <div className="flex lg:hidden">
                     <button
@@ -96,12 +95,12 @@ const Header = () => {
                     <Link to="/" className="text-gray-900">
                         Thông tin Event
                     </Link>
-                    <Link to="/about" className="text-gray-900">
+                    <Link to="about" className="text-gray-900">
                         Về chúng tôi
                     </Link>
                 </div>
                 <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-                    <Link to="#" className="text-gray-900">
+                    <Link to="ticket/form" className="text-gray-900">
                         <button className="ticket-button">ĐĂNG KÍ VÉ</button>
                     </Link>
                 </div>
