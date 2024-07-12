@@ -89,8 +89,6 @@ const About = () => {
       if (slidingContentElement) {
         const boundingRect = slidingContentElement.getBoundingClientRect();
         const currentPosition = boundingRect.left;
-        //console.log('Current horizontal position:', currentPosition);
-        //console.log('Previous horizontal position:', prevPosition);
         setPrevSlidePosition(prevPosition);
         prevPosition = currentPosition;
       }

@@ -125,9 +125,7 @@
             place-items: center;
         }
 
-        .page-3-logo{
-            
-        }
+
 
         .page-3-content {
             display: block;
@@ -139,7 +137,35 @@
             z-index: 1;
         }
 
+        .box-1{
+            background: #FFF14D;
+        }
+        .box-2{
+            background: #4F56F8;
+        }
+        .box-3{
+            background: #3FF1C7;
+        }
+        .box-4{
+            background: #FF4DD6;
+        }
+
     }
+
+    .dissolve-effect {
+        animation: dissolve 5s forwards; 
+    }
+    
+    @keyframes dissolve {
+        0% {
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 1;     
+        }
+    }
+    
 
     @keyframes flash {
         0% {
@@ -167,24 +193,24 @@
         }
     }
 
-    @keyframes fadeIn {
-        0% {
-            opacity: 0;
-        }
+    .container {
+        width: 300px;
+        height: 300px;
+        display: flex;
+        place-content: center;
+        place-items: center;
+        overflow: hidden;
+        background: rgba(255, 255, 255, 0.2);
+        border-radius: 30px;
+      }
+      
+      .item {
+        width: 150px;
+        height: 150px;
+        background: white;
+        border-radius: inherit;
+      }
+      
 
-        100% {
-            opacity: 1;     
-        }
-    }
-
-    @keyframes dissolveIn {
-        0% {
-            opacity: 0;
-        }
-
-        100% {
-            opacity: 1;
-        }
-    }
 
 }
