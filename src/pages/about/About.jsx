@@ -114,7 +114,7 @@ const About = () => {
   },[]);
 
    // Determine sliding direction based on scroll direction and previous slide position
-   const slideDirection =
+   const slideDirection = 
    scrollDirection === 'down'? 'slide-left' : 'slide-right';
 
   useEffect(() => {
