@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
     currStep: 1,
-    
+    ticketAmount: 1,
     ticketData: {
         fullName: "",
         email: "",
@@ -21,6 +21,10 @@ export const ticketSlice = createSlice({
             state.currStep = action.payload;
             console.log("Current Step: ", state.currStep);
         },
+        handleSetTicketAmount: (state, action) => {
+            state.ticketAmount = action.payload;
+            console.log("Current Ticket Amount: ", state.ticketAmount);
+        },
         handleSetTicketData: (state, action) => {
             state.ticketData = action.payload;
             console.log("Current Data: ", state.ticketData);
@@ -28,6 +32,6 @@ export const ticketSlice = createSlice({
     },
 });
 
-export const { handleSetCurrStep, handleSetTicketData } = ticketSlice.actions;
+export const { handleSetCurrStep, handleSetTicketData, handleSetTicketAmount } = ticketSlice.actions;
 
 export default ticketSlice.reducer;
