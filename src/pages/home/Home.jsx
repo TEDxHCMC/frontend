@@ -365,7 +365,13 @@ const Home = () => {
                             <img src='./assets/logo/to-tuong-logo/To-tuong-logo-black.png' className='w-[492px]' />
                             <h2 className='text-[25px] pl-2'>MỞ LÒNG VỚI THỰC TẠI</h2>
                         </div>
+                    <div className='drag-text'> 
+                        <p>Drag those boxes!</p>
+                    </div>
+                    
                 </div>
+
+                
 
                 <motion.div className="container h-full w-full" ref={constraintsRef}>
                     <motion.div

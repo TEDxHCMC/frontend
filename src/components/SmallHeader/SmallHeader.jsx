@@ -56,9 +56,12 @@ const SmallHeader = () => {
             className={`sticky-nav ${isSticky && 'sticky-scroll'} sticky top-0 mx-auto flex items-center justify-center lg:px-8 space-x-16`}
         >
             <div className="first-box flex items-center justify-center">
-                <Link to="#" className="space-x-4">
-                    TEDxHOCHIMINHCITY2024
-                </Link>
+                <Link to ="/" className="space-x-4">
+                        <img
+                            className="h-[30px] w-auto"
+                            src="./assets/logo/TEDx-logo/TEDx-Black-Short.png"
+                        />
+                    </Link>
             </div>
             <div className="second-box"></div>
             <div className="third-box flex space-x-16 items-center justify-center">
