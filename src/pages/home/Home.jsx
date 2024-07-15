@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Col, Row } from 'antd';
-import { motion } from 'framer-motion';
+import {   motion, useScroll, useSpring, useTransform, MotionValue } from 'framer-motion';
 import './home.scss';
 import 'animate.css';
 
@@ -64,7 +64,6 @@ const Home = () => {
         };
     }, []);
 
-
     const colStyle = {
         width: '157px',
         height: '157px',
@@ -74,15 +73,21 @@ const Home = () => {
         alignItems: 'center',
     };
 
-    const [showFinalText, setShowFinalText] = useState(false);
+    const useParallax = (value, distance) => {
+        return useTransform(value, [0, 1], [-distance, distance]);
+      };
 
-    useEffect(() => {
-        const timer = setTimeout(() => {
-            setShowFinalText(true);
-        }, 3000); // Adjust delay as needed
-
-        return () => clearTimeout(timer);
-    }, []);
+      const TextSection = ({ className, imgSrc, text, imgWidth, textSize }) => {
+        const ref = useRef(null);
+        const { scrollYProgress } = useScroll({ target: ref });
+        const y = useParallax(scrollYProgress, 100);
+        return (
+            <motion.div ref={ref} className={className} style={{ y }}>
+              <img src={imgSrc} style={{ width: imgWidth, height: 'auto' }} alt="Logo" />
+              <h2 className={textSize}>{text}</h2>
+            </motion.div>
+          );
+        };
 
     return (
         <section className="home">
@@ -355,23 +360,20 @@ const Home = () => {
                     ))}
                 </Row>
                 
-                <div className={`text-container ${scrollTriggered ? 'animate' : ''}`} ref={textContainerRef}>
-                    <div className="initial-text">
-                            <img src='./assets/logo/to-tuong-logo/To-tuong-logo-black.png' style={{ width: '831px', height: 'auto' }} />
-                            <h2 className='text-[34px] pl-3'>MỞ LÒNG VỚI THỰC TẠI</h2>
-                    </div>
-                    
-                        <div className="final-text">
-                            <img src='./assets/logo/to-tuong-logo/To-tuong-logo-black.png' className='w-[492px]' />
-                            <h2 className='text-[25px] pl-2'>MỞ LÒNG VỚI THỰC TẠI</h2>
-                        </div>
+                <div className="text-container">
+                        <TextSection
+                            className="second-text"
+                            imgSrc='./assets/logo/to-tuong-logo/To-tuong-logo-black.png'
+                            text="MỞ LÒNG VỚI THỰC TẠI"
+                            imgWidth='492px'
+                            textSize='text-[25px] pl-2'
+                        />
                     <div className='drag-text'> 
                         <p>Drag those boxes!</p>
                     </div>
                     
                 </div>
 
-                
 
                 <motion.div className="container h-full w-full" ref={constraintsRef}>
                     <motion.div
