@@ -73,8 +73,8 @@ const Home = () => {
         alignItems: 'center',
     };
 
-    function useParallax(value, distance, scaleFactor) {
-        const y = useTransform(value, [0, 1], [-distance, distance]);
+    function useParallax(value, distance,  scaleFactor) {
+        const y = useTransform(value, [0, 1], [distance, -distance]);
         const scale = useTransform(value, [0, 1], [1, scaleFactor]);
         return { y, scale };
     }
@@ -83,7 +83,7 @@ const Home = () => {
       const TextSection = ({ className, imgSrc, text, imgWidth, textSize }) => {
         const ref = useRef(null);
         const { scrollYProgress } = useScroll({ target: ref });
-        const { y, scale } = useParallax(scrollYProgress, 110, 1.2);
+        const { y, scale } = useParallax(scrollYProgress, 350, 1.5);
 
         return (
             <motion.div ref={ref} className={className} style={{ y, scale }}>
@@ -268,11 +268,17 @@ const Home = () => {
                 </Row>
 
                 <div className="page-2-content">
-                    <img src='./assets/logo/to-tuong-logo/To-tuong-logo-black.png'
-                        style={{ width: '831px', height: 'auto' }}
-                        ref={dissolveRef}
-                    />
-                    <h2 className='text-[34px] pl-3'>MỞ LÒNG VỚI THỰC TẠI</h2>
+                        <div ref={dissolveRef} className="pb-4">
+                        <TextSection
+                            className="second-text"
+                            imgSrc='./assets/logo/to-tuong-logo/To-tuong-logo-black.png'
+                            text="MỞ LÒNG VỚI THỰC TẠI"
+                            imgWidth='492px'
+                            textSize='text-[34px] pl-2'
+                            
+                        />
+                        </div>
+                    
                     <p className='pt-4 tracking-wide leading-[33px] text-[25px]'>"Tỏ tường: Mở lòng với thực tại" là chương trình mùa đầu tiên của TEDxHoChiMinhCity, mang đến những câu chuyện truyền cảm hứng từ các diễn giả tài năng thuộc nhiều lĩnh vực. Các bạn trẻ sẽ được khám phá thế giới từ nhiều góc nhìn, quan điểm khác nhau; đồng thời thấu hiểu và đối mặt với thực tại một cách chân thật nhất.</p>
                 </div>
             </div>
@@ -365,13 +371,7 @@ const Home = () => {
                 </Row>
                 
                 <div className="text-container">
-                        <TextSection
-                            className="second-text"
-                            imgSrc='./assets/logo/to-tuong-logo/To-tuong-logo-black.png'
-                            text="MỞ LÒNG VỚI THỰC TẠI"
-                            imgWidth='492px'
-                            textSize='text-[25px] pl-2'
-                        />
+                        
                     <div className='drag-text'> 
                         <p>Drag those boxes!</p>
                     </div>
