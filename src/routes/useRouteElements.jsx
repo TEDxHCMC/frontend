@@ -2,7 +2,6 @@ import { useRoutes } from "react-router-dom";
 import { PATH } from "../paths";
 import { Suspense, lazy } from "react";
 import MainLayout from "../layouts/MainLayout";
-import HomeLayout from "../layouts/HomeLayout";
 
 /**
  * @description
@@ -35,7 +34,7 @@ const useRouteElements = () => {
     const elements = useRoutes([
         {
             path: PATH.HOME,
-            element: <HomeLayout />,
+            element: <MainLayout />,
             children: [
                 {
                     path: "",
