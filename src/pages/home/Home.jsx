@@ -73,16 +73,20 @@ const Home = () => {
         alignItems: 'center',
     };
 
-    const useParallax = (value, distance) => {
-        return useTransform(value, [0, 1], [-distance, distance]);
-      };
+    function useParallax(value, distance, scaleFactor) {
+        const y = useTransform(value, [0, 1], [-distance, distance]);
+        const scale = useTransform(value, [0, 1], [1, scaleFactor]);
+        return { y, scale };
+    }
+    
 
       const TextSection = ({ className, imgSrc, text, imgWidth, textSize }) => {
         const ref = useRef(null);
         const { scrollYProgress } = useScroll({ target: ref });
-        const y = useParallax(scrollYProgress, 100);
+        const { y, scale } = useParallax(scrollYProgress, 110, 1.2);
+
         return (
-            <motion.div ref={ref} className={className} style={{ y }}>
+            <motion.div ref={ref} className={className} style={{ y, scale }}>
               <img src={imgSrc} style={{ width: imgWidth, height: 'auto' }} alt="Logo" />
               <h2 className={textSize}>{text}</h2>
             </motion.div>
