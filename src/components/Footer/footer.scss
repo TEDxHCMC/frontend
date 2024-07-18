@@ -1,28 +1,80 @@
-* {
-    .footer-bg{
-        background: rgba(20, 20, 20, 1);
-    }
-    .text-green {
-        color: rgba(0, 255, 195, 1);
-    }
+.container-footer {
+    background: #f6f6f6;
+}
 
-    .text-blue {
-        color: rgba(3, 14, 245, 1);
-    }
+.main-footer {
 
-    .green {
-        background: rgba(0, 255, 195, 1);
-    }
+    .footer-left{
+        .facebook {
+            border: 1px solid rgba(236, 16, 20, 1);
+        }
     
+        .instagram {
+            border: 1px solid rgba(236, 16, 20, 1);
+        }
     
-    h4 {
-        font-family: 'Platypi Variable', serif;
-        color: rgba(0, 255, 195, 1);
-        font-size: 18px;
+        .red {
+            background: rgba(236, 16, 20, 1);
+        }
+
+    }
+    .footer-email{
+        .heading-footer{
+            font-family: "Phudu Variable", system-ui;
+            }
+            .w-form {
+                margin: 0 0 15px;
+            }
+        
+            .form-container {
+                position: relative;
+            }
+        
+            .footer-text-field {
+                letter-spacing: -.02em;
+                height: auto;
+                margin-bottom: 0;
+                line-height: 1.5;
+                font-family: "Phudu Variable", system-ui;
+            }
+        
+            .w-input {
+                width: 100%;
+                display: block;
+            }
+        
+            .form-footer-submit {
+                letter-spacing: -.02em;
+                line-height: 1.5;
+                left: auto;
+                font-family: "Phudu Variable", system-ui;
+            }
+        
+            .w-button {
+                cursor: pointer;
+                border: 0;
+                border-radius: 0;
+                text-decoration: none;
+                display: inline-block;
+                color: white;
+            }
+    
+        
+            .w-form-done {
+                text-align: center;
+                display: none;
+            }
+        
+            .w-form-fail {
+                background-color: #ffdede;
+                display: none;
+            }
+
     }
 
-    .border-green {
-        --tw-border-opacity: 1;
-        border-color: rgba(0, 255, 195, 1);
-    }
+}
+
+.sub-footer {
+    border-top: 1px solid rgba(33, 33, 33, .16);
+    padding-top: 1.5em;
 }

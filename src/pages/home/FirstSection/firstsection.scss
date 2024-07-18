@@ -13,8 +13,8 @@
         font-family: 'Inter', sans-serif;
         transform: translate(-50%, -50%);
         //position: absolute;
-        //top: 50%;
-        //left: 50%;
+        top: 50%;
+        left: 50%;
         //z-index: 2;
         //font-size: 135px;
         //width: 100%;
@@ -37,5 +37,18 @@
         }
     }
 
-
 }
+.dissolve-effect {
+    animation: dissolve 5s forwards;
+}
+
+@keyframes dissolve {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+

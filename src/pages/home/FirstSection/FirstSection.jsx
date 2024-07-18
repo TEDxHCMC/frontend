@@ -131,21 +131,23 @@ const FirstSection = () => {
                 </Row>
                 <div className='page-1-content absolute top-2/4 bottom-2/4 z-[1] text-center text-[40px]' ref={dissolveRef}>
                     Liệu bạn đã nhìn đủ...
+
                 </div>
-                <div className='content-interaction absolute top-2/4 bottom-2/4 z-[2] text-[135px] w-full'>
-                    <div className='text-position-1 absolute bottom-[150px] left-[40px]'>
+                
+                <div className='content-interaction absolute z-[2] text-[135px] w-full'>
+                    <div className='text-position-1 absolute bottom-[50px] left-[60%]'>
                         <h2 onClick={scrollToContent}>lâu?</h2>
                     </div>
-                    <div className='text-position-2 absolute bottom-[150px] right-[30px]'>
+                    <div className='text-position-2 absolute w-full bottom-[20px] left-[10%]'>
                         <h2 onClick={scrollToContent}>kĩ càng?</h2>
                     </div>
-                    <div className='text-position-3 absolute top-[50px] right-[400px]'>
+                    <div className='text-position-3 absolute right-[20%]'>
                         <h2 onClick={scrollToContent}>rõ?</h2>
                     </div>
-                    <div className='text-position-4 absolute top-[250px] right-[100px]'>
+                    <div className='text-position-4 absolute top-[30px] left-[15%]'>
                         <h2 onClick={scrollToContent}>sâu?</h2>
                     </div>
-                    <div className='text-position-5 absolute top-[250px] left-[40px]'>
+                    <div className='text-position-5 absolute top-[120px] left-[30%] w-full'>
                         <h2 onClick={scrollToContent}>tường tận?</h2>
                     </div>
                 </div>

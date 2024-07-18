@@ -31,6 +31,20 @@
 
 }
 
+.dissolve-effect {
+    animation: dissolve 5s forwards;
+}
+
+@keyframes dissolve {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
 
 
 
