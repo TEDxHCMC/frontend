@@ -7,12 +7,11 @@ import './mainlayout.scss';
 const MainLayout = () => {
     return (
         <>
-        <div class="page-wrapped">
-            <Header />
-            <Outlet />
-            <Footer /> 
-        </div>
-            
+            <div class="page-wrapped">
+                <Header />
+                <Outlet />
+                <Footer /> 
+            </div>
         </>
     )
 }
