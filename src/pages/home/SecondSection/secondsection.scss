@@ -1,0 +1,51 @@
+
+.page-2-content {
+    font-family: 'Platypi Variable', serif;
+    transform: translate(-50%, -50%);
+
+    .second-text{
+        transform: translate(-50%, -50%);
+    }
+}
+
+.text-container{
+    font-family: 'Platypi Variable', serif;
+}
+
+.container {
+    .box-1 {
+        background: #FFF14D;
+    }
+
+    .box-2 {
+        background: #4F56F8;
+    }
+
+    .box-3 {
+        background: #3FF1C7;
+    }
+
+    .box-4 {
+        background: #FF4DD6;
+    }
+
+}
+
+.dissolve-effect {
+    animation: dissolve 5s forwards;
+}
+
+@keyframes dissolve {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+
+
+
+
