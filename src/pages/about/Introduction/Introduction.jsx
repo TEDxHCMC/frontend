@@ -1,9 +1,9 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from "react";
 import "./introduction.scss";
 
 const Introduction = () => {
   const slidingContentRef = useRef(null);
-  const [scrollDirection, setScrollDirection] = useState('');
+  const [scrollDirection, setScrollDirection] = useState("");
   const [prevSlidePosition, setPrevSlidePosition] = useState(0);
 
   useEffect(() => {
@@ -108,17 +108,20 @@ const Introduction = () => {
       <div className="flex justify-center items-center pt-5 pb-20 space-x-20">
         <div className="box-text h-32 flex flex-col justify-center items-center space-y-3">
           <p className="text-[16px] w-[357px] tracking-[0.5px] leading-[18px]">
-            We have all heard of hormone replacement therapy and balance, which
-            helps restore our body’s natural functions through regulating
-            hormone levels.
+            Được thành lập vào năm 2024, TEDxHoChiMinhCity là nơi kết nối các
+            bạn trẻ tràn đầy nhiệt huyết thông qua các hoạt động trải nghiệm sự
+            kiện chứa đựng những câu chuyện mới mẻ, đầy cảm hứng.
           </p>
           <p className="text-[16px] w-[357px] tracking-[0.5px] leading-[18px]">
-            Peptides work much the same. Peptides are natural to our bodies,
-            they are very well-tolerated and incredibly safe.
+            TEDxHoChiMinhCity mong muốn cùng các bạn trẻ khám phá thế giới qua
+            những câu chuyện truyền cảm hứng và nhân văn, mở ra những góc nhìn
+            mới và tạo nên những tác động tích cực cho bản thân và cộng đồng.
           </p>
         </div>
         <div className="flex items-end h-32">
-          <button className="button-edit h-[51px] w-[170px] rounded-[40px] text-[14px]">LỤM LIỀN</button>
+          <button className="button-edit h-[51px] w-[170px] rounded-[40px] text-[14px]">
+            LỤM LIỀN
+          </button>
         </div>
       </div>
     </div>
