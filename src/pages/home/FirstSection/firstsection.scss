@@ -1,0 +1,54 @@
+.page-1 {
+
+    .page-1-content {
+        font-family: 'Inter', sans-serif;
+     
+        //top: 50%;
+        //left: 50%;
+        //z-index: 1;
+        //font-size: 40px;
+    }
+
+    .content-interaction {
+        font-family: 'Inter', sans-serif;
+        transform: translate(-50%, -50%);
+        //position: absolute;
+        top: 50%;
+        left: 50%;
+        //z-index: 2;
+        //font-size: 135px;
+        //width: 100%;
+
+        .text-position-1,
+        .text-position-2,
+        .text-position-3,
+        .text-position-4,
+        .text-position-5 {
+            opacity: 0;
+            transition: all 0.2s ease-in;
+        }
+
+        .text-position-1:hover,
+        .text-position-2:hover,
+        .text-position-3:hover,
+        .text-position-4:hover,
+        .text-position-5:hover {
+            opacity: 0.3;
+        }
+    }
+
+}
+.dissolve-effect {
+    animation: dissolve 5s forwards;
+}
+
+@keyframes dissolve {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+

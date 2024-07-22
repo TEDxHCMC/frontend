@@ -1,0 +1,42 @@
+.container-scroll {
+    //height: 500px;
+    overflow-y: hidden; 
+    padding-bottom: 10px;
+}
+
+.container-scroll.scroll-up {
+    overflow-y: scroll; 
+}
+
+  
+@keyframes slideBottom {
+    0% {
+      transform: translateY(0);
+    }
+    100% {
+      transform: translateY(100%);
+    }
+  }
+.slide-down{
+    animation: slideBottom 20s infinite;
+}
+
+/* Keyframes for scrolling up */
+@keyframes scrollUp {
+    0% {
+        transform: translateY(100%);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+/* Apply scrollUp animation to elements with class .scroll-up */
+.scroll-up {
+    animation: scrollUp 5s ease-in-out infinite alternate;
+}
+
+
+h3{
+    font-family: 'Phudu Variable', system-ui;
+}

@@ -33,18 +33,24 @@ const TicketFormSect = lazy(() => import("../pages/ticket/TicketForm"))
 const useRouteElements = () => {
     const elements = useRoutes([
         {
-            path: "",
+            path: PATH.HOME,
             element: <MainLayout />,
             children: [
                 {
-                    path: PATH.HOME,
-                    index: 1,
+                    path: "",
+                    index: true,
                     element: (
                         <Suspense fallBack={<div>Loading</div>}>
                             <HomePage />
                         </Suspense>
                     ),
                 },
+            ]
+        },
+        {
+            path: "",
+            element: <MainLayout />,
+            children: [
                 {
                     path: PATH.ABOUT,
                     element: (
