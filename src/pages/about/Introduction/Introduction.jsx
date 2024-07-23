@@ -6,27 +6,6 @@ gsap.registerPlugin(ScrollTrigger);
 
 
 const Introduction = () => {
-  //const slidingContentRef = useRef(null);
-  const [scrollDirection, setScrollDirection] = useState("");
-  const [prevSlidePosition, setPrevSlidePosition] = useState(0);
-
-  useEffect(() => {
-    let lastScrollTop =
-      window.scrollY || document.documentElement.scrollTop;
-
-    const handleScroll = () => {
-      const currentScrollTop =
-        window.scrollY || document.documentElement.scrollTop;
-      setScrollDirection(currentScrollTop > lastScrollTop ? "down" : "up");
-      lastScrollTop = currentScrollTop <= 0 ? 0 : currentScrollTop;
-    };
-
-    window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
 
     useEffect(() => {
     // Create the GSAP animation
