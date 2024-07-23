@@ -80,8 +80,8 @@ const GroupImages = () => {
 
     return (
         <section className="members" ref={ref}>
-            <h3 className="text-[54px] text-center font-bold">BAN TỔ CHỨC</h3>
-            <div className="px-4 my-8 relative h-[801px] overflow-hidden">
+            <h3 className="text-[54px] text-center font-bold">BIỆT ĐỘI TEDX</h3>
+            <div className="px-4 mt-8 relative h-[801px] overflow-hidden">
                 <div
                     className={`scrolling-section -translate-y-10 ${inView ? 'animate' : ''}`}
                 >
