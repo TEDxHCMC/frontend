@@ -1,68 +1,94 @@
-*{
-    /* Styles for sticky navigation with class */
-    .sticky-nav {
-        font-family: "Phudu Variable", system-ui;
-        font-size: 20px;
-        border: 2px solid #ebebeb;
+/* Styles for sticky navigation with class */
+.top-nav {
+    @apply px-10 py-5;
+    z-index: 100;
+    font-family: "Inter", sans-serif;
+    border-bottom: 1px solid #e0e0e0;
+
+    .top-items {
+        .item {
+            position: relative;
+
+            &:after {    
+                content: "";
+                height: 3px;
+                background: black;
+                display: block;
+                margin-top: 10px;
+                position: absolute;
+                left: 0; 
+                bottom: -20;
+                transition: width 0.3s ease 0s, left 0.3s ease 0s;
+                width: 0;
+            }
+
+            &:hover:after { 
+                width: 100%; 
+            }
+        }
+
+    }
+}
+
+.bottom-nav {
+    font-family: "Phudu Variable", system-ui;
+    z-index: 10;
+    transition: all 0.3s ease;
+    height: 64px;
+    width: 100%;
+    position: sticky !important;
+    position: -webkit-sticky;
+    top: 0; 
+    box-shadow: 0 2px 4px #0000001a;
+
+    .second-box {
         height: 64px;
-        width: 100%;
-        background-color: white;
-        transition: all 0.3s ease;
-        z-index: 1000;
-
-        &.sticky-scroll {
-            /* Styles when sticky class is added */
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
-
-        /* Additional styles for boxes and buttons */
-        .first-box,
-        .second-box,
-        .third-box,
-        .four-box {
-            height: 64px;
-        }
-
-        .second-box {
-            border-right: 1px solid #e0e0e0;
-        }
-
-        .four-box {
-            width: 215px;
-        }
-
-        .ticket-button {
-            background: #c30121;
-            font-family: "Phudu Variable", system-ui;
-            font-weight: bold;
-            color: white;
-            height: 47px;
-            width: 151px;
-        }
+        border-right: 1px solid #e0e0e0;
     }
+}
 
-    /* General styles for image containers and circles */
-    .image-container {
-        position: relative;
-        display: inline-block;
+.ticket-button {
+    background-color: #c30121;
+    font-family: "Phudu Variable", system-ui;
+    font-weight: bold;
+    color: white;
+    transition: all 0.3s;
+
+    &:hover {
+        background-color: #ff002b;
     }
+}
 
-    .circle {
-        position: absolute;
-        width: 20px;
-        height: 40px;
-        border-radius: 0%;
+.mobile-nav {
+    font-family: "Inter", sans-serif;
+
+    .nav-animate {
+        animation: slideUp 500ms ease-out;
+        color: white;
     }
+}
 
-    /* Utility classes for hiding and showing elements */
-    .hidden-ticket-button {
+.circle {
+    position: absolute;
+    width: 20px;
+    height: 40px;
+    border-radius: 0%;
+}
+
+@keyframes slideUp {
+    0% {
+        transform: translateY(10%);
         opacity: 0;
         visibility: hidden;
+        color: black;
     }
-
-    .opacity-100 {
-        opacity: 1 !important;
-        visibility: visible !important;
+    50% {
+        color: rgb(166, 166, 166);
     }
-
+    100% {
+        opacity: 100;
+        visibility: visible;
+        transform: translateY(0%);
+        color: white;
+    }
 }

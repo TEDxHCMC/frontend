@@ -2,7 +2,6 @@ import { Input } from 'antd';
 import InputLabel from './InputLabel/InputLabel';
 import InputError from './InputError/InputError';
 
-
 const InputField = ({
     id,
     name,
