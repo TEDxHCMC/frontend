@@ -1,21 +1,22 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "./header.scss";
+import "animate.css";
 
 const Header = () => {
     // const [showCircle, setShowCircle] = useState(false);
     // const [circlePosition, setCirclePosition] = useState({ x: 0, y: 0 });
 
     const [showDropdown, setShowDropdown] = useState(false);
-    const [isOpened, setIsOpened] = useState(false)
+    const [isOpened, setIsOpened] = useState(false);
 
     const handleDropdownToggle = () => {
         setShowDropdown(!showDropdown);
     };
 
     const handleNavbarToggle = () => {
-        setShowDropdown(!isOpened);
-    }
+        setIsOpened(!isOpened);
+    };
 
     //? HOVER ANIMATION IN HEADER
     // const handleMouseEnter = () => {
@@ -113,17 +114,28 @@ const Header = () => {
                 className={`bottom-nav px-5 md:mx-auto items-center flex md:justify-center justify-between lg:text-[22px] md:text-[18px] text-[14px] lg:px-8 lg:space-x-16 md:space-x-10 text-gray-500  bg-white`}
             >
                 <div className="logo flex justify-center items-center">
-                    <Link to="/" className="lg:text-[25px] md:text-[20px] transition-all ease-in duration-200 hover:text-gray-900 hover:font-bold">
-                        <h3 className="hidden md:block font-semibold">TEDxHOCHIMINHCITY<span className="font-light">2024</span></h3>
+                    <Link
+                        to="/"
+                        className="lg:text-[25px] md:text-[20px] transition-all ease-in duration-200 hover:text-gray-900 hover:font-bold"
+                    >
+                        <h3 className="hidden md:block font-semibold">
+                            TEDxHOCHIMINHCITY
+                            <span className="font-light">2024</span>
+                        </h3>
                         <img
                             className="md:hidden block h-5 w-auto"
                             src="./assets/logo/TEDx-logo/TEDx-Black-Short.png"
                         />
-                    </Link> 
+                    </Link>
                 </div>
                 {/* <div className="hidden lg:block second-box"></div> */}
                 <div className="bottom-items flex items-center justify-center lg:gap-x-16 md:gap-x-10 gap-x-2 text-nowrap">
-                    <Link to="speakers" className="hidden md:block transition-all ease-in duration-200 font-semibold hover:font-bold hover:text-gray-900">DIỄN GIẢ</Link>
+                    <Link
+                        to="speakers"
+                        className="hidden md:block transition-all ease-in duration-200 font-semibold hover:font-bold hover:text-gray-900"
+                    >
+                        DIỄN GIẢ
+                    </Link>
                     <div
                         className="flex items-center"
                         // onMouseEnter={handleMouseEnter}
@@ -149,16 +161,56 @@ const Header = () => {
                             ></div>
                         )} */}
                     </div>
-                    <Link to="#" className="hidden md:block transition-all ease-in duration-200 font-semibold hover:font-bold hover:text-gray-900">ĐỊA ĐIỂM</Link>
+                    <Link
+                        to="#"
+                        className="hidden md:block transition-all ease-in duration-200 font-semibold hover:font-bold hover:text-gray-900"
+                    >
+                        ĐỊA ĐIỂM
+                    </Link>
                 </div>
                 <div className="bottom-button flex justify-center items-center">
-                    <button className={`ticket-button hidden md:block text-nowrap px-5 py-2 rounded-sm`}>ĐĂNG KÍ VÉ</button>
-                    <button className="md:hidden">
-                        <i className="fa-sharp fa-solid fa-bars text-[22px] text-[#c30121]"></i>
+                    <button
+                        className={`ticket-button hidden md:block text-nowrap px-5 py-2 rounded-sm`}
+                    >
+                        ĐĂNG KÍ VÉ
                     </button>
-                    
+                    <button className="md:hidden" onClick={handleNavbarToggle}>
+                        <i className="fa-sharp fa-regular fa-bars text-[22px] transition-all duration-300 text-[#c30121] hover:text-[#ff002b]"></i>
+                    </button>
                 </div>
             </nav>
+            <div className={`mobile-nav ${isOpened ? "opacity-100 visible" : "opacity-0 invisible"} bg-[#262626] fixed inset-0 transition-all duration-300 h-screen w-full z-[100] px-5 py-5`}>
+                <div className={`flex justify-between items-center mb-10`}>
+                    <div className="logo min-w-min">
+                        <Link to="/" className="inline-block">
+                            <img
+                                className="block h-5 w-auto"
+                                src="./assets/logo/TEDx-logo/TEDx-White-Short.png"
+                            />
+                        </Link>
+                    </div>
+                    <button className="" onClick={handleNavbarToggle}>
+                        <i className="fa-sharp fa-regular fa-x text-[20px] transition-all duration-300 text-[#c30121] hover:text-[#ff002b]"></i>
+                    </button>
+                </div>
+                <div className={`${isOpened ? "nav-animate" : ""} flex flex-col justify-center font-thin text-[20px] gap-y-5 mb-10`}>
+                    <Link to="/" className="item uppercase">
+                        Diễn giả
+                    </Link>
+                    <Link to="about" className="item uppercase">
+                        Thông tin Event
+                    </Link>
+                    <Link to="about" className="item uppercase">
+                        Về chúng tôi
+                    </Link>
+                    
+                </div>
+                <button
+                    className={`${isOpened ? "nav-animate" : ""} ticket-button text-nowrap px-5 py-2 rounded-sm`}
+                >
+                    ĐĂNG KÍ VÉ
+                </button>
+            </div>
             {/* <nav
                 className={`sticky-nav ${
                     isSticky && "sticky-scroll"
