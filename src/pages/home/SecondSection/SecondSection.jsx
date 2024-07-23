@@ -5,7 +5,6 @@ import {   motion, useScroll, useSpring, useTransform, MotionValue } from 'frame
 import './secondsection.scss';
 import 'animate.css';
 
-
 const SecondSection = () => {
     const dissolveRef = useRef(null);
     const constraintsRef = useRef(null);
@@ -18,6 +17,12 @@ const SecondSection = () => {
         justifyContent: 'center',
         alignItems: 'center',
     };
+
+    const pattern1 = '/assets/pattern/single-pattern/3-Yellow.png';
+    const pattern2 = '/assets/pattern/single-pattern/4-Blue.png';
+    const pattern3 = '/assets/pattern/single-pattern/1-Green.png';
+    const pattern4 = '/assets/pattern/single-pattern/2-Pink.png';
+
 
     useEffect(() => {
         const observer = new IntersectionObserver(
@@ -253,50 +258,45 @@ const SecondSection = () => {
                         </Col>
                     ))}
                 </Row>
-                
-                <div className="text-container absolute w-full h-[100vh] flex justify-center items-center flex-col">
-                    <div className='drag-text absolute top-[44%] left-[70%]'> 
-                        <p>Drag those boxes!</p>
-                    </div>
-                    
-                </div>
+             
+                <motion.div className="container flex absolute  bg-transparent z-[2] h-full w-full" ref={constraintsRef}>
+                    <motion.div
+                        className="box-1 absolute top-2/4 left-[35%] h-[118.5px] w-[118.5px]  flex justify-center items-center text-center"
+                        drag
+                        dragConstraints={constraintsRef}
+                        dragElastic={0.5}
+                        style={{ background: `url(${pattern1}) no-repeat center center`, backgroundSize: 'cover' }}
+                    >                   
+                    </motion.div>
+                    <motion.div
+                        className="box-2 absolute top-[40%] left-[45%] h-[118.5px] w-[118.5px] flex justify-center items-center"
+                        drag
+                        dragConstraints={constraintsRef}
+                        dragElastic={0.5}
+                        style={{ background: `url(${pattern2}) no-repeat center center`, backgroundSize: 'cover' }}
+                    >
+                    </motion.div>
+                    <motion.div
+                        className="box-3 absolute top-[60%] left-[45%] h-[118.5px] w-[118.5px] flex justify-center items-center"
+                        drag
+                        dragConstraints={constraintsRef}
+                        dragElastic={0.5}
+                        style={{ background: `url(${pattern3}) no-repeat center center`, backgroundSize: 'cover' }}
+                    >
+                    </motion.div>
+                    <motion.div
+                        className="box-4 absolute top-2/4 left-[55%] h-[118.5px] w-[118.5px] flex justify-center items-center"
+                        drag
+                        dragConstraints={constraintsRef}
+                        dragElastic={0.5}
+                        style={{ background: `url(${pattern4}) no-repeat center center`, backgroundSize: 'cover' }}
 
+                    >
+                    </motion.div>
 
-                <motion.div className="container flex absolute overflow-hidden bg-transparent z-[2] h-full w-full" ref={constraintsRef}>
-                    <motion.div
-                        className="box-1 absolute top-2/4 left-[30%] h-[151px] w-[237px] flex justify-center items-center text-center text-[32px]"
-                        drag
-                        dragConstraints={constraintsRef}
-                        dragElastic={0.5}
-                    //dragMomentum={false} 
-                    >
-                        Bản thân
-                    </motion.div>
-                    <motion.div
-                        className="box-2 absolute top-[40%] left-[40%] h-[151px] w-[237px] flex justify-center items-center text-center text-[32px]"
-                        drag
-                        dragConstraints={constraintsRef}
-                        dragElastic={0.5}
-                    >
-                        Gia đình
-                    </motion.div>
-                    <motion.div
-                        className="box-3 absolute top-[60%] left-[40%] h-[151px] w-[237px] flex justify-center items-center text-center text-[32px]"
-                        drag
-                        dragConstraints={constraintsRef}
-                        dragElastic={0.5}
-                    >
-                        Công việc
-                    </motion.div>
-                    <motion.div
-                        className="box-4 top-2/4 left-2/4 absolute h-[151px] w-[237px] flex justify-center items-center text-center text-[32px]"
-                        drag
-                        dragConstraints={constraintsRef}
-                        dragElastic={0.5}
-                    >
-                        Bạn bè
-                    </motion.div>
                 </motion.div>
+
+                
 
             </div>
     </div>
