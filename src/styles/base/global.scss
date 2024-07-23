@@ -9,6 +9,8 @@
 }
 
 html {
+    scroll-behavior: smooth;
+
     body {
         font-family: 'Platypi', serif !important;
     }
@@ -23,7 +25,6 @@ html {
     
     .session {
         .ant-checkbox-wrapper {
-    
             .ant-checkbox {
                 display: none;
             }

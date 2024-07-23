@@ -8,11 +8,11 @@ const Introduction = () => {
 
   useEffect(() => {
     let lastScrollTop =
-      window.pageYOffset || document.documentElement.scrollTop;
+      window.scrollY || document.documentElement.scrollTop;
 
     const handleScroll = () => {
       const currentScrollTop =
-        window.pageYOffset || document.documentElement.scrollTop;
+        window.scrollY || document.documentElement.scrollTop;
       setScrollDirection(currentScrollTop > lastScrollTop ? "down" : "up");
       lastScrollTop = currentScrollTop <= 0 ? 0 : currentScrollTop;
     };
