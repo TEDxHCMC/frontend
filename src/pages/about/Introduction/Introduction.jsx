@@ -7,8 +7,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 const Introduction = () => {
 
-    useEffect(() => {
-    // Create the GSAP animation
+  useEffect(() => {
     const animation = gsap.to(".text_container", {
       x: "100vw", // Adjust as necessary for the amount of movement
       duration: 10, // Adjust the duration for speed
@@ -30,38 +29,38 @@ const Introduction = () => {
       },
     });
   }, []);
-  
+
 
   return (
     <div>
-       <div className="text_container container flex justify-center items-center font-bold space-x-2 w-full mb-5 mt-[20px] 
+      <div className="text_container container flex justify-center items-center font-bold space-x-2 w-full mb-5 mt-[20px] 
                 sm:h-[50px] sm:mt-[30px] sm:mb-[25px] 
                 md:h-[72px] md:mt-[40px] md:mb-[30px] 
                 lg:h-[100px] lg:mt-[50px] lg:mb-[40px] 
                 xl:h-[156px] xl:mt-[20px] xl:mb-10">
         <img
-            className="h-[22px] mt-[5px] opacity-70 sm:h-[33px] sm:mt-[7.5px] md:h-[44px] md:mt-[10px] lg:h-[66px] lg:mt-[15px] xl:h-[88px] xl:mt-[20px]"
-            src="./assets/pattern/single-pattern/2-Pink.png"
-            alt="Pink image"
+          className="h-[22px] mt-[5px] opacity-70 sm:h-[33px] sm:mt-[7.5px] md:h-[44px] md:mt-[10px] lg:h-[66px] lg:mt-[15px] xl:h-[88px] xl:mt-[20px]"
+          src="./assets/pattern/single-pattern/2-Pink.png"
+          alt="Pink image"
         />
 
         <h1 className="text-[32px] sm:text-[48px] md:text-[64px] lg:text-[96px] xl:text-[128px]">XIN CHÀO HỒ CHÍ MINH!</h1>
         <img
-           className="h-[22px] mt-[5px] opacity-70 sm:h-[33px] sm:mt-[7.5px] md:h-[44px] md:mt-[10px] lg:h-[66px] lg:mt-[15px] xl:h-[88px] xl:mt-[20px]"
+          className="h-[22px] mt-[5px] opacity-70 sm:h-[33px] sm:mt-[7.5px] md:h-[44px] md:mt-[10px] lg:h-[66px] lg:mt-[15px] xl:h-[88px] xl:mt-[20px]"
           src="./assets/pattern/single-pattern/4-Yellow.png"
           alt="Yellow image"
         />
         <h1 className="text-[32px] sm:text-[48px] md:text-[64px] lg:text-[96px] xl:text-[128px]">HÉ LÔ SÀI GÒN!</h1>
 
         <img
-            className="h-[22px] mt-[5px] opacity-70 sm:h-[33px] sm:mt-[7.5px] md:h-[44px] md:mt-[10px] lg:h-[66px] lg:mt-[15px] xl:h-[88px] xl:mt-[20px]"
-            src="./assets/pattern/single-pattern/2-Pink.png"
-            alt="Pink image"
+          className="h-[22px] mt-[5px] opacity-70 sm:h-[33px] sm:mt-[7.5px] md:h-[44px] md:mt-[10px] lg:h-[66px] lg:mt-[15px] xl:h-[88px] xl:mt-[20px]"
+          src="./assets/pattern/single-pattern/2-Pink.png"
+          alt="Pink image"
         />
 
         <h1 className="text-[32px] sm:text-[48px] md:text-[64px] lg:text-[96px] xl:text-[128px]">XIN CHÀO HỒ CHÍ MINH!</h1>
         <img
-           className="h-[22px] mt-[5px] opacity-70 sm:h-[33px] sm:mt-[7.5px] md:h-[44px] md:mt-[10px] lg:h-[66px] lg:mt-[15px] xl:h-[88px] xl:mt-[20px]"
+          className="h-[22px] mt-[5px] opacity-70 sm:h-[33px] sm:mt-[7.5px] md:h-[44px] md:mt-[10px] lg:h-[66px] lg:mt-[15px] xl:h-[88px] xl:mt-[20px]"
           src="./assets/pattern/single-pattern/4-Yellow.png"
           alt="Yellow image"
         />
