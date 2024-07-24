@@ -34,7 +34,6 @@
     font-family: "Phudu Variable", system-ui;
     z-index: 10;
     transition: all 0.3s ease;
-    height: 64px;
     width: 100%;
     position: sticky !important;
     position: -webkit-sticky;
@@ -53,18 +52,45 @@
     font-weight: bold;
     color: white;
     transition: all 0.3s;
+    opacity: 0.5;
 
-    &:hover {
-        background-color: #ff002b;
-    }
+    // &:hover {
+    //     background-color: #ff002b;
+    // }
 }
 
 .mobile-nav {
     font-family: "Inter", sans-serif;
 
+    .cross-animate {
+        animation: flipY 300ms linear;
+    }
+
     .nav-animate {
         animation: slideUp 500ms ease-out;
         color: white;
+        
+        .item {
+            position: relative;
+            width: fit-content;
+
+            &:after {    
+                content: "";
+                height: 3px;
+                background: #c30121;
+                display: block;
+                margin-top: 10px;
+                position: absolute;
+                left: 0; 
+                bottom: -20;
+                transition: width 0.3s ease 0s, left 0.3s ease 0s;
+                width: 0;
+            }
+
+            &:hover:after { 
+                width: 100%; 
+            }
+        }
     }
 }
 
@@ -78,17 +104,22 @@
 @keyframes slideUp {
     0% {
         transform: translateY(10%);
-        opacity: 0;
-        visibility: hidden;
         color: black;
     }
     50% {
         color: rgb(166, 166, 166);
     }
     100% {
-        opacity: 100;
-        visibility: visible;
         transform: translateY(0%);
         color: white;
+    }
+}
+
+@keyframes flipY {
+    0% {
+        transform: rotateX(0deg)
+    }
+    100% {
+        transform: rotateX(180deg)
     }
 }

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import "./header.scss";
 import "animate.css";
 
@@ -17,6 +17,13 @@ const Header = () => {
     const handleNavbarToggle = () => {
         setIsOpened(!isOpened);
     };
+
+    const location = useLocation();
+
+    useEffect(() => {
+        // Reset state when location changes
+        setIsOpened(false);
+    }, [location]);
 
     //? HOVER ANIMATION IN HEADER
     // const handleMouseEnter = () => {
@@ -40,7 +47,7 @@ const Header = () => {
 
     return (
         <>
-            <nav className="top-nav hidden md:block lg:text-[22px] md:text-[18px]">
+            {/* <nav className="top-nav hidden md:block lg:text-[22px] md:text-[18px]">
                 <div className="flex w-full items-center">
                     <div className="logo w-1/3">
                         <Link to="/" className="py-1.5">
@@ -73,7 +80,7 @@ const Header = () => {
                                     </svg>
                                 </div>
                             </button>
-                            {/* {showDropdown && (
+                            {showDropdown && (
                             <div className="show-down-box absolute mt-3 p-2 overflow-hidden bg-black text-white ring-1 ring-gray-900/5">
                                 <div className="p-4">
                                     <div className="group flex flex-col gap-x-6 p-4">
@@ -98,7 +105,7 @@ const Header = () => {
                                     </div>
                                 </div>
                             </div>
-                            )} */}
+                            )}
                         </div>
                         <Link to="/" className="item text-gray-900">
                             Thông tin Event
@@ -109,48 +116,48 @@ const Header = () => {
                     </div>
                     <div className="hidden lg:block w-1/3"></div>
                 </div>
-            </nav>
+            </nav> */}
             <nav
-                className={`bottom-nav px-5 md:mx-auto items-center flex md:justify-center justify-between lg:text-[22px] md:text-[18px] text-[14px] lg:px-8 lg:space-x-16 md:space-x-10 text-gray-500  bg-white`}
+                className={`bottom-nav md:h-[72px] h-[62px] px-5 md:mx-auto items-center flex justify-between lg:text-[22px] md:text-[18px] text-[14px] lg:px-8 lg:space-x-16 md:space-x-10 text-gray-500  bg-white`}
             >
                 <div className="logo flex justify-center items-center">
                     <Link
                         to="/"
                         className="lg:text-[25px] md:text-[20px] transition-all ease-in duration-200 hover:text-gray-900 hover:font-bold"
                     >
-                        <h3 className="hidden md:block font-semibold">
+                        {/* <h3 className="hidden md:block font-semibold">
                             TEDxHOCHIMINHCITY
                             <span className="font-light">2024</span>
-                        </h3>
+                        </h3> */}
                         <img
-                            className="md:hidden block h-5 w-auto"
+                            className="md:h-7 h-5 w-auto"
                             src="./assets/logo/TEDx-logo/TEDx-Black-Short.png"
                         />
                     </Link>
                 </div>
                 {/* <div className="hidden lg:block second-box"></div> */}
                 <div className="bottom-items flex items-center justify-center lg:gap-x-16 md:gap-x-10 gap-x-2 text-nowrap">
-                    <Link
+                    {/* <Link
                         to="speakers"
                         className="hidden md:block transition-all ease-in duration-200 font-semibold hover:font-bold hover:text-gray-900"
                     >
                         DIỄN GIẢ
-                    </Link>
+                    </Link> */}
                     <div
                         className="flex items-center"
                         // onMouseEnter={handleMouseEnter}
                         // onMouseLeave={handleMouseLeave}
                         // onMouseMove={handleMouseMove}
                     >
-                        <div className="hidden sm:flex justify-center">
+                        {/* <div className="hidden sm:flex justify-center">
                             <Link to="/">
                                 <img
-                                    className="block relative h-7 object-contain md:translate-x-0 -translate-x-1/2"
+                                    className="block relative h-7 object-contain -translate-x-1/2"
                                     src="./assets/logo/to-tuong-logo/To-tuong-logo-black.png"
                                     alt="TEDX Logo"
                                 />
                             </Link>
-                        </div>
+                        </div> */}
                         {/* {showCircle && (
                             <div
                                 className="circle"
@@ -161,52 +168,51 @@ const Header = () => {
                             ></div>
                         )} */}
                     </div>
-                    <Link
+                    {/* <Link
                         to="#"
                         className="hidden md:block transition-all ease-in duration-200 font-semibold hover:font-bold hover:text-gray-900"
                     >
                         ĐỊA ĐIỂM
-                    </Link>
+                    </Link> */}
                 </div>
                 <div className="bottom-button flex justify-center items-center">
-                    <button
+                    {/* <button
                         className={`ticket-button hidden md:block text-nowrap px-5 py-2 rounded-sm`}
                     >
                         ĐĂNG KÍ VÉ
-                    </button>
-                    <button className="md:hidden" onClick={handleNavbarToggle}>
+                    </button> */}
+                    <button className="" onClick={handleNavbarToggle}>
                         <i className="fa-sharp fa-regular fa-bars text-[22px] transition-all duration-300 text-[#c30121] hover:text-[#ff002b]"></i>
                     </button>
                 </div>
             </nav>
-            <div className={`mobile-nav ${isOpened ? "opacity-100 visible" : "opacity-0 invisible"} bg-[#262626] fixed inset-0 transition-all duration-300 h-screen w-full z-[100] px-5 py-5`}>
-                <div className={`flex justify-between items-center mb-10`}>
+            <div className={`mobile-nav ${isOpened ? "opacity-100 visible" : "opacity-0 invisible"} bg-[#262626] fixed inset-0 transition-all duration-300 h-screen w-full z-[100] lg:px-8 px-5`}>
+                <div className={`flex justify-between items-center md:h-[72px] h-[62px] mb-10`}>
                     <div className="logo min-w-min">
                         <Link to="/" className="inline-block">
                             <img
-                                className="block h-5 w-auto"
+                                className="block md:h-7 h-5 w-auto"
                                 src="./assets/logo/TEDx-logo/TEDx-White-Short.png"
                             />
                         </Link>
                     </div>
-                    <button className="" onClick={handleNavbarToggle}>
+                    <button className={`${isOpened ? "cross-animate" : ""}`} onClick={handleNavbarToggle}>
                         <i className="fa-sharp fa-regular fa-x text-[20px] transition-all duration-300 text-[#c30121] hover:text-[#ff002b]"></i>
                     </button>
                 </div>
-                <div className={`${isOpened ? "nav-animate" : ""} flex flex-col justify-center font-thin text-[20px] gap-y-5 mb-10`}>
-                    <Link to="/" className="item uppercase">
+                <div className={`${isOpened ? "nav-animate" : ""} flex flex-col justify-center font-thin md:text-[25px] md:gap-y-7 gap-y-5 mb-12 ms-1`}>
+                    <Link to="/" className="uppercase text-gray-400">
                         Diễn giả
                     </Link>
-                    <Link to="about" className="item uppercase">
+                    <Link to="/" className="uppercase text-gray-400">
                         Thông tin Event
                     </Link>
                     <Link to="about" className="item uppercase">
                         Về chúng tôi
                     </Link>
-                    
                 </div>
-                <button
-                    className={`${isOpened ? "nav-animate" : ""} ticket-button text-nowrap px-5 py-2 rounded-sm`}
+                <button disabled
+                    className={`${isOpened ? "nav-animate" : ""} ticket-button md:text-[25px] text-[22px] text-nowrap px-7 py-3 ms-1 rounded-sm`}
                 >
                     ĐĂNG KÍ VÉ
                 </button>
