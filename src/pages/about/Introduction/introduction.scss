@@ -13,6 +13,12 @@
 
 }
 
+.text_container {
+  display: flex;
+  white-space: nowrap; 
+}
+
+
 
 /* Keyframes for sliding left */
 @keyframes slideLeft {
