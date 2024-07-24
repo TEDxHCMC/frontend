@@ -6,12 +6,12 @@ import GroupImages from './GroupImages/GroupImages';
 
 const About = () => {
   return (
-    <div className="">
+    <main className="about">
         <Video />
-        <Introduction />
+        {/* <Introduction /> */}
         <BoxTedx />
         <GroupImages />
-    </div>
+    </main>
   );
 };
 
