@@ -1,9 +1,7 @@
 
 .page-2-content {
     font-family: 'Platypi Variable', serif;
-    transform: translate(-50%, -50%);
-
-
+    // transform: translate(-50%, -50%);
 }
 
 .text-container{
@@ -13,6 +11,17 @@
 
 .dissolve-effect {
     animation: dissolve 5s forwards;
+}
+
+.second-text {
+
+    @media screen and (min-width: 1700px) {
+        left: 30% !important;
+    }
+
+    @media screen and (min-width: 1600px) {
+        left: 22% !important;
+    }
 }
 
 @keyframes dissolve {
