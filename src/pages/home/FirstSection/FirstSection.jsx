@@ -6,7 +6,7 @@ import 'animate.css';
 
 const FirstSection = () => {
     const textContainerRef = useRef(null);
-    const [gridConfig, setGridConfig] = useState({ cols: 16, rows: 9, gutter: 24 });
+    const [gridConfig, setGridConfig] = useState({ cols: 16, rows: 9, gutter: 1 });
 
     const updateGridConfig = () => {
         const width = window.innerWidth;
@@ -14,11 +14,11 @@ const FirstSection = () => {
         
         const colSize = 78; // Width and height of each column
         const gutterSizes = {
-            large: 24,
-            mediumLarge: 16,
-            medium: 12,
-            small: 8,
-            verySmall: 4,
+            large: 1,
+            mediumLarge: 1,
+            medium: 1,
+            small: 1,
+            verySmall: 0,
         };
     
         let gutter;
@@ -168,20 +168,23 @@ const FirstSection = () => {
                     ))}
                 </Row>
             ))}
-            <div className="page-1-content absolute top-2/4 bottom-2/4 z-[1] text-center text-[40px]" ref={dissolveRef}>
+            <div ref={dissolveRef} className="page-1-content absolute top-2/4 bottom-2/4 z-[1] text-center 
+            text-[28px] sm:text-[30px] md:text-[35px] lg:text-[40px] xl:text-[40px] " 
+                
+            >
                     Liệu bạn đã nhìn đủ...
                 </div>
-                <div className="content-interaction absolute z-[2] text-[50px] sm:text-[80px] md:text-[100px] lg:text-[120px] xl:text-[125px]  w-full">
+                <div className="content-interaction absolute z-[2] text-[45px] sm:text-[60px] md:text-[75px] lg:text-[100px] xl:text-[115px]  w-full">
                     <div className="text-position-1 absolute bottom-[50px] left-[60%]">
                         <h2 onClick={scrollToContent}>lâu?</h2>
                     </div>
                     <div className="text-position-2 absolute w-full bottom-[20px] left-[10%]">
                         <h2 onClick={scrollToContent}>kĩ càng?</h2>
                     </div>
-                    <div className="text-position-3 absolute right-[20%]">
+                    <div className="text-position-3 absolute top-[40px] right-[20%]">
                         <h2 onClick={scrollToContent}>rõ?</h2>
                     </div>
-                    <div className="text-position-4 absolute top-[30px] left-[15%]">
+                    <div className="text-position-4 absolute top-[30px] left-[20%]">
                         <h2 onClick={scrollToContent}>sâu?</h2>
                     </div>
                     <div className="text-position-5 absolute top-[120px] left-[30%] w-full">

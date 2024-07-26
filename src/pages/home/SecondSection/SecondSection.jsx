@@ -9,7 +9,7 @@ const SecondSection = () => {
     const dissolveRef = useRef(null);
     const constraintsRef = useRef(null);
 
-    const [gridConfig, setGridConfig] = useState({ cols: 16, rows: 9, gutter: 24 });
+    const [gridConfig, setGridConfig] = useState({ cols: 16, rows: 9, gutter: 1 });
 
     const updateGridConfig = () => {
         const width = window.innerWidth;
@@ -17,11 +17,11 @@ const SecondSection = () => {
 
         const colSize = 78; // Width and height of each column
         const gutterSizes = {
-            large: 24,
-            mediumLarge: 16,
-            medium: 12,
-            small: 8,
-            verySmall: 4,
+            large: 1,
+            mediumLarge: 1,
+            medium: 1,
+            small: 1,
+            verySmall: 0,
         };
 
         let gutter;
@@ -228,12 +228,14 @@ const SecondSection = () => {
                             className="second-text flex justify-center flex-col absolute top-[65%] left-[15%]"
                             imgSrc='./assets/logo/to-tuong-logo/To-tuong-logo-black.png'
                             text="MỞ LÒNG VỚI THỰC TẠI"
-                            imgWidth='492px'
-                            textSize='text-[34px] pl-2'
+                            imgWidth='w-[392px] sm:w-[492px] md:w-[492px] lg:w-[492px] xl:w-[492px] '
+                            textSize='text-[15px] sm:text-[20px] md:text-[25px] lg:text-[30px] xl:text-[34px]   pl-2'
                         />
                     </div>
 
-                    <p className='pt-4 tracking-wide leading-[33px] text-[25px]'>"Tỏ tường: Mở lòng với thực tại" là chương trình mùa đầu tiên của TEDxHoChiMinhCity, mang đến những câu chuyện truyền cảm hứng từ các diễn giả tài năng thuộc nhiều lĩnh vực. Các bạn trẻ sẽ được khám phá thế giới từ nhiều góc nhìn, quan điểm khác nhau; đồng thời thấu hiểu và đối mặt với thực tại một cách chân thật nhất.</p>
+                    <p className="pt-4 tracking-wide leading-[33px] 
+                                  text-[15px] sm:text-[20px] md:text-[23px] lg:text-[25px] xl:text-[25px]">
+                        "Tỏ tường: Mở lòng với thực tại" là chương trình mùa đầu tiên của TEDxHoChiMinhCity, mang đến những câu chuyện truyền cảm hứng từ các diễn giả tài năng thuộc nhiều lĩnh vực. Các bạn trẻ sẽ được khám phá thế giới từ nhiều góc nhìn, quan điểm khác nhau; đồng thời thấu hiểu và đối mặt với thực tại một cách chân thật nhất.</p>
                 </div>
             </div>
 
