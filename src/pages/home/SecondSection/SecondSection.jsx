@@ -67,7 +67,7 @@ const SecondSection = () => {
         );
     };
     return (
-        <section>
+        <section className="overflow-x-hidden">
             <div
                 id="scroll-content"
                 className="page-2-bg h-[100vh] bg-transparent relative"

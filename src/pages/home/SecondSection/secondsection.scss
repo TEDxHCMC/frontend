@@ -1,7 +1,11 @@
 
 .page-2-content {
     font-family: 'Platypi Variable', serif;
-    // transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+
+    .second-text{
+        transform: translate(-50%, -50%);
+    }
 }
 
 .text-container{
