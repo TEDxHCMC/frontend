@@ -118,7 +118,7 @@ const Header = () => {
                 </div>
             </nav> */}
             <nav
-                className={`bottom-nav md:h-[72px] h-[62px] px-5 md:mx-auto items-center flex justify-between lg:text-[22px] md:text-[18px] text-[14px] lg:px-8 lg:space-x-16 md:space-x-10 text-gray-500  bg-white`}
+                className={`bottom-nav lg:h-[82px] md:h-[72px] h-[62px] px-5 items-center flex justify-between lg:text-[22px] md:text-[18px] text-[14px] lg:px-8 lg:space-x-16 md:space-x-10 text-gray-500  bg-white`}
             >
                 <div className="logo flex justify-center items-center">
                     <Link
@@ -130,119 +130,29 @@ const Header = () => {
                             <span className="font-light">2024</span>
                         </h3> */}
                         <img
-                            className="md:h-7 h-5 w-auto"
+                            className="md:h-9 h-5 w-auto"
                             src="./assets/logo/TEDx-logo/TEDx-Black-Short.png"
                         />
                     </Link>
                 </div>
                 {/* <div className="hidden lg:block second-box"></div> */}
-                <div className="bottom-items flex items-center justify-center lg:gap-x-16 md:gap-x-10 gap-x-2 text-nowrap">
-                    {/* <Link
+                {/* <div className="bottom-items flex items-center justify-center lg:gap-x-16 md:gap-x-10 gap-x-2 text-nowrap">
+                    <Link
                         to="speakers"
                         className="hidden md:block transition-all ease-in duration-200 font-semibold hover:font-bold hover:text-gray-900"
                     >
                         DIỄN GIẢ
-                    </Link> */}
+                    </Link>
                     <div
                         className="flex items-center"
                         // onMouseEnter={handleMouseEnter}
                         // onMouseLeave={handleMouseLeave}
                         // onMouseMove={handleMouseMove}
                     >
-                        {/* <div className="hidden sm:flex justify-center">
+                        <div className="hidden sm:flex justify-center">
                             <Link to="/">
                                 <img
                                     className="block relative h-7 object-contain -translate-x-1/2"
-                                    src="./assets/logo/to-tuong-logo/To-tuong-logo-black.png"
-                                    alt="TEDX Logo"
-                                />
-                            </Link>
-                        </div> */}
-                        {/* {showCircle && (
-                            <div
-                                className="circle"
-                                style={{
-                                    left: circlePosition.x,
-                                    top: circlePosition.y,
-                                }}
-                            ></div>
-                        )} */}
-                    </div>
-                    {/* <Link
-                        to="#"
-                        className="hidden md:block transition-all ease-in duration-200 font-semibold hover:font-bold hover:text-gray-900"
-                    >
-                        ĐỊA ĐIỂM
-                    </Link> */}
-                </div>
-                <div className="bottom-button flex justify-center items-center">
-                    {/* <button
-                        className={`ticket-button hidden md:block text-nowrap px-5 py-2 rounded-sm`}
-                    >
-                        ĐĂNG KÍ VÉ
-                    </button> */}
-                    <button className="" onClick={handleNavbarToggle}>
-                        <i className="fa-sharp fa-regular fa-bars text-[22px] transition-all duration-300 text-[#c30121] hover:text-[#ff002b]"></i>
-                    </button>
-                </div>
-            </nav>
-            <div className={`mobile-nav ${isOpened ? "opacity-100 visible" : "opacity-0 invisible"} bg-[#262626] fixed inset-0 transition-all duration-300 h-screen w-full z-[100] lg:px-8 px-5`}>
-                <div className={`flex justify-between items-center md:h-[72px] h-[62px] mb-10`}>
-                    <div className="logo min-w-min">
-                        <Link to="/" className="inline-block">
-                            <img
-                                className="block md:h-7 h-5 w-auto"
-                                src="./assets/logo/TEDx-logo/TEDx-White-Short.png"
-                            />
-                        </Link>
-                    </div>
-                    <button className={`${isOpened ? "cross-animate" : ""}`} onClick={handleNavbarToggle}>
-                        <i className="fa-sharp fa-regular fa-x text-[20px] transition-all duration-300 text-[#c30121] hover:text-[#ff002b]"></i>
-                    </button>
-                </div>
-                <div className={`${isOpened ? "nav-animate" : ""} flex flex-col justify-center font-thin md:text-[25px] md:gap-y-7 gap-y-5 mb-12 ms-1`}>
-                    <Link to="/" className="uppercase text-gray-400">
-                        Diễn giả
-                    </Link>
-                    <Link to="/" className="uppercase text-gray-400">
-                        Thông tin Event
-                    </Link>
-                    <Link to="about" className="item uppercase">
-                        Về chúng tôi
-                    </Link>
-                </div>
-                <button disabled
-                    className={`${isOpened ? "nav-animate" : ""} ticket-button md:text-[25px] text-[22px] text-nowrap px-7 py-3 ms-1 rounded-sm`}
-                >
-                    ĐĂNG KÍ VÉ
-                </button>
-            </div>
-            {/* <nav
-                className={`sticky-nav ${
-                    isSticky && "sticky-scroll"
-                } sticky top-0 mx-auto flex items-center justify-center lg:px-8 space-x-16`}
-            >
-                <div className="first-box flex items-center justify-center">
-                    <Link to="/" className="space-x-4">
-                        <img
-                            className="h-7 w-auto"
-                            src="./assets/logo/TEDx-logo/TEDx-Black-Short.png"
-                        />
-                    </Link>
-                </div>
-                <div className="second-box"></div>
-                <div className="third-box flex space-x-16 items-center justify-center">
-                    <Link to="about">VỀ CHÚNG TÔI</Link>
-                    <div
-                        className="flex flex-shrink-0 items-center"
-                        // onMouseEnter={handleMouseEnter}
-                        // onMouseLeave={handleMouseLeave}
-                        // onMouseMove={handleMouseMove}
-                    >
-                        <div className="image-container">
-                            <Link to="/">
-                                <img
-                                    className="h-7 w-auto"
                                     src="./assets/logo/to-tuong-logo/To-tuong-logo-black.png"
                                     alt="TEDX Logo"
                                 />
@@ -258,12 +168,62 @@ const Header = () => {
                             ></div>
                         )}
                     </div>
-                    <Link to="#">ĐỊA ĐIỂM</Link>
-                    <div className="four-box flex justify-center items-center pl-10">
-                        <button className={`ticket-button`}>ĐĂNG KÍ VÉ</button>
-                    </div>
+                    <Link
+                        to="#"
+                        className="hidden md:block transition-all ease-in duration-200 font-semibold hover:font-bold hover:text-gray-900"
+                    >
+                        ĐỊA ĐIỂM
+                    </Link>
+                </div> */}
+                <Link to="/" className="hidden lg:block m-0">
+                    <img
+                        className="block relative -translate-x-full h-10 object-contain"
+                        src="./assets/logo/to-tuong-logo/To-tuong-logo-black.png"
+                        alt="TEDX Logo"
+                    />
+                </Link>
+                <div className="bottom-button flex justify-center items-center">
+                    {/* <button
+                        className={`ticket-button hidden md:block text-nowrap px-5 py-2 rounded-sm`}
+                    >
+                        ĐĂNG KÍ VÉ
+                    </button> */}
+                    <button className="" onClick={handleNavbarToggle}>
+                        <i className="fa-sharp fa-regular fa-bars text-[22px] transition-all duration-300 text-[#c30121] hover:text-[#ff002b]"></i>
+                    </button>
                 </div>
-            </nav> */}
+            </nav>
+            <div className={`mobile-nav ${isOpened ? "opacity-100 visible" : "opacity-0 invisible"} bg-[#262626] fixed inset-0 transition-all duration-300 h-screen w-full z-[100] lg:px-8 px-5 lg:pt-2 md:pt-1 md:px-6`}>
+                <div className={`flex justify-between items-center md:h-[72px] h-[62px] md:mb-10 mb-5`}>
+                    <div className="logo min-w-min">
+                        <Link to="/" className="inline-block">
+                            <img
+                                className="block lg:h-10 md:h-9 h-5 w-auto"
+                                src="./assets/logo/TEDx-logo/TEDx-White-Short.png"
+                            />
+                        </Link>
+                    </div>
+                    <button className={`${isOpened ? "cross-animate" : ""}`} onClick={handleNavbarToggle}>
+                        <i className="fa-sharp fa-regular fa-x text-[20px] transition-all duration-300 text-[#c30121] hover:text-[#ff002b]"></i>
+                    </button>
+                </div>
+                <div className={`${isOpened ? "nav-animate" : ""} flex flex-col justify-center font-thin lg:text-[35px] md:text-[25px] lg:gap-y-10 md:gap-y-7 gap-y-5 mb-12 ms-1`}>
+                    <Link to="/" className="uppercase text-gray-400">
+                        Diễn giả
+                    </Link>
+                    <Link to="/" className="uppercase text-gray-400">
+                        Thông tin Event
+                    </Link>
+                    <Link to="about" className="item uppercase">
+                        Về chúng tôi
+                    </Link>
+                </div>
+                <button disabled
+                    className={`${isOpened ? "nav-animate" : ""} ticket-button text-center lg:text-[35px] md:text-[25px] text-[22px] px-7 py-3 rounded-sm`}
+                >
+                    ĐĂNG KÍ VÉ
+                </button>
+            </div>
         </>
     );
 };
