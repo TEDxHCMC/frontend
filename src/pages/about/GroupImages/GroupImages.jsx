@@ -79,7 +79,7 @@ const GroupImages = () => {
     }, [imageFileNames]);
 
     return (
-        <section className="members" ref={ref}>
+        <section className="members mt-7" ref={ref}>
             <h3 className="text-[54px] text-center font-bold">BIỆT ĐỘI TEDX</h3>
             <div className="px-4 mt-8 relative h-[801px] overflow-hidden">
                 <div

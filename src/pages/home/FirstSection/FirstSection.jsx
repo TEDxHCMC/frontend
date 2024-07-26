@@ -1,12 +1,10 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { Col, Row } from 'antd';
-import { motion, useScroll, useSpring, useTransform, MotionValue } from 'framer-motion';
 import './firstsection.scss';
 import 'animate.css';
 
-
 const FirstSection = () => {
     const textContainerRef = useRef(null);
+  
 
     useEffect(() => {
         const handleScroll = () => {
@@ -15,7 +13,7 @@ const FirstSection = () => {
                 const windowHeight = window.innerHeight;
 
                 // Trigger scroll animation when container is in view
-                if (textContainerTop < windowHeight * 0.5) { // Adjust threshold as needed
+                if (textContainerTop < windowHeight * 0.5) {
                     setScrollTriggered(true);
                 }
             }
@@ -63,96 +61,52 @@ const FirstSection = () => {
         };
     }, []);
 
-    const colStyle = {
-        width: '157px',
-        height: '157px',
-        border: '0.5px solid #ccc',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-    };
-
     return (
-        <div>
-            <div className='page-1 relative grid place-items-center'>
-                <Row gutter={[8, 8]}>
-                    {[...Array(8)].map((_, index) => (
-                        <Col key={index} style={colStyle}>
-                        </Col>
-                    ))}
-                </Row>
-                <Row gutter={[8, 8]}>
-                    {[...Array(8)].map((_, index) => (
-                        <Col key={index} style={colStyle}>
-                        </Col>
-                    ))}
-                </Row>
-                <Row gutter={[8, 8]}>
-                    {[...Array(8)].map((_, index) => (
-                        <Col key={index} style={colStyle}>
-                            {index === 2 && (
-                                <img
-                                    src="./assets/pattern/overlay-pattern/7.jpg"
-                                    style={{ width: '100%', height: 'auto' }}
-                                />
-                            )}
-                        </Col>
-                    ))}
-                </Row>
-                <Row gutter={[8, 8]}>
-                    {[...Array(8)].map((_, index) => (
-                        <Col key={index} style={colStyle}>
-                            {index === 0 && (
-                                <img
-                                    src="./assets/pattern/single-pattern/4-Blue.png"
-                                    style={{ transform: 'scale(1.28)', width: '100%', height: 'auto' }}
-                                />
-                            )}
-                            {index === 5 && (
-                                <img
-                                    src="./assets/pattern/single-pattern/4-Green.png"
-                                    style={{ transform: 'scale(1.28)', width: '100%', height: 'auto' }}
-                                />
-                            )}
-                        </Col>
-                    ))}
-                </Row>
-                <Row gutter={[8, 8]}>
-                    {[...Array(8)].map((_, index) => (
-                        <Col key={index} style={colStyle}>
-                            {index === 7 && (
-                                <img
-                                    src="./assets/pattern/single-pattern/3-Yellow.png"
-                                    style={{ transform: 'scale(1.28)', width: '100%', height: 'auto' }}
-                                />
-                            )}
-                        </Col>
-                    ))}
-                </Row>
-                <div className='page-1-content absolute top-2/4 bottom-2/4 z-[1] text-center text-[40px]' ref={dissolveRef}>
-                    Liệu bạn đã nhìn đủ...
-
-                </div>
-                
-                <div className='content-interaction absolute z-[2] text-[135px] w-full'>
-                    <div className='text-position-1 absolute bottom-[50px] left-[60%]'>
-                        <h2 onClick={scrollToContent}>lâu?</h2>
-                    </div>
-                    <div className='text-position-2 absolute w-full bottom-[20px] left-[10%]'>
-                        <h2 onClick={scrollToContent}>kĩ càng?</h2>
-                    </div>
-                    <div className='text-position-3 absolute right-[20%]'>
-                        <h2 onClick={scrollToContent}>rõ?</h2>
-                    </div>
-                    <div className='text-position-4 absolute top-[30px] left-[15%]'>
-                        <h2 onClick={scrollToContent}>sâu?</h2>
-                    </div>
-                    <div className='text-position-5 absolute top-[120px] left-[30%] w-full'>
-                        <h2 onClick={scrollToContent}>tường tận?</h2>
-                    </div>
-                </div>
-
+        <div className='page-1 flex relative place-items-center h-screen'>
+            <div className='page-1-bg inset-0'>
+                <img className='absolute top-[57%] left-[30%] h-auto
+                                w-[65px] sm:w-[78px] md:w-[85px] lg:w-[95px] xl:w-[100px]'
+                    src="./assets/pattern/overlay-pattern/7.jpg"
+                />
+                <img className='absolute bottom-[25%] left-[10%] h-auto
+                w-[65px] sm:w-[78px] md:w-[85px] lg:w-[95px] xl:w-[100px]'
+                    src="./assets/pattern/single-pattern/4-Blue.png"
+                    style={{ transform: 'scale(1.28)'}}
+                />
+                <img className='absolute top-[70%] right-[30%] h-auto
+                w-[65px] sm:w-[78px] md:w-[85px] lg:w-[95px] xl:w-[100px]'
+                    src="./assets/pattern/single-pattern/4-Green.png"
+                    style={{ transform: 'scale(1.28)'}}
+                />
+                <img className='absolute top-[30%] right-[20%] h-auto
+                w-[65px] sm:w-[78px] md:w-[85px] lg:w-[95px] xl:w-[100px]'
+                    src="./assets/pattern/single-pattern/3-Yellow.png"
+                    style={{ transform: 'scale(1.28)'}}
+                />
             </div>
+
+            <div ref={dissolveRef} className="page-1-content absolute top-2/4 bottom-2/4 z-[1] text-center h-auto w-full 
+            text-[28px] sm:text-[30px] md:text-[35px] lg:text-[40px] xl:text-[40px] ">
+                Liệu bạn đã nhìn đủ...
+            </div>
+            <div className="content-interaction w-full h-full absolute z-[2] text-[45px] sm:text-[60px] md:text-[75px] lg:text-[100px] xl:text-[115px]">
+            <div className="text-position-1 absolute top-[35%] left-[20%] whitespace-nowrap">
+                <h2 onClick={scrollToContent}>lâu?</h2>
+            </div>
+            <div className="text-position-2 absolute top-[35%] right-[10%] whitespace-nowrap">
+                <h2 onClick={scrollToContent}>kĩ càng?</h2>
+            </div>
+            <div className="text-position-3 absolute bottom-[30%] right-[20%] whitespace-nowrap">
+                <h2 onClick={scrollToContent}>rõ?</h2>
+            </div>
+            <div className="text-position-4 absolute bottom-[15%] right-[30%] whitespace-nowrap">
+                <h2 onClick={scrollToContent}>sâu?</h2>
+            </div>
+            <div className="text-position-5 absolute bottom-[30%] left-[10%] whitespace-nowrap">
+                <h2 onClick={scrollToContent}>tường tận?</h2>
+            </div>
+</div>
+
         </div>
     );
 };
