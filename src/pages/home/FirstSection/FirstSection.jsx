@@ -95,7 +95,7 @@ const FirstSection = () => {
             <div
                 ref={dissolveRef}
                 className="page-1-content absolute top-2/4 bottom-2/4 z-[1] text-center h-auto w-full 
-            text-[28px] sm:text-[30px] md:text-[35px] lg:text-[40px] xl:text-[40px] "
+            text-[25px] sm:text-[30px] md:text-[35px] lg:text-[40px] xl:text-[40px] "
             >
                 Liệu bạn đã nhìn đủ...
             </div>

@@ -4,7 +4,7 @@ import SecondSection from './SecondSection'
 
 const Home = () => {
     return (
-        <div className="">
+        <div className="overflow-x-hidden">
             <FirstSection/>
             <SecondSection/>
         </div>

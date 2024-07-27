@@ -120,7 +120,7 @@ const SecondSection = () => {
                     style={{ transform: 'scale(1.28)' }}
                 />
 
-                <div className="page-2-content block absolute top-[65%] left-2/4 z-[1]">
+                <div className="page-2-content block absolute top-[65%] left-1/2 z-[1]">
                     <div ref={dissolveRef} className="pb-4">
                         <TextSection
                             className="second-text flex justify-center flex-col absolute top-[65%] left-[15%]
@@ -132,7 +132,7 @@ const SecondSection = () => {
                         />
                     </div>
 
-                    <p className="pt-4 relative md:-translate-y-0 sm:-translate-y-1/3 -translate-y-1/2 tracking-wide mx-auto md:leading-[33px] leading-[20px] text-[12px] sm:text-[20px] md:text-[23px] lg:text-[25px]">
+                    <p className="pt-4 relative md:-translate-y-0 sm:-translate-y-[40%] -translate-y-1/2 tracking-wide mx-auto md:leading-[33px] leading-[20px] text-[12px] sm:text-[18px] md:text-[23px] lg:text-[25px]">
                         "Tỏ tường: Mở lòng với thực tại" là chương trình mùa đầu tiên của TEDxHoChiMinhCity, mang đến những câu chuyện truyền cảm hứng từ các diễn giả tài năng thuộc nhiều lĩnh vực. Các bạn trẻ sẽ được khám phá thế giới từ nhiều góc nhìn, quan điểm khác nhau; đồng thời thấu hiểu và đối mặt với thực tại một cách chân thật nhất.</p>
                 </div>
             </div>
@@ -216,7 +216,7 @@ const SecondSection = () => {
                     >
                     </motion.div>
                     <motion.div
-                        className="box-3 absolute top-[60%] left-[45%] h-[118.5px] w-[118.5px] flex justify-center items-center"
+                        className="box-3 absolute top-[60%] left-[45%] md:h-[118.5px] md:w-[118.5px] h-[85px] w-[85px] flex justify-center items-center"
                         drag
                         dragConstraints={constraintsRef}
                         dragElastic={0.5}
@@ -224,7 +224,7 @@ const SecondSection = () => {
                     >
                     </motion.div>
                     <motion.div
-                        className="box-4 absolute top-2/4 left-[55%] h-[118.5px] w-[118.5px] flex justify-center items-center"
+                        className="box-4 absolute top-2/4 left-[55%] md:h-[118.5px] md:w-[118.5px] h-[85px] w-[85px] flex justify-center items-center"
                         drag
                         dragConstraints={constraintsRef}
                         dragElastic={0.5}

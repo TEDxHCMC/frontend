@@ -207,22 +207,22 @@ const Header = () => {
                         <i className="fa-sharp fa-regular fa-x text-[20px] transition-all duration-300 text-[#c30121] hover:text-[#ff002b]"></i>
                     </button>
                 </div>
-                <div className={`${isOpened ? "nav-animate" : ""} flex flex-col justify-center font-thin lg:text-[35px] md:text-[25px] lg:gap-y-10 md:gap-y-7 gap-y-5 mb-12 ms-1`}>
-                    <Link to="/" className="uppercase text-gray-400">
+                <div className={`${isOpened ? "nav-animate" : ""} flex flex-col justify-center font-thin md:text-[25px] lg:gap-y-10 md:gap-y-7 gap-y-5 mb-12 ms-1`}>
+                    {/* <Link to="/" className="uppercase text-gray-400">
                         Diễn giả
-                    </Link>
-                    <Link to="/" className="uppercase text-gray-400">
+                    </Link> */}
+                    {/* <Link to="/" className="uppercase text-gray-400">
                         Thông tin Event
-                    </Link>
+                    </Link> */}
                     <Link to="about" className="item uppercase">
                         Về chúng tôi
                     </Link>
                 </div>
-                <button disabled
+                {/* <button disabled
                     className={`${isOpened ? "nav-animate" : ""} ticket-button text-center lg:text-[35px] md:text-[25px] text-[22px] px-7 py-3 rounded-sm`}
                 >
                     ĐĂNG KÍ VÉ
-                </button>
+                </button> */}
             </div>
         </>
     );
