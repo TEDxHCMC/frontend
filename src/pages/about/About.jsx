@@ -8,7 +8,7 @@ const About = () => {
   return (
     <main className="about">
         <Video />
-        {/* <Introduction /> */}
+        <Introduction />
         <BoxTedx />
         <GroupImages />
     </main>
