@@ -216,7 +216,7 @@ const SecondSection = () => {
                     >
                     </motion.div>
                     <motion.div
-                        className="box-3 absolute top-[60%] left-[45%] md:h-[118.5px] md:w-[118.5px] h-[85px] w-[85px] flex justify-center items-center"
+                        className="box-3 absolute top-[60%] left-[45%] h-[118.5px] w-[118.5px] flex justify-center items-center"
                         drag
                         dragConstraints={constraintsRef}
                         dragElastic={0.5}
@@ -224,7 +224,7 @@ const SecondSection = () => {
                     >
                     </motion.div>
                     <motion.div
-                        className="box-4 absolute top-2/4 left-[55%] md:h-[118.5px] md:w-[118.5px] h-[85px] w-[85px] flex justify-center items-center"
+                        className="box-4 absolute top-2/4 left-[55%] h-[118.5px] w-[118.5px] flex justify-center items-center"
                         drag
                         dragConstraints={constraintsRef}
                         dragElastic={0.5}
