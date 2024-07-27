@@ -61,11 +61,11 @@ const SecondSection = () => {
     return (
         <div>
             <div id="scroll-content" className="page-2-bg h-[100vh] bg-transparent relative grid place-items-center">
-                <img className='absolute top-[0%] right-[30%] h-auto
+                <img className='absolute md:block hidden top-[0%] right-[30%] h-auto
                                 w-[65px] sm:w-[78px] md:w-[85px] lg:w-[95px] xl:w-[100px]'
                     src="./assets/pattern/overlay-pattern/4.png"
                 />
-                <img className='absolute top-[0%] left-[30%] h-auto
+                <img className='absolute md:block hidden top-[0%] left-[30%] h-auto
                                 w-[65px] sm:w-[78px] md:w-[85px] lg:w-[95px] xl:w-[100px]'
                     src="./assets/pattern/overlay-pattern/3.png"
                 />
@@ -74,13 +74,13 @@ const SecondSection = () => {
                     src="./assets/pattern/overlay-pattern/1.png"
                 />
 
-                <img className='absolute top-[15%] left-[15%] h-auto
+                <img className='absolute md:block hidden top-[15%] left-[15%] h-auto
                                 w-[65px] sm:w-[78px] md:w-[85px] lg:w-[95px] xl:w-[100px]'
                     src="./assets/pattern/single-pattern/4-Yellow.png"
                     style={{ transform: 'scale(1.28)' }}
                 />
 
-                <img className='absolute top-[15%] right-[5%] h-auto
+                <img className='absolute md:block hidden top-[15%] right-[5%] h-auto
                                 w-[65px] sm:w-[78px] md:w-[85px] lg:w-[95px] xl:w-[100px]'
                     src="./assets/pattern/overlay-pattern/5.png"
                 />
@@ -109,7 +109,7 @@ const SecondSection = () => {
 
                 />
 
-                <img className='absolute bottom-[30%] right-[10%] h-auto
+                <img className='absolute md:block hidden bottom-[30%] right-[10%] h-auto
                                         w-[65px] sm:w-[78px] md:w-[85px] lg:w-[95px] xl:w-[100px]'
                     src="./assets/pattern/single-pattern/3-Yellow.png"
                     style={{ transform: 'scale(1.28)' }}
@@ -120,9 +120,6 @@ const SecondSection = () => {
                     style={{ transform: 'scale(1.28)' }}
                 />
 
-
-
-
                 <div className="page-2-content block absolute top-[65%] left-2/4 z-[1]">
                     <div ref={dissolveRef} className="pb-4">
                         <TextSection
@@ -131,12 +128,11 @@ const SecondSection = () => {
                             imgSrc='./assets/logo/to-tuong-logo/To-tuong-logo-black.png'
                             imgResponsive="w-[392px] h-auto sm:w-[492px] md:w-[492px] lg:w-[492px] xl:w-[492px] "
                             text="MỞ LÒNG VỚI THỰC TẠI"
-                            textSize='text-[10px] sm:text-[20px] md:text-[25px] lg:text-[30px] xl:text-[34px]   pl-2'
+                            textSize='text-[10px] sm:text-[20px] md:text-[25px] lg:text-[30px] xl:text-[34px] pl-2'
                         />
                     </div>
 
-                    <p className="pt-4 tracking-wide leading-[33px] 
-                                  text-[15px] sm:text-[20px] md:text-[23px] lg:text-[25px] xl:text-[25px]">
+                    <p className="pt-4 relative md:-translate-y-0 sm:-translate-y-1/3 -translate-y-1/2 tracking-wide mx-auto md:leading-[33px] leading-[20px] text-[12px] sm:text-[20px] md:text-[23px] lg:text-[25px]">
                         "Tỏ tường: Mở lòng với thực tại" là chương trình mùa đầu tiên của TEDxHoChiMinhCity, mang đến những câu chuyện truyền cảm hứng từ các diễn giả tài năng thuộc nhiều lĩnh vực. Các bạn trẻ sẽ được khám phá thế giới từ nhiều góc nhìn, quan điểm khác nhau; đồng thời thấu hiểu và đối mặt với thực tại một cách chân thật nhất.</p>
                 </div>
             </div>
@@ -204,7 +200,7 @@ const SecondSection = () => {
 
                 <motion.div className="container flex absolute  bg-transparent z-[2] h-full w-full" ref={constraintsRef}>
                     <motion.div
-                        className="box-1 absolute top-2/4 left-[35%] h-[118.5px] w-[118.5px]  flex justify-center items-center text-center"
+                        className="box-1 absolute top-2/4 left-[35%] md:h-[118.5px] md:w-[118.5px] h-[85px] w-[85px] flex justify-center items-center text-center"
                         drag
                         dragConstraints={constraintsRef}
                         dragElastic={0.5}
@@ -212,7 +208,7 @@ const SecondSection = () => {
                     >
                     </motion.div>
                     <motion.div
-                        className="box-2 absolute top-[40%] left-[45%] h-[118.5px] w-[118.5px] flex justify-center items-center"
+                        className="box-2 absolute top-[40%] left-[45%] md:h-[118.5px] md:w-[118.5px] h-[85px] w-[85px] flex justify-center items-center"
                         drag
                         dragConstraints={constraintsRef}
                         dragElastic={0.5}
@@ -220,7 +216,7 @@ const SecondSection = () => {
                     >
                     </motion.div>
                     <motion.div
-                        className="box-3 absolute top-[60%] left-[45%] h-[118.5px] w-[118.5px] flex justify-center items-center"
+                        className="box-3 absolute top-[60%] left-[45%] md:h-[118.5px] md:w-[118.5px] h-[85px] w-[85px] flex justify-center items-center"
                         drag
                         dragConstraints={constraintsRef}
                         dragElastic={0.5}
@@ -228,7 +224,7 @@ const SecondSection = () => {
                     >
                     </motion.div>
                     <motion.div
-                        className="box-4 absolute top-2/4 left-[55%] h-[118.5px] w-[118.5px] flex justify-center items-center"
+                        className="box-4 absolute top-2/4 left-[55%] md:h-[118.5px] md:w-[118.5px] h-[85px] w-[85px] flex justify-center items-center"
                         drag
                         dragConstraints={constraintsRef}
                         dragElastic={0.5}
