@@ -82,12 +82,12 @@ const Introduction = () => {
 
       <div className="flex justify-center items-center pt-3 pb-10">
         <div className="box-text flex flex-col justify-center items-center md:space-y-10 space-y-5">
-          <p className="text-[14px] sm:text-[24px] md:w-[657px] w-[257px] tracking-[0.5px] sm:leading-[32px] leading-[18px]">
+          <p className="text-[14px] sm:text-[24px] md:w-[657px] w-[257px] sm:leading-[32px] leading-[18px]">
             Được thành lập vào năm 2024, TEDxHoChiMinhCity là nơi kết nối các
             bạn trẻ tràn đầy nhiệt huyết thông qua các hoạt động trải nghiệm sự
             kiện chứa đựng những câu chuyện mới mẻ, đầy cảm hứng.
           </p>
-          <p className="text-[14px] sm:text-[24px] md:w-[657px] w-[257px] tracking-[0.5px] sm:leading-[32px] leading-[18px]">
+          <p className="text-[14px] sm:text-[24px] md:w-[657px] w-[257px] sm:leading-[32px] leading-[18px]">
             TEDxHoChiMinhCity mong muốn cùng các bạn trẻ khám phá thế giới qua
             những câu chuyện truyền cảm hứng và nhân văn, mở ra những góc nhìn
             mới và tạo nên những tác động tích cực cho bản thân và cộng đồng.
