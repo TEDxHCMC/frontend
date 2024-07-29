@@ -32,7 +32,7 @@ const Introduction = () => {
 
 
   return (
-    <div>
+    <section>
       {/* <div className="text_container container flex justify-center items-center font-bold space-x-2 w-full mb-5 mt-[20px] 
                 sm:h-[50px] sm:mt-[30px] sm:mb-[25px] 
                 md:h-[72px] md:mt-[40px] md:mb-[30px] 
@@ -67,7 +67,7 @@ const Introduction = () => {
         <h1 className="text-[32px] sm:text-[48px] md:text-[64px] lg:text-[96px] xl:text-[128px]">HÉ LÔ SÀI GÒN!</h1>
       </div> */}
 
-      <div className="flex justify-center items-center pt-3 pb-10 ">
+      <div className="flex justify-center items-center py-10">
         <div className="box-text flex flex-col justify-center items-center md:space-y-10 space-y-5">
           <p className="text-[14px] sm:text-[24px] md:w-[657px] w-[257px] tracking-[0.5px] sm:leading-[32px] leading-[18px]">
             Được thành lập vào năm 2024, TEDxHoChiMinhCity là nơi kết nối các
@@ -81,7 +81,7 @@ const Introduction = () => {
           </p>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 
