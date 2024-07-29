@@ -7,16 +7,15 @@
     .right-box {
 
         .box-content {
-            display: none;
+            opacity: 0;
+            visibility: none;
+            transition: all 300ms linear;
         }
 
         &:hover {
-            .box-text {
-                display: none;
-            }
-
             .box-content {
-                display: block;
+                opacity: 100;
+                visibility: visible;
             }
         }
         
