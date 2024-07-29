@@ -12,45 +12,11 @@
     }
 
 }
-
 .text_container {
   display: flex;
   white-space: nowrap; 
 }
 
-
-
-/* Keyframes for sliding left */
-@keyframes slideLeft {
-    0% {
-        transform: translateX(var(--start-position));
-    }
-
-    100% {
-        transform: translateX(-100%);
-    }
-}
-
-/* Keyframes for sliding right */
-@keyframes slideRight {
-    0% {
-        transform: translateX(var(--start-position));
-    }
-
-    100% {
-        transform: translateX(100%);
-    }
-}
-
-/* Apply slideLeft animation to elements with class .slide-left */
-.slide-left {
-    animation: slideLeft 400s infinite;
-}
-
-/* Apply slideRight animation to elements with class .slide-right */
-.slide-right {
-    animation: slideRight 400s infinite;
-}
 
 .button-edit {
     color: rgba(3, 14, 245, 1);
