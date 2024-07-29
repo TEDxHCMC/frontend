@@ -198,9 +198,9 @@ const SecondSection = () => {
                 />
 
 
-                <motion.div className="container flex absolute  bg-transparent z-[2] h-full w-full" ref={constraintsRef}>
+                <motion.div className="container flex absolute bg-transparent z-[2] h-full w-full justify-center" ref={constraintsRef}>
                     <motion.div
-                        className="box-1 absolute top-2/4 left-[35%] md:h-[118.5px] md:w-[118.5px] h-[85px] w-[85px] flex justify-center items-center text-center"
+                        className="box-1 absolute top-2/4 md:h-[118.5px] md:w-[118.5px] h-[85px] w-[85px] flex justify-center items-center text-center"
                         drag
                         dragConstraints={constraintsRef}
                         dragElastic={0.5}
@@ -208,7 +208,7 @@ const SecondSection = () => {
                     >
                     </motion.div>
                     <motion.div
-                        className="box-2 absolute top-[40%] left-[45%] md:h-[118.5px] md:w-[118.5px] h-[85px] w-[85px] flex justify-center items-center"
+                        className="box-2 absolute top-[40%] md:h-[118.5px] md:w-[118.5px] h-[85px] w-[85px] flex justify-center items-center"
                         drag
                         dragConstraints={constraintsRef}
                         dragElastic={0.5}
@@ -216,7 +216,7 @@ const SecondSection = () => {
                     >
                     </motion.div>
                     <motion.div
-                        className="box-3 absolute top-[60%] left-[45%] md:h-[118.5px] md:w-[118.5px] h-[85px] w-[85px] flex justify-center items-center"
+                        className="box-3 absolute top-[60%]  md:h-[118.5px] md:w-[118.5px] h-[85px] w-[85px] flex justify-center items-center"
                         drag
                         dragConstraints={constraintsRef}
                         dragElastic={0.5}
@@ -224,7 +224,7 @@ const SecondSection = () => {
                     >
                     </motion.div>
                     <motion.div
-                        className="box-4 absolute top-2/4 left-[55%] md:h-[118.5px] md:w-[118.5px] h-[85px] w-[85px] flex justify-center items-center"
+                        className="box-4 absolute top-2/4  md:h-[118.5px] md:w-[118.5px] h-[85px] w-[85px] flex justify-center items-center"
                         drag
                         dragConstraints={constraintsRef}
                         dragElastic={0.5}

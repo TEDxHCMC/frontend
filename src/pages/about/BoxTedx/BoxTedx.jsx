@@ -9,8 +9,7 @@ const BoxTedx = () => {
           <h2 className='sm:text-[64px] text-[32px] text-center font-bold'>SỨ <br></br> MỆNH</h2>
         </div>
         <div className='flex justify-center items-center h-[462px] w-full bg-white'>
-          <img className="h-16 md:h-20 lg:h-32
-                          w-[80%] md:w-[75%] lg:w-[70%]" 
+          <img className="h-16 md:h-20 lg:h-32 xl:h-h32" 
                src="./assets/logo/TEDx-logo/TEDx-Black-Medium.png" alt="TEDxHCMC logo" />
         </div>
         <div className='box flex justify-center items-center h-[462px] w-full bg-black text-white'>
@@ -25,7 +24,7 @@ const BoxTedx = () => {
 
           <div className='box flex justify-center items-center w-full h-[162px] bg-white'>
             <img className="object-cover 
-                            w-[70%] sm:w-5/6" 
+                            w-[70%] sm:w-5/6"
                  src="./assets/logo/TEDx-logo/TEDx-Black-Medium.png" alt="TEDxHCMC logo" />
           </div>
           
