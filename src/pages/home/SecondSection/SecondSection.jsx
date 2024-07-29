@@ -126,7 +126,7 @@ const SecondSection = () => {
                             className="second-text flex justify-center flex-col absolute top-[65%] left-[15%]
                             "
                             imgSrc='./assets/logo/to-tuong-logo/To-tuong-logo-black.png'
-                            imgResponsive="w-[392px] h-auto sm:w-[492px] md:w-[492px] lg:w-[492px] xl:w-[492px] "
+                            imgResponsive="w-[392px] h-auto sm:w-[492px]"
                             text="MỞ LÒNG VỚI THỰC TẠI"
                             textSize='text-[10px] sm:text-[20px] md:text-[25px] lg:text-[30px] xl:text-[34px] pl-2'
                         />
