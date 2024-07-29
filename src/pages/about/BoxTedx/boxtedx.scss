@@ -1,8 +1,36 @@
 .about-banner {
-    .box {
-        h2 {
-            font-family: 'Phudu Variable', system-ui;
+    h2 {
+        font-family: 'Phudu Variable', system-ui;
+    }
+
+    .left-box, 
+    .right-box {
+
+        .box-content {
+            display: none;
         }
+
+        &:hover {
+            .box-text {
+                display: none;
+            }
+
+            .box-content {
+                display: block;
+            }
+        }
+        
     }
 }
     
+@keyframes appear {
+    0% {
+        opacity: 0;
+        visibility: hidden;
+    }
+
+    100% {
+        opacity: 100;
+        visibility: visible;
+    }
+}

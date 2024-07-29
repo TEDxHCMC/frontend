@@ -80,7 +80,7 @@ const Introduction = () => {
         <h1 className="text-[32px] sm:text-[48px] md:text-[64px] lg:text-[96px] xl:text-[128px]">HÉ LÔ SÀI GÒN!</h1>
       </div>
 
-      <div className="flex justify-center items-center pt-3 pb-10">
+      {/* <div className="flex justify-center items-center pt-3 pb-10">
         <div className="box-text flex flex-col justify-center items-center md:space-y-10 space-y-5">
           <p className="text-[14px] sm:text-[24px] md:w-[657px] w-[257px] sm:leading-[32px] leading-[18px]">
             Được thành lập vào năm 2024, TEDxHoChiMinhCity là nơi kết nối các
@@ -93,7 +93,7 @@ const Introduction = () => {
             mới và tạo nên những tác động tích cực cho bản thân và cộng đồng.
           </p>
         </div>
-      </div>
+      </div> */}
     </section>
   );
 };
