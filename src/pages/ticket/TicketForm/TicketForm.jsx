@@ -4,7 +4,6 @@ import { Link, useNavigate } from "react-router-dom";
 import { PATH } from "../../../paths";
 import { Button, Divider } from "antd";
 import InputField from "../../../components/InputField";
-import googleIcon from "../../../assets/img/icon-google.svg";
 import * as Yup from "yup";
 import { useDispatch, useSelector } from "react-redux";
 import { handleSetCurrStep } from "../../../redux/slices/ticket.slice";
