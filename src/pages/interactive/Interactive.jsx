@@ -2,10 +2,10 @@ import React, { useState } from "react";
 
 import "./interactive.module.scss";
 
-import shapePink from "../../assets/pattern/4-Pink.png";
-import shapeGreen from "../../assets/pattern/3-Green.png";
-import shapeBlue from "../../assets/pattern/2-Blue.png";
-import shapeYellow from "../../assets/pattern/1-Yellow.png";
+// import shapePink from "../../assets/pattern/4-Pink.png";
+// import shapeGreen from "../../assets/pattern/3-Green.png";
+// import shapeBlue from "../../assets/pattern/2-Blue.png";
+// import shapeYellow from "../../assets/pattern/1-Yellow.png";
 import { Col, Radio, Row } from "antd";
 
 const bgOptions = [
