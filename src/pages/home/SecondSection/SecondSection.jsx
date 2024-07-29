@@ -126,13 +126,13 @@ const SecondSection = () => {
                             className="second-text flex justify-center flex-col absolute top-[65%] left-[15%]
                             "
                             imgSrc='./assets/logo/to-tuong-logo/To-tuong-logo-black.png'
-                            imgResponsive="w-[392px] h-auto sm:w-[492px]"
+                            imgResponsive="h-auto w-[182px] sm:w-[492px] "
                             text="MỞ LÒNG VỚI THỰC TẠI"
                             textSize='text-[10px] sm:text-[20px] md:text-[25px] lg:text-[30px] xl:text-[34px] pl-2'
                         />
                     </div>
 
-                    <p className="pt-4 relative md:-translate-y-0 sm:-translate-y-[40%] xs:-translate-y-[35%] -translate-y-1/4 tracking-wide mx-auto md:leading-[33px] leading-[20px] text-[14px] sm:text-[18px] md:text-[23px] lg:text-[25px]">
+                    <p className="sm:pt-10 md:w-auto sm:w-[350px] w-[270px] relative md:-translate-y-0 sm:-translate-y-1/3 -translate-y-[60%] tracking-wide md:leading-[33px] leading-[20px] text-[15px] sm:text-[18px] md:text-[23px] lg:text-[25px]">
                         "Tỏ tường: Mở lòng với thực tại" là chương trình mùa đầu tiên của TEDxHoChiMinhCity, mang đến những câu chuyện truyền cảm hứng từ các diễn giả tài năng thuộc nhiều lĩnh vực. Các bạn trẻ sẽ được khám phá thế giới từ nhiều góc nhìn, quan điểm khác nhau; đồng thời thấu hiểu và đối mặt với thực tại một cách chân thật nhất.</p>
                 </div>
             </div>
