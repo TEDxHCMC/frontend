@@ -32,8 +32,8 @@ const Introduction = () => {
 
 
   return (
-    <section>
-      {/* <div className="text_container container flex justify-center items-center font-bold space-x-2 w-full mb-5 mt-[20px] 
+    <section className="overflow-x-hidden">
+      <div className="text_container scroll-m-0 container flex justify-center items-center font-bold space-x-2 w-full mb-5 mt-[20px] 
                 sm:h-[50px] sm:mt-[30px] sm:mb-[25px] 
                 md:h-[72px] md:mt-[40px] md:mb-[30px] 
                 lg:h-[100px] lg:mt-[50px] lg:mb-[40px] 
@@ -65,9 +65,22 @@ const Introduction = () => {
           alt="Yellow image"
         />
         <h1 className="text-[32px] sm:text-[48px] md:text-[64px] lg:text-[96px] xl:text-[128px]">HÉ LÔ SÀI GÒN!</h1>
-      </div> */}
+        <img
+          className="h-[22px] mt-[5px] opacity-70 sm:h-[33px] sm:mt-[7.5px] md:h-[44px] md:mt-[10px] lg:h-[66px] lg:mt-[15px] xl:h-[88px] xl:mt-[20px]"
+          src="./assets/pattern/single-pattern/2-Pink.png"
+          alt="Pink image"
+        />
 
-      <div className="flex justify-center items-center py-10">
+        <h1 className="text-[32px] sm:text-[48px] md:text-[64px] lg:text-[96px] xl:text-[128px]">XIN CHÀO HỒ CHÍ MINH!</h1>
+        <img
+          className="h-[22px] mt-[5px] opacity-70 sm:h-[33px] sm:mt-[7.5px] md:h-[44px] md:mt-[10px] lg:h-[66px] lg:mt-[15px] xl:h-[88px] xl:mt-[20px]"
+          src="./assets/pattern/single-pattern/4-Yellow.png"
+          alt="Yellow image"
+        />
+        <h1 className="text-[32px] sm:text-[48px] md:text-[64px] lg:text-[96px] xl:text-[128px]">HÉ LÔ SÀI GÒN!</h1>
+      </div>
+
+      <div className="flex justify-center items-center pt-3 pb-10">
         <div className="box-text flex flex-col justify-center items-center md:space-y-10 space-y-5">
           <p className="text-[14px] sm:text-[24px] md:w-[657px] w-[257px] tracking-[0.5px] sm:leading-[32px] leading-[18px]">
             Được thành lập vào năm 2024, TEDxHoChiMinhCity là nơi kết nối các
