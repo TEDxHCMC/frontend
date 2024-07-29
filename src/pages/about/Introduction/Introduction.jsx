@@ -33,7 +33,7 @@ const Introduction = () => {
 
   return (
     <div>
-      <div className="text_container container flex justify-center items-center font-bold space-x-2 w-full mb-5 mt-[20px] 
+      {/* <div className="text_container container flex justify-center items-center font-bold space-x-2 w-full mb-5 mt-[20px] 
                 sm:h-[50px] sm:mt-[30px] sm:mb-[25px] 
                 md:h-[72px] md:mt-[40px] md:mb-[30px] 
                 lg:h-[100px] lg:mt-[50px] lg:mb-[40px] 
@@ -65,7 +65,7 @@ const Introduction = () => {
           alt="Yellow image"
         />
         <h1 className="text-[32px] sm:text-[48px] md:text-[64px] lg:text-[96px] xl:text-[128px]">HÉ LÔ SÀI GÒN!</h1>
-      </div>
+      </div> */}
 
       <div className="flex justify-center items-center pt-3 pb-10 ">
         <div className="box-text flex flex-col justify-center items-center md:space-y-10 space-y-5">
