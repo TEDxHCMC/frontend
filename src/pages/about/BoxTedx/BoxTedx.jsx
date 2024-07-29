@@ -23,7 +23,8 @@ const BoxTedx = () => {
           </div>
 
           <div className='box flex justify-center items-center w-full h-[162px] bg-white'>
-            <img className="object-cover" 
+            <img className="object-cover 
+                            w-[70%] sm:w-5/6"
                  src="./assets/logo/TEDx-logo/TEDx-Black-Medium.png" alt="TEDxHCMC logo" />
           </div>
           
