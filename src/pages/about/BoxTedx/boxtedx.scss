@@ -7,6 +7,7 @@
     .right-box {
 
         .box-content {
+            font-family: 'Platypi Variable', system-ui;
             opacity: 0;
             visibility: none;
             transition: all 300ms linear;
@@ -18,7 +19,10 @@
                 visibility: visible;
             }
         }
-        
+    }
+
+    .banner-small {
+        font-family: 'Platypi Variable', system-ui;
     }
 }
     
@@ -29,7 +33,7 @@
     }
 
     100% {
-        opacity: 100;
+        opacity: 1;
         visibility: visible;
     }
 }

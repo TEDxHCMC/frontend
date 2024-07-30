@@ -1,7 +1,19 @@
-import React from "react";
+import { useRef } from "react";
 import "./boxtedx.scss";
+import { delay, easeInOut, motion, useInView } from "framer-motion";
 
 const BoxTedx = () => {
+    const topRef = useRef(null)
+    const bottomRef = useRef(null)
+    
+    const topInView = useInView(topRef, {
+        triggerOnce: true
+    });
+
+    const bottomInView = useInView(bottomRef, {
+        triggerOnce: true
+    });
+
     return (
         <section className="about-banner">
             <div className="sm:flex hidden items-center justify-center lg:h-[482px] h-[362px] w-full">
@@ -10,8 +22,8 @@ const BoxTedx = () => {
                         TẦM <br></br> NHÌN
                     </h2>
                     <div className="box-content w-full h-full absolute top-0 left-0 bg-[#ec1014]">
-                        <p className="text-center px-12 absolute top-1/2 -translate-y-1/2 text-[14px] sm:text-[24px] sm:leading-[32px] leading-[18px]">
-                            Được thành lập vào năm 2024, TEDxHoChiMinhCity là nơi kết nối các
+                        <p className="text-center font-light px-12 absolute top-1/2 -translate-y-1/2 text-[14px] sm:text-[24px] sm:leading-[32px] leading-[18px]">
+                            TEDxHoChiMinhCity là nơi kết nối các
                             bạn trẻ tràn đầy nhiệt huyết thông qua các hoạt động trải nghiệm sự
                             kiện chứa đựng những câu chuyện mới mẻ, đầy cảm hứng.
                         </p>
@@ -29,7 +41,7 @@ const BoxTedx = () => {
                         SỨ <br></br> MỆNH
                     </h2>
                     <div className="box-content w-full h-full absolute top-0 left-0 bg-black">
-                        <p className="text-center text-white px-12 absolute top-1/2 -translate-y-1/2 text-[14px] sm:text-[24px] sm:leading-[32px] leading-[18px]">
+                        <p className="text-center font-light text-white px-12 absolute top-1/2 -translate-y-1/2 text-[14px] sm:text-[24px] sm:leading-[32px] leading-[18px]">
                             TEDxHoChiMinhCity mong muốn cùng các bạn trẻ khám phá thế giới qua
                             những câu chuyện truyền cảm hứng và nhân văn, mở ra những góc nhìn
                             mới và tạo nên những tác động tích cực cho bản thân và cộng đồng.
@@ -38,11 +50,25 @@ const BoxTedx = () => {
                 </div>
             </div>
 
-            <div className="sm:hidden container-edit">
-                <div className="box flex justify-center items-center w-full h-[162px] bg-[#ec1014]">
+            <div className="banner-small sm:hidden container-edit">
+                <div className="relative flex justify-center items-center w-full h-[162px] bg-[#ec1014]" ref={topRef}>
                     <h2 className="text-[32px] text-center font-bold">
-                        SỨ MỆNH
+                        TẦM NHÌN
                     </h2>
+                    {topInView && (
+                        <motion.div 
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: [0, 1, 1, 0, 0] }}
+                            transition={{ duration: 12, repeat: Infinity, times: [0, 0.1, 0.7, 0.8, 1], delay: 2, ease: easeInOut}}
+                            className={`w-full h-full absolute top-0 left-0 bg-[#ec1014]`}
+                        >
+                            <p className="text-center font-light px-12 absolute top-1/2 -translate-y-1/2 text-[14px] sm:text-[24px] sm:leading-[32px] leading-[18px]">
+                                TEDxHoChiMinhCity là nơi kết nối các
+                                bạn trẻ tràn đầy nhiệt huyết thông qua các hoạt động trải nghiệm sự
+                                kiện chứa đựng những câu chuyện mới mẻ, đầy cảm hứng.
+                            </p>
+                        </motion.div>
+                    )}
                 </div>
 
                 <div className="box flex justify-center items-center w-full h-[162px] bg-white">
@@ -53,10 +79,24 @@ const BoxTedx = () => {
                     />
                 </div>
 
-                <div className="box flex justify-center items-center w-full h-[162px] bg-black text-white">
+                <div className="relative flex justify-center items-center w-full h-[162px] bg-black text-white" ref={bottomRef}>
                     <h2 className="text-[32px] text-center font-bold">
-                        TẦM NHÌN
+                        SỨ MỆNH
                     </h2>
+                    {bottomInView && (
+                        <motion.div 
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: [0, 1, 1, 0, 0] }}
+                            transition={{ duration: 12, repeat: Infinity, times: [0, 0.1, 0.7, 0.8, 1], delay: 2, ease: easeInOut}}
+                            className={`w-full h-full absolute top-0 left-0 bg-black z-10]`}
+                        >
+                            <p className="text-center font-light text-white px-12 absolute top-1/2 -translate-y-1/2 text-[14px] sm:text-[24px] sm:leading-[32px] leading-[18px]">
+                            TEDxHoChiMinhCity mong muốn cùng các bạn trẻ khám phá thế giới qua
+                            những câu chuyện truyền cảm hứng và nhân văn, mở ra những góc nhìn
+                            mới và tạo nên những tác động tích cực cho bản thân và cộng đồng.
+                            </p>
+                        </motion.div>
+                    )}
                 </div>
             </div>
         </section>
