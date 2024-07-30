@@ -5,7 +5,7 @@ import { delay, easeInOut, motion, useInView } from "framer-motion";
 const BoxTedx = () => {
     const topRef = useRef(null)
     const bottomRef = useRef(null)
-    
+
     const topInView = useInView(topRef, {
         triggerOnce: true
     });
@@ -59,10 +59,10 @@ const BoxTedx = () => {
                         <motion.div 
                             initial={{ opacity: 0 }}
                             animate={{ opacity: [0, 1, 1, 0, 0] }}
-                            transition={{ duration: 12, repeat: Infinity, times: [0, 0.1, 0.7, 0.8, 1], delay: 2, ease: easeInOut}}
+                            transition={{ duration: 14, repeat: Infinity, times: [0, 0.1, 0.6, 0.7, 1], delay: 1.5, ease: easeInOut}}
                             className={`w-full h-full absolute top-0 left-0 bg-[#ec1014]`}
                         >
-                            <p className="text-center font-light px-12 absolute top-1/2 -translate-y-1/2 text-[14px] sm:text-[24px] sm:leading-[32px] leading-[18px]">
+                            <p className="py-2 text-center font-light px-12 absolute top-1/2 -translate-y-1/2 text-[14px] sm:text-[24px] sm:leading-[32px] leading-[18px]">
                                 TEDxHoChiMinhCity là nơi kết nối các
                                 bạn trẻ tràn đầy nhiệt huyết thông qua các hoạt động trải nghiệm sự
                                 kiện chứa đựng những câu chuyện mới mẻ, đầy cảm hứng.
@@ -87,10 +87,10 @@ const BoxTedx = () => {
                         <motion.div 
                             initial={{ opacity: 0 }}
                             animate={{ opacity: [0, 1, 1, 0, 0] }}
-                            transition={{ duration: 12, repeat: Infinity, times: [0, 0.1, 0.7, 0.8, 1], delay: 2, ease: easeInOut}}
+                            transition={{ duration: 14, repeat: Infinity, times: [0, 0.1, 0.6, 0.7, 1], delay: 1.5, ease: easeInOut}}
                             className={`w-full h-full absolute top-0 left-0 bg-black z-10]`}
                         >
-                            <p className="text-center font-light text-white px-12 absolute top-1/2 -translate-y-1/2 text-[14px] sm:text-[24px] sm:leading-[32px] leading-[18px]">
+                            <p className="py-2 text-center font-light text-white px-12 absolute top-1/2 -translate-y-1/2 text-[14px] sm:text-[24px] sm:leading-[32px] leading-[18px]">
                             TEDxHoChiMinhCity mong muốn cùng các bạn trẻ khám phá thế giới qua
                             những câu chuyện truyền cảm hứng và nhân văn, mở ra những góc nhìn
                             mới và tạo nên những tác động tích cực cho bản thân và cộng đồng.
