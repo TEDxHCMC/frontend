@@ -1,65 +1,222 @@
-.speaker-heading{
-    h1{
-        font-family: "Phudu Variable", system-ui;
-    }
+.speaker-heading {
+  h1 {
+    font-family: "Phudu Variable", system-ui;
+  }
 }
 
 .speaker {
-    height: 679px;
-    //width: 451px;
-    justify-items: center;
-    align-self: center;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-  
-    h2{
-        font-family: "Phudu Variable", system-ui;
-        font-weight: bold;
-        font-size: 61px;
+  height: 679px;
+  //width: 451px;
+  justify-items: center;
+  align-self: center;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+
+  h2 {
+    font-family: "Phudu Variable", system-ui;
+    font-weight: bold;
+    font-size: 61px;
+  }
+
+  h3 {
+    font-family: 'Platypi Variable', sans-serif;
+    font-weight: bold;
+    font-size: 20px;
+    opacity: 80%;
+  }
+
+  h4 {
+    font-family: "Inter", sans-serif;
+    font-size: 10px;
+  }
+
+  button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+
+    svg {
+      display: block;
     }
 
-    h3{
-        font-family: 'Platypi Variable', sans-serif;
-        font-weight: bold;
-        font-size: 20px;
-        opacity: 80%;
+    &:hover {
+      transform: scale(1.1);
     }
 
-    h4{
-        font-family: "Inter", sans-serif;
-        font-size: 10px;
-    }
-
-    .speaker-image{
-        height: auto;
-        
-        object-fit: cover;
-        display: flex;
-        justify-content: center; // Centers content horizontally
-        align-items: center; // Centers content vertically
-        overflow: hidden; 
-   
-    }
-
-    &.speaker-1, &.speaker-4, &.speaker-7, &.speaker-10 {
-      background: #EC1014;
-      color: #FFFFFF;
-      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-
-    }
-  
-    &.speaker-2, &.speaker-5, &.speaker-8, &.speaker-11 {
-      background: #FFFBF6;
-      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-
-
-    }
-  
-    &.speaker-3, &.speaker-6, &.speaker-9, &.speaker-12 {
-      background: #141414;
-      color: #FFFFFF;
-      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    &:active {
+      transform: scale(1);
     }
   }
+
+  .speaker-image {
+    width: 350px;
+    height: auto;
+    object-fit: cover;
+    display: flex;
+    overflow: hidden;
+
+  }
+
+  &.speaker-1,
+  &.speaker-4,
+  &.speaker-7,
+  &.speaker-10 {
+    background: #EC1014;
+    color: #FFFFFF;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+
+  }
+
+  &.speaker-2,
+  &.speaker-5,
+  &.speaker-8,
+  &.speaker-11 {
+    background: #FFFBF6;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+
+
+  }
+
+  &.speaker-3,
+  &.speaker-6,
+  &.speaker-9,
+  &.speaker-12 {
+    background: #141414;
+    color: #FFFFFF;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  }
+}
+
+.speaker-detail-view {
+  position: fixed; 
+  display: flex;
+  justify-content: flex-end;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  z-index: 3;
+  margin-top: 62px;
+
+  @media (min-width: 768px) {
+    margin-top: 72px;
+  }
+
+  @media (min-width: 1024px) {
+    margin-top: 82px;
+  }
+}
+
+.close-button {
+  position: relative;
+  top: 50%;
+  margin-right: 15px;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  z-index: 4;
+
+  &:hover {
+    opacity: 80%;
+  }
+
+  &:active {
+    opacity: 50%;
+  }
+}
+
+.main-content {
+  position: relative;
+  z-index: 4;
+  width: 709px;
+  height: 100vh;
+  padding: 60px;
+  display: flex;
+  flex-direction: column;
+  background: #EC1014;
+  overflow-y: auto; 
+  overflow-x: hidden;
+}
+
+
+.speaker-info {
+  display: flex;
+  flex-direction: column;
+  height: min-content;
+  justify-content: end;
+
+  .speaker-img{
+    align-self: flex-end;
+    width: 400px;
+    height: 400px;
+    z-index: 5;
+  }
   
+  .speaker-name-detail{
+    //position: relative;
+    //position: absolute;
+    align-self: flex-start;
+    color: #FFFFFF;
+    z-index: 6;
+
+    h2 {
+      font-family: "Phudu Variable", system-ui;
+      font-weight: bold;
+      font-size: 61px;
+      text-align: start;
+      
+    }
+  }
+}
+  
+.speaker-content{
+  h3 {
+    font-family: 'Platypi Variable', sans-serif;
+    font-weight: bold;
+    font-size: 20px;
+    opacity: 80%;
+    color: #FFFFFF;
+  }
+
+  p {
+    font-family: "Inter", sans-serif;
+    font-size: 10px;
+    color: #FFFFFF;
+  }
+}
+
+.line{
+  //position: absolute;
+  width: 100%;
+  border: 1px solid #FFFFFF;
+  margin-top: 15px; 
+  margin-bottom: 15px ;
+}
+
+.speaker-story{
+  h4{
+    font-family: "Inter", sans-serif;
+    font-size: 24px;
+    font-style: italic;
+    font-weight: 600;
+    line-height: 130%;
+    text-transform: uppercase;
+    color: #FFFFFF;
+
+
+  }
+  p{
+    font-family: "Inter", sans-serif;
+    font-size: 14px;
+    font-style: italic;
+    font-weight: 600;
+    color: #FFFFFF;
+  }
+}
