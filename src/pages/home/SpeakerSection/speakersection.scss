@@ -136,7 +136,7 @@
   position: relative;
   z-index: 4;
   width: 709px;
-  height: 100vh;
+  min-height: 100vh;
   padding: 60px;
   display: flex;
   flex-direction: column;
