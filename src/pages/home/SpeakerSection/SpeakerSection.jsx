@@ -385,7 +385,7 @@ const SpeakerSection = () => {
                                 </div> 
                                 </div>
                                 
-                                <div className='speaker-content'>
+                                <div className='speaker-detail-content'>
                                     <h3>Chủ tịch UNICEF NextGen Việt Nam</h3>
                                     <p>Người xây dựng cộng đồng và thương hiệu, đồng thời là nhà chiến lược doanh nghiệp với hơn 14 năm kinh nghiệm làm việc với một số công ty đa quốc gia lớn nhất thế giới về các thương hiệu giá trị nhất của họ...</p>
                                 </div>
