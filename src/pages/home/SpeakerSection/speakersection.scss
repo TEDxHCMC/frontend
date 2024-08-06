@@ -1,0 +1,65 @@
+.speaker-heading{
+    h1{
+        font-family: "Phudu Variable", system-ui;
+    }
+}
+
+.speaker {
+    height: 679px;
+    //width: 451px;
+    justify-items: center;
+    align-self: center;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  
+    h2{
+        font-family: "Phudu Variable", system-ui;
+        font-weight: bold;
+        font-size: 61px;
+    }
+
+    h3{
+        font-family: 'Platypi Variable', sans-serif;
+        font-weight: bold;
+        font-size: 20px;
+        opacity: 80%;
+    }
+
+    h4{
+        font-family: "Inter", sans-serif;
+        font-size: 10px;
+    }
+
+    .speaker-image{
+        height: auto;
+        
+        object-fit: cover;
+        display: flex;
+        justify-content: center; // Centers content horizontally
+        align-items: center; // Centers content vertically
+        overflow: hidden; 
+   
+    }
+
+    &.speaker-1, &.speaker-4, &.speaker-7, &.speaker-10 {
+      background: #EC1014;
+      color: #FFFFFF;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+
+    }
+  
+    &.speaker-2, &.speaker-5, &.speaker-8, &.speaker-11 {
+      background: #FFFBF6;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+
+
+    }
+  
+    &.speaker-3, &.speaker-6, &.speaker-9, &.speaker-12 {
+      background: #141414;
+      color: #FFFFFF;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    }
+  }
+  
