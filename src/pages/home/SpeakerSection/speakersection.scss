@@ -93,16 +93,17 @@
   }
 }
 
-.speaker-detail-view {
+.speaker-overlay-wrap {
   position: fixed; 
-  display: flex;
-  justify-content: flex-end;
-  top: 0;
-  left: 0;
+  display: block;
+  //justify-content: flex-end;
+  top: 0%;
+  bottom: 0%;
+  left: 0%;
+  right: 0%;
   width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.8);
-  z-index: 3;
+  height: 100vh;
+  z-index: 99990;
   margin-top: 62px;
 
   @media (min-width: 768px) {
@@ -114,10 +115,16 @@
   }
 }
 
+
 .close-button {
-  position: relative;
+  position: absolute;
+  display: flex;
   top: 50%;
-  margin-right: 15px;
+  right: 42%;
+  bottom: auto;
+  left: auto;
+  
+
   border: none;
   cursor: pointer;
   transition: transform 0.3s ease;
@@ -132,51 +139,81 @@
   }
 }
 
-.main-content {
-  position: relative;
-  z-index: 4;
-  width: 709px;
-  min-height: 100vh;
-  padding: 60px;
+.overlay-wrapper {
+  position: absolute;
+  z-index: 3;
+  width: 40%;
+  height: 100%;
   display: flex;
   flex-direction: column;
-  background: #EC1014;
-  overflow-y: auto; 
-  overflow-x: hidden;
+  overflow: auto;
+  top: 0%;
+  bottom: 0%;
+  left: auto;
+  right: 0%;
+  padding-bottom: 4em;
+  background-color: #000;
+  
+}
+
+.background-wrapper{
+  background-color: #EC1014;
 }
 
 
 .speaker-info {
-  display: flex;
-  flex-direction: column;
-  height: min-content;
-  justify-content: end;
+    flex: none;
+    width: 100%;
+    height: 40rem;
+    display: block;
+    position: relative;
+    z-index: 4;
+    background: #EC1014;
+    
 
   .speaker-img{
-    align-self: flex-end;
-    width: 400px;
-    height: 400px;
-    z-index: 5;
-  }
-  
-  .speaker-name-detail{
-    //position: relative;
-    //position: absolute;
-    align-self: flex-start;
-    color: #FFFFFF;
-    z-index: 6;
-
-    h2 {
-      font-family: "Phudu Variable", system-ui;
-      font-weight: bold;
-      font-size: 61px;
-      text-align: start;
-      
-    }
+    z-index: 3;
+    position: relative;
+    object-fit: cover;
+    object-position: 50% 0%;
+    //width: 100%;
+    max-width: none;
+    //height: 100%; 
+    padding-left: 4em;
+    padding-right: 4em;
+    padding-top: 2em;
   }
 }
   
 .speaker-detail-content{
+  z-index: 5;
+  flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-start;
+    height: 9em;
+    padding-bottom: 1em;
+    padding-left: 4em;
+    padding-right: 4em;
+    display: flex;
+    position: absolute;
+    top: auto;
+    bottom: 0%;
+    left: 0%;
+    right: 0%;
+
+    .speaker-name-detail{
+      //align-self: flex-start;
+      color: #FFFFFF;
+      
+  
+      h2 {
+        font-family: "Phudu Variable", system-ui;
+        font-weight: bold;
+        font-size: 61px;
+        text-align: start;
+        
+      }
+    }
   h3 {
     font-family: 'Platypi Variable', sans-serif;
     font-weight: bold;
@@ -196,11 +233,14 @@
   //position: absolute;
   width: 100%;
   border: 1px solid #FFFFFF;
-  margin-top: 15px; 
-  margin-bottom: 15px ;
+  margin-bottom: 16px;
+  
 }
 
 .speaker-story{
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, #000 100%), #EC1014;
+  padding-left: 4em;
+  padding-right: 4em;
   h4{
     font-family: "Inter", sans-serif;
     font-size: 24px;
@@ -219,4 +259,15 @@
     font-weight: 600;
     color: #FFFFFF;
   }
+}
+
+.blur-bg{
+  background: rgba(0, 0, 0, 0.8);
+  z-index: 2;
+  display: block;
+  position: absolute;
+  top: 0%;
+  bottom: 0%;
+  left: 0%;
+  right: 0%;
 }

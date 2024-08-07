@@ -20,7 +20,7 @@ const SpeakerSection = () => {
         <div>
             <div className='bg-content h-full'>
                 <div className='speaker-heading flex flex-col items-center justify-center 
-                                mt-[200px]'>
+                                mt-[150px]'>
                     <h1 className='font-bold text-[65px]
                     sm:text-[70px] md:text-[90px] lg:text-[110px] xl:text-[140px]'>
                         CÁC DIỄN GIẢ</h1>
@@ -364,44 +364,51 @@ const SpeakerSection = () => {
 
                     </div>
 
-                    {visibleSpeaker === 1 && (
-                        <div className='speaker-detail-view speaker-1'>
-                            <div className='close-button'>
-                                <button onClick={handleClose}>
-                                    <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <rect x="40" y="40" width="40" height="40" rx="20" transform="rotate(180 40 40)" fill="white" />
-                                        <path d="M22.5195 28.7037L14.001 20.1852L22.5195 11.2963" stroke="#EC1014" strokeWidth="2.22222" strokeLinecap="round" strokeLinejoin="round" />
-                                    </svg>
-                                </button>
-                            </div>
-                            <div className='main-content'>
-                                <div className='speaker-info'>
+
+                </div>
+            </div>
+
+            {visibleSpeaker === 1 && (
+                <div className='speaker-overlay-wrap speaker-1'>
+                    <div className='close-button'>
+                        <button onClick={handleClose}>
+                            <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="40" y="40" width="40" height="40" rx="20" transform="rotate(180 40 40)" fill="white" />
+                                <path d="M22.5195 28.7037L14.001 20.1852L22.5195 11.2963" stroke="#EC1014" strokeWidth="2.22222" strokeLinecap="round" strokeLinejoin="round" />
+                            </svg>
+                        </button>
+                    </div>
+
+                    <div className='overlay-wrapper'>
+                        <div className='background-wrapper'>
+                            <div className='speaker-info'>
                                 <div className='speaker-img'>
-                                    <img className=''
-                                        src='./assets/speaker/speaker_GS PHH.png' />
+                                    <img src='./assets/speaker/speaker_GS PHH.png' alt='Speaker Image' />
                                 </div>
-                                <div className='speaker-name-detail'>
-                                    <h2>PHẠM <br/>HỮU HOÀNG</h2>
-                                </div> 
-                                </div>
-                                
-                                <div className='speaker-detail-content'>
+                                <div className='speaker-detail-content flex flex-col gap-y-3'>
+                                    <div className='speaker-name-detail'>
+                                        <h2>PHẠM <br /> HỮU HOÀNG</h2>
+                                    </div>
                                     <h3>Chủ tịch UNICEF NextGen Việt Nam</h3>
                                     <p>Người xây dựng cộng đồng và thương hiệu, đồng thời là nhà chiến lược doanh nghiệp với hơn 14 năm kinh nghiệm làm việc với một số công ty đa quốc gia lớn nhất thế giới về các thương hiệu giá trị nhất của họ...</p>
                                 </div>
+                            </div>
 
+                            <div className='speaker-story'>
                                 <div className='line'></div>
-
-                                <div className='speaker-story'>
-                                    <h4>Điểm chung trong câu chuyện thành công: “vốn xã hội"</h4>
-                                    <p>Hoàng đam mê tạo ra các cộng đồng với mục đích nhằm thúc đẩy kết nối giữa con người với con người và tạo điều kiện chuyển giao kiến ​​thức. Công việc của anh đã mang lại cho anh cơ hội được giao lưu, kết bạn và học hỏi từ một số nhà lãnh đạo có ảnh hưởng nhất trong nhiều ngành và lĩnh vực khác nhau ở Việt Nam và khu vực. Thông qua những tương tác này, anh ấy đã xác định được điểm chung trong câu chuyện thành công của họ: “vốn xã hội”. Khái niệm này đề cập đến các mối quan hệ và mạng lưới mà các cá nhân hoặc doanh nghiệp sở hữu, cho phép họ tiếp cận các nguồn lực, quan hệ đối tác và hỗ trợ từ những người khác. Hoàng tận tình giải thích tầm quan trọng của việc xây dựng vốn xã hội trong thế giới ngày nay và cách tận dụng nó có thể dẫn đến một cuộc sống thành công và trọn vẹn.</p>
-                                    <p>Với hơn 14 năm kinh nghiệm quản lý khối thương mại năng động, anh Phạm Hữu Hoàng đã thành thạo điều hướng các bối cảnh phức tạp trong việc quản lý B2B2C ở nhiều lĩnh vực khác nhau bao gồm FMCG, Bán lẻ, Giáo dục và tổ chức chuyên môn của Liên Hợp Quốc. Trong suốt hành trình của mình, anh đã phát triển thành công nhiều thương hiệu khác nhau, trau dồi chuyên môn của mình trong quản lý thương mại và quan hệ đối tác kinh doanh, cụ thể là quản lý thương hiệu và tiếp thị, chiến lược thâm nhập thị trường, chiến lược phân phối, lộ trình đến thị trường và quan hệ đối tác kinh doanh. Anh có thế mạnh trong việc nuôi dưỡng các mối quan hệ cộng đồng để phát triển lâu dài, đặc biệt là với các nhà lãnh đạo thông qua các phương pháp tiếp cận đổi mới, giúp góp phần trực tiếp vào sự phát triển của doanh nghiệp. Ngoài ra, anh Hoàng còn xuất sắc trong việc lãnh đạo các nhóm đa văn hóa trong môi trường phát triển nhanh và đa dạng.  Bên cạnh đó, xuất phát từ niềm đam mê sâu sắc trong việc tạo ra tác động tích cực trên thế giới thông qua công việc và hoạt động tình nguyện của mình, anh Hoàng còn đóng vai trò là Chủ tịch của UNICEF NextGen Việt Nam tại trường Đại học RMIT Việt Nam. Đây là một mạng lưới các chuyên gia trẻ hỗ trợ sứ mệnh của UNICEF vì trẻ em và anh cam kết gây quỹ và xây dựng nguồn lực quan trọng, cũng như đóng góp khả năng lãnh đạo của mình cho UNICEF. Ngoài ra, anh còn là người thích học hỏi những điều mới và mở rộng tầm nhìn của mình. Anh có bằng Thạc sĩ Tiếp thị tại trường Đại học New South Wales và tích lũy nhiều chứng chỉ về tiếp thị thương hiệu tích hợp và ra mắt sản phẩm.</p>
-                                </div>
+                                <h4>Điểm chung trong câu chuyện thành công: “vốn xã hội"</h4>
+                                <p>Hoàng đam mê tạo ra các cộng đồng với mục đích nhằm thúc đẩy kết nối giữa con người với con người và tạo điều kiện chuyển giao kiến ​​thức. Công việc của anh đã mang lại cho anh cơ hội được giao lưu, kết bạn và học hỏi từ một số nhà lãnh đạo có ảnh hưởng nhất trong nhiều ngành và lĩnh vực khác nhau ở Việt Nam và khu vực. Thông qua những tương tác này, anh ấy đã xác định được điểm chung trong câu chuyện thành công của họ: “vốn xã hội”. Khái niệm này đề cập đến các mối quan hệ và mạng lưới mà các cá nhân hoặc doanh nghiệp sở hữu, cho phép họ tiếp cận các nguồn lực, quan hệ đối tác và hỗ trợ từ những người khác. Hoàng tận tình giải thích tầm quan trọng của việc xây dựng vốn xã hội trong thế giới ngày nay và cách tận dụng nó có thể dẫn đến một cuộc sống thành công và trọn vẹn.</p>
+                                <p>Với hơn 14 năm kinh nghiệm quản lý khối thương mại năng động, anh Phạm Hữu Hoàng đã thành thạo điều hướng các bối cảnh phức tạp trong việc quản lý B2B2C ở nhiều lĩnh vực khác nhau bao gồm FMCG, Bán lẻ, Giáo dục và tổ chức chuyên môn của Liên Hợp Quốc. Trong suốt hành trình của mình, anh đã phát triển thành công nhiều thương hiệu khác nhau, trau dồi chuyên môn của mình trong quản lý thương mại và quan hệ đối tác kinh doanh, cụ thể là quản lý thương hiệu và tiếp thị, chiến lược thâm nhập thị trường, chiến lược phân phối, lộ trình đến thị trường và quan hệ đối tác kinh doanh. Anh có thế mạnh trong việc nuôi dưỡng các mối quan hệ cộng đồng để phát triển lâu dài, đặc biệt là với các nhà lãnh đạo thông qua các phương pháp tiếp cận đổi mới, giúp góp phần trực tiếp vào sự phát triển của doanh nghiệp. Ngoài ra, anh Hoàng còn xuất sắc trong việc lãnh đạo các nhóm đa văn hóa trong môi trường phát triển nhanh và đa dạng. Bên cạnh đó, xuất phát từ niềm đam mê sâu sắc trong việc tạo ra tác động tích cực trên thế giới thông qua công việc và hoạt động tình nguyện của mình, anh Hoàng còn đóng vai trò là Chủ tịch của UNICEF NextGen Việt Nam tại trường Đại học RMIT Việt Nam. Đây là một mạng lưới các chuyên gia trẻ hỗ trợ sứ mệnh của UNICEF vì trẻ em và anh cam kết gây quỹ và xây dựng nguồn lực quan trọng, cũng như đóng góp khả năng lãnh đạo của mình cho UNICEF. Ngoài ra, anh còn là người thích học hỏi những điều mới và mở rộng tầm nhìn của mình. Anh có bằng Thạc sĩ Tiếp thị tại trường Đại học New South Wales và tích lũy nhiều chứng chỉ về tiếp thị thương hiệu tích hợp và ra mắt sản phẩm.</p>
                             </div>
                         </div>
-                    )}
+
+                    </div>
+                    <div className='blur-bg'></div>
                 </div>
-            </div>
+
+
+            )}
+
         </div>
     );
 };
