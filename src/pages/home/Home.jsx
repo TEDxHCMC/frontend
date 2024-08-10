@@ -2,7 +2,6 @@ import React from 'react';
 import FirstSection from './FirstSection';
 import SecondSection from './SecondSection'
 import SpeakerSection from './SpeakerSection/SpeakerSection';
-import DraftSpeakerSection from './DraftSpeaker/DraftSpeakerSection';
 
 const Home = () => {
     return (
@@ -10,7 +9,7 @@ const Home = () => {
             <FirstSection/>
             <SecondSection/>
             <SpeakerSection/>
-            <DraftSpeakerSection/>
+
 
             
         </div>
