@@ -15,8 +15,8 @@ const Ticket = () => {
             <div className="min-h-screen w-10/12 mx-auto py-10">
             <div className="w-full h-full flex flex-col justify-between">
                 <Tracker currentStep={currStep}/>
-                <TicketUI/>
-                {/*<Outlet /> */} 
+                <TicketUI/> 
+               
             </div>
             </div>
         </section>

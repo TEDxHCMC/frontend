@@ -21,40 +21,47 @@ const TicketUI = () => {
     ];
 
     const [amount, setAmount] = useState(1);
-    const [selectedDate, setSelectedDate] = useState("");
+    //const [selectedDate, setSelectedDate] = useState("");
     const [sessionsChecked, setSessionsChecked] = useState([]);
-    const [modalOpen, setModalOpen] = useState(false);
+    //const [modalOpen, setModalOpen] = useState(false);
     const navigate = useNavigate();
     const dispatch = useDispatch();
 
     const handleDecrease = (e) => {
         e.preventDefault();
-
+        console.log("Decreasing amount");
         setAmount(amount - 1);
+        console.log("New amount:", amount - 1);
     };
-
+    
     const handleIncrease = (e) => {
         e.preventDefault();
-
+        console.log("Increasing amount");
         setAmount(amount + 1);
+        console.log("New amount:", amount + 1);
     };
-
+    
     const handleChangeSession = (checkedValues) => {
+        console.log("Checked session values:", checkedValues);
         setSessionsChecked(checkedValues);
     };
-
+    
     const handleChangeDate = (e) => {
+        console.log("Selected date:", e.target.value);
         setSelectedDate(e.target.value);
     };
-
+    
     const handleSubmit = (e) => {
-        dispatch(handleSetTicketAmount(amount))
+        console.log("Submitting form with amount:", amount);
+        dispatch(handleSetTicketAmount(amount));
+        console.log("Navigating to ticket/form");
         navigate("/ticket/form");
     };
-
+    
     useEffect(() => {
+        console.log("Setting current step to 1");
         dispatch(handleSetCurrStep(1));
-    });
+    }, []); // Ensure this effect only runs once on component mount
 
     return (
         <div>
