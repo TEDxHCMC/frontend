@@ -66,7 +66,9 @@ const TicketUI = () => {
     return (
         <div>
             <div className='ticket-container flex flex-col sm:flex-row'>
-                <div className='firstside-ticket element flex flex-col gap-y-5 justify-between rounded-tl-[30px] rounded-bl-[30px]'>
+                <div className='firstside-ticket element rounded-tl-[30px] rounded-bl-[30px]'>
+                    <div class="quarter-circle-1"></div>
+                    <div className="firstside-content flex flex-col justify-between gap-y-5 p-[39px]">
                     <div className="first-section">
                         <h1 className="font-bold mb-5">[Vé tham dự] Sự kiện TEDxHoChiMinhCity 2024 - Tỏ tường: Mở lòng với thực tại</h1>
                         <div className="mb-4">
@@ -157,6 +159,7 @@ const TicketUI = () => {
                             </button>
                         </div>
 
+                    </div>
                     </div>
                 </div>
 
