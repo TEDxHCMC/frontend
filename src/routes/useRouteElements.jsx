@@ -75,49 +75,49 @@ const useRouteElements = () => {
                 //         </Suspense>
                 //     ),
                 // },
-                // {
-                //     path: PATH.TICKET,
-                //     element: (
-                //         <Suspense fallBack={<div>Loading</div>}>
-                //             <TicketPage />
-                //         </Suspense>
-                //     ),
-                //     children: [
-                //         {
-                //             path: "",
-                //             index: true,
-                //             element: (
-                //                 <Suspense fallback={<div>Loading</div>}>
-                //                     <TicketGeneralSect />
-                //                 </Suspense>
-                //             )
-                //         },
-                //         {
-                //             path: "form",
-                //             element: (
-                //                 <Suspense fallback={<div>Loading</div>}>
-                //                     <TicketFormSect/>
-                //                 </Suspense>
-                //             )
-                //         },
-                //         {
-                //             path: "confirm",
-                //             element: (
-                //                 <Suspense fallback={<div>Loading</div>}>
-                //                     <div>Ticket Confirm</div>
-                //                 </Suspense>
-                //             )
-                //         },
-                //         {
-                //             path: "done",
-                //             element: (
-                //                 <Suspense fallback={<div>Loading</div>}>
-                //                     <div>Thank You</div>
-                //                 </Suspense>
-                //             ),
-                //         }
-                //     ]
-                // },
+                 {
+                     path: PATH.TICKET,
+                     element: (
+                         <Suspense fallBack={<div>Loading</div>}>
+                             <TicketPage />
+                         </Suspense>
+                     ),
+                     children: [
+                         {
+                             path: "",
+                             index: true,
+                             element: (
+                                 <Suspense fallback={<div>Loading</div>}>
+                                     <TicketGeneralSect />
+                                 </Suspense>
+                             )
+                         },
+                         {
+                             path: "form",
+                             element: (
+                                 <Suspense fallback={<div>Loading</div>}>
+                                     <TicketFormSect/>
+                                 </Suspense>
+                             )
+                         },
+                         {
+                             path: "confirm",
+                             element: (
+                                 <Suspense fallback={<div>Loading</div>}>
+                                     <div>Ticket Confirm</div>
+                                 </Suspense>
+                             )
+                         },
+                         {
+                             path: "done",
+                             element: (
+                                 <Suspense fallback={<div>Loading</div>}>
+                                     <div>Thank You</div>
+                                 </Suspense>
+                             ),
+                         }
+                     ]
+                 },
             ],
         },
         {
