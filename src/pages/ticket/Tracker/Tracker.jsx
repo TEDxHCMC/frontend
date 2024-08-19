@@ -18,11 +18,14 @@ const steps = [
 
 const Tracker = ({ currentStep }) => {
     return (
-        <div className="w-full flex justify-between items-center mx-auto mb-10 gap-5">
+        <div className="w-full flex justify-between items-center mx-auto gap-5">
             {steps.map((step) => {
+                const isCurrentStep = step.index === currentStep;
                 return (
                     <>
-                        <div key={step.index} className="flex justify-between items-center gap-5">
+                        <div key={step.index} 
+                        className={`flex justify-between items-center gap-5 ${isCurrentStep ? "block" : "hidden lg:flex"}`}
+                        >
                             <div className="flex items-center gap-3">
                                 <div
                                     style={{ lineHeight: "56px", fontFamily: "Inter, sans-serif" }}
@@ -45,7 +48,11 @@ const Tracker = ({ currentStep }) => {
                                 </p>
                             </div>
                         </div>
-                        {step.index !== steps.length && <ShortDivider />}
+                        {step.index !== steps.length && (
+                            <div className="hidden lg:block">
+                                <ShortDivider />
+                            </div>
+                        )}
                     </>
                     
                 ) 
