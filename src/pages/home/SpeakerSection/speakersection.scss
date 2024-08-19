@@ -21,76 +21,8 @@
 }
 
 .tedx-section {
-    .morning-section {
-        white-space: nowrap;
-        width: 150px;
-        background: #000000;
-        border: 2px solid #000000;
-        font-family: "Inter", sans-serif;
-        font-style: normal;
-        font-weight: 400;
-        font-size: 14px;
-        line-height: 120%;
-        height: 33px;
-        box-sizing: border-box;
-        justify-content: center;
-        align-items: center;
-        padding: 8px 10px;
-        gap: 10px;
-        color: #FFFFFF;
 
-        @media (min-width: 640px) {
-            width: 100%;
-        }
 
-        transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
-
-        &:hover {
-            background-color: #333333;
-            color: #FFFFFF;
-        }
-
-        &:active {
-            background-color: #555555;
-            transform: scale(0.95);
-        }
-
-    }
-
-    .afternoon-section {
-        white-space: nowrap;
-        width: 150px;
-        border: 2px solid #6D6E71;
-        font-family: "Inter", sans-serif;
-        font-style: normal;
-        font-weight: 400;
-        font-size: 14px;
-        line-height: 120%;
-        height: 33px;
-        box-sizing: border-box;
-        justify-content: center;
-        align-items: center;
-        padding: 8px 10px;
-        gap: 10px;
-
-        @media (min-width: 640px) {
-            width: 100%;
-        }
-
-        transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
-
-        &:hover {
-            background-color: #F0F0F0;
-            color: #000000;
-        }
-
-        &:active {
-            background-color: #DDDDDD;
-            transform: scale(0.95);
-        }
-
-        
-    }
 }
 
 
