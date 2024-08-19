@@ -16,7 +16,7 @@ const Ticket = () => {
             <div className="w-10/12 mx-auto pt-10 sm:pb-5">
                 <Tracker currentStep={currStep} />
             </div>
-            <div className="w-[95%] sm:w-10/12 mx-auto justify-between">
+            <div className="w-[95%] sm:w-[90%] mx-auto ">
                 <div className="w-full h-full flex flex-col pb-[50px] justify-between">
                     <TicketUI />
                     

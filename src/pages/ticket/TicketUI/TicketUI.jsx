@@ -65,7 +65,7 @@ const TicketUI = () => {
 
     return (
         <div>
-            <div className='ticket-container hidden lg:mt-5 lg:flex lg:flex-row'>
+            <div className='ticket-container hidden lg:mt-5 lg:flex lg:flex-row lg:justify-center'>
                 <div className='firstside-ticket element rounded-tl-[30px] rounded-bl-[30px]'>
                     <div class="quarter-circle-1"></div>
                     <div class="quarter-circle-2"></div>
