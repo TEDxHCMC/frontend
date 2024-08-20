@@ -1,20 +1,45 @@
 
-import React, { useState } from 'react';
+import React, { useState} from 'react';
+import {Checkbox} from "antd";
 import './speakersection.scss';
 
 const SpeakerSection = () => {
     const [visibleTimelineSection, setVisibleTimelineSection] = useState(1);
-    const [activeSpeaker, setActiveSpeaker] = useState('speaker-1');
+    const [activeSpeaker, setActiveSpeaker] = useState('speaker-2');
 
     const handleClick = (id) => {
         console.log(`Button clicked: ${id}`);
         setVisibleTimelineSection(id);
     };
-    
+
+    const [selectedSession, setSelectedSession] = useState(null);  // To track the selected session
 
     const handleSpeakerClick = (speakerId) => {
         setActiveSpeaker(speakerId);
         console.log('Button is clicked');
+    };
+
+    const sessions = [
+        {
+            name: "Sáng",
+            time: "09:00 - 12:00",
+            value: "1",
+        },
+        {
+            name: "Chiều",
+            time: "13:00 - 16:00",
+            value: "2",
+        },
+    ];
+
+    const handleChangeSession = (value) => {
+        if (value.length > 0) {
+            const selectedValue = value[value.length - 1]; // Get the latest checked value
+            setSelectedSession(selectedValue);  // Update the selected session state
+            setVisibleTimelineSection(parseInt(selectedValue)); // Update visible timeline based on the selection
+        } else {
+            setSelectedSession(null); // If no session is selected, clear the selection
+        }
     };
 
     return (
@@ -27,16 +52,26 @@ const SpeakerSection = () => {
                     gap-x-2 sm:gap-x-4
                     gap-y-2 sm:gap-y-0
                     mb-[8px] sm:mb-[1rem] xl:mb-[2rem]'>
-                        <button onClick={() => handleClick(1)}>
-                            <div className='morning-section flex'>
-                            Sáng: 9:00 - 12:00
-                        </div>
-                        </button>
-                        <button onClick={() => handleClick(2)}>
-                        <div className='afternoon-section flex'>
-                            Chiều: 13:00 - 16:00
-                        </div>
-                        </button>
+                        <Checkbox.Group
+                            onChange={handleChangeSession}
+                            value={selectedSession ? [selectedSession] : []}  // Ensure only one selection at a time
+                        >
+                            <div className="session flex flex-wrap gap-3">
+                                {sessions.map((session, index) => (
+                                    <Checkbox
+                                        key={index}
+                                        value={session.value}
+                                        className={`px-2 py-2 border-2 border-solid transition-all whitespace-nowrap
+                                            ${selectedSession === session.value
+                                                ? "bg-black text-white border-[#6D6E71]"
+                                                : "border-gray-300 hover:bg-black hover:text-white"
+                                            }`}
+                                    >
+                                        <p className="text-[14px] font-sans">{`${session.name} : ${session.time}`} </p>
+                                    </Checkbox>
+                                ))}
+                            </div>
+                        </Checkbox.Group>
                     </div>
                     {visibleTimelineSection === 1 && (
                         <div className='morning-timeline ml-[8px]
@@ -48,41 +83,41 @@ const SpeakerSection = () => {
 
                                 </div>
 
-                                <div className='section section-2 grid'>
-                                    <div className='time'>8:00</div>
-                                    <div className='content'>Lorem ipsum dolor sit amet, 
-                                        <span className='speaker-click underline underline-offset-4' onClick={() => handleSpeakerClick('speaker-1')}>Phạm Hữu Hoàng</span>
-                                    </div>
-                                </div>
-
                                 <div className='section section-3 grid'>
                                     <div className='time'>9:00</div>
-                                    <div className='content'>Lorem ipsum dolor sit amet, 
+                                    <div className='content'>Lorem ipsum dolor sit amet,
                                         <span className='speaker-click underline underline-offset-4' onClick={() => handleSpeakerClick('speaker-2')}>Nguyễn Tuấn Khanh</span>
-
-                                    </div>
-                                </div>
-
-                                <div className='section section-4 grid'>
-                                    <div className='time'>10:00</div>
-                                    <div className='content'>Lorem ipsum dolor sit amet, 
-                                        <span className='speaker-click underline underline-offset-4' onClick={() => handleSpeakerClick('speaker-3')}>Dino Vũ</span>
                                     </div>
                                 </div>
 
                                 <div className='section section-5 grid'>
                                     <div className='time'>11:00</div>
-                                    <div className='content'>Lorem ipsum dolor sit, 
+                                    <div className='content'>Lorem ipsum dolor sit,
                                         <span className='speaker-click underline underline-offset-4' onClick={() => handleSpeakerClick('speaker-4')}>Nguyễn Phan Thùy Dương</span>
                                     </div>
                                 </div>
 
-                                <div className='section section-6 grid'>
-                                    <div className='time'>12:00</div>
-                                    <div className='content'>Lorem ipsum dolor sit amet, 
-                                        <span className='speaker-click underline underline-offset-4' onClick={() => handleSpeakerClick('speaker-5')}>Thiều Thanh Hà</span>
+                                <div className='section section-2 grid'>
+                                    <div className='time'>8:00</div>
+                                    <div className='content'>Lorem ipsum dolor sit amet,
+                                        <span className='speaker-click underline underline-offset-4' onClick={() => handleSpeakerClick('speaker-1')}>Phạm Hữu Hoàng</span>
                                     </div>
                                 </div>
+
+                                <div className='section section-4 grid'>
+                                    <div className='time'>10:00</div>
+                                    <div className='content'>Lorem ipsum dolor sit amet,
+                                        <span className='speaker-click underline underline-offset-4' onClick={() => handleSpeakerClick('speaker-3')}>Dino Vũ</span>
+                                    </div>
+                                </div>
+
+                                <div className='section section-12 grid'>
+                                    <div className='time'>9:00</div>
+                                    <div className='content'>Lorem ipsum dolor sit amet,
+                                        <span className='speaker-click underline underline-offset-4' onClick={() => handleSpeakerClick('speaker-11')}>Hồ Thái Bình</span>
+                                    </div>
+                                </div>
+
                             </div>
                         </div>
                     )}
@@ -91,46 +126,47 @@ const SpeakerSection = () => {
                         <div className='afternoon-timeline ml-[8px]
                         sm:ml-[1rem] md:ml-[2rem] lg:ml-[3rem] xl:ml-[4rem]' id='2'>
                             <div className='grid grid-rows-2 gap-y-2 md:gap-y-3 lg:gap-y-5'>
+
+                                <div className='section section-9 grid'>
+                                    <div className='time'>9:00</div>
+                                    <div className='content'>Lorem ipsum dolor sit amet,
+                                        <span className='speaker-click underline underline-offset-4' onClick={() => handleSpeakerClick('speaker-8')}>An Phương</span>
+                                    </div>
+                                </div>
+
+                                <div className='section section-6 grid'>
+                                    <div className='time'>12:00</div>
+                                    <div className='content'>Lorem ipsum dolor sit amet,
+                                        <span className='speaker-click underline underline-offset-4' onClick={() => handleSpeakerClick('speaker-5')}>Thiều Thanh Hà</span>
+                                    </div>
+                                </div>
+
+                                <div className='section section-8 grid'>
+                                    <div className='time'>9:00</div>
+                                    <div className='content'>Lorem ipsum dolor sit amet,
+                                        <span className='speaker-click underline underline-offset-4' onClick={() => handleSpeakerClick('speaker-7')}>Phan Mỹ Linh</span>
+                                    </div>
+                                </div>
+
                                 <div className='section section-7 grid'>
                                     <div className='time'>9:00</div>
-                                    <div className='content'>Lorem ipsum dolor sit amet, 
+                                    <div className='content'>Lorem ipsum dolor sit amet,
                                         <span className='speaker-click underline underline-offset-4' onClick={() => handleSpeakerClick('speaker-6')}>Nguyễn Phú Hậu</span>
                                     </div>
 
                                 </div>
 
-                                <div className='section section-8 grid'>
+                                <div className='section section-11 grid'>
                                     <div className='time'>9:00</div>
-                                    <div className='content'>Lorem ipsum dolor sit amet, 
-                                        <span className='speaker-click underline underline-offset-4' onClick={() => handleSpeakerClick('speaker-7')}>Phan Mỹ Linh</span>
-                                    </div>
-                                </div>
-
-                                <div className='section section-9 grid'>
-                                    <div className='time'>9:00</div>
-                                    <div className='content'>Lorem ipsum dolor sit amet, 
-                                        <span className='speaker-click underline underline-offset-4' onClick={() => handleSpeakerClick('speaker-8')}>An Phương</span>
+                                    <div className='content'>Lorem ipsum dolor sit amet,
+                                        <span className='speaker-click underline underline-offset-4' onClick={() => handleSpeakerClick('speaker-10')}>Nguyễn Thị Hồng Nhung</span>
                                     </div>
                                 </div>
 
                                 <div className='section section-10 grid'>
                                     <div className='time'>9:00</div>
-                                    <div className='content'>Lorem ipsum dolor sit amet, 
+                                    <div className='content'>Lorem ipsum dolor sit amet,
                                         <span className='speaker-click underline underline-offset-4' onClick={() => handleSpeakerClick('speaker-9')}>Phương Vũ</span>
-                                    </div>
-                                </div>
-
-                                <div className='section section-11 grid'>
-                                    <div className='time'>9:00</div>
-                                    <div className='content'>Lorem ipsum dolor sit amet, 
-                                        <span className='speaker-click underline underline-offset-4' onClick={() => handleSpeakerClick('speaker-10')}>Nguyễn Thị Hồng Nhung</span>
-                                    </div>
-                                </div>
-
-                                <div className='section section-12 grid'>
-                                    <div className='time'>9:00</div>
-                                    <div className='content'>Lorem ipsum dolor sit amet, 
-                                        <span className='speaker-click underline underline-offset-4' onClick={() => handleSpeakerClick('speaker-11')}>Hồ Thái Bình</span>
                                     </div>
                                 </div>
 
@@ -178,7 +214,7 @@ const SpeakerSection = () => {
                                         <h2>Nguyễn Tuấn Khanh</h2>
                                     </div>
                                     <div className='speaker-role flex'>
-                                        <h3>Tiến sĩ & Giảng viên khoa QHQT <br/> Đại học Khoa học Xã hội và Nhân văn</h3>
+                                        <h3>Tiến sĩ & Giảng viên khoa QHQT <br /> Đại học Khoa học Xã hội và Nhân văn</h3>
                                     </div>
                                 </>
                             )}
@@ -221,7 +257,7 @@ const SpeakerSection = () => {
                                     </div>
                                     <div className='speaker-role flex'>
                                         <h3>Đại diện Vietsuccess & GEEK Up <br />
-                                        Đối tác quản lý N.H & Partners</h3>
+                                            Đối tác quản lý N.H & Partners</h3>
                                     </div>
                                 </>
                             )}
