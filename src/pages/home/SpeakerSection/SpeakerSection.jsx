@@ -22,12 +22,12 @@ const SpeakerSection = () => {
     const sessions = [
         {
             name: "Sáng",
-            time: "09:00 - 12:00",
+            time: "08:00 - 12:00",
             value: "1",
         },
         {
             name: "Chiều",
-            time: "13:00 - 16:00",
+            time: "14:00 - 18:00",
             value: "2",
         },
     ];
