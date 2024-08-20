@@ -45,9 +45,14 @@ const SpeakerSection = () => {
     return (
         <div>
             <div className='background-speaker flex flex-col sm:flex-row p-4
+                lg: justify-between
                 sm:m-8 md:m-12 lg:m-16 xl:m-24'>
-                <div className='speaker-heading'>
-                    <h1 className='color-[#000000] mb-[15px] text-[40px] font-bold'>Lorem ipsum</h1>
+                <div className='speaker-heading p-4 md:p-0'>
+                    <h1 className='color-[#000000] mb-[15px] font-bold
+                    text-[30px] sm:text-[33px] md:text-[35px] lg:text-[38px] xl:text-[40px] '>
+                        Timeline
+                        <span className='inline md:block lg:inline'> Chương Trình</span>
+                        </h1>
                     <div className='tedx-section flex flex-col sm:flex-row
                     gap-x-2 sm:gap-x-4
                     gap-y-2 sm:gap-y-0
@@ -85,35 +90,35 @@ const SpeakerSection = () => {
 
                                 <div className='section section-3 grid'>
                                     <div className='time'>9:00</div>
-                                    <div className='content'>Lorem ipsum dolor sit amet,
+                                    <div className='content'> {/* Viet content */}
                                         <span className='speaker-click underline underline-offset-4' onClick={() => handleSpeakerClick('speaker-2')}>Nguyễn Tuấn Khanh</span>
                                     </div>
                                 </div>
 
                                 <div className='section section-5 grid'>
                                     <div className='time'>11:00</div>
-                                    <div className='content'>Lorem ipsum dolor sit,
+                                    <div className='content'>
                                         <span className='speaker-click underline underline-offset-4' onClick={() => handleSpeakerClick('speaker-4')}>Nguyễn Phan Thùy Dương</span>
                                     </div>
                                 </div>
 
                                 <div className='section section-2 grid'>
                                     <div className='time'>8:00</div>
-                                    <div className='content'>Lorem ipsum dolor sit amet,
+                                    <div className='content'>
                                         <span className='speaker-click underline underline-offset-4' onClick={() => handleSpeakerClick('speaker-1')}>Phạm Hữu Hoàng</span>
                                     </div>
                                 </div>
 
                                 <div className='section section-4 grid'>
                                     <div className='time'>10:00</div>
-                                    <div className='content'>Lorem ipsum dolor sit amet,
+                                    <div className='content'>
                                         <span className='speaker-click underline underline-offset-4' onClick={() => handleSpeakerClick('speaker-3')}>Dino Vũ</span>
                                     </div>
                                 </div>
 
                                 <div className='section section-12 grid'>
                                     <div className='time'>9:00</div>
-                                    <div className='content'>Lorem ipsum dolor sit amet,
+                                    <div className='content'>
                                         <span className='speaker-click underline underline-offset-4' onClick={() => handleSpeakerClick('speaker-11')}>Hồ Thái Bình</span>
                                     </div>
                                 </div>
@@ -129,28 +134,28 @@ const SpeakerSection = () => {
 
                                 <div className='section section-9 grid'>
                                     <div className='time'>9:00</div>
-                                    <div className='content'>Lorem ipsum dolor sit amet,
+                                    <div className='content'>
                                         <span className='speaker-click underline underline-offset-4' onClick={() => handleSpeakerClick('speaker-8')}>An Phương</span>
                                     </div>
                                 </div>
 
                                 <div className='section section-6 grid'>
                                     <div className='time'>12:00</div>
-                                    <div className='content'>Lorem ipsum dolor sit amet,
+                                    <div className='content'>
                                         <span className='speaker-click underline underline-offset-4' onClick={() => handleSpeakerClick('speaker-5')}>Thiều Thanh Hà</span>
                                     </div>
                                 </div>
 
                                 <div className='section section-8 grid'>
                                     <div className='time'>9:00</div>
-                                    <div className='content'>Lorem ipsum dolor sit amet,
+                                    <div className='content'>
                                         <span className='speaker-click underline underline-offset-4' onClick={() => handleSpeakerClick('speaker-7')}>Phan Mỹ Linh</span>
                                     </div>
                                 </div>
 
                                 <div className='section section-7 grid'>
                                     <div className='time'>9:00</div>
-                                    <div className='content'>Lorem ipsum dolor sit amet,
+                                    <div className='content'>
                                         <span className='speaker-click underline underline-offset-4' onClick={() => handleSpeakerClick('speaker-6')}>Nguyễn Phú Hậu</span>
                                     </div>
 
@@ -158,14 +163,14 @@ const SpeakerSection = () => {
 
                                 <div className='section section-11 grid'>
                                     <div className='time'>9:00</div>
-                                    <div className='content'>Lorem ipsum dolor sit amet,
+                                    <div className='content'>
                                         <span className='speaker-click underline underline-offset-4' onClick={() => handleSpeakerClick('speaker-10')}>Nguyễn Thị Hồng Nhung</span>
                                     </div>
                                 </div>
 
                                 <div className='section section-10 grid'>
                                     <div className='time'>9:00</div>
-                                    <div className='content'>Lorem ipsum dolor sit amet,
+                                    <div className='content'>
                                         <span className='speaker-click underline underline-offset-4' onClick={() => handleSpeakerClick('speaker-9')}>Phương Vũ</span>
                                     </div>
                                 </div>
