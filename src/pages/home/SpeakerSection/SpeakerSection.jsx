@@ -44,10 +44,10 @@ const SpeakerSection = () => {
 
     return (
         <div>
-            <div className='background-speaker p-4
+            <div className='background-speaker flex flex-col sm:flex-row p-4
                 sm:m-8 md:m-12 lg:m-16 xl:m-24'>
                 <div className='speaker-heading'>
-                    <h1>Lorem ipsum</h1>
+                    <h1 className='color-[#000000] mb-[15px] text-[40px] font-bold'>Lorem ipsum</h1>
                     <div className='tedx-section flex flex-col sm:flex-row
                     gap-x-2 sm:gap-x-4
                     gap-y-2 sm:gap-y-0
@@ -182,21 +182,21 @@ const SpeakerSection = () => {
                 </div>
 
 
-                <div className='second-container flex
+                <div className='second-container flex h-auto items-center justify-center
                                 ml-[0px] md:ml-[20px] lg:ml-[30px] xl:ml-[50px]
                                 mt-[20px] md:mt-[0px] lg:mt-[0px] xl:mt-[0px]'>
-                    <div className='speaker-bg relative'>
+                    <div className='speaker-bg relative w-full z-[2]'>
                         <img className='absolute pink' src='./assets/pattern/single-pattern/3-Pink.png' />
                         <img className='absolute green' src='./assets/pattern/single-pattern/4-Green.png' />
                         <img className='absolute yellow' src='./assets/pattern/single-pattern/1-Yellow.png' />
                         <img className='absolute blue' src='./assets/pattern/single-pattern/2-Blue.png' />
-                        <div className='speaker-detail flex flex-col '>
+                        <div className='speaker-detail relative flex flex-col z-[3] items-center justify-items-center '>
                             {activeSpeaker === 'speaker-1' && (
                                 <>
                                     <div className='speaker-image flex'>
                                         <img src='./assets/speaker/speaker_GS PHH.png' alt='Speaker Image' style={{ transform: 'scale(0.8)' }} />
                                     </div>
-                                    <div className='speaker-name flex'>
+                                    <div className='speaker-name flex '>
                                         <h2>Phạm Hữu Hoàng</h2>
                                     </div>
                                     <div className='speaker-role flex'>

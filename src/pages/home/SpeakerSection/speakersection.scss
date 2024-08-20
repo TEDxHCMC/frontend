@@ -1,30 +1,10 @@
-.background-speaker{
-    display: flex;    
-    flex-direction: column;
-    
 
-    @media (min-width: 640px) {
-        flex-direction: row;
-    }
-}
 .speaker-heading {
     h1 {
-        //position: absolute;
         font-family: "Phudu Variable", system-ui;
-        font-style: normal;
-        font-weight: 700;
-        font-size: 40px;
         line-height: 49px;
-        color: #000000;
-        margin-bottom: 15px;
     }
 }
-
-.tedx-section {
-
-
-}
-
 
 .section {
     align-items: center;
@@ -99,17 +79,7 @@
     }
 }
 
-.second-container {
-    height: auto;
-    align-items: center;
-    justify-content: center;
-    //width: auto;
-}
-
 .speaker-bg {
-    position: relative;
-    z-index: 2;
-    width: 100%;
 
     .pink {
         height: 100px;
@@ -164,16 +134,9 @@
             bottom: 20%;
             right: 0%;
         }
-        
     }
 
-    
-
     .speaker-detail {
-        position: relative;
-        z-index: 3;
-        align-items: center;
-        justify-items: center;
         height: fit-content;
 
         .speaker-image {
@@ -272,7 +235,7 @@
     cursor: pointer;
 
     &:hover {
-        color: #007bff;
+        color: #C30121;
     }
 
     &:active {

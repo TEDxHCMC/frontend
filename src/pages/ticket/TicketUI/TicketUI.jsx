@@ -61,23 +61,20 @@ const TicketUI = () => {
     useEffect(() => {
         console.log("Setting current step to 1");
         dispatch(handleSetCurrStep(1));
-    }, []); // Ensure this effect only runs once on component mount
+    }, []); 
 
     return (
         <div>
             <div className='ticket-container hidden lg:mt-5 lg:flex lg:flex-row lg:justify-center'>
-                <div className='firstside-ticket element rounded-tl-[30px] rounded-bl-[30px]'>
-                    <div class="quarter-circle-1"></div>
-                    <div class="quarter-circle-2"></div>
+                <div className='firstside-ticket bg-[#FFFFFF] relative w-[35%] element rounded-[30px]'>
                     <div className="firstside-content flex flex-col justify-between gap-y-5 p-[39px]">
-                        <div className="first-section">
-                            <h1 className="font-bold mb-5">[Vé tham dự] Sự kiện TEDxHoChiMinhCity 2024 - Tỏ tường: Mở lòng với thực tại</h1>
+                        <div className="first-section mb-8">
+                            <h1 className="font-bold text-[22px] color-[#141414] mb-5">[Vé tham dự] Sự kiện TEDxHoChiMinhCity 2024 - Tỏ tường: Mở lòng với thực tại</h1>
                             <div className="mb-4">
                                 <div className='flex flex-row gap-x-2 mb-2'>
                                     <svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M0.0175781 16.3035C0.0175781 16.6789 0.320815 16.9821 0.69615 16.9821H16.3033C16.6786 16.9821 16.9819 16.6789 16.9819 16.3035V7.39727H0.0175781V16.3035ZM16.3033 1.54459H12.7408V0.18745C12.7408 0.0941463 12.6645 0.017807 12.5711 0.017807H11.3836C11.2903 0.017807 11.214 0.0941463 11.214 0.18745V1.54459H5.78544V0.18745C5.78544 0.0941463 5.7091 0.017807 5.61579 0.017807H4.42829C4.33499 0.017807 4.25865 0.0941463 4.25865 0.18745V1.54459H0.69615C0.320815 1.54459 0.0175781 1.84783 0.0175781 2.22316V5.95531H16.9819V2.22316C16.9819 1.84783 16.6786 1.54459 16.3033 1.54459Z" fill="black" />
                                     </svg>
-
                                     <h2 className="font-bold text-[20px] text-[#C30121]">
                                         2 khung giờ: ngày 21 tháng 9, 2024
                                     </h2>
@@ -120,15 +117,14 @@ const TicketUI = () => {
                             </div>
 
                         </div>
-
                         <div className='ticket-price flex flex-col'>
                             <div className='line mb-2'></div>
                             <div className='flex flex-row items-center justify-between'>
-                                <div className="flex flex-row">
-                                    <h3 className="font-bold text-[22px]">
+                                <div className="text-ticket whitespace-nowrap flex flex-col xl:flex-row ">
+                                    <h3 className="font-bold text-[20px] xl:text-[22px]">
                                         Giá Vé:
                                     </h3>
-                                    <h3 className='text-[#C30121] ml-2 font-bold text-[22px]'>Miễn phí</h3>
+                                    <h3 className='text-[#C30121] ml-0 mt-2 xl:ml-2 xl:mt-0 font-bold text-[22px]'>Miễn phí</h3>
                                 </div>
                                 <div className="flex items-center gap-3 h-10">
                                     <button
@@ -165,12 +161,8 @@ const TicketUI = () => {
                     </div>
                 </div>
 
-
-
-                <div className='secondside-ticket relative z-[1] w-full flex justify-center rounded-tr-[30px] rounded-br-[30px]'>
-                    <div className="vertical-line"></div>
-                    <div class="quarter-circle-3"></div>
-                    <div class="quarter-circle-4"></div>
+                <div className='secondside-ticket relative z-[1] bg-[#FFFBF6] w-[65%] flex justify-center rounded-[30px]'>
+                    <div className="vertical-line absolute h-[90%] top-[5%] left-[0] z-0 border-l-2 border-black border-dashed"></div>
                     <img className="pattern absolute md:block hidden bottom-[5%] right-[5%]"
                         src="./assets/pattern/single-pattern/4-Blue.png"
                         style={{ transform: 'scale(1.28)' }} />
@@ -219,7 +211,7 @@ const TicketUI = () => {
                                 <img src='./assets/logo/to-tuong-logo/To-tuong-logo-black.png' 
                                     className="lg:w-[350px] xl:w-[444px] lg:h-[90px] xl:h-[115px]" />
                             </div>
-                            <h4 className="lg:text-[27px] xl:text-[32px]">Mở lòng với thực tại</h4>
+                            <h4 className="lg:text-[27px] xl:text-[32px] color-[#141414]">Mở lòng với thực tại</h4>
                         </div>
                     </div>
                 </div>
@@ -284,9 +276,7 @@ const TicketUI = () => {
                         src="./assets/pattern/overlay-pattern/10.png" />
 
                     <div className="mobile-content p-5 flex flex-col">
-                        <div className="mobile-first-ticket flex flex-col justify-between  p-[40px] element rounded-tl-[30px] rounded-tr-[30px]">
-                        <div class="mobile-circle-1"></div>
-                        <div class="mobile-circle-2"></div>                            <div className="first-section">
+                        <div className="mobile-first-ticket relative flex flex-col justify-between p-[40px] element rounded-[30px] bg-[#FFFFFF]">                          <div className="first-section">
                                 <h1 className="font-bold mb-5">[Vé tham dự] <br /> Sự kiện TEDxHoChiMinhCity 2024 - Tỏ tường: Mở lòng với thực tại</h1>
                                 <div className="mb-4">
                                     <div className='flex flex-row gap-x-2 mb-2'>
@@ -340,10 +330,8 @@ const TicketUI = () => {
                         </div>
 
                         
-                        <div className="mobile-second-ticket p-[40px] element rounded-bl-[30px] rounded-br-[30px]">
-                            <div className="horizontal-line"></div>
-                            <div class="mobile-circle-3"></div>
-                            <div class="mobile-circle-4"></div> 
+                        <div className="mobile-second-ticket relative p-[40px] element rounded-[30px] bg-[#FFFFFF]">
+                            <div className="horizontal-line absolute h-[100%] w-[90%] md:w-[95%] md:left-[2%] left-[5%] top-0 z-[1] border-t-2 border-black border-dashed"></div>
                                 <div className='flex flex-row items-center justify-between'>
                                     <div className="flex flex-col">
                                         <h3 className="font-bold text-[18px]">
