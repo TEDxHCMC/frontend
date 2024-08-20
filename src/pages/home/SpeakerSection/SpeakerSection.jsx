@@ -50,8 +50,8 @@ const SpeakerSection = () => {
                 <div className='speaker-heading p-4 md:p-0'>
                     <h1 className='color-[#000000] mb-[15px] font-bold
                     text-[30px] sm:text-[33px] md:text-[35px] lg:text-[38px] xl:text-[40px] '>
-                        Timeline
-                        <span className='inline md:block lg:inline'> Chương Trình</span>
+                        Chương Trình
+                        <span className='inline md:block lg:inline'> Sự Kiện</span>
                         </h1>
                     <div className='tedx-section flex flex-col sm:flex-row
                     gap-x-2 sm:gap-x-4

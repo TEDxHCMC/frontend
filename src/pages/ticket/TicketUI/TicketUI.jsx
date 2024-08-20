@@ -69,7 +69,7 @@ const TicketUI = () => {
                 <div className='firstside-ticket bg-[#FFFFFF] relative w-[35%] element rounded-[30px]'>
                     <div className="firstside-content flex flex-col justify-between gap-y-5 p-[39px]">
                         <div className="first-section mb-8">
-                            <h1 className="font-bold text-[22px] color-[#141414] mb-5">[Vé tham dự] <br /> Sự kiện TEDxHoChiMinhCity 2024 - Tỏ tường: Mở lòng với thực tại</h1>
+                            <h1 className="font-bold text-[22px] color-[#141414] mb-5 leading-tight">[Vé tham dự] <br /> Sự kiện TEDxHoChiMinhCity 2024 - Tỏ tường: Mở lòng với thực tại</h1>
                             <div className="mb-4">
                                 <div className='flex flex-row gap-x-2 mb-2'>
                                     <svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -110,10 +110,10 @@ const TicketUI = () => {
                                     <svg width="17" height="23" viewBox="0 0 17 23" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M8.5 0C3.79667 0 0 3.79667 0 8.5C0 14.1667 8.5 22.6667 8.5 22.6667C8.5 22.6667 17 14.1667 17 8.5C17 3.79667 13.2033 0 8.5 0ZM8.5 2.83333C11.645 2.83333 14.1667 5.38333 14.1667 8.5C14.1667 11.645 11.645 14.1667 8.5 14.1667C5.38333 14.1667 2.83333 11.645 2.83333 8.5C2.83333 5.38333 5.38333 2.83333 8.5 2.83333Z" fill="black" />
                                     </svg>
-                                    <h2 className="font-bold text-[20px]">Khách sạn New World</h2>
+                                    <h2 className="font-bold text-[20px]">Khách sạn New World Saigon</h2>
                                 </div>
 
-                                <p className="ml-6">76 Lê Lai, phường Bến Thành, Quận 1, Thành phố Hồ Chí Minh</p>
+                                <p className="ml-6 leading-tight">76 Lê Lai, phường Bến Thành, Quận 1, <br/> Thành phố Hồ Chí Minh</p>
                             </div>
 
                         </div>
@@ -285,7 +285,7 @@ const TicketUI = () => {
 
                     <div className="mobile-content p-5 flex flex-col">
                         <div className="mobile-first-ticket relative flex flex-col justify-between p-[40px] element rounded-[30px] bg-[#FFFFFF]">                          <div className="first-section">
-                            <h1 className="font-bold mb-5">[Vé tham dự] <br /> Sự kiện TEDxHoChiMinhCity 2024 - Tỏ tường: Mở lòng với thực tại</h1>
+                            <h1 className="font-bold mb-5 leading-tight">[Vé tham dự] <br /> Sự kiện TEDxHoChiMinhCity 2024 - Tỏ tường: Mở lòng với thực tại</h1>
                             <div className="mb-4">
                                 <div className='flex flex-row gap-x-2 mb-2'>
                                     <svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -328,10 +328,10 @@ const TicketUI = () => {
                                         <path d="M8.5 0C3.79667 0 0 3.79667 0 8.5C0 14.1667 8.5 22.6667 8.5 22.6667C8.5 22.6667 17 14.1667 17 8.5C17 3.79667 13.2033 0 8.5 0ZM8.5 2.83333C11.645 2.83333 14.1667 5.38333 14.1667 8.5C14.1667 11.645 11.645 14.1667 8.5 14.1667C5.38333 14.1667 2.83333 11.645 2.83333 8.5C2.83333 5.38333 5.38333 2.83333 8.5 2.83333Z" fill="black" />
                                     </svg>
 
-                                    <h2 className="font-bold text-[16px] text-[#C30121]">Khách sạn New World</h2>
+                                    <h2 className="font-bold text-[16px] text-[#C30121]">Khách sạn New World Saigon</h2>
                                 </div>
 
-                                <p className="ml-6 text-[14px]">76 Lê Lai, phường Bến Thành, Quận 1, Thành phố Hồ Chí Minh</p>
+                                <p className="ml-6 text-[14px] leading-tight">76 Lê Lai, phường Bến Thành, Quận 1, <br/> Thành phố Hồ Chí Minh</p>
                             </div>
 
                         </div>
