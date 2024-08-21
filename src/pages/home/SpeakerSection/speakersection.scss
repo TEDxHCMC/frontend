@@ -7,6 +7,7 @@
 }
 
 .section {
+    line-height: 1.25;
     align-items: center;
     grid-template-columns: 1fr 3fr;
 
@@ -15,7 +16,7 @@
     }
 
     @media (min-width: 768px) {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 1fr 2fr;
     }
 
     @media (min-width: 1024px) {
@@ -23,7 +24,7 @@
     }
 
     @media (min-width: 1280px) {
-        grid-template-columns: 1fr 3fr;
+        grid-template-columns: 1fr 2fr;
     }
 }
 
@@ -35,6 +36,7 @@
     color: #000000;
     justify-content: center;
     align-items: center;
+    white-space: nowrap;
 
     @media (min-width: 640px) {
         font-size: 14px;
@@ -54,6 +56,33 @@
 }
 
 .content {
+    font-family: 'Platypi Variable', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    color: #141414;
+    justify-content: center;
+    align-items: center;
+    white-space: nowrap;
+
+    @media (min-width: 640px) {
+        font-size: 14px;
+    }
+
+    @media (min-width: 768px) {
+        font-size: 15px;
+    }
+
+    @media (min-width: 1024px) {
+        font-size: 18px;
+    }
+
+    @media (min-width: 1280px) {
+        font-size: 20px;
+    }
+}
+
+.speaker-content{
     font-family: 'Platypi Variable', sans-serif;
     font-style: normal;
     font-weight: 400;
@@ -136,6 +165,89 @@
         }
     }
 
+    .logo-detail{
+        .logo-container{
+            padding-top: 50px;
+            padding-bottom: 50px;
+            padding-left: 20px;
+            padding-right: 20px;
+
+            @media (min-width: 640px) {
+                padding: 0;
+            }
+        
+            @media (min-width: 768px) {
+                padding: 0;
+            }
+        
+            @media (min-width: 1024px) {
+                padding: 0;
+            }
+        
+            @media (min-width: 1280px) {
+                padding: 0;
+            }
+
+        .tedxlogo-image{
+            margin-top: 10px;
+            width: 250px;
+
+            @media (min-width: 640px) {
+                margin: 14px;
+                padding-top: 20px;
+                width: 360px;
+            }
+        
+            @media (min-width: 768px) {
+                margin: 0px;
+                padding-top: 20px;
+                width: 380px;
+            }
+        
+            @media (min-width: 1024px) {
+                margin: 0px;
+                padding-top: 20px;
+                width: 400px;
+            }
+        
+            @media (min-width: 1280px) {
+                margin: 0px;
+                padding-top: 20px;
+                width: 410px;
+            }
+        }
+
+        .tedx-name{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            h2 {
+                font-family: 'Platypi Variable', sans-serif;
+                //font-weight: 700;
+                font-size: 20px;
+                text-transform: uppercase;
+                color: #000000;
+                margin-bottom: 10px;
+
+                @media (min-width: 640px) {
+                    font-size: 23px;
+                    margin-bottom: 10px; 
+                }
+
+                @media (min-width: 768px) {
+                    font-size: 24px;
+                    margin-bottom: 12px; 
+                }
+
+                @media (min-width: 1024px) {
+                    font-size: 25px;
+                    margin-bottom: 16px; 
+                }
+            }
+        }
+    }
+    }
     .speaker-detail {
         height: fit-content;
 
