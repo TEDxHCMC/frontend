@@ -224,7 +224,7 @@ const SpeakerSection = () => {
                         <img className='absolute blue' src='./assets/pattern/single-pattern/2-Blue.png' />
                         <div className='logo-detail relative flex flex-col z-[3] items-center justify-center'>
                             {activeSpeaker === 'speaker-0' && (
-                                    <>
+                                <>
                                     <div className='logo-container flex flex-col'>
                                         <div className='tedxlogo-image flex'>
                                             <img src='./assets/logo/to-tuong-logo/To-tuong-logo-black.png' alt='Logo Image' />
@@ -233,12 +233,12 @@ const SpeakerSection = () => {
                                             <h2>Mở lòng với thực tại </h2>
                                         </div>
                                     </div>
-                                    </>
-                                )}
+                                </>
+                            )}
                         </div>
-                        
+
                         <div className='speaker-detail relative flex flex-col z-[3] items-center justify-items-center '>
-                            
+
                             {activeSpeaker === 'speaker-1' && (
                                 <>
                                     <div className='speaker-image flex'>

@@ -1,4 +1,3 @@
-
 .speaker-heading {
     h1 {
         font-family: "Phudu Variable", system-ui;
@@ -82,7 +81,7 @@
     }
 }
 
-.speaker-content{
+.speaker-content {
     font-family: 'Platypi Variable', sans-serif;
     font-style: normal;
     font-weight: 400;
@@ -115,6 +114,7 @@
         width: 100px;
         left: 10%;
         top: 0%;
+
         @media (min-width: 640px) {
             height: 130px;
             width: 130px;
@@ -128,7 +128,7 @@
         width: 45px;
         left: 7%;
         top: 20%;
-        
+
         @media (min-width: 640px) {
             height: 60px;
             width: 60px;
@@ -165,8 +165,8 @@
         }
     }
 
-    .logo-detail{
-        .logo-container{
+    .logo-detail {
+        .logo-container {
             padding-top: 50px;
             padding-bottom: 50px;
             padding-left: 20px;
@@ -175,79 +175,80 @@
             @media (min-width: 640px) {
                 padding: 0;
             }
-        
+
             @media (min-width: 768px) {
                 padding: 0;
             }
-        
+
             @media (min-width: 1024px) {
                 padding: 0;
             }
-        
+
             @media (min-width: 1280px) {
                 padding: 0;
             }
 
-        .tedxlogo-image{
-            margin-top: 10px;
-            width: 250px;
-
-            @media (min-width: 640px) {
-                margin: 14px;
-                padding-top: 20px;
-                width: 360px;
-            }
-        
-            @media (min-width: 768px) {
-                margin: 0px;
-                padding-top: 20px;
-                width: 380px;
-            }
-        
-            @media (min-width: 1024px) {
-                margin: 0px;
-                padding-top: 20px;
-                width: 400px;
-            }
-        
-            @media (min-width: 1280px) {
-                margin: 0px;
-                padding-top: 20px;
-                width: 410px;
-            }
-        }
-
-        .tedx-name{
-            display: flex;
-            justify-content: center;
-            align-items: center;
-
-            h2 {
-                font-family: 'Platypi Variable', sans-serif;
-                //font-weight: 700;
-                font-size: 20px;
-                text-transform: uppercase;
-                color: #000000;
-                margin-bottom: 10px;
+            .tedxlogo-image {
+                margin-top: 10px;
+                width: 250px;
 
                 @media (min-width: 640px) {
-                    font-size: 23px;
-                    margin-bottom: 10px; 
+                    margin: 14px;
+                    padding-top: 20px;
+                    width: 360px;
                 }
 
                 @media (min-width: 768px) {
-                    font-size: 24px;
-                    margin-bottom: 12px; 
+                    margin: 0px;
+                    padding-top: 20px;
+                    width: 380px;
                 }
 
                 @media (min-width: 1024px) {
-                    font-size: 25px;
-                    margin-bottom: 16px; 
+                    margin: 0px;
+                    padding-top: 20px;
+                    width: 400px;
+                }
+
+                @media (min-width: 1280px) {
+                    margin: 0px;
+                    padding-top: 20px;
+                    width: 410px;
+                }
+            }
+
+            .tedx-name {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                h2 {
+                    font-family: 'Platypi Variable', sans-serif;
+                    //font-weight: 700;
+                    font-size: 20px;
+                    text-transform: uppercase;
+                    color: #000000;
+                    margin-bottom: 10px;
+
+                    @media (min-width: 640px) {
+                        font-size: 23px;
+                        margin-bottom: 10px;
+                    }
+
+                    @media (min-width: 768px) {
+                        font-size: 24px;
+                        margin-bottom: 12px;
+                    }
+
+                    @media (min-width: 1024px) {
+                        font-size: 25px;
+                        margin-bottom: 16px;
+                    }
                 }
             }
         }
     }
-    }
+
     .speaker-detail {
         height: fit-content;
 
@@ -259,17 +260,17 @@
                 margin: 14px;
                 width: 350px;
             }
-        
+
             @media (min-width: 768px) {
                 margin: 0px;
                 width: 380px;
             }
-        
+
             @media (min-width: 1024px) {
                 margin: 0px;
                 width: 410px;
             }
-        
+
             @media (min-width: 1280px) {
                 margin: 0px;
                 width: 430px;
@@ -291,17 +292,17 @@
 
                 @media (min-width: 640px) {
                     font-size: 23px;
-                    margin-bottom: 10px; 
+                    margin-bottom: 10px;
                 }
 
                 @media (min-width: 768px) {
                     font-size: 24px;
-                    margin-bottom: 12px; 
+                    margin-bottom: 12px;
                 }
 
                 @media (min-width: 1024px) {
                     font-size: 25px;
-                    margin-bottom: 16px; 
+                    margin-bottom: 16px;
                 }
             }
         }
@@ -320,18 +321,18 @@
 
                 @media (min-width: 640px) {
                     font-size: 10px;
-                    margin-bottom: 10px; 
+                    margin-bottom: 10px;
 
                 }
 
                 @media (min-width: 768px) {
                     font-size: 12px;
-                    margin-bottom: 12px; 
+                    margin-bottom: 12px;
                 }
 
                 @media (min-width: 1024px) {
                     font-size: 13px;
-                    margin-bottom: 16px; 
+                    margin-bottom: 16px;
                 }
 
                 @media (min-width: 1280px) {
