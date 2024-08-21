@@ -1,9 +1,9 @@
 import axios from "axios";
 
 const fetcher = axios.create({
-    baseURL: "",
+    baseURL: "http://localhost:8080/",
     headers: {},
-    timeout: 3000
+    timeout: 30000
 });
 
 fetcher.interceptors.request.use((config) => {

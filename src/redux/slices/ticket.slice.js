@@ -3,6 +3,8 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
     currStep: 1,
     ticketAmount: 1,
+    morningChecked: true,
+    afternoonChecked: false,
     ticketData: {
         fullName: "",
         email: "",

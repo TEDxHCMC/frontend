@@ -1,0 +1,23 @@
+.register {
+
+    .ant-tabs {
+
+        .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
+            // font-family: 'Inter', serif !important;
+            
+            font-size: 20px; 
+            font-weight: 600;
+            color: black !important;
+            transition: all 300ms ease;
+
+            &:hover {
+                transform: scale(102%);
+            }
+        }
+
+        .ant-tabs-ink-bar {
+            background: #000;
+        }
+
+    }
+}

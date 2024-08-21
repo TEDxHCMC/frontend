@@ -4,32 +4,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { handleSetCurrStep, handleSetTicketAmount } from "../../../redux/slices/ticket.slice";
 
-// const dates = [
-//     {
-//         day: "T5",
-//         fullDate: "19/09/2024",
-//     },
-//     {
-//         day: "T6",
-//         fullDate: "20/09/2024",
-//     },
-//     {
-//         day: "T7",
-//         fullDate: "21/09/2024",
-//     },
-//     {
-//         day: "CN",
-//         fullDate: "22/09/2024",
-//     },
-//     {
-//         day: "T2",
-//         fullDate: "23/09/2024",
-//     },
-// ];
-
 const regulations = () => {
     return (
-        <div>
+        <div className="w-full">
             <h1>ĐIỀU KHOẢN VÀ ĐIỀU KIỆN</h1>
             <p>1. Yêu cầu về độ tuổi và giấy tờ tùy thân</p>
             Người tham dự phải đáp ứng các yêu cầu về độ tuổi tối thiểu (16
@@ -308,12 +285,13 @@ const TicketGeneral = () => {
                 </div>
             </Col>
             <Modal
+                width={"80%"}
                 centered
                 open={modalOpen}
                 onOk={() => setModalOpen(false)}
                 onCancel={() => setModalOpen(false)}
             >
-                <div>
+                <div className="w-full">
                     <h1 className="text-2xl text-blue-600 font-bold mb-3">
                         ĐIỀU KHOẢN VÀ ĐIỀU KIỆN
                     </h1>
@@ -407,6 +385,7 @@ const TicketGeneral = () => {
                         </li>
                     </ol>
                 </div>
+                
             </Modal>
         </Row>
     );
