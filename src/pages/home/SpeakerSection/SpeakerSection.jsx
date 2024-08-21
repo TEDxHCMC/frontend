@@ -120,6 +120,11 @@ const SpeakerSection = () => {
 
                                 <div className='section grid'>
                                     <div className='time whitespace-nowrap'></div>
+                                    <div className='speaker-content whitespace-nowrap'>Tiết mục trình diễn</div>
+                                </div>
+
+                                <div className='section grid'>
+                                    <div className='time whitespace-nowrap'></div>
                                     <div className='speaker-content whitespace-nowrap'>Diễn Giả &nbsp;
                                         <span className='speaker-click underline underline-offset-4' onClick={() => handleSpeakerClick('speaker-3')}> Dino Vũ</span>
                                     </div>
