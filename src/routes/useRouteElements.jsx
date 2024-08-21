@@ -2,6 +2,7 @@ import { useRoutes } from "react-router-dom";
 import { PATH } from "../paths";
 import { Suspense, lazy } from "react";
 import MainLayout from "../layouts/MainLayout";
+import TicketLayout from "../layouts/TicketLayout";
 
 /**
  * @description
@@ -9,13 +10,11 @@ import MainLayout from "../layouts/MainLayout";
  */
 const HomePage = lazy(() => import("../pages/home"));
 const AboutPage = lazy(() => import("../pages/about"));
-//const SpeakerPage = lazy(() => import("../pages/speaker"));
+// const SpeakerPage = lazy(() => import("../pages/speaker"));
 const InteractivePage = lazy(() => import("../pages/interactive"));
 const ErrorPage = lazy(() => import("../pages/error"));
 
-
-const TicketPage = lazy(() => import("../pages/ticket"));
-//const TicketGeneralSect = lazy(() => import("../pages/ticket/TicketGeneral"))
+const TicketGeneralSect = lazy(() => import("../pages/ticket/TicketGeneral"))
 const TicketUI = lazy(() => import("../pages/ticket/TicketUI"))
 const TicketFormSect = lazy(() => import("../pages/ticket/TicketForm"))
 
@@ -47,12 +46,6 @@ const useRouteElements = () => {
                         </Suspense>
                     ),
                 },
-            ]
-        },
-        {
-            path: "",
-            element: <MainLayout />,
-            children: [
                 {
                     path: PATH.ABOUT,
                     element: (
@@ -77,59 +70,53 @@ const useRouteElements = () => {
                 //         </Suspense>
                 //     ),
                 // },
+            ]
+        },
+        {
+            path: PATH.TICKET,
+            element: <TicketLayout />,
+            children: [
                 {
-                    path: PATH.TICKET,
+                    index: true,
                     element: (
-                        <Suspense fallBack={<div>Loading</div>}>
-                            <TicketPage />
+                        <Suspense fallback={<div>Loading</div>}>
+                            <TicketUI />
+                        </Suspense>
+                    )
+                },
+                {
+                    
+                    path: "general",
+                    element: (
+                        <Suspense fallback={<div>Loading</div>}>
+                            <TicketGeneralSect />
+                        </Suspense>
+                    )
+                },
+                {
+                    path: "form",
+                    element: (
+                        <Suspense fallback={<div>Loading</div>}>
+                            <TicketFormSect />
+                        </Suspense>
+                    )
+                },
+                {
+                    path: "confirm",
+                    element: (
+                        <Suspense fallback={<div>Loading</div>}>
+                            <div>Ticket Confirm</div>
+                        </Suspense>
+                    )
+                },
+                {
+                    path: "done",
+                    element: (
+                        <Suspense fallback={<div>Loading</div>}>
+                            <div>Thank You</div>
                         </Suspense>
                     ),
-                    children: [
-                        {
-                            path: "",
-                            index: true,
-                            element: (
-                                <Suspense fallback={<div>Loading</div>}>
-                                    <TicketUI />
-                                </Suspense>
-                            )
-                        },
-                        /* {
-                             
-                             path: "",
-                             index: true,
-                             element: (
-                                 <Suspense fallback={<div>Loading</div>}>
-                                     <TicketGeneralSect />
-                                 </Suspense>
-                             )
-                         },*/
-                        {
-                            path: "form",
-                            element: (
-                                <Suspense fallback={<div>Loading</div>}>
-                                    <TicketFormSect />
-                                </Suspense>
-                            )
-                        },
-                        {
-                            path: "confirm",
-                            element: (
-                                <Suspense fallback={<div>Loading</div>}>
-                                    <div>Ticket Confirm</div>
-                                </Suspense>
-                            )
-                        },
-                        {
-                            path: "done",
-                            element: (
-                                <Suspense fallback={<div>Loading</div>}>
-                                    <div>Thank You</div>
-                                </Suspense>
-                            ),
-                        }
-                    ]
-                },
+                }
             ],
         },
         {

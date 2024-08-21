@@ -1,5 +1,5 @@
 import React from "react";
-import ShortDivider from "../../../components/ShortDivider";
+import ShortDivider from "../ShortDivider";
 
 const steps = [
     {

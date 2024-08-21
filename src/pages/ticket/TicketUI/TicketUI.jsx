@@ -21,7 +21,6 @@ const TicketUI = () => {
     ];
 
     const [amount, setAmount] = useState(1);
-    //const [selectedDate, setSelectedDate] = useState("");
     const [sessionsChecked, setSessionsChecked] = useState([]);
     //const [modalOpen, setModalOpen] = useState(false);
     const navigate = useNavigate();
@@ -46,11 +45,6 @@ const TicketUI = () => {
         setSessionsChecked(checkedValues);
     };
 
-    const handleChangeDate = (e) => {
-        console.log("Selected date:", e.target.value);
-        setSelectedDate(e.target.value);
-    };
-
     const handleSubmit = (e) => {
         console.log("Submitting form with amount:", amount);
         dispatch(handleSetTicketAmount(amount));
@@ -64,7 +58,7 @@ const TicketUI = () => {
     }, []); // Ensure this effect only runs once on component mount
 
     return (
-        <div>
+        <section className="">
             <div className='ticket-container hidden lg:mt-5 lg:flex lg:flex-row lg:justify-center'>
                 <div className='firstside-ticket element rounded-tl-[30px] rounded-bl-[30px]'>
                     <div class="quarter-circle-1"></div>
@@ -390,7 +384,7 @@ const TicketUI = () => {
 
             </div>
 
-        </div>
+        </section>
 
 
 
