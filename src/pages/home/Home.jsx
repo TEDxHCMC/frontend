@@ -8,10 +8,7 @@ const Home = () => {
         <div className="overflow-x-hidden">
             <FirstSection/>
             <SecondSection/>
-            <SpeakerSection/>
-
-
-            
+            <SpeakerSection/>       
         </div>
     );
 };
