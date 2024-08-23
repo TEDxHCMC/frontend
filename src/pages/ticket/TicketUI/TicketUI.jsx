@@ -109,7 +109,7 @@ const TicketUI = () => {
                                     <h2 className="font-bold text-[20px]">Khách sạn New World Saigon</h2>
                                 </div>
 
-                                <p className="ml-6 leading-tight">76 Lê Lai, phường Bến Thành, Quận 1, <br/> Thành phố Hồ Chí Minh</p>
+                                <p className="ml-6 leading-tight">76 Lê Lai, phường Bến Thành, Quận 1, Thành phố Hồ Chí Minh</p>
                             </div>
 
                         </div>
@@ -327,7 +327,7 @@ const TicketUI = () => {
                                     <h2 className="font-bold text-[16px] text-[#C30121]">Khách sạn New World Saigon</h2>
                                 </div>
 
-                                <p className="ml-6 text-[14px] leading-tight">76 Lê Lai, phường Bến Thành, Quận 1, <br/> Thành phố Hồ Chí Minh</p>
+                                <p className="ml-6 text-[14px] leading-tight">76 Lê Lai, phường Bến Thành, Quận 1, Thành phố Hồ Chí Minh</p>
                             </div>
 
                         </div>

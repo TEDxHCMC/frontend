@@ -221,7 +221,7 @@ const Header = () => {
                     {/* <Link to="/" className="uppercase text-gray-400">
                         Thông tin Event
                     </Link> */}
-                    <Link to="about" className="item uppercase">
+                    <Link to="/about" className="item uppercase">
                         Về chúng tôi
                     </Link>
                 </div>

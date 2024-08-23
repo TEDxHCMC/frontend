@@ -1,6 +1,7 @@
 import { Button, Result } from "antd";
-import React from "react";
+import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
+import { handleSetCurrStep } from "../../../redux/slices/ticket.slice";
 
 const TicketResult = () => {
     const dispatch = useDispatch()
