@@ -21,17 +21,13 @@ html {
                 display: none;
             }
         }
+
+        .ant-checkbox-wrapper {
+            .ant-checkbox {
+                display: none;
+            }
+        }
     }
-    
-    // .session {
-    //     .ant-checkbox-wrapper {
-    //         .ant-checkbox {
-    //             display: none;
-    //         }
-    //     }
-    // }
-    
-    
 }
 
 

@@ -1,7 +1,14 @@
 import { Button, Result } from "antd";
 import React from "react";
+import { useDispatch } from "react-redux";
 
 const TicketResult = () => {
+    const dispatch = useDispatch()
+
+    useEffect(() => {
+        dispatch(handleSetCurrStep(3));
+    }, []);
+
     return (
         <>
             <Result
