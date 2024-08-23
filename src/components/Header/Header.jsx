@@ -21,7 +21,7 @@ const Header = () => {
 
     const handleOnClick = (e) => {
         e.preventDefault();
-        navigate("/ticket/register")
+        navigate("/ticket")
         
     }
 
