@@ -2,7 +2,7 @@ import { Row, Col, Divider, Checkbox, Radio, Button, Modal } from "antd";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
-import { handleSetCurrStep, handleSetTicketAmount } from "../../../redux/slices/ticket.slice";
+import { handleSetCurrStep, handleSetTicketAmount, handleSetTicketSession } from "../../../redux/slices/ticket.slice";
 
 import './ticketUI.scss';
 
@@ -21,7 +21,7 @@ const TicketUI = () => {
     ];
 
     const [amount, setAmount] = useState(1);
-    const [sessionsChecked, setSessionsChecked] = useState([]);
+    const [sessionChecked, setSessionChecked] = useState("");
     //const [modalOpen, setModalOpen] = useState(false);
     const navigate = useNavigate();
     const dispatch = useDispatch();
@@ -40,20 +40,22 @@ const TicketUI = () => {
         console.log("New amount:", amount + 1);
     };
 
-    const handleChangeSession = (checkedValues) => {
-        console.log("Checked session values:", checkedValues);
-        setSessionsChecked(checkedValues);
+    const handleChangeSession = (e) => {
+        // console.log("Checked session values:", e.target.value);
+        setSessionChecked(e.target.value);
     };
 
-    const handleSubmit = (e) => {
-        console.log("Submitting form with amount:", amount);
+    const handleSubmit = () => {
+        // console.log("Submitting form with amount:", amount);
         dispatch(handleSetTicketAmount(amount));
-        console.log("Navigating to ticket/form");
+        dispatch(handleSetTicketSession(sessionChecked))
+
+        // console.log("Navigating to ticket/form");
         navigate("/ticket/form");
     };
 
     useEffect(() => {
-        console.log("Setting current step to 1");
+        // console.log("Setting current step to 1");
         dispatch(handleSetCurrStep(1));
     }, []);
 
@@ -74,27 +76,27 @@ const TicketUI = () => {
                                     </h2>
                                 </div>
 
-                                <Checkbox.Group
+                                <Radio.Group
                                     className=""
                                     onChange={handleChangeSession}
                                 >
                                     <div className="session flex flex-wrap ml-6 gap-3">
                                         {sessions.map((session, index) => (
-                                            <Checkbox
+                                            <Radio
                                                 key={index}
                                                 value={session.value}
                                                 className={`px-2 py-2 border-2 border-solid transition-all whitespace-nowrap 
-                                                ${sessionsChecked.includes(session.value)
+                                                ${sessionChecked == session.value
                                                         ? "bg-black text-white border-[#6D6E71]"
-                                                        : "border-gray-300 hover:bg-black hover:text-white"
+                                                        : "border-gray-300 hover:scale-[105%]"
                                                     }`}
                                             >
                                                 <p className="text-xl font-light">{`${session.name} : ${session.time}`} </p>
-                                            </Checkbox>
+                                            </Radio>
                                         ))}
                                     </div>
 
-                                </Checkbox.Group>
+                                </Radio.Group>
 
 
                             </div>
@@ -291,27 +293,27 @@ const TicketUI = () => {
                                     </h2>
                                 </div>
 
-                                <Checkbox.Group
+                                <Radio.Group
                                     className=""
                                     onChange={handleChangeSession}
                                 >
                                     <div className="session flex flex-wrap ml-6 gap-3">
                                         {sessions.map((session, index) => (
-                                            <Checkbox
+                                            <Radio
                                                 key={index}
                                                 value={session.value}
                                                 className={`px-2 py-2 border-2 border-solid transition-all whitespace-nowrap 
-                                                ${sessionsChecked.includes(session.value)
+                                                ${sessionChecked == session.value
                                                         ? "bg-black text-white border-[#6D6E71]"
                                                         : "border-gray-300 hover:bg-black hover:text-white"
                                                     }`}
                                             >
                                                 <p className="text-[16px] font-light">{`${session.name} : ${session.time}`} </p>
-                                            </Checkbox>
+                                            </Radio>
                                         ))}
                                     </div>
 
-                                </Checkbox.Group>
+                                </Radio.Group>
 
 
                             </div>

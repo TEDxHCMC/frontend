@@ -3,8 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
     currStep: 1,
     ticketAmount: 1,
-    morningChecked: true,
-    afternoonChecked: false,
+    session: 1,
     ticketData: {
         fullName: "",
         email: "",
@@ -27,6 +26,10 @@ export const ticketSlice = createSlice({
             state.ticketAmount = action.payload;
             console.log("Current Ticket Amount: ", state.ticketAmount);
         },
+        handleSetTicketSession: (state, action) => {
+            state.session = action.payload;
+            console.log("Current Session: ", state.session);
+        },
         handleSetTicketData: (state, action) => {
             state.ticketData = action.payload;
             console.log("Current Data: ", state.ticketData);
@@ -34,6 +37,6 @@ export const ticketSlice = createSlice({
     },
 });
 
-export const { handleSetCurrStep, handleSetTicketData, handleSetTicketAmount } = ticketSlice.actions;
+export const { handleSetCurrStep, handleSetTicketData, handleSetTicketAmount, handleSetTicketSession } = ticketSlice.actions;
 
 export default ticketSlice.reducer;

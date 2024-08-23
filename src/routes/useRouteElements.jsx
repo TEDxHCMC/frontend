@@ -86,15 +86,15 @@ const useRouteElements = () => {
                         </Suspense>
                     )
                 },
-                {
+                // {
                     
-                    path: "general",
-                    element: (
-                        <Suspense fallback={<div>Loading</div>}>
-                            <TicketGeneralSect />
-                        </Suspense>
-                    )
-                },
+                //     path: "register",
+                //     element: (
+                //         <Suspense fallback={<div>Loading</div>}>
+                //             <TicketGeneralSect />
+                //         </Suspense>
+                //     )
+                // },
                 {
                     path: "form",
                     element: (

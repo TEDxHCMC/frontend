@@ -3,15 +3,15 @@ import React from 'react'
 
 const NotFound = () => {
     return (
-        <>
+        <main className='min-h-screen flex flex-col justify-center items-center'>
             <Result
                 status="404"
                 title="404"
                 subTitle="Trang bạn tìm kiếm không tồn tại"
-                extra={<Button type="primary">Back Home</Button>}
+                extra={<Button type="primary">Trở về Trang Chủ</Button>}
             />
-        </>
+        </main>
     )
 }
 
-export default 404
+export default NotFound

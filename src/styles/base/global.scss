@@ -15,7 +15,7 @@ html {
         font-family: 'Platypi', serif;
     }
 
-    .date {
+    .session {
         .ant-radio-wrapper {
             .ant-radio {
                 display: none;
@@ -23,13 +23,13 @@ html {
         }
     }
     
-    .session {
-        .ant-checkbox-wrapper {
-            .ant-checkbox {
-                display: none;
-            }
-        }
-    }
+    // .session {
+    //     .ant-checkbox-wrapper {
+    //         .ant-checkbox {
+    //             display: none;
+    //         }
+    //     }
+    // }
     
     
 }
