@@ -21,7 +21,7 @@ const SpeakerSection = () => {
 
     const sessions = [
         {
-            name: "Phiên Sáng",
+            name: "Phiên  Sáng",
             time: "08:00 - 12:30",
             value: "1",
         },
@@ -45,9 +45,10 @@ const SpeakerSection = () => {
     return (
         <div>
             <div className='background-speaker flex flex-col sm:flex-row p-4
-                lg: justify-between
-                sm:m-8 md:m-12 lg:m-16 xl:m-24'>
-                <div className='speaker-heading p-4 md:p-0'>
+                lg: justify-between 
+                sm:ml-8 md:ml-12 lg:ml-16 xl:ml-20
+                sm:mr-8 md:mr-12 lg:mr-16 xl:mr-20'>
+                <div className='speaker-heading pl-4 pr-4 md:p-0'>
                     <h1 className='color-[#000000] mb-[15px] font-bold
                     text-[30px] sm:text-[33px] md:text-[35px] lg:text-[38px] xl:text-[40px] '>
                         Chương Trình
@@ -64,22 +65,24 @@ const SpeakerSection = () => {
                             <div className="session flex flex-wrap gap-3">
                                 {sessions.map((session, index) => (
                                     <Checkbox
-                                        key={index}
-                                        value={session.value}
-                                        className={`px-2 py-2 border-2 border-solid transition-all whitespace-nowrap
-                                            ${selectedSession === session.value
-                                                ? "bg-black text-white border-[#6D6E71]"
+                                    key={index}
+                                    value={session.value}
+                                    className={`w-[212px] text-center px-2 py-2 border-2 border-solid transition-all whitespace-nowrap
+                                        ${selectedSession === session.value
+                                            ? "bg-black text-white border-[#6D6E71]"
+                                            : index === 0 && !selectedSession
+                                                ? "hovered-default border-gray-300 bg-black text-white border-[#6D6E71]"
                                                 : "border-gray-300 hover:bg-black hover:text-white"
-                                            }`}
-                                    >
-                                        <p className="text-[14px] font-sans">{`${session.name} : ${session.time}`} </p>
-                                    </Checkbox>
+                                        }`}
+                                >
+                                    <p className="text-[14px] font-sans">{`${session.name} : ${session.time}`} </p>
+                                </Checkbox>
                                 ))}
                             </div>
                         </Checkbox.Group>
                     </div>
                     {visibleTimelineSection === 1 && (
-                        <div className='morning-timeline ml-[5px]
+                        <div className='morning-timeline ml-[0px]
                         sm:ml-[1rem] md:ml-[2rem] lg:ml-[2rem] xl:ml-[4rem]' id='1'>
                             <div className='grid grid-rows-2 gap-y-2 md:gap-y-3 lg:gap-y-5 '>
                                 <div className='section grid'>
@@ -126,14 +129,14 @@ const SpeakerSection = () => {
                                 <div className='section grid'>
                                     <div className='time whitespace-nowrap'></div>
                                     <div className='speaker-content whitespace-nowrap'>Diễn Giả &nbsp;
-                                        <span className='speaker-click underline underline-offset-4' onClick={() => handleSpeakerClick('speaker-3')}> Dino Vũ</span>
+                                        <span className='speaker-click underline underline-offset-4' onClick={() => handleSpeakerClick('speaker-3')}>Dino Vũ</span>
                                     </div>
                                 </div>
 
                                 <div className='section grid'>
                                     <div className='time whitespace-nowrap'></div>
                                     <div className='speaker-content whitespace-nowrap'>Diễn Giả &nbsp;
-                                        <span className='speaker-click underline underline-offset-4' onClick={() => handleSpeakerClick('speaker-11')}> Hồ Thái Bình</span>
+                                        <span className='speaker-click underline underline-offset-4' onClick={() => handleSpeakerClick('speaker-11')}>Hồ Thái Bình</span>
                                     </div>
                                 </div>
 
@@ -142,7 +145,7 @@ const SpeakerSection = () => {
                     )}
 
                     {visibleTimelineSection === 2 && (
-                        <div className='afternoon-timeline ml-[5px]
+                        <div className='afternoon-timeline ml-[0px]
                         sm:ml-[1rem] md:ml-[2rem] lg:ml-[2rem] xl:ml-[4rem]' id='2'>
                             <div className='grid grid-rows-2 gap-y-2 md:gap-y-3 lg:gap-y-5'>
                                 <div className='section grid'>
@@ -176,7 +179,7 @@ const SpeakerSection = () => {
                                 <div className='section grid'>
                                     <div className='time whitespace-nowrap'></div>
                                     <div className='speaker-content whitespace-nowrap'> Diễn Giả &nbsp;
-                                        <span className='speaker-click underline underline-offset-4' onClick={() => handleSpeakerClick('speaker-7')}> Phan Mỹ Linh</span>
+                                        <span className='speaker-click underline underline-offset-4' onClick={() => handleSpeakerClick('speaker-7')}>Phan Mỹ Linh</span>
                                     </div>
                                 </div>
 

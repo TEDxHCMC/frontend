@@ -10,12 +10,12 @@ const TicketUI = () => {
     const sessions = [
         {
             name: "Sáng",
-            time: "08:00 - 12:00",
+            time: "08:00 - 12:30",
             value: "1",
         },
         {
             name: "Chiều",
-            time: "14:00 - 18:00",
+            time: "14:00 - 18:30",
             value: "2",
         },
     ];
@@ -85,7 +85,7 @@ const TicketUI = () => {
                                             <Radio
                                                 key={index}
                                                 value={session.value}
-                                                className={`px-2 py-2 border-2 border-solid transition-all whitespace-nowrap 
+                                                className={`w-[217px] text-center px-2 py-2 border-2 border-solid transition-all whitespace-nowrap 
                                                 ${sessionChecked == session.value
                                                         ? "bg-black text-white border-[#6D6E71]"
                                                         : "border-gray-300 hover:scale-[105%]"
@@ -302,7 +302,7 @@ const TicketUI = () => {
                                             <Radio
                                                 key={index}
                                                 value={session.value}
-                                                className={`px-2 py-2 border-2 border-solid transition-all whitespace-nowrap 
+                                                className={`w-[186px] text-center px-2 py-2 border-2 border-solid transition-all whitespace-nowrap 
                                                 ${sessionChecked == session.value
                                                         ? "bg-black text-white border-[#6D6E71]"
                                                         : "border-gray-300 hover:bg-black hover:text-white"
