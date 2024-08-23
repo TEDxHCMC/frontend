@@ -1,7 +1,18 @@
 import { useFormik } from "formik";
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { Button, Checkbox, Col, Collapse, Divider, Modal, Row, Tabs, Tag } from "antd";
+import {
+    Button,
+    Checkbox,
+    Col,
+    Collapse,
+    Divider,
+    Modal,
+    Row,
+    Tabs,
+    Tag,
+    message
+} from "antd";
 import InputField from "../../../components/InputField";
 import * as Yup from "yup";
 import { useDispatch, useSelector } from "react-redux";
@@ -16,6 +27,22 @@ const TicketForm = () => {
     const [extraCompleted, setExtraCompleted] = useState(false);
     const navigate = useNavigate();
     const dispatch = useDispatch();
+    const [messageApi, contextHolder] = message.useMessage();
+
+    const messageAlert = (type, msg) => {
+        messageApi.open({
+            type: type,
+            content: msg,
+        });
+    };
+
+    const messageLoadingAlert = (type, msg) => {
+        messageApi.open({
+            type: "loading",
+            content: "Vui lòng chờ trong giây lát...",
+            duration: 2
+        }).then(() => messageAlert(type, msg));
+    }
 
     const TicketSchema = Yup.object().shape({
         fullName: Yup.string().required("Họ tên không được để trống!"),
@@ -97,6 +124,9 @@ const TicketForm = () => {
         // console.log("Email: ", formData)
         const result = await sendVerifyCodeAPI(formData);
 
+
+        messageLoadingAlert("success", "Mã xác thực đã được gửi về email của bạn!")
+
         console.log("Result: ", result);
     };
 
@@ -130,6 +160,7 @@ const TicketForm = () => {
 
     const renderPrimaryForm = (
         <section className="">
+            {contextHolder}
             <div className={`flex flex-col md:gap-y-5 gap-y-2`}>
                 <InputField
                     id="fullName"
@@ -296,7 +327,7 @@ const TicketForm = () => {
     );
 
     const renderSubmitSect = (
-        <section className="">
+        <section className="lg:pb-0 pb-10">
             <h3 className="font-bold text-2xl text-black mb-4">THÔNG TIN VÉ</h3>
             <div className="bg-white w-full py-4 px-4 h-30 rounded-xl shadow-lg">
                 <div className="flex justify-between items-center font-semibold text-xl mb-4">
@@ -321,11 +352,12 @@ const TicketForm = () => {
                     <p className="text-black">Tổng cộng:</p>
                     <p className="text-red-700">Miễn Phí</p>
                 </div>
-                
-                <div className="flex justify-start items-start mb-3">
+
+                <div className="flex justify-start items-start sm:mb-5 mb-3">
                     <Checkbox></Checkbox>
                     <p className="md:text-base text-sm font-normal ps-2 inline-block">
-                        Bằng cách hoàn thành đăng ký, bạn đồng ý tuân theo và chấp nhận tất cả các{" "}
+                        Bằng cách hoàn thành đăng ký, bạn đồng ý tuân theo và
+                        chấp nhận tất cả các{" "}
                         <span
                             onClick={() => setModalOpen(true)}
                             className=" text-blue-600 hover:underline hover:text-blue-800"
@@ -458,7 +490,7 @@ const TicketForm = () => {
         },
         {
             key: "2",
-            label: "Người đi kèm (+)",
+            label: "Người đi kèm",
             children: renderExtraForm,
             disabled: ticketAmount == 1,
         },
