@@ -74,7 +74,7 @@ const SpeakerSection = () => {
                                     <Checkbox
                                         key={index}
                                         value={session.value}
-                                        className={`w-[212px] text-center px-2 py-2 border-2 border-solid transition-all whitespace-nowrap
+                                        className={`w-[212px] text-center flex justify-center py-2 border-2 border-solid transition-all whitespace-nowrap
                                         ${selectedSession === session.value
                                                 ? "bg-black text-white border-[#6D6E71]"
                                                 : index === 0 && !selectedSession
@@ -367,7 +367,7 @@ const SpeakerSection = () => {
                                         <h2>Phan Mỹ Linh</h2>
                                     </div>
                                     <div className='speaker-role flex flex-col'>
-                                        <h4>Mẹ của Michelle Chau Anh Loreman</h4>
+                                        <h4>Mẹ của Michelle Châu Anh Loreman</h4>
                                         <h3>Đồng sáng lập Liên đoàn Tranh biện Việt Nam</h3>
                                     </div>
                                 </>
