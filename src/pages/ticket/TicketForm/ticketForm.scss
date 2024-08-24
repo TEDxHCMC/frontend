@@ -19,18 +19,16 @@
                 font-weight: 700;
                 color: black;
             }
-
-            .ant-tabs-tab-disabled {
-                color: red;
-                opacity: 0.3 !important;
-            }
-            
         } 
 
         .ant-tabs-ink-bar {
             background: #000;
         }
 
+    }
+
+    .ant-tabs .ant-tabs-tab.ant-tabs-tab-disabled .ant-tabs-tab-btn {
+        opacity: 0.3;
     }
 }
 
@@ -48,4 +46,10 @@
     .ant-tag {
         padding: 5px 10px;
     }
+}
+
+.modalBtn.ant-btn-default:not(:disabled):not(.ant-btn-disabled):hover {
+    background: black;
+    color: white;
+    border-color: transparent;
 }
