@@ -85,10 +85,10 @@ const TicketUI = () => {
                                             <Radio
                                                 key={index}
                                                 value={session.value}
-                                                className={`w-[217px] text-center px-2 py-2 border-2 border-solid transition-all whitespace-nowrap 
+                                                className={`w-[217px] text-center px-2 py-2 border-2 border-solid transition-all duration-300 whitespace-nowrap 
                                                 ${sessionChecked == session.value
                                                         ? "bg-black text-white border-[#6D6E71]"
-                                                        : "border-gray-300 hover:scale-[105%]"
+                                                        : "border-gray-300 hover:bg-black hover:text-white"
                                                     }`}
                                             >
                                                 <p className="text-xl font-light">{`${session.name} : ${session.time}`} </p>

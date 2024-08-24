@@ -45,7 +45,7 @@ const SpeakerSection = () => {
     return (
         <div>
             <div className='background-speaker flex flex-col sm:flex-row p-4
-                lg: justify-between 
+                lg:justify-center gap-x-10
                 sm:ml-8 md:ml-12 lg:ml-16 xl:ml-20
                 sm:mr-8 md:mr-12 lg:mr-16 xl:mr-20'>
                 <div className='speaker-heading pl-4 pr-4 md:p-0'>
@@ -71,7 +71,7 @@ const SpeakerSection = () => {
                                         ${selectedSession === session.value
                                             ? "bg-black text-white border-[#6D6E71]"
                                             : index === 0 && !selectedSession
-                                                ? "hovered-default border-gray-300 bg-black text-white border-[#6D6E71]"
+                                                ? "hovered-default bg-black text-white border-[#6D6E71]"
                                                 : "border-gray-300 hover:bg-black hover:text-white"
                                         }`}
                                 >
