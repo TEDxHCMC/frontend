@@ -2,7 +2,11 @@ import axios from "axios";
 
 const fetcher = axios.create({
     baseURL: "http://97.74.81.239:8080/",
-    headers: {},
+    headers: {
+        "Content-Type": "application/json",
+        "Accept": "application/json",
+        "Access-Control-Allow-Methods": "*",
+    },
     timeout: 30000
 });
 
