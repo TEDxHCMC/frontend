@@ -2,7 +2,7 @@ import fetcher from "./fetcher"
 
 export const sendVerifyCodeAPI = async (formData) => {
     try {
-        const response = await fetcher.post("tickets/send-email-verify-code", formData)
+        const response = await fetcher.post("/tickets/send-email-verify-code", formData)
         // console.log("Response: ", response)
         return response
     } catch (error) {

@@ -1,8 +1,9 @@
 import axios from "axios";
 
 const fetcher = axios.create({
-    baseURL: "http://97.74.81.239:8080/",
+    baseURL: "https://97.74.81.239:8080",
     headers: {
+        "Content-Type": "application/json",
     },
     timeout: 30000
 });
