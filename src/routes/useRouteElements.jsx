@@ -15,7 +15,6 @@ const AboutPage = lazy(() => import("../pages/about"));
 // const ErrorPage = lazy(() => import("../pages/error"));
 const NotFoundPage = lazy(() => import('../pages/not-found'))
 
-const TicketGeneralSect = lazy(() => import("../pages/ticket/TicketGeneral"))
 const TicketUI = lazy(() => import("../pages/ticket/TicketUI"))
 const TicketFormSect = lazy(() => import("../pages/ticket/TicketForm"))
 const TicketResultSect = lazy(() => import("../pages/ticket/TicketResult"))
@@ -86,15 +85,6 @@ const useRouteElements = () => {
                         </Suspense>
                     )
                 },
-                // {
-                    
-                //     path: "register",
-                //     element: (
-                //         <Suspense fallback={<div>Loading</div>}>
-                //             <TicketGeneralSect />
-                //         </Suspense>
-                //     )
-                // },
                 {
                     path: "form",
                     element: (

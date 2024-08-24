@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const fetcher = axios.create({
-    baseURL: import.meta.env.VITE_TEDXHCMC_URL,
+    baseURL: "http://97.74.81.239:8080/",
     headers: {},
     timeout: 30000
 });

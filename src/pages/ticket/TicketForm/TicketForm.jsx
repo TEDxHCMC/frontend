@@ -228,12 +228,15 @@ const TicketForm = () => {
     };
 
     const handleSendVerifyCode = async () => {
+        console.log(formik.values.email)
+
         let formData = {
             email: formik.values.email,
         };
 
         // console.log("Email: ", formData)
         const result = await sendVerifyCodeAPI(formData);
+        console.log("Result: ", result)
 
         if (result) {
             messageLoadingAlert(
@@ -503,14 +506,24 @@ const TicketForm = () => {
                         do BTC sự kiện đưa ra.
                     </p>
                 </div>
-                <Button
-                    className={`w-full h-fit md:p-3 mb-5 bg-[#C30121] sm:text-lg text-base text-white rounded-full transition-all duration-300 hover:bg-black disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-[#C30121]`}
-                    type="button"
-                    onClick={formik.handleSubmit}
-                    disabled={!formik.isValid || !termsChecked}
-                >
-                    <p className="text-white font-bold">Hoàn tất </p>
-                </Button>
+                <div className="flex items-center space-x-2">
+                    <Button
+                        className={`lg:hidden w-full h-fit md:p-3 mb-5 bg-[#030EF5] md:text-lg sm:text-base text-sm text-white rounded-full transition-all duration-300 hover:bg-black disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-[#C30121]`}
+                        type="button"
+                        onClick={() => navigate("/ticket")}
+                    >
+                        <p className="text-white font-bold">Quay lại </p>
+                    </Button>
+                    <Button
+                        className={`w-full h-fit md:p-3 mb-5 bg-[#C30121] md:text-lg sm:text-base text-sm text-white rounded-full transition-all duration-300 hover:bg-black disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-[#C30121]`}
+                        type="button"
+                        onClick={formik.handleSubmit}
+                        disabled={!formik.isValid || !termsChecked}
+                    >
+                        <p className="text-white font-bold">Hoàn tất </p>
+                    </Button>
+                </div>
+                
             </div>
         </section>
     );
