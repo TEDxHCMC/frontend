@@ -89,7 +89,7 @@ const SpeakerSection = () => {
                         </Checkbox.Group>
                     </div>
                     {visibleTimelineSection === 1 && (
-                        <div className='morning-timeline ml-[10px]
+                        <div className='morning-timeline ml-[0px]
                         sm:ml-[15px] md:ml-[0px] lg:ml-[1rem] xl:ml-[4rem]' id='1'>
                             <div className='grid grid-rows-2 gap-y-2 md:gap-y-3 lg:gap-y-5 '>
                                 <div className='section grid'>
@@ -163,7 +163,7 @@ const SpeakerSection = () => {
                     )}
 
                     {visibleTimelineSection === 2 && (
-                        <div className='afternoon-timeline ml-[10px]
+                        <div className='afternoon-timeline ml-[0px]
                         sm:ml-[15px] md:ml-[0px] lg:ml-[1rem] xl:ml-[4rem]' id='2'>
                             <div className='grid grid-rows-2 gap-y-2 md:gap-y-3 lg:gap-y-5'>
                                 <div className='section grid'>
