@@ -1,21 +1,59 @@
 import { useFormik } from "formik";
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { Button, Checkbox, Col, Collapse, Divider, Modal, Row, Tabs, Tag } from "antd";
+import {
+    Button,
+    Checkbox,
+    Col,
+    Collapse,
+    Divider,
+    Modal,
+    Row,
+    Tabs,
+    Tag,
+    message,
+} from "antd";
 import InputField from "../../../components/InputField";
 import * as Yup from "yup";
 import { useDispatch, useSelector } from "react-redux";
 import { handleSetCurrStep } from "../../../redux/slices/ticket.slice";
-import { sendVerifyCodeAPI } from "../../../apis/ticket.api";
+import {
+    createTicketAPI,
+    sendTicketEmailAPI,
+    sendVerifyCodeAPI,
+    verifyCodeAPI,
+} from "../../../apis/ticket.api";
 import "./ticketForm.scss";
 
 const TicketForm = () => {
-    const { ticketAmount } = useSelector((state) => state.ticket);
+    const { ticketAmount, session } = useSelector((state) => state.ticket);
     const [modalOpen, setModalOpen] = useState(false);
+    const [termsChecked, setTermsChecked] = useState(false);
     const [primaryCompleted, setPrimaryCompleted] = useState(false);
     const [extraCompleted, setExtraCompleted] = useState(false);
+    const [submitLoading, setSubmitLoading] = useState(false);
+
     const navigate = useNavigate();
     const dispatch = useDispatch();
+    const [messageApi, contextHolder] = message.useMessage();
+
+    const messageAlert = (type, msg) => {
+        messageApi.open({
+            type: type,
+            content: msg,
+            duration: 3,
+        });
+    };
+
+    const messageLoadingAlert = (type, msg) => {
+        messageApi
+            .open({
+                type: "loading",
+                content: "Vui lòng chờ trong giây lát...",
+                duration: 2,
+            })
+            .then(() => messageAlert(type, msg));
+    };
 
     const TicketSchema = Yup.object().shape({
         fullName: Yup.string().required("Họ tên không được để trống!"),
@@ -35,11 +73,21 @@ const TicketForm = () => {
             ),
         fullName2: Yup.string()
             .required("Họ tên không được để trống!")
-            .default(() => "_"),
+            .default(() => {
+                if (ticketAmount == 1) {
+                    return "_";
+                }
+                return "";
+            }),
         email2: Yup.string()
             .email("Email không hợp lệ")
             .required("Email không được để trống!")
-            .default(() => "empty@gmail.com"),
+            .default(() => {
+                if (ticketAmount == 1) {
+                    return "default@gmail.com";
+                }
+                return "";
+            }),
         phone2: Yup.string()
             .required("Số điện thoại không được để trống!")
             .min(10, "Số điện thoại phải chứa ít nhất 10 số.")
@@ -51,7 +99,12 @@ const TicketForm = () => {
                 /^[+]?[(]?[0-9]{1,4}[)]?[-\s\.]?[0-9]{1,3}[-\s\.]?[0-9]{4,6}$/,
                 "Số điện thoại không hợp lệ!"
             )
-            .default(() => "0000000000"),
+            .default(() => {
+                if (ticketAmount == 1) {
+                    return "0000000000";
+                }
+                return "";
+            }),
         code: Yup.string().required("Mã xác nhận không được để trống!"),
     });
 
@@ -67,37 +120,148 @@ const TicketForm = () => {
         },
         validationSchema: TicketSchema,
         onSubmit: (values) => {
-            console.log("values: ", values);
+            // console.log("values: ", values);
 
             formik.setSubmitting(false);
-            handleSubmit();
+            handleSubmit(values);
         },
     });
 
-    const handleSubmit = async () => {
+    const handleSubmit = async (values) => {
         // console.log("Submit Actions!");
-        console.log(formik.values);
+        console.log("Values: ", values);
 
         //* Verify Code here
+        const verifyResult = await verifyCodeAPI({
+            email: values.email,
+            code: values.code,
+        });
 
-        //* Send email to user here
+        // console.log("Verify result: ", verifyResult)
 
-        //* Navigate to next page
-        navigate("/ticket/done");
+        if (verifyResult.status === 202) {
+            messageAlert("error", verifyResult.data.message);
+        } else {
+            //* Create ticket here
+            if (ticketAmount == 1) {
+                // register 1 person
+                let payload = {
+                    fullName,
+                    email,
+                    phone,
+                    session,
+                };
 
-        //* Update redux store here
-        // .....
+                const ticketResult = await createTicketAPI(payload);
+
+                // console.log("Result 1 ticket: ", ticketResult)
+
+                if (ticketResult.status === 202) {
+                    messageAlert("error", ticketResult.data.message);
+                } else {
+                    let emailPayload = {
+                        fullName,
+                        email,
+                        ticketAmount,
+                        session
+                    }
+
+                    const sendEmailResult = await sendTicketEmailAPI(emailPayload)
+
+                    if (sendEmailResult) {
+                        messageLoadingAlert("success", sendEmailResult.data.message);
+
+                        setTimeout(
+                            () => {
+                                navigate("/ticket/done")
+                            }, 4000
+                        )
+                        
+                    } else {
+                        messageLoadingAlert("warning", "Đã có lỗi trong quá trình gửi email, vui lòng thử lại");
+                    }
+                }
+            } else if (ticketAmount == 2) {
+                // register 2 people
+                let payload = {
+                    fullName,
+                    email,
+                    phone,
+                    fullName2,
+                    email2,
+                    phone2,
+                    session,
+                };
+
+                const ticketsResult = await createTicketsAPI(payload);
+
+                if (ticketsResult.status === 202) {
+                    messageAlert("error", ticketsResult.data.message);
+                } else {
+                    let emailPayload = {
+                        fullName,
+                        email,
+                        ticketAmount,
+                        session
+                    }
+
+                    const sendEmailResult = await sendTicketEmailAPI(emailPayload)
+
+                    if (sendEmailResult) {
+                        messageLoadingAlert("success", sendEmailResult.data.message);
+
+                        setTimeout(
+                            () => {
+                                navigate("/ticket/done")
+                            }, 4000
+                        )
+                        
+                    } else {
+                        messageLoadingAlert("warning", "Đã có lỗi trong quá trình gửi email, vui lòng thử lại");
+                    }
+                }
+            }
+
+            //* Update redux store here
+            // .....
+        }
     };
 
     const handleSendVerifyCode = async () => {
+        console.log(formik.values.email)
+
         let formData = {
             email: formik.values.email,
         };
 
         // console.log("Email: ", formData)
         const result = await sendVerifyCodeAPI(formData);
+        console.log("Result: ", result)
 
-        console.log("Result: ", result);
+        if (result) {
+            messageLoadingAlert(
+                "success",
+                "Mã xác thực đã được gửi về email của bạn!"
+            );
+        } else {
+            messageLoadingAlert(
+                "error",
+                "Lỗi xảy ra, vui lòng thử lại!"
+            );
+        }
+    };
+
+    const handleModalOnClick = () => {
+        // setModalLoading(true)
+        // setTimeout(() => {
+        //     setModalLoading(false)
+        //     setModalOpen(false)
+        // }, 1500)
+        setModalOpen(false);
+    };
+
+    const handleCheckOnChange = (e) => {
+        setTermsChecked(e.target.checked);
     };
 
     useEffect(() => {
@@ -106,8 +270,11 @@ const TicketForm = () => {
 
     useEffect(() => {
         if (
+            !formik.values.fullName ||
             formik.errors.fullName ||
+            !formik.values.email ||
             formik.errors.email ||
+            !formik.errors.phone ||
             formik.errors.phone
         ) {
             setPrimaryCompleted(false);
@@ -118,8 +285,11 @@ const TicketForm = () => {
 
     useEffect(() => {
         if (
+            !formik.values.fullName2 ||
             formik.errors.fullName2 ||
+            !formik.values.email2 ||
             formik.errors.email2 ||
+            !formik.errors.phone2 ||
             formik.errors.phone2
         ) {
             setExtraCompleted(false);
@@ -130,6 +300,7 @@ const TicketForm = () => {
 
     const renderPrimaryForm = (
         <section className="">
+            {contextHolder}
             <div className={`flex flex-col md:gap-y-5 gap-y-2`}>
                 <InputField
                     id="fullName"
@@ -195,11 +366,7 @@ const TicketForm = () => {
 
             <div className="flex gap-2 w-full">
                 <Button
-                    className={`w-fit h-fit sm:p-3 p-2 bg-red-600 text-white border border-slate-500 rounded transition-all hover:scale-[102%] ${
-                        !formik.values.email || formik.errors.email
-                            ? "!opacity-50"
-                            : ""
-                    }`}
+                    className={`w-fit h-fit sm:p-3 p-2 bg-[#C30121] text-white border border-slate-500 rounded transition-all duration-300 hover:bg-black disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-[#C30121]`}
                     type="button"
                     onClick={handleSendVerifyCode}
                     disabled={!formik.values.email || formik.errors.email}
@@ -296,7 +463,7 @@ const TicketForm = () => {
     );
 
     const renderSubmitSect = (
-        <section className="">
+        <section className="lg:pb-0 pb-10">
             <h3 className="font-bold text-2xl text-black mb-4">THÔNG TIN VÉ</h3>
             <div className="bg-white w-full py-4 px-4 h-30 rounded-xl shadow-lg">
                 <div className="flex justify-between items-center font-semibold text-xl mb-4">
@@ -321,11 +488,15 @@ const TicketForm = () => {
                     <p className="text-black">Tổng cộng:</p>
                     <p className="text-red-700">Miễn Phí</p>
                 </div>
-                
-                <div className="flex justify-start items-start mb-3">
-                    <Checkbox></Checkbox>
+
+                <div className="flex justify-start items-start sm:mb-5 mb-3">
+                    <Checkbox
+                        className="relative top-0.5"
+                        onChange={handleCheckOnChange}
+                    ></Checkbox>
                     <p className="md:text-base text-sm font-normal ps-2 inline-block">
-                        Bằng cách hoàn thành đăng ký, bạn đồng ý tuân theo và chấp nhận tất cả các{" "}
+                        Bằng cách hoàn thành đăng ký, bạn đồng ý tuân theo và
+                        chấp nhận tất cả các{" "}
                         <span
                             onClick={() => setModalOpen(true)}
                             className=" text-blue-600 hover:underline hover:text-blue-800"
@@ -335,16 +506,24 @@ const TicketForm = () => {
                         do BTC sự kiện đưa ra.
                     </p>
                 </div>
-                <Button
-                    className={`w-full h-fit md:p-3 mb-5 bg-red-600 sm:text-lg text-base text-white rounded-full transition-all hover:scale-[102%] ${
-                        !formik.isValid ? "!opacity-50" : ""
-                    }`}
-                    type="button"
-                    onClick={formik.handleSubmit}
-                    disabled={!formik.isValid}
-                >
-                    <p className="text-white font-bold">Hoàn tất </p>
-                </Button>
+                <div className="flex items-center space-x-2">
+                    <Button
+                        className={`lg:hidden w-full h-fit md:p-3 mb-5 bg-[#030EF5] md:text-lg sm:text-base text-sm text-white rounded-full transition-all duration-300 hover:bg-black disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-[#C30121]`}
+                        type="button"
+                        onClick={() => navigate("/ticket")}
+                    >
+                        <p className="text-white font-bold">Quay lại </p>
+                    </Button>
+                    <Button
+                        className={`w-full h-fit md:p-3 mb-5 bg-[#C30121] md:text-lg sm:text-base text-sm text-white rounded-full transition-all duration-300 hover:bg-black disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-[#C30121]`}
+                        type="button"
+                        onClick={formik.handleSubmit}
+                        disabled={!formik.isValid || !termsChecked}
+                    >
+                        <p className="text-white font-bold">Hoàn tất </p>
+                    </Button>
+                </div>
+                
             </div>
         </section>
     );
@@ -354,27 +533,34 @@ const TicketForm = () => {
             width={"80%"}
             centered
             open={modalOpen}
-            onOk={() => setModalOpen(false)}
             onCancel={() => setModalOpen(false)}
+            footer={[
+                <Button
+                    className={`modalBtn md:p-5 p-3 bg-[#C30121] border-transparent sm:text-lg text-base text-white rounded-full transition-all duration-300`}
+                    onClick={handleModalOnClick}
+                >
+                    OK
+                </Button>,
+            ]}
         >
             <div className="w-full py-5 px-2">
-                <h1 className="text-2xl text-blue-600 font-bold mb-3">
+                <h1 className="lg:text-4xl md:text-3xl sm:text-2xl text-lg text-[#C30121] font-bold mb-3">
                     ĐIỀU KHOẢN VÀ ĐIỀU KIỆN
                 </h1>
-                <ol>
+                <ol className="md:space-y-2 space-y-1">
                     <li>
-                        <span className="text-base">
+                        <span className="lg:text-xl sm:text-lg text-base lg:font-medium font-normal">
                             1. Yêu cầu về độ tuổi và giấy tờ tùy thân
                         </span>
-                        <div className="space-y-0.5">
-                            <p className="text-base ps-3">
+                        <div className="space-y-0.5 ps-5">
+                            <p className="lg:text-lg sm:text-base text-sm">
                                 1.1 Người tham dự phải đáp ứng các yêu cầu về độ
                                 tuổi tối thiểu (16 tuổi) vào ngày diễn ra sự
                                 kiện. Ban Tổ Chức (BTC) có quyền xác minh độ
                                 tuổi của người tham dự khi check-in và từ chối
                                 người tham dự nếu không đáp ứng yêu cầu.
                             </p>
-                            <p className="text-base ps-3">
+                            <p className="lg:text-lg sm:text-base text-sm">
                                 1.2 Người tham dự phải mang theo giấy tờ tùy
                                 thân (CCCD/Hộ chiếu/Giấy phép lái xe) khớp với
                                 tên đã được đăng ký. BTC có quyền từ chối người
@@ -385,63 +571,67 @@ const TicketForm = () => {
                         </div>
                     </li>
                     <li>
-                        <span className="text-base">2. Đăng ký vé tham dự</span>
-                        <div className="space-y-0.5">
-                            <p className="text-base ps-3">
+                        <span className="lg:text-xl sm:text-lg text-base lg:font-medium">
+                            2. Đăng ký vé tham dự
+                        </span>
+                        <div className="space-y-0.5 ps-5">
+                            <p className="lg:text-lg sm:text-base text-sm">
                                 2.1 Người tham dự cần bảo đảm nhập đúng thông
                                 tin đặt vé. BTC sẽ xác thực thông tin khi
                                 check-in bao gồm: mã vé được cung cấp trong
                                 email xác nhận đặt vé và giấy tờ tùy thân của
                                 người tham dự.
                             </p>
-                            <p className="text-base ps-3">
+                            <p className="lg:text-lg sm:text-base text-sm">
                                 2.2 Việc đăng ký chỉ được coi là hoàn tất khi
                                 người tham dự nhận được email xác nhận từ BTC.
                             </p>
-                            <p className="text-base ps-3">
+                            <p className="lg:text-lg sm:text-base text-sm">
                                 2.3 Người tham dự chỉ được tham gia vào phiên
                                 chia sẻ (session) đã đăng ký theo thông tin trên
                                 vé. Không được thay đổi hoặc tham dự session
                                 chưa được đăng ký.
                             </p>
-                            <p className="text-base ps-3">
+                            <p className="lg:text-lg sm:text-base text-sm">
                                 2.4 Tất cả các vé tham dự sự kiện không được
                                 chuyển nhượng dưới bất kỳ hình thức nào.{" "}
                             </p>
                         </div>
                     </li>
                     <li>
-                        <span className="text-base">3. Check-in</span>
-                        <div className="space-y-0.5">
-                            <p className="text-base ps-3">
+                        <span className="lg:text-xl sm:text-lg text-base lg:font-medium font-normal">
+                            3. Check-in
+                        </span>
+                        <div className="space-y-0.5 ps-3">
+                            <p className="lg:text-lg sm:text-base text-sm">
                                 3.1 Người tham dự cần đến đúng khung giờ
                                 check-in của session đã đăng ký. BTC sẽ không
                                 giải quyết các trường hợp đến trễ hơn so với giờ
                                 check-in đã được thông báo.
                             </p>
-                            <p className="text-base ps-3">
+                            <p className="lg:text-lg sm:text-base text-sm">
                                 3.2 Chương trình không sắp xếp số ghế. Người
                                 tham dự sẽ được sắp xếp chỗ ngồi theo sự hướng
                                 dẫn của BTC.
                             </p>
                         </div>
                     </li>
-                    <li className="text-base">
+                    <li className="lg:text-xl sm:text-lg text-base lg:font-medium">
                         4. Người tham dự cần tự bảo quản tư trang cá nhân. BTC
                         sẽ không chịu trách nhiệm về bất kỳ mất mát và/hoặc
                         thiệt hại nào phát sinh trong sự kiện.
                     </li>
-                    <li className="text-base">
+                    <li className="lg:text-xl sm:text-lg text-base lg:font-medium font-normal">
                         5. BTC có quyền sử dụng bất kỳ hình ảnh và video nào
                         được chụp/quay trong sự kiện cho các mục đích hợp pháp,
                         bao gồm cả truyền thông.
                     </li>
-                    <li className="text-base">
+                    <li className="lg:text-xl sm:text-lg text-base lg:font-medium font-normal">
                         6. BTC có quyền từ chối sự tham gia của bất kỳ người
                         tham dự nào không tuân theo điều khoản, điều kiện và các
                         nội quy của chương trình.
                     </li>
-                    <li className="text-base">
+                    <li className="lg:text-xl sm:text-lg text-base lg:font-medium font-normal">
                         7. Vui lòng tuân thủ theo hướng dẫn của BTC trong suốt
                         quá trình tham gia chương trình.
                     </li>
@@ -458,7 +648,7 @@ const TicketForm = () => {
         },
         {
             key: "2",
-            label: "Người đi kèm (+)",
+            label: "Người đi kèm",
             children: renderExtraForm,
             disabled: ticketAmount == 1,
         },
@@ -485,7 +675,8 @@ const TicketForm = () => {
             key: "2",
             label: "Người đi kèm",
             children: renderExtraForm,
-            extra: generateExtra(extraCompleted),
+            extra: ticketAmount == 2 && generateExtra(extraCompleted),
+            collapsible: ticketAmount == 1 ? "disabled" : "header",
         },
     ];
 

@@ -85,10 +85,10 @@ const TicketUI = () => {
                                             <Radio
                                                 key={index}
                                                 value={session.value}
-                                                className={`w-[217px] text-center px-2 py-2 border-2 border-solid transition-all whitespace-nowrap 
+                                                className={`w-[217px] text-center px-2 py-2 border-2 border-solid transition-all duration-300 whitespace-nowrap 
                                                 ${sessionChecked == session.value
                                                         ? "bg-black text-white border-[#6D6E71]"
-                                                        : "border-gray-300 hover:scale-[105%]"
+                                                        : "border-gray-300 hover:bg-black hover:text-white"
                                                     }`}
                                             >
                                                 <p className="text-xl font-light">{`${session.name} : ${session.time}`} </p>
@@ -109,7 +109,7 @@ const TicketUI = () => {
                                     <h2 className="font-bold text-[20px]">Khách sạn New World Saigon</h2>
                                 </div>
 
-                                <p className="ml-6 leading-tight">76 Lê Lai, phường Bến Thành, Quận 1, <br/> Thành phố Hồ Chí Minh</p>
+                                <p className="ml-6 leading-tight">76 Lê Lai, phường Bến Thành, Quận 1, Thành phố Hồ Chí Minh</p>
                             </div>
 
                         </div>
@@ -327,7 +327,7 @@ const TicketUI = () => {
                                     <h2 className="font-bold text-[16px] text-[#C30121]">Khách sạn New World Saigon</h2>
                                 </div>
 
-                                <p className="ml-6 text-[14px] leading-tight">76 Lê Lai, phường Bến Thành, Quận 1, <br/> Thành phố Hồ Chí Minh</p>
+                                <p className="ml-6 text-[14px] leading-tight">76 Lê Lai, phường Bến Thành, Quận 1, Thành phố Hồ Chí Minh</p>
                             </div>
 
                         </div>
