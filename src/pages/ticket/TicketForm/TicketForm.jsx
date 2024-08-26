@@ -19,6 +19,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { handleSetCurrStep } from "../../../redux/slices/ticket.slice";
 import {
     createTicketAPI,
+    createTicketsAPI,
     sendTicketEmailAPI,
     sendVerifyCodeAPI,
     verifyCodeAPI,
@@ -150,24 +151,27 @@ const TicketForm = () => {
                     fullName: values.fullName,
                     email: values.email,
                     phone: values.phone,
-                    session: session,
+                    session: Number(session),
                 };
 
+                // console.log("Payload: ", payload)
+
                 const ticketResult = await createTicketAPI(payload);
-                console.log("Result 1 ticket: ", ticketResult)
+                // console.log("Result 1 ticket: ", ticketResult)
 
                 if (ticketResult.status === 202) {
                     messageAlert("error", ticketResult.data.message);
                 } else {
                     // send email to 1 person
                     let emailPayload = {
-                        fullName: values.fullName,
                         email: values.email,
-                        ticketAmount: ticketAmount,
-                        session: session,
+                        fullName: values.fullName,
+                        ticketAmount: Number(ticketAmount),
+                        session: Number(session),
                     }
 
                     const sendEmailResult = await sendTicketEmailAPI(emailPayload)
+                    // console.log("Result: ", sendEmailResult)
 
                     if (sendEmailResult) {
                         messageLoadingAlert("success", sendEmailResult.data.message);
@@ -175,7 +179,7 @@ const TicketForm = () => {
                         setTimeout(
                             () => {
                                 navigate("/ticket/done")
-                            }, 3000
+                            }, 4000
                         )
                         
                     } else {
@@ -191,7 +195,7 @@ const TicketForm = () => {
                     fullName2: values.fullName2,
                     email2: values.email2,
                     phone2: values.phone2,
-                    session: session,
+                    session: Number(session),
                 };
 
                 const ticketsResult = await createTicketsAPI(payload);
@@ -202,8 +206,8 @@ const TicketForm = () => {
                     let emailPayload = {
                         fullName: values.fullName,
                         email: values.email,
-                        ticketAmount: ticketAmount,
-                        session: session,
+                        ticketAmount: Number(ticketAmount),
+                        session: Number(session),
                     }
 
                     const sendEmailResult = await sendTicketEmailAPI(emailPayload)
@@ -214,7 +218,7 @@ const TicketForm = () => {
                         setTimeout(
                             () => {
                                 navigate("/ticket/done")
-                            }, 3000
+                            }, 4000
                         )
                         
                     } else {
