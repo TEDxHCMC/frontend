@@ -188,7 +188,7 @@ const TicketForm = () => {
                 }
             } else if (ticketAmount === 2) {
                 // register 2 people
-                let payload = {
+                let secondPayload = {
                     fullName: values.fullName,
                     email: values.email,
                     phone: values.phone,
@@ -197,23 +197,25 @@ const TicketForm = () => {
                     phone2: values.phone2,
                     session: Number(session),
                 };
+                console.log("2 people payload: ", secondPayload)
 
-                const ticketsResult = await createTicketsAPI(payload);
+                const ticketsResult = await createTicketsAPI(secondPayload);
+                console.log("Ticket 2 people result: ", ticketsResult)
 
                 if (ticketsResult.status === 202) {
                     messageAlert("error", ticketsResult.data.message);
                 } else {
-                    let emailPayload = {
+                    let emailPayload2 = {
                         fullName: values.fullName,
                         email: values.email,
                         ticketAmount: Number(ticketAmount),
                         session: Number(session),
                     }
 
-                    const sendEmailResult = await sendTicketEmailAPI(emailPayload)
+                    const sendEmailResult2 = await sendTicketEmailAPI(emailPayload2)
 
-                    if (sendEmailResult) {
-                        messageLoadingAlert("success", sendEmailResult.data.message);
+                    if (sendEmailResult2) {
+                        messageLoadingAlert("success", sendEmailResult2.data.message);
 
                         setTimeout(
                             () => {
