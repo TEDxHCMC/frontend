@@ -36,6 +36,7 @@ const TicketForm = () => {
     const [submitLoading, setSubmitLoading] = useState(false);
 
     const navigate = useNavigate();
+
     const dispatch = useDispatch();
     const [messageApi, contextHolder] = message.useMessage();
 
@@ -496,7 +497,7 @@ const TicketForm = () => {
     );
 
     const renderSubmitSect = (
-        <section className="lg:pb-0 pb-10">
+        <section className="ticket-submit lg:pb-0 pb-10">
             <h3 className="font-bold text-2xl text-black mb-4">THÔNG TIN VÉ</h3>
             <div className="bg-white w-full py-4 px-4 h-30 rounded-xl shadow-lg">
                 <div className="flex justify-between items-center font-semibold text-xl mb-4">
@@ -713,7 +714,7 @@ const TicketForm = () => {
     ];
 
     return (
-        <>
+        <div className="ticketForm">
             <main className={`w-11/12 mx-auto mt-8 lg:block hidden`}>
                 <div className="title mb-4 w-full">
                     <h1
@@ -782,7 +783,7 @@ const TicketForm = () => {
                 {renderSubmitSect}
                 {renderModal}
             </main>
-        </>
+        </div>
     );
 };
 

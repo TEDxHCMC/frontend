@@ -1,6 +1,8 @@
 import { useRoutes } from "react-router-dom";
 import { PATH } from "../paths";
 import { Suspense, lazy } from "react";
+import Spinner from "../components/Spinner/Spinner";
+import { Spin } from "antd";
 import MainLayout from "../layouts/MainLayout";
 import TicketLayout from "../layouts/TicketLayout";
 
@@ -23,6 +25,8 @@ const TicketResultSect = lazy(() => import("../pages/ticket/TicketResult"))
 // const RegisterPage = lazy(() => import("../pages/auth/Register"));
 
 //...
+// const MainLayout = lazy(() => import("../layouts/MainLayout"))
+// const TicketLayout = lazy(() => import("../layouts/TicketLayout"))
 
 /**
  * @description
@@ -42,7 +46,7 @@ const useRouteElements = () => {
                     path: "",
                     index: true,
                     element: (
-                        <Suspense fallBack={<div>Loading</div>}>
+                        <Suspense fallBack={<Spinner />}>
                             <HomePage />
                         </Suspense>
                     ),
@@ -50,7 +54,7 @@ const useRouteElements = () => {
                 {
                     path: PATH.ABOUT,
                     element: (
-                        <Suspense fallBack={<div>Loading</div>}>
+                        <Suspense fallBack={<Spinner />}>
                             <AboutPage />
                         </Suspense>
                     ),
@@ -80,7 +84,7 @@ const useRouteElements = () => {
                 {
                     index: true,
                     element: (
-                        <Suspense fallback={<div>Loading</div>}>
+                        <Suspense fallback={<Spinner />}>
                             <TicketUI />
                         </Suspense>
                     )
@@ -88,23 +92,15 @@ const useRouteElements = () => {
                 {
                     path: "form",
                     element: (
-                        <Suspense fallback={<div>Loading</div>}>
+                        <Suspense fallback={<Spinner />}>
                             <TicketFormSect />
-                        </Suspense>
-                    )
-                },
-                {
-                    path: "confirm",
-                    element: (
-                        <Suspense fallback={<div>Loading</div>}>
-                            <div>Ticket Confirm</div>
                         </Suspense>
                     )
                 },
                 {
                     path: "done",
                     element: (
-                        <Suspense fallback={<div>Loading</div>}>
+                        <Suspense fallback={<Spinner />}>
                             <TicketResultSect />
                         </Suspense>
                     ),
@@ -114,7 +110,7 @@ const useRouteElements = () => {
         {
             path: "*",
             element: (
-                <Suspense callBack={<div>Loading</div>}>
+                <Suspense callBack={<Spinner />}>
                     <NotFoundPage />
                 </Suspense>
             ),
