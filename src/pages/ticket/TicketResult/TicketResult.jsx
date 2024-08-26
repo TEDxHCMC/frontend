@@ -2,6 +2,7 @@ import { Button, Result } from "antd";
 import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { handleSetCurrStep } from "../../../redux/slices/ticket.slice";
+import { useNavigate } from "react-router-dom";
 
 const TicketResult = () => {
     const dispatch = useDispatch()
