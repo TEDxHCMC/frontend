@@ -154,7 +154,7 @@ const TicketForm = () => {
                 };
 
                 const ticketResult = await createTicketAPI(payload);
-                // console.log("Result 1 ticket: ", ticketResult)
+                console.log("Result 1 ticket: ", ticketResult)
 
                 if (ticketResult.status === 202) {
                     messageAlert("error", ticketResult.data.message);

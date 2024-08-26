@@ -42,7 +42,7 @@ export const createTicketsAPI = async (formData) => {
 
 export const sendTicketEmailAPI = async (formData) => {
     try {
-        const response = await fetcher.post("tickets/send-ticket-email", formData)
+        const response = await fetcher.post("tickets/send-ticket-mail", formData)
         console.log("Response: ", response)
         return response
     } catch (error) {
