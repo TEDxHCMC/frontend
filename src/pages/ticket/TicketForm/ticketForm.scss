@@ -1,23 +1,55 @@
 .register {
+    font-family: 'Inter', sans-serif !important;
 
     .ant-tabs {
 
-        .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
-            // font-family: 'Inter', serif !important;
-            
-            font-size: 20px; 
-            font-weight: 600;
-            color: black !important;
-            transition: all 300ms ease;
-
-            &:hover {
-                transform: scale(102%);
+        .ant-tabs-tab {
+            .ant-tabs-tab-btn {
+                font-size: 20px;
+                color: black;
+                transition: all 300ms;
+    
+                &:hover {
+                    color: #000;
+                    transform: scale(102%);
+                }
             }
-        }
+
+            .ant-tabs-tab-active .ant-tabs-tab-btn {
+                font-weight: 700;
+                color: black;
+            }
+        } 
 
         .ant-tabs-ink-bar {
             background: #000;
         }
 
     }
+
+    .ant-tabs .ant-tabs-tab.ant-tabs-tab-disabled .ant-tabs-tab-btn {
+        opacity: 0.3;
+    }
+}
+
+.register-mobile {
+    .ant-collapse>.ant-collapse-item>.ant-collapse-header {
+        display: flex;
+        align-items: center;
+
+        .ant-collapse-header-text {
+            font-size: 18px;
+            font-weight: 700;
+        }
+    }
+
+    .ant-tag {
+        padding: 5px 10px;
+    }
+}
+
+.modalBtn.ant-btn-default:not(:disabled):not(.ant-btn-disabled):hover {
+    background: black;
+    color: white;
+    border-color: transparent;
 }

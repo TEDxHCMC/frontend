@@ -30,21 +30,6 @@
     transform: rotate(-0.23deg);
 }
 
-.button-confirm {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-    background: #C30121;
-    border-radius: 36px;
-    transition: background 0.3s ease;
-    font-family: 'Inter', sans-serif;
-
-    &:hover{
-        background: #141414;
-    }
-}
-
 .secondside-ticket {
     box-shadow: 4px 4px 20px rgba(0, 0, 0, 0.15);
 
@@ -54,8 +39,6 @@
         text-transform: uppercase;
     }
 }
-
-
 
 .pattern {
     width: 40px; 
@@ -99,20 +82,4 @@
     height: 30px;
     width: 27px;
     z-index: 2;
-}
-
-.mobile-button-confirm {
-    display: flex;
-    z-index: 3;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-    background: #C30121;
-    border-radius: 36px;
-    transition: background 0.3s ease;
-    font-family: 'Inter', sans-serif;
-
-    &:hover{
-        background: #141414;
-    }
 }

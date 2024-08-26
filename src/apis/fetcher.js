@@ -1,8 +1,10 @@
 import axios from "axios";
 
 const fetcher = axios.create({
-    baseURL: "http://localhost:8080/",
-    headers: {},
+    baseURL: "https://tedx-server.tedxhochiminhcity.vn/",
+    headers: {
+        "Content-Type": "application/json",
+    },
     timeout: 30000
 });
 

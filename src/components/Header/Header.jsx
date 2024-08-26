@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import "./header.scss";
 import "animate.css";
 
@@ -9,6 +9,7 @@ const Header = () => {
 
     const [showDropdown, setShowDropdown] = useState(false);
     const [isOpened, setIsOpened] = useState(false);
+    const navigate = useNavigate()
 
     const handleDropdownToggle = () => {
         setShowDropdown(!showDropdown);
@@ -17,6 +18,12 @@ const Header = () => {
     const handleNavbarToggle = () => {
         setIsOpened(!isOpened);
     };
+
+    const handleOnClick = (e) => {
+        e.preventDefault();
+        navigate("/ticket")
+        
+    }
 
     const location = useLocation();
 
@@ -214,15 +221,16 @@ const Header = () => {
                     {/* <Link to="/" className="uppercase text-gray-400">
                         Thông tin Event
                     </Link> */}
-                    <Link to="about" className="item uppercase">
+                    <Link to="/about" className="item uppercase">
                         Về chúng tôi
                     </Link>
                 </div>
-                {/* <button disabled
+                <button
                     className={`${isOpened ? "nav-animate" : ""} ticket-button text-center lg:text-[35px] md:text-[25px] text-[22px] px-7 py-3 rounded-sm`}
+                    onClick={handleOnClick}
                 >
                     ĐĂNG KÍ VÉ
-                </button> */}
+                </button>
             </div>
         </>
     );

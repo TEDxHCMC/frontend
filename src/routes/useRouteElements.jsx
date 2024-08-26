@@ -11,12 +11,13 @@ import TicketLayout from "../layouts/TicketLayout";
 const HomePage = lazy(() => import("../pages/home"));
 const AboutPage = lazy(() => import("../pages/about"));
 // const SpeakerPage = lazy(() => import("../pages/speaker"));
-const InteractivePage = lazy(() => import("../pages/interactive"));
-const ErrorPage = lazy(() => import("../pages/error"));
+// const InteractivePage = lazy(() => import("../pages/interactive"));
+// const ErrorPage = lazy(() => import("../pages/error"));
+const NotFoundPage = lazy(() => import('../pages/not-found'))
 
-const TicketGeneralSect = lazy(() => import("../pages/ticket/TicketGeneral"))
 const TicketUI = lazy(() => import("../pages/ticket/TicketUI"))
 const TicketFormSect = lazy(() => import("../pages/ticket/TicketForm"))
+const TicketResultSect = lazy(() => import("../pages/ticket/TicketResult"))
 
 // const LoginPage = lazy(() => import("../pages/auth/Login"));
 // const RegisterPage = lazy(() => import("../pages/auth/Register"));
@@ -85,15 +86,6 @@ const useRouteElements = () => {
                     )
                 },
                 {
-                    
-                    path: "general",
-                    element: (
-                        <Suspense fallback={<div>Loading</div>}>
-                            <TicketGeneralSect />
-                        </Suspense>
-                    )
-                },
-                {
                     path: "form",
                     element: (
                         <Suspense fallback={<div>Loading</div>}>
@@ -113,7 +105,7 @@ const useRouteElements = () => {
                     path: "done",
                     element: (
                         <Suspense fallback={<div>Loading</div>}>
-                            <div>Thank You</div>
+                            <TicketResultSect />
                         </Suspense>
                     ),
                 }
@@ -123,7 +115,7 @@ const useRouteElements = () => {
             path: "*",
             element: (
                 <Suspense callBack={<div>Loading</div>}>
-                    <ErrorPage message={"404 NOT FOUND!"} />
+                    <NotFoundPage />
                 </Suspense>
             ),
         },
