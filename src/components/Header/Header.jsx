@@ -138,7 +138,7 @@ const Header = () => {
                         </h3> */}
                         <img
                             className="md:h-9 h-5 w-auto"
-                            src="./assets/logo/TEDx-logo/TEDx-Black-Short.png"
+                            src="/assets/logo/TEDx-logo/TEDx-Black-Short.png"
                         />
                     </Link>
                 </div>
@@ -185,7 +185,7 @@ const Header = () => {
                 <Link to="/" className="hidden lg:block m-0">
                     <img
                         className="block relative -translate-x-full h-10 object-contain"
-                        src="./assets/logo/to-tuong-logo/To-tuong-logo-black.png"
+                        src="/assets/logo/to-tuong-logo/To-tuong-logo-black.png"
                         alt="TEDX Logo"
                     />
                 </Link>
@@ -206,7 +206,7 @@ const Header = () => {
                         <Link to="/" className="inline-block">
                             <img
                                 className="block lg:h-10 md:h-9 h-5 w-auto"
-                                src="./assets/logo/TEDx-logo/TEDx-White-Short.png"
+                                src="/assets/logo/TEDx-logo/TEDx-White-Short.png"
                             />
                         </Link>
                     </div>
