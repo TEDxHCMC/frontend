@@ -713,7 +713,7 @@ const TicketForm = () => {
                     <div className="flex items-center gap-2 mb-2">
                         <i className="fa fa-calendar text-lg"></i>
                         <p className="font-semibold text-xl">
-                            {`Sáng: ${session == 1 ? "8:00AM - 12:30PM" : "02:00PM - 06:30PM"}, ngày 21 tháng 9, 2024`}
+                            {`${session == 1 ? "Sáng: 8:00AM - 12:30PM" : "Chiều 02:00PM - 06:30PM"}, ngày 21 tháng 9, 2024`}
                         </p>
                     </div>
                     <div className="flex items-center gap-2">
