@@ -31,6 +31,7 @@ const TicketForm = () => {
     const [termsChecked, setTermsChecked] = useState(false);
     const [primaryCompleted, setPrimaryCompleted] = useState(false);
     const [extraCompleted, setExtraCompleted] = useState(false);
+    const [verifyLoading, setVerifyLoading] = useState(false);
     const [submitLoading, setSubmitLoading] = useState(false);
 
     const navigate = useNavigate();
@@ -146,24 +147,24 @@ const TicketForm = () => {
             if (ticketAmount == 1) {
                 // register 1 person
                 let payload = {
-                    fullName,
-                    email,
-                    phone,
-                    session,
+                    fullName: values.fullName,
+                    email: values.email,
+                    phone: values.phone,
+                    session: session,
                 };
 
                 const ticketResult = await createTicketAPI(payload);
-
                 // console.log("Result 1 ticket: ", ticketResult)
 
                 if (ticketResult.status === 202) {
                     messageAlert("error", ticketResult.data.message);
                 } else {
+                    // send email to 1 person
                     let emailPayload = {
-                        fullName,
-                        email,
-                        ticketAmount,
-                        session
+                        fullName: values.fullName,
+                        email: values.email,
+                        ticketAmount: ticketAmount,
+                        session: session,
                     }
 
                     const sendEmailResult = await sendTicketEmailAPI(emailPayload)
@@ -174,7 +175,7 @@ const TicketForm = () => {
                         setTimeout(
                             () => {
                                 navigate("/ticket/done")
-                            }, 4000
+                            }, 3000
                         )
                         
                     } else {
@@ -184,13 +185,13 @@ const TicketForm = () => {
             } else if (ticketAmount == 2) {
                 // register 2 people
                 let payload = {
-                    fullName,
-                    email,
-                    phone,
-                    fullName2,
-                    email2,
-                    phone2,
-                    session,
+                    fullName: values.fullName,
+                    email: values.email,
+                    phone: values.phone,
+                    fullName2: values.fullName2,
+                    email2: values.email2,
+                    phone2: values.phone2,
+                    session: session,
                 };
 
                 const ticketsResult = await createTicketsAPI(payload);
@@ -199,10 +200,10 @@ const TicketForm = () => {
                     messageAlert("error", ticketsResult.data.message);
                 } else {
                     let emailPayload = {
-                        fullName,
-                        email,
-                        ticketAmount,
-                        session
+                        fullName: values.fullName,
+                        email: values.email,
+                        ticketAmount: ticketAmount,
+                        session: session,
                     }
 
                     const sendEmailResult = await sendTicketEmailAPI(emailPayload)
@@ -213,7 +214,7 @@ const TicketForm = () => {
                         setTimeout(
                             () => {
                                 navigate("/ticket/done")
-                            }, 4000
+                            }, 3000
                         )
                         
                     } else {
@@ -228,27 +229,41 @@ const TicketForm = () => {
     };
 
     const handleSendVerifyCode = async () => {
-        console.log(formik.values.email)
+        // console.log(formik.values.email)
 
         let formData = {
             email: formik.values.email,
         };
 
-        // console.log("Email: ", formData)
-        const result = await sendVerifyCodeAPI(formData);
-        console.log("Result: ", result)
+        // Set loading
+        setVerifyLoading(true)
 
-        if (result) {
-            messageLoadingAlert(
-                "success",
-                "Mã xác thực đã được gửi về email của bạn!"
-            );
-        } else {
+        try {
+            const result = await sendVerifyCodeAPI(formData);
+            // console.log("Result: ", result)
+
+            if (result) {
+                messageLoadingAlert(
+                    "success",
+                    "Mã xác thực đã được gửi về email của bạn!"
+                );
+            } else {
+                messageLoadingAlert(
+                    "error",
+                    "Lỗi xảy ra, vui lòng thử lại!"
+                );
+            }
+        } catch(err) {
+            console.log("Error: ", err)
             messageLoadingAlert(
                 "error",
                 "Lỗi xảy ra, vui lòng thử lại!"
             );
+        } finally {
+            setVerifyLoading(false)
         }
+
+        // console.log("Email: ", formData)
     };
 
     const handleModalOnClick = () => {
@@ -369,6 +384,7 @@ const TicketForm = () => {
                     className={`w-fit h-fit sm:p-3 p-2 bg-[#C30121] text-white border border-slate-500 rounded transition-all duration-300 hover:bg-black disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-[#C30121]`}
                     type="button"
                     onClick={handleSendVerifyCode}
+                    loading={verifyLoading}
                     disabled={!formik.values.email || formik.errors.email}
                 >
                     <p className="text-white md:text-lg text-sm sm:font-bold font-medium">
@@ -425,8 +441,8 @@ const TicketForm = () => {
             />
 
             <InputField
-                id="phone"
-                name="phone"
+                id="phone2"
+                name="phone2"
                 type="text"
                 label={"Số điện thoại"}
                 placeholder="0123456789 hoặc (+84)123456789"
@@ -697,7 +713,7 @@ const TicketForm = () => {
                     <div className="flex items-center gap-2 mb-2">
                         <i className="fa fa-calendar text-lg"></i>
                         <p className="font-semibold text-xl">
-                            Sáng: 9:00 - 12:00, ngày 21 tháng 9, 2024
+                            {`Sáng: ${session == 1 ? "8:00AM - 12:30PM" : "02:00PM - 06:30PM"}, ngày 21 tháng 9, 2024`}
                         </p>
                     </div>
                     <div className="flex items-center gap-2">
