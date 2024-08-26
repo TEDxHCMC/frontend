@@ -20,7 +20,7 @@ export const ticketSlice = createSlice({
     reducers: {
         handleSetCurrStep: (state, action) => {
             state.currStep = action.payload;
-            console.log("Current Step: ", state.currStep);
+            // console.log("Current Step: ", state.currStep);
         },
         handleSetTicketAmount: (state, action) => {
             state.ticketAmount = action.payload;
@@ -32,7 +32,7 @@ export const ticketSlice = createSlice({
         },
         handleSetTicketData: (state, action) => {
             state.ticketData = action.payload;
-            console.log("Current Data: ", state.ticketData);
+            // console.log("Current Data: ", state.ticketData);
         },
     },
 });

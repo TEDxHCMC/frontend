@@ -1,6 +1,6 @@
 import { Row, Col, Divider, Checkbox, Radio, Button, Modal } from "antd";
 import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { handleSetCurrStep, handleSetTicketAmount, handleSetTicketSession } from "../../../redux/slices/ticket.slice";
 
@@ -11,33 +11,33 @@ const TicketUI = () => {
         {
             name: "Sáng",
             time: "08:00 - 12:30",
-            value: "1",
+            value: 1,
         },
         {
             name: "Chiều",
             time: "14:00 - 18:30",
-            value: "2",
+            value: 2,
         },
     ];
 
     const [amount, setAmount] = useState(1);
-    const [sessionChecked, setSessionChecked] = useState("");
+    const [sessionChecked, setSessionChecked] = useState(0);
     //const [modalOpen, setModalOpen] = useState(false);
     const navigate = useNavigate();
     const dispatch = useDispatch();
 
     const handleDecrease = (e) => {
         e.preventDefault();
-        console.log("Decreasing amount");
+        // console.log("Decreasing amount");
         setAmount(amount - 1);
-        console.log("New amount:", amount - 1);
+        // console.log("New amount:", amount - 1);
     };
 
     const handleIncrease = (e) => {
         e.preventDefault();
-        console.log("Increasing amount");
+        // console.log("Increasing amount");
         setAmount(amount + 1);
-        console.log("New amount:", amount + 1);
+        // console.log("New amount:", amount + 1);
     };
 
     const handleChangeSession = (e) => {
@@ -144,10 +144,11 @@ const TicketUI = () => {
                             </div>
 
 
-                            <div className="button-confirm items-center mt-2">
+                            <div className="mt-2">
                                 <button
-                                    className="w-full text-white font-bold text-[20px] h-10 whitespace-nowrap"
+                                    className="w-full text-white font-bold text-[20px] h-10 whitespace-nowrap bg-[#C30121] hover:bg-[#141414] transition-all rounded-full disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-[#C30121]"
                                     onClick={handleSubmit}
+                                    disabled={sessionChecked == 0 ? true : false}
                                 >
                                     Xác Nhận
                                 </button>
@@ -345,7 +346,7 @@ const TicketUI = () => {
                                 </div>
                                 <div className="flex items-center gap-3 h-[51px]">
                                     <button
-                                        disabled={amount == 1 ? true : false}
+                                        disabled={amount <= 1 ? true : false}
                                         className={`mobile-ticket-button ${amount === 1 ? 'bg-[#C30121] text-white' : 'text-[#C30121]'}`}
                                         onClick={handleDecrease}
                                     >
@@ -355,7 +356,7 @@ const TicketUI = () => {
                                         {amount}
                                     </span>
                                     <button
-                                        disabled={amount == 2 ? true : false}
+                                        disabled={amount >= 2 ? true : false}
                                         className={`mobile-ticket-button ${amount === 2 ? 'bg-[#C30121] text-white' : 'text-[#C30121]'}`}
                                         onClick={handleIncrease}
                                     >
@@ -365,15 +366,14 @@ const TicketUI = () => {
                             </div>
                         </div>
 
-                        <div className="mobile-button-confirm items-center mt-5">
+                        <div className="mt-5 border-[#C30121] z-[10]">
                             <button
-                                className="w-full text-white font-bold text-[20px] h-10 whitespace-nowrap"
+                                className="w-full text-white font-bold md:text-[20px] text-[16px] h-10 whitespace-nowrap bg-[#C30121] hover:bg-[#141414] transition-all rounded-full disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-[#C30121]"
                                 onClick={handleSubmit}
+                                disabled={sessionChecked == 0 ? true : false}
                             >
                                 Xác Nhận
                             </button>
-
-
                         </div>
                     </div>
 

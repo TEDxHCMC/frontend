@@ -130,107 +130,124 @@ const TicketForm = () => {
     });
 
     const handleSubmit = async (values) => {
-        // console.log("Submit Actions!");
-        console.log("Values: ", values);
+        // console.log("Values: ", values);
+        setSubmitLoading(true);
 
-        //* Verify Code here
-        const verifyResult = await verifyCodeAPI({
-            email: values.email,
-            code: values.code,
-        });
+        try {
+            //* Verify Code here
+            const verifyResult = await verifyCodeAPI({
+                email: values.email,
+                code: values.code,
+            });
 
-        // console.log("Verify result: ", verifyResult)
+            // console.log("Verify result: ", verifyResult)
 
-        if (verifyResult.status === 202) {
-            messageAlert("error", verifyResult.data.message);
-        } else {
-            //* Create ticket here
-            if (ticketAmount === 1) {
-                // register 1 person
-                let payload = {
-                    fullName: values.fullName,
-                    email: values.email,
-                    phone: values.phone,
-                    session: Number(session),
-                };
-
-                // console.log("Payload: ", payload)
-
-                const ticketResult = await createTicketAPI(payload);
-                // console.log("Result 1 ticket: ", ticketResult)
-
-                if (ticketResult.status === 202) {
-                    messageAlert("error", ticketResult.data.message);
-                } else {
-                    // send email to 1 person
-                    let emailPayload = {
-                        email: values.email,
-                        fullName: values.fullName,
-                        ticketAmount: Number(ticketAmount),
-                        session: Number(session),
-                    }
-
-                    const sendEmailResult = await sendTicketEmailAPI(emailPayload)
-                    // console.log("Result: ", sendEmailResult)
-
-                    if (sendEmailResult) {
-                        messageLoadingAlert("success", sendEmailResult.data.message);
-
-                        setTimeout(
-                            () => {
-                                navigate("/ticket/done")
-                            }, 4000
-                        )
-                        
-                    } else {
-                        messageLoadingAlert("warning", "Đã có lỗi trong quá trình gửi email, vui lòng thử lại");
-                    }
-                }
-            } else if (ticketAmount === 2) {
-                // register 2 people
-                let secondPayload = {
-                    fullName: values.fullName,
-                    email: values.email,
-                    phone: values.phone,
-                    fullName2: values.fullName2,
-                    email2: values.email2,
-                    phone2: values.phone2,
-                    session: Number(session),
-                };
-                console.log("2 people payload: ", secondPayload)
-
-                const ticketsResult = await createTicketsAPI(secondPayload);
-                console.log("Ticket 2 people result: ", ticketsResult)
-
-                if (ticketsResult.status === 202) {
-                    messageAlert("error", ticketsResult.data.message);
-                } else {
-                    let emailPayload2 = {
+            if (verifyResult.status === 202) {
+                messageAlert("error", verifyResult.data.message);
+            } else {
+                //* Create ticket here
+                if (ticketAmount === 1) {
+                    // register 1 person
+                    let payload = {
                         fullName: values.fullName,
                         email: values.email,
-                        ticketAmount: Number(ticketAmount),
+                        phone: values.phone,
                         session: Number(session),
-                    }
+                    };
 
-                    const sendEmailResult2 = await sendTicketEmailAPI(emailPayload2)
+                    // console.log("Payload: ", payload)
 
-                    if (sendEmailResult2) {
-                        messageLoadingAlert("success", sendEmailResult2.data.message);
+                    const ticketResult = await createTicketAPI(payload);
+                    // console.log("Result 1 ticket: ", ticketResult)
 
-                        setTimeout(
-                            () => {
-                                navigate("/ticket/done")
-                            }, 4000
-                        )
-                        
+                    if (ticketResult.status === 202) {
+                        messageAlert("error", ticketResult.data.message);
                     } else {
-                        messageLoadingAlert("warning", "Đã có lỗi trong quá trình gửi email, vui lòng thử lại");
+                        // send email to 1 person
+                        let emailPayload = {
+                            email: values.email,
+                            fullName: values.fullName,
+                            ticketAmount: Number(ticketAmount),
+                            session: Number(session),
+                        };
+
+                        const sendEmailResult = await sendTicketEmailAPI(
+                            emailPayload
+                        );
+                        // console.log("Result: ", sendEmailResult)
+
+                        if (sendEmailResult) {
+                            messageLoadingAlert(
+                                "success",
+                                sendEmailResult.data.message
+                            );
+
+                            setTimeout(() => {
+                                navigate("/ticket/done");
+                            }, 4000);
+                        } else {
+                            messageLoadingAlert(
+                                "warning",
+                                "Đã có lỗi trong quá trình gửi email, vui lòng thử lại"
+                            );
+                        }
+                    }
+                } else if (ticketAmount === 2) {
+                    // register 2 people
+                    let secondPayload = {
+                        fullName: values.fullName,
+                        email: values.email,
+                        phone: values.phone,
+                        fullName2: values.fullName2,
+                        email2: values.email2,
+                        phone2: values.phone2,
+                        session: Number(session),
+                    };
+                    // console.log("2 people payload: ", secondPayload)
+
+                    const ticketsResult = await createTicketsAPI(secondPayload);
+                    // console.log("Ticket 2 people result: ", ticketsResult)
+
+                    if (ticketsResult.status === 202) {
+                        messageAlert("error", ticketsResult.data.message);
+                    } else {
+                        let emailPayload2 = {
+                            fullName: values.fullName,
+                            email: values.email,
+                            ticketAmount: Number(ticketAmount),
+                            session: Number(session),
+                        };
+
+                        const sendEmailResult2 = await sendTicketEmailAPI(
+                            emailPayload2
+                        );
+
+                        if (sendEmailResult2) {
+                            messageLoadingAlert(
+                                "success",
+                                sendEmailResult2.data.message
+                            );
+
+                            setTimeout(() => {
+                                navigate("/ticket/done");
+                            }, 4000);
+                        } else {
+                            messageLoadingAlert(
+                                "warning",
+                                "Đã có lỗi trong quá trình gửi email, vui lòng thử lại"
+                            );
+                        }
                     }
                 }
+
+                //* Update redux store here
+                // .....
             }
-
-            //* Update redux store here
-            // .....
+        } catch (exception) {
+            messageAlert("error", "Lỗi xảy ra, vui lòng thử lại!");
+            console.log("Exception: ", exception);
+        } finally {
+            setSubmitLoading(false);
         }
     };
 
@@ -242,7 +259,7 @@ const TicketForm = () => {
         };
 
         // Set loading
-        setVerifyLoading(true)
+        setVerifyLoading(true);
 
         try {
             const result = await sendVerifyCodeAPI(formData);
@@ -254,19 +271,13 @@ const TicketForm = () => {
                     "Mã xác thực đã được gửi về email của bạn!"
                 );
             } else {
-                messageLoadingAlert(
-                    "error",
-                    "Lỗi xảy ra, vui lòng thử lại!"
-                );
+                messageLoadingAlert("error", "Lỗi xảy ra, vui lòng thử lại!");
             }
-        } catch(err) {
-            console.log("Error: ", err)
-            messageLoadingAlert(
-                "error",
-                "Lỗi xảy ra, vui lòng thử lại!"
-            );
+        } catch (err) {
+            console.log("Error: ", err);
+            messageLoadingAlert("error", "Lỗi xảy ra, vui lòng thử lại!");
         } finally {
-            setVerifyLoading(false)
+            setVerifyLoading(false);
         }
 
         // console.log("Email: ", formData)
@@ -545,7 +556,6 @@ const TicketForm = () => {
                         <p className="text-white font-bold">Hoàn tất </p>
                     </Button>
                 </div>
-                
             </div>
         </section>
     );
@@ -719,7 +729,11 @@ const TicketForm = () => {
                     <div className="flex items-center gap-2 mb-2">
                         <i className="fa fa-calendar text-lg"></i>
                         <p className="font-semibold text-xl">
-                            {`${session == 1 ? "Sáng: 8:00 - 12:30" : "Chiều 14:00 - 18:30"}, ngày 21 tháng 9, 2024`}
+                            {`${
+                                session == 1
+                                    ? "Sáng: 8:00 - 12:30"
+                                    : "Chiều 14:00 - 18:30"
+                            }, ngày 21 tháng 9, 2024`}
                         </p>
                     </div>
                     <div className="flex items-center gap-2">
