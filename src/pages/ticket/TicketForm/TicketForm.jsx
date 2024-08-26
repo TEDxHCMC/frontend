@@ -195,48 +195,57 @@ const TicketForm = () => {
                     }
                 } else if (ticketAmount === 2) {
                     // register 2 people
-                    let secondPayload = {
-                        fullName: values.fullName,
-                        email: values.email,
-                        phone: values.phone,
-                        fullName2: values.fullName2,
-                        email2: values.email2,
-                        phone2: values.phone2,
-                        session: Number(session),
-                    };
-                    // console.log("2 people payload: ", secondPayload)
-
-                    const ticketsResult = await createTicketsAPI(secondPayload);
-                    // console.log("Ticket 2 people result: ", ticketsResult)
-
-                    if (ticketsResult.status === 202) {
-                        messageAlert("error", ticketsResult.data.message);
+                    if (values.email === values.email2) {
+                        messageAlert(
+                            "error",
+                            "Email của 2 người trùng nhau rồi, bạn vui lòng kiểm tra lại nhé!"
+                        );
                     } else {
-                        let emailPayload2 = {
+                        let secondPayload = {
                             fullName: values.fullName,
                             email: values.email,
-                            ticketAmount: Number(ticketAmount),
+                            phone: values.phone,
+                            fullName2: values.fullName2,
+                            email2: values.email2,
+                            phone2: values.phone2,
                             session: Number(session),
                         };
+                        // console.log("2 people payload: ", secondPayload)
 
-                        const sendEmailResult2 = await sendTicketEmailAPI(
-                            emailPayload2
+                        const ticketsResult = await createTicketsAPI(
+                            secondPayload
                         );
+                        // console.log("Ticket 2 people result: ", ticketsResult)
 
-                        if (sendEmailResult2) {
-                            messageLoadingAlert(
-                                "success",
-                                sendEmailResult2.data.message
-                            );
-
-                            setTimeout(() => {
-                                navigate("/ticket/done");
-                            }, 4000);
+                        if (ticketsResult.status === 202) {
+                            messageAlert("error", ticketsResult.data.message);
                         } else {
-                            messageLoadingAlert(
-                                "warning",
-                                "Đã có lỗi trong quá trình gửi email, vui lòng thử lại"
+                            let emailPayload2 = {
+                                fullName: values.fullName,
+                                email: values.email,
+                                ticketAmount: Number(ticketAmount),
+                                session: Number(session),
+                            };
+
+                            const sendEmailResult2 = await sendTicketEmailAPI(
+                                emailPayload2
                             );
+
+                            if (sendEmailResult2) {
+                                messageLoadingAlert(
+                                    "success",
+                                    sendEmailResult2.data.message
+                                );
+
+                                setTimeout(() => {
+                                    navigate("/ticket/done");
+                                }, 4000);
+                            } else {
+                                messageLoadingAlert(
+                                    "warning",
+                                    "Đã có lỗi trong quá trình gửi email, vui lòng thử lại"
+                                );
+                            }
                         }
                     }
                 }
@@ -254,7 +263,7 @@ const TicketForm = () => {
 
     const handleSendVerifyCode = async () => {
         // console.log(formik.values.email)
-
+        
         let formData = {
             email: formik.values.email,
         };
