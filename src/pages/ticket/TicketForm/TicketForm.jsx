@@ -144,7 +144,7 @@ const TicketForm = () => {
             messageAlert("error", verifyResult.data.message);
         } else {
             //* Create ticket here
-            if (ticketAmount == 1) {
+            if (ticketAmount === 1) {
                 // register 1 person
                 let payload = {
                     fullName: values.fullName,
@@ -182,7 +182,7 @@ const TicketForm = () => {
                         messageLoadingAlert("warning", "Đã có lỗi trong quá trình gửi email, vui lòng thử lại");
                     }
                 }
-            } else if (ticketAmount == 2) {
+            } else if (ticketAmount === 2) {
                 // register 2 people
                 let payload = {
                     fullName: values.fullName,
