@@ -3,9 +3,7 @@ import React from 'react'
 
 const Spinner = () => {
     return (
-        <Flex align="center" gap="middle">
-            <Spin size="large" fullscreen/>
-        </Flex>
+        <Spin size="large" fullscreen/>
     )
 }
 

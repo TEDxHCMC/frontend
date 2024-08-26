@@ -1,8 +1,7 @@
 import { useRoutes } from "react-router-dom";
 import { PATH } from "../paths";
 import { Suspense, lazy } from "react";
-import Spinner from "../components/Spinner/Spinner";
-import { Spin } from "antd";
+import Spinner from "../components/Spinner";
 import MainLayout from "../layouts/MainLayout";
 import TicketLayout from "../layouts/TicketLayout";
 
