@@ -316,14 +316,16 @@ const TicketForm = () => {
             formik.errors.fullName ||
             !formik.values.email ||
             formik.errors.email ||
-            !formik.errors.phone ||
-            formik.errors.phone
+            !formik.values.phone ||
+            formik.errors.phone ||
+            !formik.values.code || 
+            formik.errors.code
         ) {
             setPrimaryCompleted(false);
         } else {
             setPrimaryCompleted(true);
         }
-    }, [formik.values.fullName, formik.values.email, formik.values.phone]);
+    }, [formik.values.fullName, formik.values.email, formik.values.phone, formik.values.code]);
 
     useEffect(() => {
         if (
@@ -331,7 +333,7 @@ const TicketForm = () => {
             formik.errors.fullName2 ||
             !formik.values.email2 ||
             formik.errors.email2 ||
-            !formik.errors.phone2 ||
+            !formik.values.phone2 ||
             formik.errors.phone2
         ) {
             setExtraCompleted(false);
