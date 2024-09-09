@@ -1,9 +1,14 @@
 import React from "react";
 
+// import shapePink from "./assets/pattern/4-Pink.png";
+// import shapeGreen from "./assets/pattern/3-Green.png";
+// import shapeBlue from "./assets/pattern/2-Blue.png";
+// import shapeYellow from "./assets/pattern/1-Yellow.png";
+
 const Poster = () => {
     return (
         <section
-            className={`poster relative ${bgColor}`}
+            className={`poster relative bg-black`}
             style={{
                 width: 800,
                 height: 800,
@@ -18,13 +23,13 @@ const Poster = () => {
                 >
                     <div className="w-4/6">
                         <img
-                            src={shapePink}
+                            src={"/assets/pattern/single-pattern/4-Pink.png"}
                             className="w-full h-full scale-125"
                         />
                     </div>
                     <div className="w-2/6 relative">
                         <img
-                            src={shapeYellow}
+                            src={"/assets/pattern/single-pattern/1-Yellow.png"}
                             className="absolute top-1/2 -translate-y-1/2 scale-125"
                         />
                     </div>
@@ -37,13 +42,13 @@ const Poster = () => {
                 >
                     <div className="w-4/6 relative">
                         <img
-                            src={shapeBlue}
+                            src={"/assets/pattern/single-pattern/2-Blue.png"}
                             className="h-full object-cover absolute left-1/3 -translate-x-1/3 scale-125"
                         />
                     </div>
                     <div className="w-2/6 relative">
                         <img
-                            src={shapeGreen}
+                            src={"/assets/pattern/single-pattern/3-Green.png"}
                             className="h-full object-cover absolute right-0 scale-125"
                         />
                     </div>
@@ -58,13 +63,13 @@ const Poster = () => {
                 >
                     <div className="w-2/6 relative">
                         <img
-                            src={shapePink}
+                            src={"/assets/pattern/single-pattern/4-Pink.png"}
                             className="scale-125 -translate-x-1 absolute top-10"
                         />
                     </div>
                     <div className="w-4/6 relative">
                         <img
-                            src={shapeBlue}
+                            src={"/assets/pattern/single-pattern/2-Blue.png"}
                             className="w-full h-full scale-125"
                         />
                     </div>
@@ -77,13 +82,13 @@ const Poster = () => {
                 >
                     <div className="w-2/6 relative">
                         <img
-                            src={shapeGreen}
+                            src={"/assets/pattern/single-pattern/3-Green.png"}
                             className="h-full object-cover scale-125 -translate-x-1 translate-y-1"
                         />
                     </div>
                     <div className="w-4/6 relative">
                         <img
-                            src={shapeYellow}
+                            src={"/assets/pattern/single-pattern/1-Yellow.png"}
                             className="h-full object-cover absolute right-1/4 translate-x-1/3 scale-125"
                         />
                     </div>
