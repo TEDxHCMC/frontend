@@ -1,6 +1,7 @@
 import { Input } from 'antd';
 import InputLabel from './InputLabel/InputLabel';
 import InputError from './InputError/InputError';
+import "./inputField.scss"
 
 const InputField = ({
     id,
@@ -15,14 +16,14 @@ const InputField = ({
     error,
 }) => {
     return (
-        <div className=''>
+        <div className='inputField'>
             {label && <InputLabel htmlFor={name} text={label} />}
 
             <Input
                 id={id}
                 name={name}
                 type={type}
-                className="w-full block md:text-lg sm:text-base text-sm sm:p-3 p-2 ps-4 border border-black rounded-none transition-all focus:border-black hover:border-black"
+                className="w-full block md:text-lg sm:text-base text-sm sm:p-3 p-2 border border-black rounded-none transition-all focus:border-black hover:border-black"
                 placeholder={placeholder}
                 onChange={onChange}
                 onBlur={onBlur}

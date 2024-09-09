@@ -104,7 +104,7 @@ const SpeakerSection = () => {
 
                                 <div className='section grid'>
                                     <div className='time'>9:30 - 12:30</div>
-                                    <div className='content'>Chương Trình Chính</div>
+                                    <div className='content'>Sự Kiện Chính</div>
                                 </div>
 
                                 <div className='section grid'>
@@ -178,7 +178,7 @@ const SpeakerSection = () => {
 
                                 <div className='section grid'>
                                     <div className='time whitespace-nowrap'>15:30 - 18:30 &nbsp;</div>
-                                    <div className='content'>Chương Trình Chính</div>
+                                    <div className='content'>Sự Kiện Chính</div>
                                 </div>
                                 <div className='section grid'>
                                     <div className='time whitespace-nowrap'></div>

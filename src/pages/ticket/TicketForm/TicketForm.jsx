@@ -36,6 +36,7 @@ const TicketForm = () => {
     const [submitLoading, setSubmitLoading] = useState(false);
 
     const navigate = useNavigate();
+
     const dispatch = useDispatch();
     const [messageApi, contextHolder] = message.useMessage();
 
@@ -194,48 +195,57 @@ const TicketForm = () => {
                     }
                 } else if (ticketAmount === 2) {
                     // register 2 people
-                    let secondPayload = {
-                        fullName: values.fullName,
-                        email: values.email,
-                        phone: values.phone,
-                        fullName2: values.fullName2,
-                        email2: values.email2,
-                        phone2: values.phone2,
-                        session: Number(session),
-                    };
-                    // console.log("2 people payload: ", secondPayload)
-
-                    const ticketsResult = await createTicketsAPI(secondPayload);
-                    // console.log("Ticket 2 people result: ", ticketsResult)
-
-                    if (ticketsResult.status === 202) {
-                        messageAlert("error", ticketsResult.data.message);
+                    if (values.email === values.email2) {
+                        messageAlert(
+                            "error",
+                            "Email của 2 người trùng nhau rồi, bạn vui lòng kiểm tra lại nhé!"
+                        );
                     } else {
-                        let emailPayload2 = {
+                        let secondPayload = {
                             fullName: values.fullName,
                             email: values.email,
-                            ticketAmount: Number(ticketAmount),
+                            phone: values.phone,
+                            fullName2: values.fullName2,
+                            email2: values.email2,
+                            phone2: values.phone2,
                             session: Number(session),
                         };
+                        // console.log("2 people payload: ", secondPayload)
 
-                        const sendEmailResult2 = await sendTicketEmailAPI(
-                            emailPayload2
+                        const ticketsResult = await createTicketsAPI(
+                            secondPayload
                         );
+                        // console.log("Ticket 2 people result: ", ticketsResult)
 
-                        if (sendEmailResult2) {
-                            messageLoadingAlert(
-                                "success",
-                                sendEmailResult2.data.message
-                            );
-
-                            setTimeout(() => {
-                                navigate("/ticket/done");
-                            }, 4000);
+                        if (ticketsResult.status === 202) {
+                            messageAlert("error", ticketsResult.data.message);
                         } else {
-                            messageLoadingAlert(
-                                "warning",
-                                "Đã có lỗi trong quá trình gửi email, vui lòng thử lại"
+                            let emailPayload2 = {
+                                fullName: values.fullName,
+                                email: values.email,
+                                ticketAmount: Number(ticketAmount),
+                                session: Number(session),
+                            };
+
+                            const sendEmailResult2 = await sendTicketEmailAPI(
+                                emailPayload2
                             );
+
+                            if (sendEmailResult2) {
+                                messageLoadingAlert(
+                                    "success",
+                                    sendEmailResult2.data.message
+                                );
+
+                                setTimeout(() => {
+                                    navigate("/ticket/done");
+                                }, 4000);
+                            } else {
+                                messageLoadingAlert(
+                                    "warning",
+                                    "Đã có lỗi trong quá trình gửi email, vui lòng thử lại"
+                                );
+                            }
                         }
                     }
                 }
@@ -253,7 +263,7 @@ const TicketForm = () => {
 
     const handleSendVerifyCode = async () => {
         // console.log(formik.values.email)
-
+        
         let formData = {
             email: formik.values.email,
         };
@@ -306,14 +316,16 @@ const TicketForm = () => {
             formik.errors.fullName ||
             !formik.values.email ||
             formik.errors.email ||
-            !formik.errors.phone ||
-            formik.errors.phone
+            !formik.values.phone ||
+            formik.errors.phone ||
+            !formik.values.code || 
+            formik.errors.code
         ) {
             setPrimaryCompleted(false);
         } else {
             setPrimaryCompleted(true);
         }
-    }, [formik.values.fullName, formik.values.email, formik.values.phone]);
+    }, [formik.values.fullName, formik.values.email, formik.values.phone, formik.values.code]);
 
     useEffect(() => {
         if (
@@ -321,7 +333,7 @@ const TicketForm = () => {
             formik.errors.fullName2 ||
             !formik.values.email2 ||
             formik.errors.email2 ||
-            !formik.errors.phone2 ||
+            !formik.values.phone2 ||
             formik.errors.phone2
         ) {
             setExtraCompleted(false);
@@ -496,7 +508,7 @@ const TicketForm = () => {
     );
 
     const renderSubmitSect = (
-        <section className="lg:pb-0 pb-10">
+        <section className="ticket-submit lg:pb-0 pb-10">
             <h3 className="font-bold text-2xl text-black mb-4">THÔNG TIN VÉ</h3>
             <div className="bg-white w-full py-4 px-4 h-30 rounded-xl shadow-lg">
                 <div className="flex justify-between items-center font-semibold text-xl mb-4">
@@ -713,7 +725,7 @@ const TicketForm = () => {
     ];
 
     return (
-        <>
+        <div className="ticketForm">
             <main className={`w-11/12 mx-auto mt-8 lg:block hidden`}>
                 <div className="title mb-4 w-full">
                     <h1
@@ -782,7 +794,7 @@ const TicketForm = () => {
                 {renderSubmitSect}
                 {renderModal}
             </main>
-        </>
+        </div>
     );
 };
 
