@@ -68,7 +68,7 @@ const FirstSection = () => {
         <section className="page-1 flex relative place-items-center h-screen">
             <div className="page-1-bg inset-0">
                 <img
-                    className="absolute top-[57%] left-[30%] h-auto
+                    className="absolute md:top-[57%] top-[30%] md:left-[30%] left-[25%] h-auto
                                 w-[65px] sm:w-[78px] md:w-[85px] lg:w-[95px] xl:w-[100px]"
                     src="./assets/pattern/overlay-pattern/7.jpg"
                 />
@@ -79,7 +79,7 @@ const FirstSection = () => {
                     style={{ transform: "scale(1.28)" }}
                 />
                 <img
-                    className="absolute top-[70%] right-[30%] h-auto
+                    className="absolute md:top-[70%] top-[60%] md:right-[30%] right-[10%] h-auto
                 w-[65px] sm:w-[78px] md:w-[85px] lg:w-[95px] xl:w-[100px]"
                     src="./assets/pattern/single-pattern/4-Green.png"
                     style={{ transform: "scale(1.28)" }}
@@ -95,7 +95,7 @@ const FirstSection = () => {
             <div
                 ref={dissolveRef}
                 className="page-1-content absolute top-2/4 bottom-2/4 z-[1] text-center h-auto w-full 
-            text-[28px] sm:text-[30px] md:text-[35px] lg:text-[40px] xl:text-[40px] "
+            text-[25px] sm:text-[30px] md:text-[35px] lg:text-[40px] xl:text-[40px] "
             >
                 Liệu bạn đã nhìn đủ...
             </div>

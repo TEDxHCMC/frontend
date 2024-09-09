@@ -1,55 +1,29 @@
 import React from 'react'
 import { Outlet } from 'react-router-dom'
+import Tracker from '../../components/Tracker'
+import Header from '../../components/Header'
+
+import "./ticket.scss"
+import { useSelector } from 'react-redux'
 
 const TicketLayout = () => {
+    const { currStep, ticketData } = useSelector((state) => state.ticket)
+    
     return (
-        <section className="w-10/12 mx-auto py-10">
-            <div className="flex justify-between items-center mx-auto mb-5">
-                <div className="flex items-center gap-3">
-                    <div
-                        style={{ lineHeight: "56px" }}
-                        className="w-14 h-14 rounded-full bg-red-500 font-bold text-center text-3xl text-white"
-                    >
-                        1
-                    </div>
-                    <p className="text-xl font-base text-red-500">Chọn vé</p>
+        <div className="">
+            <Header />
+            <main className="ticket min-h-screen bg-[#FFFBF6]">
+                <div className="w-10/12 mx-auto pt-10 sm:pb-5">
+                    <Tracker currentStep={currStep} />
                 </div>
-                <div className="border border-solid border-slate-200 w-48" />
-                <div className="flex items-center gap-3">
-                    <div
-                        style={{ lineHeight: "56px" }}
-                        className="w-14 h-14 rounded-full bg-slate-300 font-base text-center text-3xl text-white"
-                    >
-                        2
-                    </div>
-                    <p className="text-xl font-base text-slate-300">
-                        Thông tin
-                    </p>
+                <div className='w-[95%] sm:w-[90%] mx-auto '>
+                    <Outlet />
                 </div>
-                <div className="border border-solid border-slate-200 w-48" />
-                <div className="flex items-center gap-3">
-                    <div
-                        style={{ lineHeight: "56px" }}
-                        className="w-14 h-14 rounded-full bg-slate-300 font-base text-center text-3xl text-white"
-                    >
-                        3
-                    </div>
-                    <p className="text-xl font-base text-slate-300">Xác nhận</p>
-                </div>
-                <div className="border border-solid border-slate-200 w-48" />
-                <div className="flex items-center gap-3">
-                    <div
-                        style={{ lineHeight: "56px" }}
-                        className="w-14 h-14 rounded-full bg-slate-300 font-base text-center text-3xl text-white"
-                    >
-                        4
-                    </div>
-                    <p className="text-xl font-base text-slate-300">Hoàn tất</p>
-                </div>
-            </div>
-
-            <Outlet />
-        </section>
+                
+            </main>
+        </div>
+        
+        
     )
 }
 

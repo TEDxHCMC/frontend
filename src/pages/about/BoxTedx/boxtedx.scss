@@ -1,8 +1,39 @@
 .about-banner {
-    .box {
-        h2 {
-            font-family: 'Phudu Variable', system-ui;
+    h2 {
+        font-family: 'Phudu Variable', system-ui;
+    }
+
+    .left-box, 
+    .right-box {
+
+        .box-content {
+            font-family: 'Platypi Variable', system-ui;
+            opacity: 0;
+            visibility: none;
+            transition: all 300ms linear;
         }
+
+        &:hover {
+            .box-content {
+                opacity: 100;
+                visibility: visible;
+            }
+        }
+    }
+
+    .banner-small {
+        font-family: 'Platypi Variable', system-ui;
     }
 }
     
+@keyframes appear {
+    0% {
+        opacity: 0;
+        visibility: hidden;
+    }
+
+    100% {
+        opacity: 1;
+        visibility: visible;
+    }
+}

@@ -12,26 +12,22 @@ html {
     scroll-behavior: smooth;
 
     body {
-        font-family: 'Platypi', serif !important;
+        font-family: 'Platypi', serif;
     }
 
-    .date {
+    .session {
         .ant-radio-wrapper {
             .ant-radio {
                 display: none;
             }
         }
-    }
-    
-    .session {
+
         .ant-checkbox-wrapper {
             .ant-checkbox {
                 display: none;
             }
         }
     }
-    
-    
 }
 
 

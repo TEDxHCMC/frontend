@@ -1,7 +1,9 @@
 import { useRoutes } from "react-router-dom";
 import { PATH } from "../paths";
 import { Suspense, lazy } from "react";
+import Spinner from "../components/Spinner";
 import MainLayout from "../layouts/MainLayout";
+import TicketLayout from "../layouts/TicketLayout";
 
 /**
  * @description
@@ -9,18 +11,21 @@ import MainLayout from "../layouts/MainLayout";
  */
 const HomePage = lazy(() => import("../pages/home"));
 const AboutPage = lazy(() => import("../pages/about"));
-const SpeakerPage = lazy(() => import("../pages/speaker"));
-const InteractivePage = lazy(() => import("../pages/interactive"));
-const ErrorPage = lazy(() => import("../pages/error"));
+// const SpeakerPage = lazy(() => import("../pages/speaker"));
+// const InteractivePage = lazy(() => import("../pages/interactive"));
+// const ErrorPage = lazy(() => import("../pages/error"));
+const NotFoundPage = lazy(() => import('../pages/not-found'))
 
-
-const TicketPage = lazy(() => import("../pages/ticket"));
-const TicketGeneralSect = lazy(() => import("../pages/ticket/TicketGeneral"))
+const TicketUI = lazy(() => import("../pages/ticket/TicketUI"))
 const TicketFormSect = lazy(() => import("../pages/ticket/TicketForm"))
+const TicketResultSect = lazy(() => import("../pages/ticket/TicketResult"))
+
 // const LoginPage = lazy(() => import("../pages/auth/Login"));
 // const RegisterPage = lazy(() => import("../pages/auth/Register"));
 
 //...
+// const MainLayout = lazy(() => import("../layouts/MainLayout"))
+// const TicketLayout = lazy(() => import("../layouts/TicketLayout"))
 
 /**
  * @description
@@ -40,91 +45,72 @@ const useRouteElements = () => {
                     path: "",
                     index: true,
                     element: (
-                        <Suspense fallBack={<div>Loading</div>}>
+                        <Suspense fallBack={<Spinner />}>
                             <HomePage />
                         </Suspense>
                     ),
                 },
-            ]
-        },
-        {
-            path: "",
-            element: <MainLayout />,
-            children: [
                 {
                     path: PATH.ABOUT,
                     element: (
-                        <Suspense fallBack={<div>Loading</div>}>
+                        <Suspense fallBack={<Spinner />}>
                             <AboutPage />
                         </Suspense>
                     ),
                 },
+                // {
+                //     path: PATH.SPEAKER,
+                //     element: (
+                //         <Suspense callBack={<div>Loading</div>}>
+                //             <SpeakerPage />
+                //         </Suspense>
+                //     ),
+                // },
+                // {
+                //     path: PATH.INTERACTIVE,
+                //     element: (
+                //         <Suspense callBack={<div>Loading</div>}>
+                //             <InteractivePage />
+                //         </Suspense>
+                //     ),
+                // },
+            ]
+        },
+        {
+            path: PATH.TICKET,
+            element: <TicketLayout />,
+            children: [
                 {
-                    path: PATH.SPEAKER,
+                    index: true,
                     element: (
-                        <Suspense callBack={<div>Loading</div>}>
-                            <SpeakerPage />
+                        <Suspense fallback={<Spinner />}>
+                            <TicketUI />
                         </Suspense>
-                    ),
+                    )
                 },
                 {
-                    path: PATH.INTERACTIVE,
+                    path: "form",
                     element: (
-                        <Suspense callBack={<div>Loading</div>}>
-                            <InteractivePage />
+                        <Suspense fallback={<Spinner />}>
+                            <TicketFormSect />
                         </Suspense>
-                    ),
+                    )
                 },
                 {
-                    path: PATH.TICKET,
+                    path: "done",
                     element: (
-                        <Suspense fallBack={<div>Loading</div>}>
-                            <TicketPage />
+                        <Suspense fallback={<Spinner />}>
+                            <TicketResultSect />
                         </Suspense>
                     ),
-                    children: [
-                        {
-                            path: "",
-                            index: true,
-                            element: (
-                                <Suspense fallback={<div>Loading</div>}>
-                                    <TicketGeneralSect />
-                                </Suspense>
-                            )
-                        },
-                        {
-                            path: "form",
-                            element: (
-                                <Suspense fallback={<div>Loading</div>}>
-                                    <TicketFormSect/>
-                                </Suspense>
-                            )
-                        },
-                        {
-                            path: "confirm",
-                            element: (
-                                <Suspense fallback={<div>Loading</div>}>
-                                    <div>Ticket Confirm</div>
-                                </Suspense>
-                            )
-                        },
-                        {
-                            path: "done",
-                            element: (
-                                <Suspense fallback={<div>Loading</div>}>
-                                    <div>Thank You</div>
-                                </Suspense>
-                            ),
-                        }
-                    ]
-                },
+                }
             ],
         },
         {
             path: "*",
             element: (
-                <Suspense callBack={<div>Loading</div>}>
-                    <ErrorPage message={"404 NOT FOUND!"} />
+                <Suspense callBack={<Spinner />}>
+                    <NotFoundPage />
                 </Suspense>
             ),
         },

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import "./header.scss";
 import "animate.css";
 
@@ -9,6 +9,7 @@ const Header = () => {
 
     const [showDropdown, setShowDropdown] = useState(false);
     const [isOpened, setIsOpened] = useState(false);
+    const navigate = useNavigate()
 
     const handleDropdownToggle = () => {
         setShowDropdown(!showDropdown);
@@ -17,6 +18,12 @@ const Header = () => {
     const handleNavbarToggle = () => {
         setIsOpened(!isOpened);
     };
+
+    const handleOnClick = (e) => {
+        e.preventDefault();
+        navigate("/ticket")
+        
+    }
 
     const location = useLocation();
 
@@ -131,7 +138,7 @@ const Header = () => {
                         </h3> */}
                         <img
                             className="md:h-9 h-5 w-auto"
-                            src="./assets/logo/TEDx-logo/TEDx-Black-Short.png"
+                            src="/assets/logo/TEDx-logo/TEDx-Black-Short.png"
                         />
                     </Link>
                 </div>
@@ -178,7 +185,7 @@ const Header = () => {
                 <Link to="/" className="hidden lg:block m-0">
                     <img
                         className="block relative -translate-x-full h-10 object-contain"
-                        src="./assets/logo/to-tuong-logo/To-tuong-logo-black.png"
+                        src="/assets/logo/to-tuong-logo/To-tuong-logo-black.png"
                         alt="TEDX Logo"
                     />
                 </Link>
@@ -199,7 +206,7 @@ const Header = () => {
                         <Link to="/" className="inline-block">
                             <img
                                 className="block lg:h-10 md:h-9 h-5 w-auto"
-                                src="./assets/logo/TEDx-logo/TEDx-White-Short.png"
+                                src="/assets/logo/TEDx-logo/TEDx-White-Short.png"
                             />
                         </Link>
                     </div>
@@ -207,19 +214,20 @@ const Header = () => {
                         <i className="fa-sharp fa-regular fa-x text-[20px] transition-all duration-300 text-[#c30121] hover:text-[#ff002b]"></i>
                     </button>
                 </div>
-                <div className={`${isOpened ? "nav-animate" : ""} flex flex-col justify-center font-thin lg:text-[35px] md:text-[25px] lg:gap-y-10 md:gap-y-7 gap-y-5 mb-12 ms-1`}>
-                    <Link to="/" className="uppercase text-gray-400">
+                <div className={`${isOpened ? "nav-animate" : ""} flex flex-col justify-center font-thin md:text-[25px] lg:gap-y-10 md:gap-y-7 gap-y-5 mb-12 ms-1`}>
+                    {/* <Link to="/" className="uppercase text-gray-400">
                         Diễn giả
-                    </Link>
-                    <Link to="/" className="uppercase text-gray-400">
+                    </Link> */}
+                    {/* <Link to="/" className="uppercase text-gray-400">
                         Thông tin Event
-                    </Link>
-                    <Link to="about" className="item uppercase">
+                    </Link> */}
+                    <Link to="/about" className="item uppercase">
                         Về chúng tôi
                     </Link>
                 </div>
-                <button disabled
+                <button
                     className={`${isOpened ? "nav-animate" : ""} ticket-button text-center lg:text-[35px] md:text-[25px] text-[22px] px-7 py-3 rounded-sm`}
+                    onClick={handleOnClick}
                 >
                     ĐĂNG KÍ VÉ
                 </button>
