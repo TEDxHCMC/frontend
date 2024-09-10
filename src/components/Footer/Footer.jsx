@@ -5,31 +5,32 @@ import './footer.scss'
 const Footer = () => {
     const [status, setStatus] = useState(null);
 
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-        const formData = new FormData(e.target);
-        const email = formData.get('Email');
+    // const handleSubmit = async (e) => {
+    //     e.preventDefault();
+    //     const formData = new FormData(e.target);
+    //     const email = formData.get('Email');
 
-        try {
-            // Make API request to subscribe email
-            // Replace with your actual API endpoint
-            const response = await fetch('/api/subscribe', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({ email }),
-            });
+    //     try {
+    //         // Make API request to subscribe email
+    //         // Replace with your actual API endpoint
+    //         const response = await fetch('/api/subscribe', {
+    //             method: 'POST',
+    //             headers: {
+    //                 'Content-Type': 'application/json',
+    //             },
+    //             body: JSON.stringify({ email }),
+    //         });
 
-            if (response.ok) {
-                setStatus('success');
-            } else {
-                setStatus('failure');
-            }
-        } catch (error) {
-            setStatus('failure');
-        }
-    };
+    //         if (response.ok) {
+    //             setStatus('success');
+    //         } else {
+    //             setStatus('failure');
+    //         }
+    //     } catch (error) {
+    //         setStatus('failure');
+    //     }
+    // };
+
     return (
 
         <footer className="footer-section bg-[#f6f6f6]">
