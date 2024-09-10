@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Petit+Formal+Script&display=swap');
+
 .interactive {
     font-family: 'PhuDu Variable', sans-serif;
 
@@ -7,7 +9,35 @@
             display: none
         }
     }
+    h1 {
+        font-family: 'Phudu Variable', system-ui;
+    }
 }
+
+.page-2 {
+    h1 {
+        font-family: 'Phudu Variable', system-ui;
+    }
+    button{
+        font-family: 'Phudu Variable', system-ui;
+    }
+}
+
+.page-3{
+    h1, h2 {
+        font-family: 'Phudu Variable', system-ui;
+    }
+    p{
+        font-family: 'Inter', sans-serif;
+    }
+}
+
+
+
+
+
+
+
 
 // .poster {
 //     @apply bg-yellow-500

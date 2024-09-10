@@ -10,8 +10,8 @@ const Poster = () => {
         <section
             className={`poster relative bg-black`}
             style={{
-                width: 800,
-                height: 800,
+                width: 534,
+                height: 534,
             }}
         >
             <div className="layout2 absolute left-0 top-0 w-full h-full flex flex-col opacity-60">

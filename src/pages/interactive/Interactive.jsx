@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 import "./interactive.scss";
 
@@ -107,7 +108,7 @@ const Interactive = () => {
     const [layout2, setLayout2] = useState(null);
     const [txtPosition, setTxtPosition] = useState(null);
     const [name, setName] = useState("");
-
+    const [page, setPage] = useState(1);
     const [animate, setAnimate] = useState(false);
 
     useEffect(() => {
@@ -170,7 +171,7 @@ const Interactive = () => {
                 setTxtPosition(e.target.value)
                 break;
             default:
-                return 
+                return
         }
     };
 
@@ -182,10 +183,19 @@ const Interactive = () => {
         setStep(step - 1)
     }
 
+    const handleCompleteClick = () => {
+        setPage(2);
+    };
+
+    const handleCreateClick = () => {
+        setPage(3);
+    };
+
+
     const renderHeading = (heading) => (
         <div className={`text-center text-4xl relative mb-10 ${animate ? 'animate__animated animate__fadeIn' : ''}`}>
             <h1 className="uppercase font-medium">
-                <span className="text-2xl relative -top-5 -left-2">{`0${step+1}`}</span>
+                <span className="text-2xl relative -top-5 -left-2">{`0${step + 1}`}</span>
                 {heading.topText} <br /> {heading.bottomText}
             </h1>
         </div>
@@ -208,22 +218,135 @@ const Interactive = () => {
                 </button>
             </div>
 
-            <div className={`steps-circle flex items-center gap-5`}>
-                {Array(5).fill().map((_, index) => <div className={`w-2 h-2 rounded-full ${index <= step ? "bg-black" : "bg-slate-300"}`}></div>)}
-            </div>
-        </section>
-    )
-    
-    const renderPoster = (
-        <section className="flex justify-center items-center">
-            <Poster />
+            {step === 4 ? (
+                <button
+                    className={`flex flex-row items-center text-white bg-black py-3 px-4 hover:scale-105 ${!mainOptions[step].state ? "opacity-15 cursor-not-allowed" : ""}`}
+                    onClick={handleCompleteClick}
+                    disabled={!mainOptions[step].state}
+                >
+                    <svg width="23" height="17" viewBox="0 0 23 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M3.5 8.56039L9.16 14.1004L19.5 2.90039" stroke="white" strokeWidth="4" strokeLinecap="square" strokeLinejoin="round" />
+                    </svg>
+                    <span className="ml-2">Hoàn Thành</span>
+                </button>
+
+            ) : (
+                <div className="steps-circle flex items-center gap-5">
+                    {Array(5).fill().map((_, index) => (
+                        <div key={index} className={`w-2 h-2 rounded-full ${index <= step ? "bg-black" : "bg-slate-300"}`} />
+                    ))}
+                </div>
+            )}
         </section>
     )
 
+    const renderPage2 = (
+        <section className="page-2 relative flex flex-col space-y-6 justify-center items-center h-[70vh] pb-12">
+            <div className="flex flex-row items-center space-x-3">
+                <h1 className="text-[32px] font-semibold text-white">TÊN BẠN LÀ:</h1>
+                <input className="bg-transparent border-b-2 border-white text-white text-lg placeholder-white focus:outline-none focus:border-red-500 font-[Petit Formal Script]"
+                    value={name}
+                    onChange={(e) => setName(e.target.value)} />
+            </div>
+            <button
+                className={`font-bold text-black bg-white py-3 px-4 hover:bg-[#C30121] hover:text-white hover:scale-105 
+                        ${!name.trim() ? 'opacity-15' : ''}`}
+                onClick={handleCreateClick}
+                disabled={!name.trim()}
+            >
+                TẠO NGAY
+            </button>
+
+            <div className="absolute bottom-[-50%] w-[674px] overflow-hidden">
+                <img
+                    className="w-full h-full object-cover"
+                    src="./assets/logo/monogram/Monogram.png"
+                    alt="Monogram"
+                />
+            </div>
+        </section>
+    );
+
+    const loadingPage = (
+        <section className=" relative flex flex-col space-y-6 justify-center items-center h-[70vh] pb-12">
+
+        </section>
+    );
+
+    //const renderPoster = ();
     return (
         <>
-            {renderContent}
-            {renderPoster}
+            <div className={`content-container relative flex justify-center items-center h-screen w-full overflow-hidden
+                ${page === 3 ? "hidden" : ""}
+                ${page === 1 ? "bg-white" : "bg-[#222222]"}`}>
+                <div className="content-background inset-0">
+                    <img
+                        className="absolute bottom-[10%] left-[10%] h-auto
+                                w-[65px] sm:w-[78px] md:w-[85px] lg:w-[95px] xl:w-[100px]"
+                        src="./assets/pattern/overlay-pattern/7.jpg"
+                    />
+                    <img
+                        className="absolute bottom-[25%] right-[5%] h-auto
+                                w-[65px] sm:w-[78px] md:w-[85px] lg:w-[95px] xl:w-[100px]"
+                        src="./assets/pattern/overlay-pattern/6.png"
+                    />
+                    <img
+                        className="absolute top-[20%] left-[10%] h-auto
+                w-[65px] sm:w-[78px] md:w-[85px] lg:w-[95px] xl:w-[100px]"
+                        src="./assets/pattern/single-pattern/4-Pink.png"
+                        style={{ transform: "scale(1.28)" }}
+                    />
+                    <img
+                        className="absolute top-[10%] right-[0%] h-auto
+                w-[65px] sm:w-[78px] md:w-[85px] lg:w-[95px] xl:w-[100px]"
+                        src="./assets/pattern/single-pattern/1-Green.png"
+                        style={{ transform: "scale(1.28)" }}
+                    />
+                    <img
+                        className="absolute bottom-[25%] left-[0%] h-auto
+                w-[65px] sm:w-[78px] md:w-[85px] lg:w-[95px] xl:w-[100px]"
+                        src="./assets/pattern/single-pattern/2-Blue.png"
+                        style={{ transform: "scale(1.28)" }}
+                    />
+                </div>
+                <div className="content-box absolute z-1">
+                    {page === 1 && renderContent}
+                    {page === 2 && renderPage2}
+                </div>
+            </div>
+
+            {page === 3 && (
+                <section className="page-3 bg-[#222222] h-screen flex flex-col justify-center items-center">
+                    <div className="container items-center justify-center flex flex-col lg:flex-row space-x-24">
+                        <div className="first h-full flex flex-col justify-between items-center lg:items-start text-center lg:text-left">
+                            <div>
+                                <h1 className="uppercase text-[64px] font-semibold text-white mb-4">Ta-daaaa!</h1>
+                            </div>
+                            <div>
+                                <p className="text-2xl text-white mb-2">Bạn thuộc tuýp</p>
+                                <h2 className="uppercase text-[36px] font-semibold text-white mb-2">Người năng động</h2>
+                                <p className="text-xl text-white">- dám nghĩ, dám làm!</p>
+                            </div>
+                            <div className="social-media mt-6 flex flex-col">
+                                <p className="text-white">Chia sẻ ảnh:</p>
+                                <div className="mt-4 flex gap-4">
+                                    <Link to="https://www.facebook.com/share/p4HgwXHXcuiwYhPU/?mibextid=LQQJ4" className="text-white hover:text-gray-400">
+                                        <i className="fa-brands fa-facebook-f"></i>
+                                    </Link>
+                                    <Link to="https://www.instagram.com/tedxhcmc?igsh=MTd0MmwybTlrNDIwbQ==" className="text-white hover:text-gray-400">
+                                        <i className="fa-brands fa-instagram"></i>
+                                    </Link>
+                                </div>
+
+                            </div>
+                        </div>
+                        <section className="flex justify-center items-center w-[566px] h-[566px] bg-white p-[15px]">
+                            <Poster />
+                        </section>
+                    </div>
+                </section>
+
+            )}
         </>
     );
 };
