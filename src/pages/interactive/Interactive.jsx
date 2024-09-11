@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { motion } from 'framer-motion';
 
 import "./interactive.scss";
 
@@ -110,6 +111,7 @@ const Interactive = () => {
     const [name, setName] = useState("");
     const [page, setPage] = useState(1);
     const [animate, setAnimate] = useState(false);
+    const [imageLoadTimes, setImageLoadTimes] = useState([]);
 
     useEffect(() => {
         // Trigger re-rendering with animation
@@ -193,20 +195,21 @@ const Interactive = () => {
 
 
     const renderHeading = (heading) => (
-        <div className={`text-center text-4xl relative mb-10 ${animate ? 'animate__animated animate__fadeIn' : ''}`}>
-            <h1 className="uppercase font-medium">
-                <span className="text-2xl relative -top-5 -left-2">{`0${step + 1}`}</span>
+        <div className={`text-center relative mb-10 ${animate ? 'animate__animated animate__fadeIn' : ''}`}>
+            <h1 className="uppercase font-medium text-3xl md:text-4xl lg:text-5xl">
+                <span className="text-lg md:text-xl lg:text-2xl relative -top-5 -left-2">{`0${step + 1}`}</span>
                 {heading.topText} <br /> {heading.bottomText}
             </h1>
         </div>
-    )
+    );
+
 
     const renderRadioList = (name, state, options) => (
         <RadioList name={name} onChange={handleChangeOption} option={state} content={options} />
     )
 
     const renderContent = (
-        <section className="interactive h-[70vh] flex flex-col justify-center items-center p-5">
+        <section className="interactive h-[70vh] flex flex-col justify-center items-center p-10 sm:p-5">
             {renderHeading(mainOptions[step].heading)}
             <div className="flex justify-center items-center gap-5 mb-10">
                 <button className={`${step == 0 ? "hidden" : ""}`} onClick={handleReturnStep} disabled={step == 0 ? true : false}>
@@ -241,34 +244,68 @@ const Interactive = () => {
     )
 
     const renderPage2 = (
-        <section className="page-2 relative flex flex-col space-y-6 justify-center items-center h-[70vh] pb-12">
+        <section className="page-2 relative flex flex-col space-y-6 justify-center items-center h-[70vh] mb-2 sm:mb-12 p-10 sm:p-5 md:p-8">
             <div className="flex flex-row items-center space-x-3">
-                <h1 className="text-[32px] font-semibold text-white">TÊN BẠN LÀ:</h1>
-                <input className="bg-transparent border-b-2 border-white text-white text-lg placeholder-white focus:outline-none focus:border-red-500 font-[Petit Formal Script]"
+                <h1 className="whitespace-nowrap text-[22px] sm:text-[20px] md:text-[28px] lg:text-[32px] font-semibold text-white">
+                    TÊN BẠN LÀ:
+                </h1>
+                <input
+                    className="bg-transparent border-b-2 border-white text-white text-lg sm:text-base md:text-lg placeholder-white focus:outline-none focus:border-red-500 font-[Petit Formal Script]"
                     value={name}
-                    onChange={(e) => setName(e.target.value)} />
+                    onChange={(e) => setName(e.target.value)}
+                />
             </div>
             <button
                 className={`font-bold text-black bg-white py-3 px-4 hover:bg-[#C30121] hover:text-white hover:scale-105 
-                        ${!name.trim() ? 'opacity-15' : ''}`}
+                ${!name.trim() ? 'opacity-15' : ''}`}
                 onClick={handleCreateClick}
                 disabled={!name.trim()}
             >
                 TẠO NGAY
             </button>
 
-            <div className="absolute bottom-[-50%] w-[674px] overflow-hidden">
+            <div className="absolute bottom-[-30%] sm:bottom-[-30%] md:bottom-[-40%] lg:bottom-[-50%] 
+                        w-[374px] sm:w-[474px] md:w-[574px] lg:w-[674px] overflow-hidden">
                 <img
                     className="w-full h-full object-cover"
-                    src="./assets/logo/monogram/Monogram.png"
+                    src="./assets/logo/monogram/Mono-white.png"
                     alt="Monogram"
                 />
             </div>
         </section>
     );
 
+    useEffect(() => {
+        const randomTimes = Array.from({ length: 10 }, () => Math.random() * 7000);
+        setImageLoadTimes(randomTimes);
+    }, []);
+
+    const images = [
+        { src: './assets/logo/monogram/Mono-white.png', className: 'w-[120px] sm:w-[150px] md:w-[170px] lg:w-[211px] left-[25%] sm:left-[35%] top-[30%] sm:top-[35%]', rotate: 15 },
+        { src: './assets/logo/monogram/Mono-white.png', className: 'w-[150px] sm:w-[180px] md:w-[210px] lg:w-[269px] right-[20%] sm:right-[30%] bottom-[25%] sm:bottom-[20%]', rotate: -11 },
+        { src: './assets/logo/monogram/Mono-white.png', className: 'w-[60px] sm:w-[90px] md:w-[110px] lg:w-[124px] left-[10%] sm:left-[18%] top-[18%] sm:top-[22%]', rotate: 19 },
+        { src: './assets/logo/monogram/Mono-white.png', className: 'w-[60px] sm:w-[90px] md:w-[110px] lg:w-[124px] left-[5%] sm:left-[0%] top-[45%] sm:top-[50%]', rotate: -24 },
+        { src: './assets/logo/monogram/Mono-white.png', className: 'w-[60px] sm:w-[90px] md:w-[110px] lg:w-[124px] left-[15%] sm:left-[20%] top-[60%] sm:top-[60%]', rotate: -5 },
+        { src: './assets/logo/monogram/Mono-white.png', className: 'w-[140px] sm:w-[170px] md:w-[190px] lg:w-[219px] left-[3%] sm:left-[5%] bottom-[5%] sm:bottom-[0%]', rotate: -16 },
+        { src: './assets/logo/monogram/Mono-white.png', className: 'w-[30px] sm:w-[70px] md:w-[90px] lg:w-[97px] left-[50%] sm:left-[45%] bottom-[10%] sm:bottom-[2%]', rotate: 19 },
+        { src: './assets/logo/monogram/Mono-white.png', className: 'w-[60px] sm:w-[90px] md:w-[110px] lg:w-[124px] right-[15%] sm:right-[20%] top-[15%] sm:top-[20%]', rotate: -24 },
+        { src: './assets/logo/monogram/Mono-white.png', className: 'w-[110px] sm:w-[160px] md:w-[180px] lg:w-[214px] right-[5%] sm:right-[0%] top-[40%] sm:top-[40%]', rotate: 7 },
+        { src: './assets/logo/monogram/Mono-white.png', className: 'w-[60px] sm:w-[90px] md:w-[110px] lg:w-[124px] right-[15%] sm:right-[15%] bottom-[5%] sm:bottom-[2%]', rotate: -11 },
+
+    ];
     const loadingPage = (
-        <section className=" relative flex flex-col space-y-6 justify-center items-center h-[70vh] pb-12">
+        <section className="loading bg-[#222222] h-screen flex flex-col justify-center items-center relative">
+            {images.map((image, index) => (
+                <motion.img
+                    key={index}
+                    src={image.src}
+                    className={`absolute ${image.className}`}
+                    alt="Monogram"
+                    initial={{ opacity: 0, scale: 0.5, rotate: image.rotate }}
+                    animate={{ opacity: 1, scale: 1, rotate: image.rotate }}
+                    transition={{ delay: imageLoadTimes[index] / 1000, duration: 0.5 }}
+                />
+            ))}
 
         </section>
     );
@@ -283,7 +320,7 @@ const Interactive = () => {
                     <img
                         className="absolute bottom-[10%] left-[10%] h-auto
                                 w-[65px] sm:w-[78px] md:w-[85px] lg:w-[95px] xl:w-[100px]"
-                        src="./assets/pattern/overlay-pattern/7.jpg"
+                        src="./assets/pattern/overlay-pattern/7.png"
                     />
                     <img
                         className="absolute bottom-[25%] right-[5%] h-auto
@@ -317,36 +354,43 @@ const Interactive = () => {
 
             {page === 3 && (
                 <section className="page-3 bg-[#222222] h-screen flex flex-col justify-center items-center">
-                    <div className="container items-center justify-center flex flex-col lg:flex-row space-x-24">
-                        <div className="first h-full flex flex-col justify-between items-center lg:items-start text-center lg:text-left">
-                            <div>
-                                <h1 className="uppercase text-[64px] font-semibold text-white mb-4">Ta-daaaa!</h1>
-                            </div>
-                            <div>
-                                <p className="text-2xl text-white mb-2">Bạn thuộc tuýp</p>
-                                <h2 className="uppercase text-[36px] font-semibold text-white mb-2">Người năng động</h2>
-                                <p className="text-xl text-white">- dám nghĩ, dám làm!</p>
-                            </div>
-                            <div className="social-media mt-6 flex flex-col">
-                                <p className="text-white">Chia sẻ ảnh:</p>
-                                <div className="mt-4 flex gap-4">
-                                    <Link to="https://www.facebook.com/share/p4HgwXHXcuiwYhPU/?mibextid=LQQJ4" className="text-white hover:text-gray-400">
-                                        <i className="fa-brands fa-facebook-f"></i>
-                                    </Link>
-                                    <Link to="https://www.instagram.com/tedxhcmc?igsh=MTd0MmwybTlrNDIwbQ==" className="text-white hover:text-gray-400">
-                                        <i className="fa-brands fa-instagram"></i>
-                                    </Link>
-                                </div>
-
+                <div className="container items-center justify-center flex flex-col lg:flex-row lg:space-x-24  space-y-5 md:space-y-10 lg:space-y-0">
+                    <div className="first h-full flex flex-col justify-between items-center lg:items-start text-center lg:text-left">
+                        <div>
+                            <h1 className="uppercase text-[32px] sm:text-[40px] md:text-[48px] lg:text-[64px] font-semibold text-white mb-4">
+                                Ta-daaaa!
+                            </h1>
+                        </div>
+                        <div>
+                            <p className="text-lg sm:text-xl md:text-2xl text-white mb-2">Bạn thuộc tuýp</p>
+                            <h2 className="uppercase text-[24px] sm:text-[28px] md:text-[32px] lg:text-[36px] font-semibold text-white mb-2">
+                                Người năng động
+                            </h2>
+                            <p className="text-base sm:text-lg md:text-xl text-white">- dám nghĩ, dám làm!</p>
+                        </div>
+                        <div className="social-media mt-6 flex flex-col items-center lg:items-start">
+                            <p className="text-white">Chia sẻ ảnh:</p>
+                            <div className="mt-4 flex gap-4">
+                                <Link to="https://www.facebook.com/share/p4HgwXHXcuiwYhPU/?mibextid=LQQJ4" className="text-white hover:text-gray-400">
+                                    <i className="fa-brands fa-facebook-f"></i>
+                                </Link>
+                                <Link to="https://www.instagram.com/tedxhcmc?igsh=MTd0MmwybTlrNDIwbQ==" className="text-white hover:text-gray-400">
+                                    <i className="fa-brands fa-instagram"></i>
+                                </Link>
                             </div>
                         </div>
-                        <section className="flex justify-center items-center w-[566px] h-[566px] bg-white p-[15px]">
-                            <Poster />
-                        </section>
                     </div>
-                </section>
-
+                    <section className="flex justify-center items-center 
+                    w-[340px] sm:w-[400px] md:w-[500px] lg:w-[566px] 
+                    h-[340px] sm:h-[400px] md:h-[500px] lg:h-[566px] bg-white p-[10px] sm:p-[15px]">
+                        <Poster />
+                    </section>
+                </div>
+            </section>
+            
             )}
+
+
         </>
     );
 };
