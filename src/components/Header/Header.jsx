@@ -226,8 +226,9 @@ const Header = () => {
                     </Link>
                 </div>
                 <button
-                    className={`${isOpened ? "nav-animate" : ""} ticket-button text-center lg:text-[35px] md:text-[25px] text-[22px] px-7 py-3 rounded-sm`}
+                    className={`${isOpened ? "nav-animate" : ""} ticket-button text-center lg:text-[35px] md:text-[25px] text-[22px] px-7 py-3 rounded-sm opacity-30 hover:cursor-not-allowed`}
                     onClick={handleOnClick}
+                    disabled={true}
                 >
                     ĐĂNG KÍ VÉ
                 </button>
