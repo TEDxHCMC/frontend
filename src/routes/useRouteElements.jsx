@@ -66,14 +66,14 @@ const useRouteElements = () => {
                 //         </Suspense>
                 //     ),
                 // },
-                {
-                    path: PATH.INTERACTIVE,
-                    element: (
-                        <Suspense callBack={<div>Loading</div>}>
-                            <InteractivePage />
-                        </Suspense>
-                    ),
-                },
+                // {
+                //     path: PATH.INTERACTIVE,
+                //     element: (
+                //         <Suspense callBack={<div>Loading</div>}>
+                //             <InteractivePage />
+                //         </Suspense>
+                //     ),
+                // },
             ]
         },
         {
