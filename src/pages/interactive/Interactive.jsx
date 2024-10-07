@@ -6,6 +6,9 @@ import "./interactive.scss";
 
 import RadioList from "../../components/RadioList";
 import Poster from "./Poster";
+import { useDispatch } from "react-redux";
+import { handleSetPosterPayload } from "../../redux/slices/poster.slice";
+import { generateRandomUrls } from "../../helpers";
 
 const headingOptions = [
     {
@@ -112,9 +115,11 @@ const Interactive = () => {
     const [page, setPage] = useState(1);
     const [animate, setAnimate] = useState(false);
     const [imageLoadTimes, setImageLoadTimes] = useState([]);
+    const dispatch = useDispatch()
 
+    //* Trigger re-rendering with animation
     useEffect(() => {
-        // Trigger re-rendering with animation
+        console.log("URLs: ", generateRandomUrls(4))
         setAnimate(true);
         const timer = setTimeout(() => setAnimate(false), 1500); // duration of the animation
         return () => clearTimeout(timer);
@@ -190,6 +195,17 @@ const Interactive = () => {
     };
 
     const handleCreateClick = () => {
+        const payload = {
+            bgColor,
+            shapeCount,
+            layout1,
+            layout2,
+            txtPosition,
+            name,
+        }
+        dispatch(handleSetPosterPayload(payload))
+        // console.log("Current Payload: ", payload)
+
         setPage(3);
     };
 
@@ -313,7 +329,7 @@ const Interactive = () => {
     //const renderPoster = ();
     return (
         <>
-            <div className={`content-container relative flex justify-center items-center h-screen w-full overflow-hidden
+            {/* <div className={`content-container relative flex justify-center items-center h-screen w-full overflow-hidden
                 ${page === 3 ? "hidden" : ""}
                 ${page === 1 ? "bg-white" : "bg-[#222222]"}`}>
                 <div className="content-background inset-0">
@@ -388,9 +404,12 @@ const Interactive = () => {
                 </div>
             </section>
             
-            )}
+            )} */}
 
-
+            <div className="flex flex-col justify-center items-center">
+                <Poster />
+            </div>
+            
         </>
     );
 };
