@@ -66,46 +66,46 @@ const useRouteElements = () => {
                 //         </Suspense>
                 //     ),
                 // },
-                {
-                    path: PATH.INTERACTIVE,
-                    element: (
-                        <Suspense callBack={<div>Loading</div>}>
-                            <InteractivePage />
-                        </Suspense>
-                    ),
-                },
+                // {
+                //     path: PATH.INTERACTIVE,
+                //     element: (
+                //         <Suspense callBack={<div>Loading</div>}>
+                //             <InteractivePage />
+                //         </Suspense>
+                //     ),
+                // },
             ]
         },
-        // {
-        //     path: PATH.TICKET,
-        //     element: <TicketLayout />,
-        //     children: [
-        //         {
-        //             index: true,
-        //             element: (
-        //                 <Suspense fallback={<Spinner />}>
-        //                     <TicketUI />
-        //                 </Suspense>
-        //             )
-        //         },
-        //         {
-        //             path: "form",
-        //             element: (
-        //                 <Suspense fallback={<Spinner />}>
-        //                     <TicketFormSect />
-        //                 </Suspense>
-        //             )
-        //         },
-        //         {
-        //             path: "done",
-        //             element: (
-        //                 <Suspense fallback={<Spinner />}>
-        //                     <TicketResultSect />
-        //                 </Suspense>
-        //             ),
-        //         }
-        //     ],
-        // },
+        {
+            path: PATH.TICKET,
+            element: <TicketLayout />,
+            children: [
+                {
+                    index: true,
+                    element: (
+                        <Suspense fallback={<Spinner />}>
+                            <TicketUI />
+                        </Suspense>
+                    )
+                },
+                {
+                    path: "form",
+                    element: (
+                        <Suspense fallback={<Spinner />}>
+                            <TicketFormSect />
+                        </Suspense>
+                    )
+                },
+                {
+                    path: "done",
+                    element: (
+                        <Suspense fallback={<Spinner />}>
+                            <TicketResultSect />
+                        </Suspense>
+                    ),
+                }
+            ],
+        },
         {
             path: "*",
             element: (
