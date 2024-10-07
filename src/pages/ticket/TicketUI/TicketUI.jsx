@@ -21,7 +21,7 @@ const TicketUI = () => {
     ];
 
     const [amount, setAmount] = useState(1);
-    const [sessionChecked, setSessionChecked] = useState(0);
+    const [sessionChecked, setSessionChecked] = useState(1);
     //const [modalOpen, setModalOpen] = useState(false);
     const navigate = useNavigate();
     const dispatch = useDispatch();
@@ -85,11 +85,17 @@ const TicketUI = () => {
                                             <Radio
                                                 key={index}
                                                 value={session.value}
+                                                // className={`w-[217px] flex justify-center text-center py-2 border-2 border-solid transition-all duration-300 whitespace-nowrap 
+                                                // ${sessionChecked == session.value
+                                                //         ? "bg-black text-white border-[#6D6E71]"
+                                                //         : "border-gray-300 hover:bg-black hover:text-white"
+                                                //     }`}
                                                 className={`w-[217px] flex justify-center text-center py-2 border-2 border-solid transition-all duration-300 whitespace-nowrap 
-                                                ${sessionChecked == session.value
-                                                        ? "bg-black text-white border-[#6D6E71]"
-                                                        : "border-gray-300 hover:bg-black hover:text-white"
-                                                    }`}
+                                                ${session.value == 1
+                                                    ? "bg-black text-white border-[#6D6E71]"
+                                                    : "border-gray-300 bg-slate-100 opacity-60"
+                                                }`}
+                                                disabled={session.value == 2 ? true : false}
                                             >
                                                 <p className="text-xl font-light">{`${session.name} : ${session.time}`} </p>
                                             </Radio>
@@ -304,10 +310,11 @@ const TicketUI = () => {
                                                 key={index}
                                                 value={session.value}
                                                 className={`w-[186px] flex justify-center text-center py-2 border-2 border-solid transition-all whitespace-nowrap 
-                                                ${sessionChecked == session.value
+                                                ${session.value == 1
                                                         ? "bg-black text-white border-[#6D6E71]"
-                                                        : "border-gray-300 hover:bg-black hover:text-white"
+                                                        : "border-gray-300 bg-slate-100 opacity-60"
                                                     }`}
+                                                disabled={session.value == 2 ? true : false}
                                             >
                                                 <p className="text-[16px] font-light">{`${session.name} : ${session.time}`} </p>
                                             </Radio>

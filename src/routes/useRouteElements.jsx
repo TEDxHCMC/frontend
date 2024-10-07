@@ -76,36 +76,36 @@ const useRouteElements = () => {
                 },
             ]
         },
-        {
-            path: PATH.TICKET,
-            element: <TicketLayout />,
-            children: [
-                {
-                    index: true,
-                    element: (
-                        <Suspense fallback={<Spinner />}>
-                            <TicketUI />
-                        </Suspense>
-                    )
-                },
-                {
-                    path: "form",
-                    element: (
-                        <Suspense fallback={<Spinner />}>
-                            <TicketFormSect />
-                        </Suspense>
-                    )
-                },
-                {
-                    path: "done",
-                    element: (
-                        <Suspense fallback={<Spinner />}>
-                            <TicketResultSect />
-                        </Suspense>
-                    ),
-                }
-            ],
-        },
+        // {
+        //     path: PATH.TICKET,
+        //     element: <TicketLayout />,
+        //     children: [
+        //         {
+        //             index: true,
+        //             element: (
+        //                 <Suspense fallback={<Spinner />}>
+        //                     <TicketUI />
+        //                 </Suspense>
+        //             )
+        //         },
+        //         {
+        //             path: "form",
+        //             element: (
+        //                 <Suspense fallback={<Spinner />}>
+        //                     <TicketFormSect />
+        //                 </Suspense>
+        //             )
+        //         },
+        //         {
+        //             path: "done",
+        //             element: (
+        //                 <Suspense fallback={<Spinner />}>
+        //                     <TicketResultSect />
+        //                 </Suspense>
+        //             ),
+        //         }
+        //     ],
+        // },
         {
             path: "*",
             element: (

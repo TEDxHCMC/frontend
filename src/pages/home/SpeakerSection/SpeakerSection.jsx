@@ -151,8 +151,9 @@ const SpeakerSection = () => {
                                     <div className='time whitespace-nowrap'></div>
                                     <div className='ticket-container flex mt-4 mb-1 sm:mb-2'>
                                         <button
-                                            className="ticket-button text-center lg:text-[35px] md:text-[25px] text-[22px] px-7 py-3 rounded-sm"
+                                            className="ticket-button text-center lg:text-[35px] md:text-[25px] text-[22px] px-7 py-3 rounded-sm opacity-40"
                                             onClick={handleOnClick}
+                                            disabled={true}
                                         >
                                             ĐĂNG KÍ VÉ
                                         </button>
@@ -232,8 +233,9 @@ const SpeakerSection = () => {
                                     <div className='time whitespace-nowrap'></div>
                                     <div className='ticket-container flex mt-4 mb-1 sm:mb-2'>
                                         <button
-                                            className="ticket-button text-center lg:text-[35px] md:text-[25px] text-[22px] px-7 py-3 rounded-sm"
+                                            className="ticket-button text-center lg:text-[35px] md:text-[25px] text-[22px] px-7 py-3 rounded-sm opacity-40"
                                             onClick={handleOnClick}
+                                            disabled={true}
                                         >
                                             ĐĂNG KÍ VÉ
                                         </button>
