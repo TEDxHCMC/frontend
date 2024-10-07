@@ -89,7 +89,7 @@ const SpeakerSection = () => {
                         </Checkbox.Group>
                     </div>
                     {visibleTimelineSection === 1 && (
-                        <div className='morning-timeline ml-[0px]
+                        /*<div className='morning-timeline ml-[0px]
                         sm:ml-[15px] md:ml-[0px] lg:ml-[1rem] xl:ml-[4rem]' id='1'>
                             <div className='grid grid-rows-2 gap-y-2 md:gap-y-3 lg:gap-y-5 '>
                                 <div className='section grid'>
@@ -160,11 +160,17 @@ const SpeakerSection = () => {
                                     </div>
                                 </div>
                             </div>
+                        </div>*/
+                        <div className="timeline ml-[0px] sm:ml-[15px] md:ml-[0px] lg:ml-[1rem] xl:ml-[4rem] 
+                        flex flex-col space-y-2">
+                            <p>Sẽ trở lại vào ngày <span className="font-bold">20.10.2024</span></p>
+                            <p>Thông tin chi tiết sẽ được cập nhật trong thời gian sớm nhất.</p>
                         </div>
+
                     )}
 
                     {visibleTimelineSection === 2 && (
-                        <div className='afternoon-timeline ml-[0px]
+                        /*<div className='afternoon-timeline ml-[0px]
                         sm:ml-[15px] md:ml-[0px] lg:ml-[1rem] xl:ml-[4rem]' id='2'>
                             <div className='grid grid-rows-2 gap-y-2 md:gap-y-3 lg:gap-y-5'>
                                 <div className='section grid'>
@@ -185,13 +191,6 @@ const SpeakerSection = () => {
                                     <div className='time whitespace-nowrap'></div>
                                     <div className='speaker-content'> Diễn Giả &nbsp;
                                         <span className='speaker-click underline underline-offset-4' onClick={() => handleSpeakerClick('speaker-8')}>An Phương</span>
-                                    </div>
-                                </div>
-
-                                <div className='section grid'>
-                                    <div className='time whitespace-nowrap'></div>
-                                    <div className='speaker-content'> Diễn Giả &nbsp;
-                                        <span className='speaker-click underline underline-offset-4' onClick={() => handleSpeakerClick('speaker-5')}>Thiều Thanh Hà</span>
                                     </div>
                                 </div>
 
@@ -224,13 +223,6 @@ const SpeakerSection = () => {
 
                                 <div className='section grid'>
                                     <div className='time whitespace-nowrap'></div>
-                                    <div className='speaker-content'> Diễn Giả &nbsp;
-                                        <span className='speaker-click underline underline-offset-4' onClick={() => handleSpeakerClick('speaker-9')}>Phương Vũ</span>
-                                    </div>
-                                </div>
-
-                                <div className='section grid'>
-                                    <div className='time whitespace-nowrap'></div>
                                     <div className='ticket-container flex mt-4 mb-1 sm:mb-2'>
                                         <button
                                             className="ticket-button text-center lg:text-[35px] md:text-[25px] text-[22px] px-7 py-3 rounded-sm opacity-40"
@@ -242,7 +234,13 @@ const SpeakerSection = () => {
                                     </div>
                                 </div>
                             </div>
+                        </div>*/
+                        <div className="timeline ml-[0px] sm:ml-[15px] md:ml-[0px] lg:ml-[1rem] xl:ml-[4rem] 
+                        flex flex-col space-y-2">
+                            <p>Sẽ trở lại vào ngày <span className="font-bold">20.10.2024</span></p>
+                            <p>Thông tin chi tiết sẽ được cập nhật trong thời gian sớm nhất.</p>
                         </div>
+
                     )}
 
 

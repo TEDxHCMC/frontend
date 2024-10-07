@@ -72,7 +72,7 @@ const TicketUI = () => {
                                         <path d="M0.0175781 16.3035C0.0175781 16.6789 0.320815 16.9821 0.69615 16.9821H16.3033C16.6786 16.9821 16.9819 16.6789 16.9819 16.3035V7.39727H0.0175781V16.3035ZM16.3033 1.54459H12.7408V0.18745C12.7408 0.0941463 12.6645 0.017807 12.5711 0.017807H11.3836C11.2903 0.017807 11.214 0.0941463 11.214 0.18745V1.54459H5.78544V0.18745C5.78544 0.0941463 5.7091 0.017807 5.61579 0.017807H4.42829C4.33499 0.017807 4.25865 0.0941463 4.25865 0.18745V1.54459H0.69615C0.320815 1.54459 0.0175781 1.84783 0.0175781 2.22316V5.95531H16.9819V2.22316C16.9819 1.84783 16.6786 1.54459 16.3033 1.54459Z" fill="black" />
                                     </svg>
                                     <h2 className="font-bold text-[20px] text-[#C30121]">
-                                        2 khung giờ: ngày 21 tháng 9, 2024
+                                        2 khung giờ: ngày 20 tháng 10, 2024
                                     </h2>
                                 </div>
 
@@ -85,17 +85,18 @@ const TicketUI = () => {
                                             <Radio
                                                 key={index}
                                                 value={session.value}
-                                                // className={`w-[217px] flex justify-center text-center py-2 border-2 border-solid transition-all duration-300 whitespace-nowrap 
-                                                // ${sessionChecked == session.value
-                                                //         ? "bg-black text-white border-[#6D6E71]"
-                                                //         : "border-gray-300 hover:bg-black hover:text-white"
-                                                //     }`}
                                                 className={`w-[217px] flex justify-center text-center py-2 border-2 border-solid transition-all duration-300 whitespace-nowrap 
-                                                ${session.value == 1
-                                                    ? "bg-black text-white border-[#6D6E71]"
-                                                    : "border-gray-300 bg-slate-100 opacity-60"
-                                                }`}
-                                                disabled={session.value == 2 ? true : false}
+                                                ${sessionChecked == session.value
+                                                         ? "bg-black text-white border-[#6D6E71]"
+                                                         : "border-gray-300 hover:bg-black hover:text-white"
+                                                     }`}
+                                                //className={`w-[217px] flex justify-center text-center py-2 border-2 border-solid transition-all duration-300 whitespace-nowrap 
+                                                //${session.value == 1
+                                                //    ? "bg-black text-white border-[#6D6E71]"
+                                                //    : "border-gray-300 bg-slate-100 opacity-60"
+                                                //}`}
+                                                //disabled={session.value == 2 ? true : false}
+                                                //</div>
                                             >
                                                 <p className="text-xl font-light">{`${session.name} : ${session.time}`} </p>
                                             </Radio>
@@ -112,10 +113,10 @@ const TicketUI = () => {
                                     <svg width="17" height="23" viewBox="0 0 17 23" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M8.5 0C3.79667 0 0 3.79667 0 8.5C0 14.1667 8.5 22.6667 8.5 22.6667C8.5 22.6667 17 14.1667 17 8.5C17 3.79667 13.2033 0 8.5 0ZM8.5 2.83333C11.645 2.83333 14.1667 5.38333 14.1667 8.5C14.1667 11.645 11.645 14.1667 8.5 14.1667C5.38333 14.1667 2.83333 11.645 2.83333 8.5C2.83333 5.38333 5.38333 2.83333 8.5 2.83333Z" fill="black" />
                                     </svg>
-                                    <h2 className="font-bold text-[20px]">Khách sạn New World Saigon</h2>
+                                    <h2 className="font-bold text-[20px]">Nina Next Space</h2>
                                 </div>
 
-                                <p className="ml-6 leading-tight">76 Lê Lai, phường Bến Thành, Quận 1, Thành phố Hồ Chí Minh</p>
+                                <p className="ml-6 leading-tight">180/1 Nguyễn Tất Thành, phường 13, Quận 4, Thành phố Hồ Chí Minh</p>
                             </div>
 
                         </div>
@@ -296,7 +297,7 @@ const TicketUI = () => {
                                     </svg>
 
                                     <h2 className="font-bold text-[16px] text-[#C30121]">
-                                        2 khung giờ: ngày 21 tháng 9, 2024
+                                        2 khung giờ: ngày 20 tháng 10, 2024
                                     </h2>
                                 </div>
 
@@ -332,10 +333,10 @@ const TicketUI = () => {
                                         <path d="M8.5 0C3.79667 0 0 3.79667 0 8.5C0 14.1667 8.5 22.6667 8.5 22.6667C8.5 22.6667 17 14.1667 17 8.5C17 3.79667 13.2033 0 8.5 0ZM8.5 2.83333C11.645 2.83333 14.1667 5.38333 14.1667 8.5C14.1667 11.645 11.645 14.1667 8.5 14.1667C5.38333 14.1667 2.83333 11.645 2.83333 8.5C2.83333 5.38333 5.38333 2.83333 8.5 2.83333Z" fill="black" />
                                     </svg>
 
-                                    <h2 className="font-bold text-[16px] text-[#C30121]">Khách sạn New World Saigon</h2>
+                                    <h2 className="font-bold text-[16px] text-[#C30121]">Nina Next Space</h2>
                                 </div>
 
-                                <p className="ml-6 text-[14px] leading-tight">76 Lê Lai, phường Bến Thành, Quận 1, Thành phố Hồ Chí Minh</p>
+                                <p className="ml-6 text-[14px] leading-tight">180/1 Nguyễn Tất Thành, phường 13, Quận 4, Thành phố Hồ Chí Minh</p>
                             </div>
 
                         </div>
