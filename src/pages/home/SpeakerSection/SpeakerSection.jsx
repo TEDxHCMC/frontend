@@ -163,8 +163,22 @@ const SpeakerSection = () => {
                         </div>*/
                         <div className="timeline ml-[0px] sm:ml-[15px] md:ml-[0px] lg:ml-[1rem] xl:ml-[4rem] 
                         flex flex-col space-y-2">
-                            <p>Sẽ trở lại vào ngày <span className="font-bold">20.10.2024</span></p>
-                            <p>Thông tin chi tiết sẽ được cập nhật trong thời gian sớm nhất.</p>
+                            <div className="flex flex-col space-y-2">
+                                <p>Sẽ trở lại vào ngày <span className="font-bold">20.10.2024</span></p>
+                                <p>Thông tin chi tiết sẽ được cập nhật trong thời gian sớm nhất.</p>
+                            </div>
+
+                            <div className='section'>
+                                <div className='ticket-container flex mt-4 mb-1 sm:mb-2'>
+                                    <button
+                                        className="ticket-button text-center lg:text-[35px] md:text-[25px] text-[22px] px-7 py-3 rounded-sm"
+                                        onClick={handleOnClick}
+                                    //disabled={true}
+                                    >
+                                        ĐĂNG KÍ VÉ
+                                    </button>
+                                </div>
+                            </div>
                         </div>
 
                     )}
@@ -237,8 +251,22 @@ const SpeakerSection = () => {
                         </div>*/
                         <div className="timeline ml-[0px] sm:ml-[15px] md:ml-[0px] lg:ml-[1rem] xl:ml-[4rem] 
                         flex flex-col space-y-2">
-                            <p>Sẽ trở lại vào ngày <span className="font-bold">20.10.2024</span></p>
-                            <p>Thông tin chi tiết sẽ được cập nhật trong thời gian sớm nhất.</p>
+                            <div className="flex flex-col space-y-2">
+                                <p>Sẽ trở lại vào ngày <span className="font-bold">20.10.2024</span></p>
+                                <p>Thông tin chi tiết sẽ được cập nhật trong thời gian sớm nhất.</p>
+                            </div>
+
+                            <div className='section'>
+                                <div className='ticket-container flex mt-4 mb-1 sm:mb-2'>
+                                    <button
+                                        className="ticket-button text-center lg:text-[35px] md:text-[25px] text-[22px] px-7 py-3 rounded-sm"
+                                        onClick={handleOnClick}
+                                    //disabled={true}
+                                    >
+                                        ĐĂNG KÍ VÉ
+                                    </button>
+                                </div>
+                            </div>
                         </div>
 
                     )}
