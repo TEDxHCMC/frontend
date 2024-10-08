@@ -89,7 +89,7 @@ const SpeakerSection = () => {
                         </Checkbox.Group>
                     </div>
                     {visibleTimelineSection === 1 && (
-                        /*<div className='morning-timeline ml-[0px]
+                        <div className='morning-timeline ml-[0px]
                         sm:ml-[15px] md:ml-[0px] lg:ml-[1rem] xl:ml-[4rem]' id='1'>
                             <div className='grid grid-rows-2 gap-y-2 md:gap-y-3 lg:gap-y-5 '>
                                 <div className='section grid'>
@@ -151,32 +151,13 @@ const SpeakerSection = () => {
                                     <div className='time whitespace-nowrap'></div>
                                     <div className='ticket-container flex mt-4 mb-1 sm:mb-2'>
                                         <button
-                                            className="ticket-button text-center lg:text-[35px] md:text-[25px] text-[22px] px-7 py-3 rounded-sm opacity-40"
+                                            className="ticket-button text-center lg:text-[35px] md:text-[25px] text-[22px] px-7 py-3 rounded-sm"
                                             onClick={handleOnClick}
-                                            disabled={true}
+                                            //disabled={true}
                                         >
                                             ĐĂNG KÍ VÉ
                                         </button>
                                     </div>
-                                </div>
-                            </div>
-                        </div>*/
-                        <div className="timeline ml-[0px] sm:ml-[15px] md:ml-[0px] lg:ml-[1rem] xl:ml-[4rem] 
-                        flex flex-col space-y-2">
-                            <div className="flex flex-col space-y-2">
-                                <p>Sẽ trở lại vào ngày <span className="font-bold">20.10.2024</span></p>
-                                <p>Thông tin chi tiết sẽ được cập nhật trong thời gian sớm nhất.</p>
-                            </div>
-
-                            <div className='section'>
-                                <div className='ticket-container flex mt-4 mb-1 sm:mb-2'>
-                                    <button
-                                        className="ticket-button text-center lg:text-[35px] md:text-[25px] text-[22px] px-7 py-3 rounded-sm"
-                                        onClick={handleOnClick}
-                                    //disabled={true}
-                                    >
-                                        ĐĂNG KÍ VÉ
-                                    </button>
                                 </div>
                             </div>
                         </div>
@@ -184,7 +165,7 @@ const SpeakerSection = () => {
                     )}
 
                     {visibleTimelineSection === 2 && (
-                        /*<div className='afternoon-timeline ml-[0px]
+                        <div className='afternoon-timeline ml-[0px]
                         sm:ml-[15px] md:ml-[0px] lg:ml-[1rem] xl:ml-[4rem]' id='2'>
                             <div className='grid grid-rows-2 gap-y-2 md:gap-y-3 lg:gap-y-5'>
                                 <div className='section grid'>
@@ -239,32 +220,13 @@ const SpeakerSection = () => {
                                     <div className='time whitespace-nowrap'></div>
                                     <div className='ticket-container flex mt-4 mb-1 sm:mb-2'>
                                         <button
-                                            className="ticket-button text-center lg:text-[35px] md:text-[25px] text-[22px] px-7 py-3 rounded-sm opacity-40"
+                                            className="ticket-button text-center lg:text-[35px] md:text-[25px] text-[22px] px-7 py-3 rounded-sm"
                                             onClick={handleOnClick}
-                                            disabled={true}
+                                            //disabled={true}
                                         >
                                             ĐĂNG KÍ VÉ
                                         </button>
                                     </div>
-                                </div>
-                            </div>
-                        </div>*/
-                        <div className="timeline ml-[0px] sm:ml-[15px] md:ml-[0px] lg:ml-[1rem] xl:ml-[4rem] 
-                        flex flex-col space-y-2">
-                            <div className="flex flex-col space-y-2">
-                                <p>Sẽ trở lại vào ngày <span className="font-bold">20.10.2024</span></p>
-                                <p>Thông tin chi tiết sẽ được cập nhật trong thời gian sớm nhất.</p>
-                            </div>
-
-                            <div className='section'>
-                                <div className='ticket-container flex mt-4 mb-1 sm:mb-2'>
-                                    <button
-                                        className="ticket-button text-center lg:text-[35px] md:text-[25px] text-[22px] px-7 py-3 rounded-sm"
-                                        onClick={handleOnClick}
-                                    //disabled={true}
-                                    >
-                                        ĐĂNG KÍ VÉ
-                                    </button>
                                 </div>
                             </div>
                         </div>
@@ -357,21 +319,6 @@ const SpeakerSection = () => {
                                 </>
                             )}
 
-                            {activeSpeaker === 'speaker-5' && (
-                                <>
-                                    <div className='speaker-image flex'>
-                                        <img src='./assets/speaker/speaker_GS TTH.png' alt='Speaker Image' style={{ transform: 'scale(0.8)' }} />
-                                    </div>
-                                    <div className='speaker-name flex'>
-                                        <h2>Thiều Thanh Hà</h2>
-                                    </div>
-                                    <div className='speaker-role flex flex-col'>
-                                        <h4>Giám đốc Điều hành Công ty Tư Vấn Chiến Lược N.H & Cộng Sự</h4>
-                                        <h3>Đại diện VIETSUCCESS</h3>
-                                    </div>
-                                </>
-                            )}
-
                             {activeSpeaker === 'speaker-6' && (
                                 <>
                                     <div className='speaker-image flex'>
@@ -412,20 +359,6 @@ const SpeakerSection = () => {
                                     <div className='speaker-role flex flex-col'>
                                         <h4>Nhà báo & Nhà sáng tạo nội dung</h4>
                                         <h3>Letsplaymakeup</h3>
-                                    </div>
-                                </>
-                            )}
-                            {activeSpeaker === 'speaker-9' && (
-                                <>
-                                    <div className='speaker-image flex'>
-                                        <img src='./assets/speaker/speaker_GS Phương Vũ.png' alt='Speaker Image' style={{ transform: 'scale(0.8)' }} />
-                                    </div>
-                                    <div className='speaker-name flex'>
-                                        <h2>Phương Vũ</h2>
-                                    </div>
-                                    <div className='speaker-role flex flex-col'>
-                                        <h4>Đạo diễn & Giám đốc Sáng tạo</h4>
-                                        <h3>Antiantiart</h3>
                                     </div>
                                 </>
                             )}
