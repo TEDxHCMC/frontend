@@ -310,7 +310,7 @@ const TicketUI = () => {
                                             <Radio
                                                 key={index}
                                                 value={session.value}
-                                                className={`w-[217px] flex justify-center text-center py-2 border-2 border-solid transition-all duration-300 whitespace-nowrap 
+                                                className={`w-[186px] flex justify-center text-center py-2 border-2 border-solid transition-all duration-300 whitespace-nowrap 
                                                 ${sessionChecked == session.value
                                                          ? "bg-black text-white border-[#6D6E71]"
                                                          : "border-gray-300 hover:bg-black hover:text-white"
@@ -323,7 +323,7 @@ const TicketUI = () => {
                                                 //disabled={session.value == 2 ? true : false}
                                                 //</div>
                                             >
-                                                <p className="text-xl font-light">{`${session.name} : ${session.time}`} </p>
+                                                <p className="text-[16px] font-light">{`${session.name} : ${session.time}`} </p>
                                             </Radio>
                                         ))}
                                     </div>
