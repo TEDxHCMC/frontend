@@ -3,7 +3,7 @@ import React from 'react'
 const SponsorSection = () => {
     return (
         <div className="flex flex-wrap justify-center items-center bg-[#FFFBF6]
-        h-auto p-6 mb-10">
+        h-auto p-6 mt-5">
             <div className="m-4 sm:m-6 md:m-8">
                 <img src="./assets/external_logo/NextGen.png" alt="NextGen Logo"
                     className="h-[8vw] sm:h-[6vw] md:h-[4vw] lg:h-[3vw] w-auto" />

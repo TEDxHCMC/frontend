@@ -8,9 +8,9 @@ const Home = () => {
     return (
         <div className="overflow-x-hidden">
             <FirstSection/>
-            <SecondSection/>
-            <SponsorSection/>   
-            <SpeakerSection/>       
+            <SecondSection/>  
+            <SpeakerSection/>  
+            <SponsorSection/>      
         </div>
     );
 };
