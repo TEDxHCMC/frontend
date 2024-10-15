@@ -153,7 +153,7 @@ const SpeakerSection = () => {
                                         <button
                                             className="ticket-button text-center lg:text-[35px] md:text-[25px] text-[22px] px-7 py-3 rounded-sm"
                                             onClick={handleOnClick}
-                                            //disabled={true}
+                                        //disabled={true}
                                         >
                                             ĐĂNG KÍ VÉ
                                         </button>
@@ -216,13 +216,15 @@ const SpeakerSection = () => {
                                     </div>
                                 </div>
 
+                                
+
                                 <div className='section grid'>
                                     <div className='time whitespace-nowrap'></div>
                                     <div className='ticket-container flex mt-4 mb-1 sm:mb-2'>
                                         <button
                                             className="ticket-button text-center lg:text-[35px] md:text-[25px] text-[22px] px-7 py-3 rounded-sm"
                                             onClick={handleOnClick}
-                                            //disabled={true}
+                                        //disabled={true}
                                         >
                                             ĐĂNG KÍ VÉ
                                         </button>
@@ -386,6 +388,21 @@ const SpeakerSection = () => {
                                     </div>
                                     <div className='speaker-role flex'>
                                         <h3>Giám đốc Survival Skills Vietnam</h3>
+                                    </div>
+                                </>
+                            )}
+
+                            {activeSpeaker === 'speaker-11' && (
+                                <>
+                                    <div className='speaker-image flex'>
+                                        <img src='./assets/speaker/speaker_GS LDN.png' alt='Speaker Image' style={{ transform: 'scale(0.8)' }} />
+                                    </div>
+                                    <div className='speaker-name flex'>
+                                        <h2>Lương Dũng Nhân</h2>
+                                    </div>
+                                    <div className='speaker-role flex'>
+                                        <h3>Nhà sáng lập, GĐ Đào tạo Hệ thống Giáo dục ATY <br/>
+                                        Nhà sáng lập Dự án A.I. Mastermind</h3>
                                     </div>
                                 </>
                             )}

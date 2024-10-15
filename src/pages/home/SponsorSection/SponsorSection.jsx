@@ -10,7 +10,7 @@ const SponsorSection = () => {
             </div>
             <div className="m-4 sm:m-6 md:m-8">
                 <img src="./assets/external_logo/Carnival.png" alt="Carnival Logo"
-                    className="h-[8vw] sm:h-[6vw] md:h-[4vw] lg:h-[3vw] w-auto" />
+                    className="h-[11vw] sm:h-[9vw] md:h-[6vw] lg:h-[4vw] w-auto" />
             </div>
             <div className="m-4 sm:m-6 md:m-8">
                 <img src="./assets/external_logo/La Artisan.png" alt="La Artisan Logo"
