@@ -216,7 +216,12 @@ const SpeakerSection = () => {
                                     </div>
                                 </div>
 
-                                
+                                <div className='section grid'>
+                                    <div className='time whitespace-nowrap'></div>
+                                    <div className='speaker-content'> Diễn Giả &nbsp;
+                                        <span className='speaker-click underline underline-offset-4' onClick={() => handleSpeakerClick('speaker-13')}>Lương Dũng Nhân</span>
+                                    </div>
+                                </div>
 
                                 <div className='section grid'>
                                     <div className='time whitespace-nowrap'></div>
@@ -392,7 +397,7 @@ const SpeakerSection = () => {
                                 </>
                             )}
 
-                            {activeSpeaker === 'speaker-11' && (
+                            {activeSpeaker === 'speaker-13' && (
                                 <>
                                     <div className='speaker-image flex'>
                                         <img src='./assets/speaker/speaker_GS LDN.png' alt='Speaker Image' style={{ transform: 'scale(0.8)' }} />
@@ -400,9 +405,9 @@ const SpeakerSection = () => {
                                     <div className='speaker-name flex'>
                                         <h2>Lương Dũng Nhân</h2>
                                     </div>
-                                    <div className='speaker-role flex'>
-                                        <h3>Nhà sáng lập, GĐ Đào tạo Hệ thống Giáo dục ATY <br/>
-                                        Nhà sáng lập Dự án A.I. Mastermind</h3>
+                                    <div className='speaker-role flex flex-col'>
+                                        <h4>Nhà sáng lập, GĐ Đào tạo Hệ thống Giáo dục ATY</h4>
+                                        <h3>Nhà sáng lập Dự án A.I. Mastermind</h3>
                                     </div>
                                 </>
                             )}
