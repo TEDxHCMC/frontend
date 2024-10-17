@@ -2,12 +2,8 @@ import React, { useEffect, useState } from "react";
 
 import "./interactive.scss";
 
-import shapePink from "../../assets/pattern/4-Pink.png";
-import shapeGreen from "../../assets/pattern/3-Green.png";
-import shapeBlue from "../../assets/pattern/2-Blue.png";
-import shapeYellow from "../../assets/pattern/1-Yellow.png";
-
 import RadioList from "../../components/RadioList";
+import Poster from "./Poster";
 
 const headingOptions = [
     {
@@ -217,10 +213,17 @@ const Interactive = () => {
             </div>
         </section>
     )
+    
+    const renderPoster = (
+        <section className="flex justify-center items-center">
+            <Poster />
+        </section>
+    )
 
     return (
         <>
             {renderContent}
+            {renderPoster}
         </>
     );
 };

@@ -12,7 +12,7 @@ import TicketLayout from "../layouts/TicketLayout";
 const HomePage = lazy(() => import("../pages/home"));
 const AboutPage = lazy(() => import("../pages/about"));
 // const SpeakerPage = lazy(() => import("../pages/speaker"));
-// const InteractivePage = lazy(() => import("../pages/interactive"));
+const InteractivePage = lazy(() => import("../pages/interactive"));
 // const ErrorPage = lazy(() => import("../pages/error"));
 const NotFoundPage = lazy(() => import('../pages/not-found'))
 
