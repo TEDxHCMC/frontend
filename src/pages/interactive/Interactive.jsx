@@ -40,18 +40,18 @@ const bgOptions = [
     },
     {
         content: "Hướng ngoại",
-        value: "bg-[#FFEB00]"
+        value: "bg-[#F5F5DC]"
     }
 ];
 
 const countOptions = [
     {
         content: "Công việc yêu thích <br /> nhưng lương thấp",
-        value: 1
+        value: 3
     },
     {
         content: "Công việc lương cao <br /> nhưng không thích",
-        value: 2
+        value: 4
     }
 ];
 
@@ -329,7 +329,7 @@ const Interactive = () => {
     //const renderPoster = ();
     return (
         <>
-            {/* <div className={`content-container relative flex justify-center items-center h-screen w-full overflow-hidden
+            <div className={`content-container relative flex justify-center items-center h-screen w-full overflow-hidden
                 ${page === 3 ? "hidden" : ""}
                 ${page === 1 ? "bg-white" : "bg-[#222222]"}`}>
                 <div className="content-background inset-0">
@@ -377,13 +377,13 @@ const Interactive = () => {
                                 Ta-daaaa!
                             </h1>
                         </div>
-                        <div>
+                        {/* <div>
                             <p className="text-lg sm:text-xl md:text-2xl text-white mb-2">Bạn thuộc tuýp</p>
                             <h2 className="uppercase text-[24px] sm:text-[28px] md:text-[32px] lg:text-[36px] font-semibold text-white mb-2">
                                 Người năng động
                             </h2>
                             <p className="text-base sm:text-lg md:text-xl text-white">- dám nghĩ, dám làm!</p>
-                        </div>
+                        </div> */}
                         <div className="social-media mt-6 flex flex-col items-center lg:items-start">
                             <p className="text-white">Chia sẻ ảnh:</p>
                             <div className="mt-4 flex gap-4">
@@ -404,11 +404,11 @@ const Interactive = () => {
                 </div>
             </section>
             
-            )} */}
+            )}
 
-            <div className="flex flex-col justify-center items-center">
+            {/* <div className="flex flex-col justify-center items-center">
                 <Poster />
-            </div>
+            </div> */}
             
         </>
     );
