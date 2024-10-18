@@ -225,6 +225,13 @@ const SpeakerSection = () => {
 
                                 <div className='section grid'>
                                     <div className='time whitespace-nowrap'></div>
+                                    <div className='speaker-content'> Diễn Giả &nbsp;
+                                        <span className='speaker-click underline underline-offset-4' onClick={() => handleSpeakerClick('speaker-14')}>Đào Đức Thành</span>
+                                    </div>
+                                </div>
+
+                                <div className='section grid'>
+                                    <div className='time whitespace-nowrap'></div>
                                     <div className='ticket-container flex mt-4 mb-1 sm:mb-2'>
                                         <button
                                             className="ticket-button text-center lg:text-[35px] md:text-[25px] text-[22px] px-7 py-3 rounded-sm"
@@ -408,6 +415,21 @@ const SpeakerSection = () => {
                                     <div className='speaker-role flex flex-col'>
                                         <h4>Nhà sáng lập, GĐ Đào tạo Hệ thống Giáo dục ATY</h4>
                                         <h3>Nhà sáng lập Dự án A.I. Mastermind</h3>
+                                    </div>
+                                </>
+                            )}
+
+                            {activeSpeaker === 'speaker-14' && (
+                                <>
+                                    <div className='speaker-image flex'>
+                                        <img src='./assets/speaker/speaker_GS DDT.png' alt='Speaker Image' style={{ transform: 'scale(0.8)' }} />
+                                    </div>
+                                    <div className='speaker-name flex'>
+                                        <h2>Đào Đức Thành</h2>
+                                    </div>
+                                    <div className='speaker-role flex flex-col'>
+                                        <h4>Đạo diễn & Giám đốc Sáng tạo</h4>
+                                        <h3>Tomochi Production</h3>
                                     </div>
                                 </>
                             )}
