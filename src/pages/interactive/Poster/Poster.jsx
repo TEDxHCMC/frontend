@@ -5,6 +5,7 @@ import { generateRandomUrls } from "../../../helpers";
 const Poster = () => {
     const { posterPayload } = useSelector((state) => state.poster);
     const opacityOrder = [1, 2]
+
     // const numbers = [1, 2, 3, 4];
     // const colors = ["Pink", "Blue", "Green", "Yellow"];
 
@@ -28,7 +29,7 @@ const Poster = () => {
                             src={
                                 `${images[0]}`
                             }
-                            className="w-full h-full scale-125 -translate-x-1.5 -translate-y-1.5"
+                            className="w-full h-full scale-125 -translate-x-0.5 sm:-translate-x-1.5 -translate-y-0.5 sm:-translate-y-1.5"
                         />}
                         
                     </div>
@@ -52,7 +53,7 @@ const Poster = () => {
                             src={
                                 `${images[2]}`
                             }
-                            className="h-full object-cover absolute left-1/3 -translate-x-1/3 -translate-y-1.5 scale-[137%]"
+                            className="h-full object-cover absolute left-1/3 -translate-x-1/3 sm:-translate-y-1.5 -translate-y-1 scale-[137%]"
                         />}
                     </div>
                     <div className="w-2/6 relative">
@@ -60,7 +61,7 @@ const Poster = () => {
                             src={
                                 `${images[3]}`
                             }
-                            className="h-full object-cover absolute right-0 -translate-x-1 -translate-y-1.5 scale-[137%]"
+                            className="h-full object-cover absolute right-0 -translate-x-1 -translate-y-1 sm:-translate-y-1.5 scale-[137%]"
                         />}
                     </div>
                 </div>

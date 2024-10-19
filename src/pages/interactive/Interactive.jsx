@@ -9,6 +9,12 @@ import Poster from "./Poster";
 import { useDispatch } from "react-redux";
 import { handleSetPosterPayload } from "../../redux/slices/poster.slice";
 import { generateRandomUrls } from "../../helpers";
+import html2canvas from "html2canvas";
+import { FacebookShareButton, LinkedinShareButton } from "react-share";
+
+import {
+    message,
+} from "antd";
 
 const headingOptions = [
     {
@@ -115,11 +121,22 @@ const Interactive = () => {
     const [page, setPage] = useState(1);
     const [animate, setAnimate] = useState(false);
     const [imageLoadTimes, setImageLoadTimes] = useState([]);
+    const [imageUrl, setImageUrl] = useState("")
     const dispatch = useDispatch()
+
+    const [messageApi, contextHolder] = message.useMessage();
+
+    const messageAlert = (type, msg) => {
+        messageApi.open({
+            type: type,
+            content: msg,
+            duration: 3,
+        });
+    };
 
     //* Trigger re-rendering with animation
     useEffect(() => {
-        console.log("URLs: ", generateRandomUrls(4))
+        // console.log("URLs: ", generateRandomUrls(4))
         setAnimate(true);
         const timer = setTimeout(() => setAnimate(false), 1500); // duration of the animation
         return () => clearTimeout(timer);
@@ -159,7 +176,7 @@ const Interactive = () => {
     ]
 
     const handleChangeOption = (e) => {
-        console.log(`Current Value [${e.target.name}]:`, e.target.value);
+        // console.log(`Current Value [${e.target.name}]:`, e.target.value);
 
         switch (e.target.name) {
             case "background":
@@ -209,6 +226,49 @@ const Interactive = () => {
         setPage(3);
     };
 
+    const handleGeneratePosterUrl = () => {
+        let html2canvasOptions = {
+            allowTaint: true,
+            removeContainer: true,
+            imageTimeout: 15000,
+            logging: true,
+            scale: 2,
+            useCORS: true
+        };
+
+        const element = document.getElementById("poster")
+
+        if(!element) {
+            console.error("poster not found!")
+            return
+        }
+
+        html2canvas(element).then((canvas) => {
+            let image = canvas.toDataURL("image/png")
+            setImageUrl(image)
+        }).catch(err => {
+            console.error("Cannot generate image: ", err)
+        })
+    }
+
+    useEffect(() => {
+        if (page == 3) {
+            handleGeneratePosterUrl()
+        }
+    }, [page])
+
+    const handleTakeScrshot = () => {
+        const a = document.createElement("a")
+        a.href = imageUrl
+        a.download = "Poster.png"
+        a.click();
+    }
+
+    const handleCopyUrl = () => {
+        navigator.clipboard.writeText(imageUrl)
+        messageAlert("success", "Đường dẫn poster đã được copy!")
+
+    }
 
     const renderHeading = (heading) => (
         <div className={`text-center relative mb-10 ${animate ? 'animate__animated animate__fadeIn' : ''}`}>
@@ -262,17 +322,16 @@ const Interactive = () => {
     const renderPage2 = (
         <section className="page-2 relative flex flex-col space-y-6 justify-center items-center h-[70vh] mb-2 sm:mb-12 p-10 sm:p-5 md:p-8">
             <div className="flex flex-row items-center space-x-3">
-                <h1 className="whitespace-nowrap text-[22px] sm:text-[20px] md:text-[28px] lg:text-[32px] font-semibold text-white">
+                <h1 className="whitespace-nowrap text-[18px] sm:text-[20px] md:text-[28px] lg:text-[32px] font-semibold text-white">
                     TÊN BẠN LÀ:
                 </h1>
                 <input
-                    className="bg-transparent border-b-2 border-white text-white text-lg sm:text-base md:text-lg placeholder-white focus:outline-none focus:border-red-500 font-[Petit Formal Script]"
-                    value={name}
+                    className="bg-transparent pb-1 border-b-2 border-white text-white text-[18px] sm:text-[20px] md:text-[28px] placeholder-white focus:outline-none focus:border-red-500 decoration-transparent"
                     onChange={(e) => setName(e.target.value)}
                 />
             </div>
             <button
-                className={`font-bold text-black bg-white py-3 px-4 hover:bg-[#C30121] hover:text-white hover:scale-105 
+                className={`font-bold text-black bg-white py-3 px-4 transition-all hover:bg-[#C30121] hover:text-white hover:scale-105 
                 ${!name.trim() ? 'opacity-15' : ''}`}
                 onClick={handleCreateClick}
                 disabled={!name.trim()}
@@ -326,9 +385,67 @@ const Interactive = () => {
         </section>
     );
 
-    //const renderPoster = ();
+    const renderPoster = () => {
+        return <section className="page-3 bg-[#222222] h-screen flex flex-col justify-center items-center">
+            <div className="container items-center justify-center flex flex-col lg:flex-row lg:space-x-24  space-y-5 md:space-y-10 lg:space-y-0">
+                <div className="first h-full flex flex-col justify-between items-center lg:items-start text-center lg:text-left">
+                    <div>
+                        <h1 className="uppercase text-[32px] sm:text-[40px] md:text-[48px] lg:text-[64px] font-semibold text-white mb-4">
+                            Ta-daaaa!
+                        </h1>
+                    </div>
+                    {/* <div>
+                        <p className="text-lg sm:text-xl md:text-2xl text-white mb-2">Bạn thuộc tuýp</p>
+                        <h2 className="uppercase text-[24px] sm:text-[28px] md:text-[32px] lg:text-[36px] font-semibold text-white mb-2">
+                            Người năng động
+                        </h2>
+                        <p className="text-base sm:text-lg md:text-xl text-white">- dám nghĩ, dám làm!</p>
+                    </div> */}
+                    <div className="social-media mt-6 flex flex-col items-center lg:items-start">
+                        <p className="text-white">Chia sẻ ảnh:</p>
+                        <div className="mt-4 flex gap-4">
+                            {/* <Link to="https://www.facebook.com/share/p4HgwXHXcuiwYhPU/?mibextid=LQQJ4" className="text-white hover:text-gray-400">
+                                <i className="fa-brands fa-facebook-f"></i>
+                            </Link>
+                            <Link to="https://www.instagram.com/tedxhcmc?igsh=MTd0MmwybTlrNDIwbQ==" className="text-white hover:text-gray-400">
+                                <i className="fa-brands fa-instagram"></i>
+                            </Link> */}
+                            <button onClick={handleTakeScrshot}>
+                                <div className="bg-white px-4 py-3 leading-5 text-center rounded-full">
+                                    <i className="fa-sharp fa-solid fa-arrow-down-to-line text-[25px]"></i>
+                                </div>
+                            </button>
+                            <button onClick={handleCopyUrl}>
+                                <div className="bg-white px-4 py-3 leading-5 text-center rounded-full">
+                                    <i className="fa fa-paperclip text-[25px]"></i>
+                                </div>
+                            </button>
+                            <FacebookShareButton hashtag={"#TedxHCMC2024"} url={imageUrl}>
+                                <div className="bg-white px-4 py-3 leading-5 text-center rounded-full">
+                                    <i className="fab fa-facebook-square text-[25px]"></i>
+                                </div>
+                            </FacebookShareButton>
+                            <LinkedinShareButton summary={"#TedxHCMC2024"} source={imageUrl}>
+                                <div className="bg-white px-4 py-3 leading-5 text-center rounded-full">
+                                    <i className="fab fa-linkedin text-[25px]"></i>
+                                </div>
+                            </LinkedinShareButton>
+                            
+                        </div>
+                    </div>
+                </div>
+                <section id="poster" className="flex justify-center items-center 
+                w-[340px] sm:w-[400px] md:w-[500px] lg:w-[566px] 
+                h-[340px] sm:h-[400px] md:h-[500px] lg:h-[566px] bg-white p-[10px] sm:p-[15px]">
+                    <Poster />
+                </section>
+            </div>
+        </section>
+    };
+
     return (
         <>
+            {contextHolder}
             <div className={`content-container relative flex justify-center items-center h-screen w-full overflow-hidden
                 ${page === 3 ? "hidden" : ""}
                 ${page === 1 ? "bg-white" : "bg-[#222222]"}`}>
@@ -369,41 +486,41 @@ const Interactive = () => {
             </div>
 
             {page === 3 && (
-                <section className="page-3 bg-[#222222] h-screen flex flex-col justify-center items-center">
-                <div className="container items-center justify-center flex flex-col lg:flex-row lg:space-x-24  space-y-5 md:space-y-10 lg:space-y-0">
-                    <div className="first h-full flex flex-col justify-between items-center lg:items-start text-center lg:text-left">
-                        <div>
-                            <h1 className="uppercase text-[32px] sm:text-[40px] md:text-[48px] lg:text-[64px] font-semibold text-white mb-4">
-                                Ta-daaaa!
-                            </h1>
-                        </div>
-                        {/* <div>
-                            <p className="text-lg sm:text-xl md:text-2xl text-white mb-2">Bạn thuộc tuýp</p>
-                            <h2 className="uppercase text-[24px] sm:text-[28px] md:text-[32px] lg:text-[36px] font-semibold text-white mb-2">
-                                Người năng động
-                            </h2>
-                            <p className="text-base sm:text-lg md:text-xl text-white">- dám nghĩ, dám làm!</p>
-                        </div> */}
-                        <div className="social-media mt-6 flex flex-col items-center lg:items-start">
-                            <p className="text-white">Chia sẻ ảnh:</p>
-                            <div className="mt-4 flex gap-4">
-                                <Link to="https://www.facebook.com/share/p4HgwXHXcuiwYhPU/?mibextid=LQQJ4" className="text-white hover:text-gray-400">
-                                    <i className="fa-brands fa-facebook-f"></i>
-                                </Link>
-                                <Link to="https://www.instagram.com/tedxhcmc?igsh=MTd0MmwybTlrNDIwbQ==" className="text-white hover:text-gray-400">
-                                    <i className="fa-brands fa-instagram"></i>
-                                </Link>
-                            </div>
-                        </div>
-                    </div>
-                    <section className="flex justify-center items-center 
-                    w-[340px] sm:w-[400px] md:w-[500px] lg:w-[566px] 
-                    h-[340px] sm:h-[400px] md:h-[500px] lg:h-[566px] bg-white p-[10px] sm:p-[15px]">
-                        <Poster />
-                    </section>
-                </div>
-            </section>
-            
+                // <section className="page-3 bg-[#222222] h-screen flex flex-col justify-center items-center">
+                //     <div className="container items-center justify-center flex flex-col lg:flex-row lg:space-x-24  space-y-5 md:space-y-10 lg:space-y-0">
+                //         <div className="first h-full flex flex-col justify-between items-center lg:items-start text-center lg:text-left">
+                //             <div>
+                //                 <h1 className="uppercase text-[32px] sm:text-[40px] md:text-[48px] lg:text-[64px] font-semibold text-white mb-4">
+                //                     Ta-daaaa!
+                //                 </h1>
+                //             </div>
+                //             {/* <div>
+                //                 <p className="text-lg sm:text-xl md:text-2xl text-white mb-2">Bạn thuộc tuýp</p>
+                //                 <h2 className="uppercase text-[24px] sm:text-[28px] md:text-[32px] lg:text-[36px] font-semibold text-white mb-2">
+                //                     Người năng động
+                //                 </h2>
+                //                 <p className="text-base sm:text-lg md:text-xl text-white">- dám nghĩ, dám làm!</p>
+                //             </div> */}
+                //             <div className="social-media mt-6 flex flex-col items-center lg:items-start">
+                //                 <p className="text-white">Chia sẻ ảnh:</p>
+                //                 <div className="mt-4 flex gap-4">
+                //                     <Link to="https://www.facebook.com/share/p4HgwXHXcuiwYhPU/?mibextid=LQQJ4" className="text-white hover:text-gray-400">
+                //                         <i className="fa-brands fa-facebook-f"></i>
+                //                     </Link>
+                //                     <Link to="https://www.instagram.com/tedxhcmc?igsh=MTd0MmwybTlrNDIwbQ==" className="text-white hover:text-gray-400">
+                //                         <i className="fa-brands fa-instagram"></i>
+                //                     </Link>
+                //                 </div>
+                //             </div>
+                //         </div>
+                //         <section className="flex justify-center items-center 
+                //         w-[340px] sm:w-[400px] md:w-[500px] lg:w-[566px] 
+                //         h-[340px] sm:h-[400px] md:h-[500px] lg:h-[566px] bg-white p-[10px] sm:p-[15px]">
+                //             <Poster />
+                //         </section>
+                //     </div>
+                // </section>
+                renderPoster()
             )}
 
             {/* <div className="flex flex-col justify-center items-center">

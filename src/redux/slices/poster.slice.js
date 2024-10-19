@@ -8,7 +8,8 @@ const initialState = {
         layout2: 3,
         txtPosition: "text-center",
         name: "Duy Nguyen"
-    }
+    },
+    posterUrl: ""
 };
 
 export const posterSlice = createSlice({
@@ -19,10 +20,14 @@ export const posterSlice = createSlice({
             state.posterPayload = action.payload;
             // console.log("Current Step: ", state.currStep);
         },
+        handleSetPosterUrl: (state, action) => {
+            state.posterUrl = action.payload;
+            // console.log("Current Step: ", state.currStep);
+        },
         
     },
 });
 
-export const { handleSetPosterPayload } = posterSlice.actions;
+export const { handleSetPosterPayload, handleSetPosterUrl } = posterSlice.actions;
 
 export default posterSlice.reducer;
