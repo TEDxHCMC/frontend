@@ -447,7 +447,7 @@ const Poster = () => {
             <div
                 className={`posterTxt w-full absolute z-50 text-3xl sm:text-4xl md:text-6xl lg:text-7xl p-2 sm:p-5 font-bold ${posterPayload.txtPosition === "text-center" ? "text-center bottom-1/2 translate-y-1/2" : "text-bottom bottom-0"} ${[posterPayload.bgColor === "bg-[#F5F5DC]" ? "text-black" : "text-white"]}`}
             >
-                LIỆU <span className="posterName font-light italic">{posterPayload.name}</span> <br></br>
+                LIỆU <span className="posterName font-medium italic">{posterPayload.name}</span> <br></br>
                 ĐÃ TỎ TƯỜNG?
             </div>
             
