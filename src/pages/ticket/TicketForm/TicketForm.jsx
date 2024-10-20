@@ -563,6 +563,7 @@ const TicketForm = () => {
                         className={`w-full h-fit md:p-3 mb-5 bg-[#C30121] md:text-lg sm:text-base text-sm text-white rounded-full transition-all duration-300 hover:bg-black disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-[#C30121]`}
                         type="button"
                         onClick={formik.handleSubmit}
+                        loading={submitLoading}
                         disabled={!formik.isValid || !termsChecked}
                     >
                         <p className="text-white font-bold">Hoàn tất </p>

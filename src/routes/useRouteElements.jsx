@@ -13,6 +13,9 @@ const HomePage = lazy(() => import("../pages/home"));
 const AboutPage = lazy(() => import("../pages/about"));
 // const SpeakerPage = lazy(() => import("../pages/speaker"));
 const InteractivePage = lazy(() => import("../pages/interactive"));
+
+const GenerativePage = lazy(() => import("../pages/generative"))
+
 // const ErrorPage = lazy(() => import("../pages/error"));
 const NotFoundPage = lazy(() => import('../pages/not-found'))
 
@@ -66,14 +69,22 @@ const useRouteElements = () => {
                 //         </Suspense>
                 //     ),
                 // },
-                // {
-                //     path: PATH.INTERACTIVE,
-                //     element: (
-                //         <Suspense callBack={<div>Loading</div>}>
-                //             <InteractivePage />
-                //         </Suspense>
-                //     ),
-                // },
+                {
+                    path: PATH.INTERACTIVE,
+                    element: (
+                        <Suspense callBack={<div>Loading</div>}>
+                            <InteractivePage />
+                        </Suspense>
+                    ),
+                },
+//                 {
+//                     path: PATH.GENERATIVE,
+//                     element: (
+//                         <Suspense callBack={<div>Loading</div>}>
+//                             <GenerativePage />
+//                         </Suspense>
+//                     ),
+//                 },
             ]
         },
         {
