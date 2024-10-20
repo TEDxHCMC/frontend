@@ -38,7 +38,7 @@ const Poster = () => {
                             src={
                                 `${images[1]}`
                             }
-                            className="absolute top-1/2 -translate-y-1/2 -translate-x-1 scale-[135%]"
+                            className="absolute top-1/2 -translate-y-1/2 sm:-translate-x-1 -translate-x-0.5 scale-[135%]"
                         />}
                     </div>
                 </div>

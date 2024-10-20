@@ -9,7 +9,7 @@ const initialState = {
         txtPosition: "text-center",
         name: "Duy Nguyen"
     },
-    posterUrl: ""
+    posterUrl: "H",
 };
 
 export const posterSlice = createSlice({

@@ -49,5 +49,3 @@ export const sendTicketEmailAPI = async (formData) => {
         console.log("Error: ", error)
     }
 }
-
-

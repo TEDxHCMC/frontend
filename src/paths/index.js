@@ -7,5 +7,6 @@ export const PATH = {
     TICKET: "/ticket",
     ADMIN: "/admin",
     LOGIN: "/login",
-    REGISTER: "/register"
+    REGISTER: "/register",
+    GENERATIVE: "/generative"
 }

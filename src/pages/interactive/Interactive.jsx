@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { motion } from 'framer-motion';
+import { Base64 } from 'js-base64';
 
 import "./interactive.scss";
 
 import RadioList from "../../components/RadioList";
 import Poster from "./Poster";
 import { useDispatch } from "react-redux";
-import { handleSetPosterPayload } from "../../redux/slices/poster.slice";
+import { handleSetPosterPayload, handleSetPosterUrl } from "../../redux/slices/poster.slice";
 import { generateRandomUrls } from "../../helpers";
 import html2canvas from "html2canvas";
 import { FacebookShareButton, LinkedinShareButton } from "react-share";
@@ -123,6 +124,7 @@ const Interactive = () => {
     const [imageLoadTimes, setImageLoadTimes] = useState([]);
     const [imageUrl, setImageUrl] = useState("")
     const dispatch = useDispatch()
+    const navigate = useNavigate()
 
     const [messageApi, contextHolder] = message.useMessage();
 
@@ -244,7 +246,7 @@ const Interactive = () => {
         }
 
         html2canvas(element).then((canvas) => {
-            let image = canvas.toDataURL("image/png")
+            let image = canvas.toDataURL("image/jpg")
             setImageUrl(image)
         }).catch(err => {
             console.error("Cannot generate image: ", err)
@@ -257,10 +259,15 @@ const Interactive = () => {
         }
     }, [page])
 
+    useEffect(() => {
+        let encodedImage = Base64.encode(imageUrl)
+        dispatch(handleSetPosterUrl(encodedImage))
+    }, [imageUrl])
+
     const handleTakeScrshot = () => {
         const a = document.createElement("a")
         a.href = imageUrl
-        a.download = "Poster.png"
+        a.download = "Poster.jpg"
         a.click();
     }
 
@@ -401,7 +408,7 @@ const Interactive = () => {
                         </h2>
                         <p className="text-base sm:text-lg md:text-xl text-white">- dám nghĩ, dám làm!</p>
                     </div> */}
-                    <div className="social-media mt-6 flex flex-col items-center lg:items-start">
+                    <div className="social-media mt-6 md:mb-0 mb-6 flex flex-col items-center lg:items-start">
                         <p className="text-white">Chia sẻ ảnh:</p>
                         <div className="mt-4 flex gap-4">
                             {/* <Link to="https://www.facebook.com/share/p4HgwXHXcuiwYhPU/?mibextid=LQQJ4" className="text-white hover:text-gray-400">
@@ -420,17 +427,12 @@ const Interactive = () => {
                                     <i className="fa fa-paperclip text-[25px]"></i>
                                 </div>
                             </button>
-                            <FacebookShareButton hashtag={"#TedxHCMC2024"} url={imageUrl}>
+                            {/* <FacebookShareButton hashtag={"#TedxHCMC2024"} url={`${window.location.origin}/generative`}>
                                 <div className="bg-white px-4 py-3 leading-5 text-center rounded-full">
                                     <i className="fab fa-facebook-square text-[25px]"></i>
                                 </div>
                             </FacebookShareButton>
-                            <LinkedinShareButton summary={"#TedxHCMC2024"} source={imageUrl}>
-                                <div className="bg-white px-4 py-3 leading-5 text-center rounded-full">
-                                    <i className="fab fa-linkedin text-[25px]"></i>
-                                </div>
-                            </LinkedinShareButton>
-                            
+                            <button onClick={() => navigate("/generative")}>Navigate</button> */}
                         </div>
                     </div>
                 </div>
