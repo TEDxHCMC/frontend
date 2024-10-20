@@ -78,8 +78,8 @@ const SpeakerSection = () => {
                                         ${selectedSession === session.value
                                                 ? "bg-black text-white border-[#6D6E71]"
                                                 : index === 0 && !selectedSession
-                                                    ? "hovered-default border-gray-300 bg-black text-white border-[#6D6E71]"
-                                                    : "border-gray-300 hover:bg-black hover:text-white"
+                                                    ? "hovered-default bg-black text-white border-[#6D6E71]"
+                                                    : "border-[#6D6E71] hover:bg-black hover:text-white"
                                             }`}
                                     >
                                         <p className="text-[14px] font-sans">{`${session.name} : ${session.time}`} </p>
