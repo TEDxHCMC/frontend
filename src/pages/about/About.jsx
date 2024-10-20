@@ -7,7 +7,7 @@ import GroupImages from './GroupImages/GroupImages';
 const About = () => {
   return (
     <main className="about">
-        <Video />
+        <Video videoId="OIR1hC4inEA"/>
         <Introduction />
         <BoxTedx />
         <GroupImages />

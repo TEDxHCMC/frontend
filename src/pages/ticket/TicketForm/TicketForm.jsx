@@ -263,7 +263,7 @@ const TicketForm = () => {
 
     const handleSendVerifyCode = async () => {
         // console.log(formik.values.email)
-        
+
         let formData = {
             email: formik.values.email,
         };
@@ -318,7 +318,7 @@ const TicketForm = () => {
             formik.errors.email ||
             !formik.values.phone ||
             formik.errors.phone ||
-            !formik.values.code || 
+            !formik.values.code ||
             formik.errors.code
         ) {
             setPrimaryCompleted(false);
@@ -742,20 +742,18 @@ const TicketForm = () => {
                     <div className="flex items-center gap-2 mb-2">
                         <i className="fa fa-calendar text-lg"></i>
                         <p className="font-semibold text-xl">
-                            {`${
-                                session == 1
+                            {`${session == 1
                                     ? "Sáng: 8:00 - 12:30"
                                     : "Chiều 14:00 - 18:30"
-                            }, ngày 21 tháng 9, 2024`}
+                                }, ngày 20 tháng 10, 2024`}
                         </p>
                     </div>
                     <div className="flex items-center gap-2">
                         <i class="fa fa-map-marker-alt text-lg"></i>
                         <p className="font-semibold text-[20px] relative translate-y-3">
-                            Khách sạn New World Sài Gòn <br />
+                            Nina Next Space <br />
                             <span className="font-medium text-sm">
-                                76 Lê Lai, Phường Bến Thành, Quận 1, Thành phố
-                                Hồ Chí Minh
+                                180/1 Nguyễn Tất Thành, phường 13, Quận 4, Thành phố Hồ Chí Minh
                             </span>
                         </p>
                     </div>

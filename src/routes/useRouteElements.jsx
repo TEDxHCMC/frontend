@@ -77,14 +77,14 @@ const useRouteElements = () => {
                         </Suspense>
                     ),
                 },
-                {
-                    path: PATH.GENERATIVE,
-                    element: (
-                        <Suspense callBack={<div>Loading</div>}>
-                            <GenerativePage />
-                        </Suspense>
-                    ),
-                },
+//                 {
+//                     path: PATH.GENERATIVE,
+//                     element: (
+//                         <Suspense callBack={<div>Loading</div>}>
+//                             <GenerativePage />
+//                         </Suspense>
+//                     ),
+//                 },
             ]
         },
         {
