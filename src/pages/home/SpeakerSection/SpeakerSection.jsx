@@ -52,7 +52,7 @@ const SpeakerSection = () => {
     return (
         <div>
             <div className='background-speaker flex flex-col sm:flex-row pb-8
-                lg: justify-between 
+                lg: justify-between mt-10
                 ml-4 sm:ml-4 md:ml-12 lg:ml-16 xl:ml-20
                 mr-4 sm:mr-4 md:mr-12 lg:mr-16 xl:mr-20'>
                 <div className='speaker-heading pl-4 pr-0 md:p-0'>
